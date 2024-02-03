@@ -1,0 +1,163 @@
+@mixin pad{
+    @media(max-width:850px){
+        @content
+    }
+};
+
+@mixin mobile{
+    @media(max-width:650px){
+        @content
+    }
+};
+
+@mixin mobileS{
+    @media(max-width:500px){
+        @content
+    }
+};
+
+@mixin flexbox($direction, $justifyContent, $alignItem) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justifyContent;
+    align-items: $alignItem;
+}
+
+$shrinkTop: 178px;
+$normalTop: 138px;
+
+%submitBtn {
+    font-weight: 800;
+    text-align: center;
+    color: #fff;
+    width: 100px;
+    margin-top: 50px;
+    height: 30px;
+    border: none;
+    border-radius: 10px;
+    background-color: #aaa;
+    transition: 0.3s;
+    &:hover {
+        color: #000;
+        background-color: #ddd;
+    }
+}
+
+%submitBtn2 {
+    max-width: 200px;
+    width: 60%;
+    margin: 40px;
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    transition: 0.3s;
+    font-size: 18px;
+    font-weight: 800;
+    background-color: #ccc;
+    cursor: pointer;
+    border-radius: 20px;
+    &:hover {
+        transform: translateY(-10%);
+        box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.5);
+        background-color: #ddd;
+    }
+    &:active {
+        transform: translateY(0%);
+        box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.5);
+    }
+}
+
+%basicComponent {
+    width: 95dvw;
+    padding-top: 150px;
+    padding-bottom: 100px;
+    @include pad {
+        padding-top: 190px;
+    }
+}
+
+%preventSelect {
+    user-select: none;
+    -webkit-user-select:none;
+    -moz-user-select:none;
+}
+
+%likeBtn {
+    background-color: rgba(230, 230, 230, 0.422);
+    backdrop-filter: blur(2px);
+    position: relative;
+    display: inline-block;
+    width: 48px;
+    height: 48px; 
+    overflow: hidden;   
+    transition: 0.3s;
+    border: 5px solid #000;
+    border-radius: 12px;
+    cursor: pointer;
+    &:hover {
+        transform: translateY(-10%);
+    }
+    @include mobileS {
+        border: 3px solid #000;
+        width: 32px;
+        height: 32px;   
+    }
+    .likeBtnBar {
+        transition: 0.3s;
+        transform: translateY(0);
+        cursor: pointer;
+        img {
+            cursor: pointer;
+            width:40px;
+            height: 40px;
+            @include mobileS {
+                width: 28px;
+                height: 28px;   
+            }
+        }
+    }
+    .liked {
+        transition: 0.3s;
+        transform: translateY(-50%);
+        cursor: pointer;
+        img {
+            cursor: pointer;
+            width:40px;
+            height: 40px;
+            @include mobileS {
+                width: 28px;
+                height: 28px;   
+            }
+        }
+    } 
+}
+
+%errorPage {
+    @extend %basicComponent;
+    min-height: 80dvh;
+    @include flexbox(column, center, center);
+    font-size: 50px;
+    color: #888;
+}
+
+%setCenter {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+
+@keyframes carouselAnimation {
+    0%{
+        transform: translateY(100%);
+    }
+    50%{
+        transform: translateY(-100%);
+    }
+    75% {
+        transform: translateY(-100%);
+    }
+    100%{
+        transform: translateY(-200%);
+    }
+}

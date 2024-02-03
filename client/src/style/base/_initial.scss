@@ -1,0 +1,23 @@
+@use "../abstract/variable" as *;
+@import url('https://fonts.googleapis.com/css2?family=Arimo&family=Public+Sans:wght@400;800&family=Sora&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@700&display=swap');
+
+
+* {
+    // グランプル
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Public Sans','Noto Sans JP', sans-serif;
+    cursor: url("../svg/icons8-3d-pointer-30.svg"),auto;
+    font-weight: 800;
+    &::selection{
+        background-color: #0f0084;
+        color: #d2d2d2;
+    };
+}
+
+.App{
+    @include flexbox(column, default, center);
+}

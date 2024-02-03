@@ -1,0 +1,1898 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Arimo&family=Public+Sans:wght@400;800&family=Sora&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@700&display=swap");
+.addPostPage .addPostAndRender .addPostMain .editorContainer .previewBtn, .addPostPage .addPostAndRender .submitPost, .signUpPage .signUpForm .submitBtn, .loginComponent .loginForm .submitBtn {
+  max-width: 200px;
+  width: 60%;
+  margin: 40px;
+  border: 1px solid #ccc;
+  display: inline-block;
+  padding: 6px 12px;
+  transition: 0.3s;
+  font-size: 18px;
+  font-weight: 800;
+  background-color: #ccc;
+  cursor: pointer;
+  border-radius: 20px;
+}
+.addPostPage .addPostAndRender .addPostMain .editorContainer .previewBtn:hover, .addPostPage .addPostAndRender .submitPost:hover, .signUpPage .signUpForm .submitBtn:hover, .loginComponent .loginForm .submitBtn:hover {
+  transform: translateY(-10%);
+  box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.5);
+  background-color: #ddd;
+}
+.addPostPage .addPostAndRender .addPostMain .editorContainer .previewBtn:active, .addPostPage .addPostAndRender .submitPost:active, .signUpPage .signUpForm .submitBtn:active, .loginComponent .loginForm .submitBtn:active {
+  transform: translateY(0%);
+  box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.5);
+}
+
+.addPostPage, .signUpPage, .profile, .loginComponent, .errorPage {
+  width: 95dvw;
+  padding-top: 150px;
+  padding-bottom: 100px;
+}
+@media (max-width: 850px) {
+  .addPostPage, .signUpPage, .profile, .loginComponent, .errorPage {
+    padding-top: 190px;
+  }
+}
+
+.navSection .navBar a .logoSection .logo, .navSection .navBar a .logoSection .logoWord {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+}
+
+.likeBtnPostPageSection .likeBtnPostPage {
+  background-color: rgba(230, 230, 230, 0.422);
+  -webkit-backdrop-filter: blur(2px);
+          backdrop-filter: blur(2px);
+  position: relative;
+  display: inline-block;
+  width: 48px;
+  height: 48px;
+  overflow: hidden;
+  transition: 0.3s;
+  border: 5px solid #000;
+  border-radius: 12px;
+  cursor: pointer;
+}
+.likeBtnPostPageSection .likeBtnPostPage:hover {
+  transform: translateY(-10%);
+}
+@media (max-width: 500px) {
+  .likeBtnPostPageSection .likeBtnPostPage {
+    border: 3px solid #000;
+    width: 32px;
+    height: 32px;
+  }
+}
+.likeBtnPostPageSection .likeBtnPostPage .likeBtnBar {
+  transition: 0.3s;
+  transform: translateY(0);
+  cursor: pointer;
+}
+.likeBtnPostPageSection .likeBtnPostPage .likeBtnBar img {
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+}
+@media (max-width: 500px) {
+  .likeBtnPostPageSection .likeBtnPostPage .likeBtnBar img {
+    width: 28px;
+    height: 28px;
+  }
+}
+.likeBtnPostPageSection .likeBtnPostPage .liked {
+  transition: 0.3s;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+.likeBtnPostPageSection .likeBtnPostPage .liked img {
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+}
+@media (max-width: 500px) {
+  .likeBtnPostPageSection .likeBtnPostPage .liked img {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+.errorPage {
+  min-height: 80dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 50px;
+  color: #888;
+}
+
+@keyframes carouselAnimation {
+  0% {
+    transform: translateY(100%);
+  }
+  50% {
+    transform: translateY(-100%);
+  }
+  75% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(-200%);
+  }
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Public Sans", "Noto Sans JP", sans-serif;
+  cursor: url("../svg/icons8-3d-pointer-30.svg"), auto;
+  font-weight: 800;
+}
+*::-moz-selection {
+  background-color: #0f0084;
+  color: #d2d2d2;
+}
+*::selection {
+  background-color: #0f0084;
+  color: #d2d2d2;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  justify-content: default;
+  align-items: center;
+}
+
+.main {
+  width: 100dvw;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #ddd;
+}
+
+.navSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  transition: 0.7s;
+  position: fixed;
+  top: 0;
+  z-index: 10;
+  width: 100%;
+}
+.navSection .navBar {
+  padding: 0 30px;
+  background-color: rgba(238, 238, 238, 0.9333333333);
+  -webkit-backdrop-filter: blur(1px);
+          backdrop-filter: blur(1px);
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ccc;
+  z-index: 10;
+}
+.navSection .navBar a {
+  text-decoration: none;
+  color: #000;
+  cursor: pointer;
+}
+.navSection .navBar a .logoSection {
+  transition: 0.3s;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.navSection .navBar a .logoSection:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+.navSection .navBar a .logoSection .logo {
+  width: 60px;
+  cursor: pointer;
+}
+.navSection .navBar a .logoSection .logo > img {
+  cursor: pointer;
+}
+.navSection .navBar a .logoSection .logoWord {
+  cursor: pointer;
+  line-height: 60px;
+  font-size: 50px;
+  font-weight: 800;
+  padding: 0 20px;
+  transition: 0.3s;
+}
+@media (max-width: 500px) {
+  .navSection .navBar a .logoSection .logoWord {
+    display: none;
+  }
+}
+.navSection .navBar a .logoSection .logoWord::after {
+  content: "";
+  position: absolute;
+  left: 60%;
+  top: 50%;
+  width: 100px;
+  height: 70px;
+  background-image: url("../svg/—Pngtree—hand drawn coil circle doodle_5780052.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  transform: translateX(-50%) translateY(-50%);
+  display: none;
+}
+.navSection .navBar a .logoSection .logoWord:hover::after {
+  display: inline-block;
+}
+.navSection .navBar .flexEnd {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.navSection .navBar .flexEnd .searchBar {
+  background-color: rgba(255, 255, 255, 0);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 5px solid #000;
+}
+@media (max-width: 850px) {
+  .navSection .navBar .flexEnd .searchBar {
+    display: none;
+  }
+}
+.navSection .navBar .flexEnd .searchBar .searchlogo {
+  width: 30px;
+}
+.navSection .navBar .flexEnd .searchBar .searchlogo img {
+  width: 100%;
+  height: 100%;
+}
+.navSection .navBar .flexEnd .searchBar input {
+  width: 200px;
+  height: 30px;
+  padding: 15px;
+  border: none;
+  font-weight: 800;
+  background-color: rgba(255, 255, 255, 0);
+}
+.navSection .navBar .flexEnd .searchBar input:focus {
+  outline: none;
+}
+.navSection .navBar .flexEnd .menuBtn {
+  border: 5px solid #bbb;
+  border-radius: 20px;
+  padding: 15px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: 0.3s;
+  margin-left: 20px;
+  color: #bbb;
+}
+.navSection .navBar .flexEnd .menuBtn:hover {
+  transform: translateY(-5%);
+  color: #000;
+  border: 5px solid #000;
+}
+.navSection .navBar .flexEnd .navBarList {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  overflow: hidden;
+  width: 100dvw;
+  height: 100dvh;
+  transform: translateX(100%);
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 999;
+  background-color: #ccc;
+  transition: 0.3s;
+}
+.navSection .navBar .flexEnd .navBarList::before {
+  content: "";
+  background-size: cover;
+  background-position: center;
+  background-image: url("../svg/pexels-icon-com-479444.jpg");
+  filter: brightness(90%);
+  height: 100%;
+  width: 100%;
+  opacity: 0.7;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.navSection .navBar .flexEnd .navBarList .navBarListBanner {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  width: 100dvw;
+}
+.navSection .navBar .flexEnd .navBarList .navBarListBanner .navBarListBannerLogo {
+  display: inline-block;
+  top: 1.2rem;
+  line-height: 60px;
+  font-size: 70px;
+  font-weight: 800;
+  padding: 0 20px;
+  transition: 0.3s;
+}
+@media (max-width: 500px) {
+  .navSection .navBar .flexEnd .navBarList .navBarListBanner .navBarListBannerLogo {
+    letter-spacing: 0px;
+  }
+}
+.navSection .navBar .flexEnd .navBarList .navBarListBanner .navBarListClose {
+  padding: 0 20px;
+  font-size: 60px;
+  font-weight: 800;
+  display: inline-block;
+  cursor: pointer;
+  color: #fff;
+  transition: 0.2s;
+}
+.navSection .navBar .flexEnd .navBarList .navBarListBanner .navBarListClose:hover {
+  color: #000;
+}
+.navSection .navBar .flexEnd .navBarList .navBarListOption {
+  text-decoration: none;
+  transition: 0.35s;
+  position: relative;
+  padding: 20px;
+  text-wrap: nowrap;
+  font-size: 110px;
+  font-weight: 800;
+  -webkit-text-stroke: 0.5px #aaa;
+  z-index: 10;
+}
+@media (max-width: 850px) {
+  .navSection .navBar .flexEnd .navBarList .navBarListOption {
+    font-size: 90px;
+  }
+}
+@media (max-width: 650px) {
+  .navSection .navBar .flexEnd .navBarList .navBarListOption {
+    font-size: 70px;
+  }
+}
+@media (max-width: 500px) {
+  .navSection .navBar .flexEnd .navBarList .navBarListOption {
+    font-size: 50px;
+  }
+}
+.navSection .navBar .flexEnd .navBarList .navBarListOption::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 60%;
+  width: 120px;
+  height: 120px;
+  background-image: url("../logo-svg/logo.svg");
+  transform: translateX(-100%) translateY(-50%);
+  transition: 0.2s;
+}
+.navSection .navBar .flexEnd .navBarList .navBarListOption::before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 10px;
+  background-color: #ccc;
+  bottom: 10px;
+  left: 0;
+  transition: 0.3s;
+}
+.navSection .navBar .flexEnd .navBarList .navBarListOption:hover {
+  transform: translateY(-5px) translateX(140px);
+  color: #000;
+}
+@media (max-width: 500px) {
+  .navSection .navBar .flexEnd .navBarList .navBarListOption:hover {
+    transform: translateY(-5px) translateX(0);
+  }
+}
+.navSection .navBar .flexEnd .navBarList .navBarListOption:hover::before {
+  width: 100%;
+  background-color: #000;
+}
+.navSection .navBar .flexEnd .navBarList .navBarSubBanner {
+  position: absolute;
+  right: 10%;
+  bottom: 10%;
+  writing-mode: vertical-lr;
+  -webkit-text-stroke: 1px #222;
+  color: rgba(255, 255, 255, 0);
+  font-size: 200px;
+  font-weight: 700;
+  text-align: end;
+  padding-top: 20px;
+}
+@media (max-width: 650px) {
+  .navSection .navBar .flexEnd .navBarList .navBarSubBanner {
+    font-size: 160px;
+  }
+}
+@media (max-width: 500px) {
+  .navSection .navBar .flexEnd .navBarList .navBarSubBanner {
+    font-size: 120px;
+    right: 0;
+  }
+}
+.navSection .padSearchBar {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+  display: none;
+  width: 100%;
+  background-color: rgba(238, 238, 238, 0.9333333333);
+  -webkit-backdrop-filter: blur(1px);
+          backdrop-filter: blur(1px);
+  border-bottom: 1px solid #ccc;
+}
+@media (max-width: 850px) {
+  .navSection .padSearchBar {
+    display: flex;
+  }
+}
+.navSection .padSearchBar .searchlogo {
+  margin: 0 10px;
+  width: 32px;
+}
+.navSection .padSearchBar .searchlogo img {
+  width: 100%;
+  height: 100%;
+}
+.navSection .padSearchBar input {
+  font-size: 17px;
+  width: 100%;
+  height: 40px;
+  padding: 15px;
+  border: none;
+  background-color: rgba(255, 255, 255, 0);
+}
+.navSection .padSearchBar input:focus {
+  outline: none;
+}
+.navSection .categoryList {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  width: 100%;
+  padding: 20px 10%;
+  border-bottom: 1px #ccc solid;
+  background-color: rgba(238, 238, 238, 0.9333333333);
+  -webkit-backdrop-filter: blur(1px);
+          backdrop-filter: blur(1px);
+  overflow: scroll;
+}
+@media (max-width: 500px) {
+  .navSection .categoryList {
+    padding: 20px 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+}
+.navSection .categoryList a {
+  text-decoration: none;
+}
+.navSection .categoryList a li {
+  margin: 0 30px;
+  line-height: 30px;
+  cursor: pointer;
+  font-weight: 800;
+  font-size: 26px;
+  transition: 0.2s;
+  position: relative;
+  padding: 0 30px;
+  color: #bbb;
+}
+.navSection .categoryList a li::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 70px;
+  height: 50px;
+  background-image: url("../svg/—Pngtree—hand drawn coil circle doodle_5780052.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  transform: translateX(-50%) translateY(-50%);
+  display: none;
+}
+.navSection .categoryList a li:hover {
+  color: #000;
+  transform: scale(1.1);
+}
+.navSection .categoryList a li:hover::after {
+  display: inline-block;
+}
+@media (max-width: 500px) {
+  .navSection .categoryList a li {
+    font-size: 22px;
+    padding: 0;
+  }
+}
+
+.shrinkNavSection {
+  transition: 1s;
+  transform: translateY(-100%);
+}
+
+.loginComponent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.loginComponent .loginTitle {
+  line-height: 60px;
+}
+.loginComponent .errorMsg {
+  background-color: #333;
+  color: #ccc;
+  font-weight: 800;
+  padding: 16px;
+}
+.loginComponent .loginForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+  line-height: 42px;
+  font-weight: 800;
+}
+.loginComponent .loginForm input {
+  text-align: center;
+  width: 80%;
+  max-width: 600px;
+  height: 26px;
+  padding: 15px;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  background: rgba(0, 0, 0, 0);
+}
+.loginComponent .saperateLine {
+  font-weight: 800;
+  font-size: 20px;
+  width: 100%;
+  position: relative;
+  text-align: center;
+}
+.loginComponent .saperateLine::after {
+  content: "";
+  width: 40%;
+  background-color: #ccc;
+  height: 1px;
+  position: absolute;
+  top: 50%;
+  left: 0;
+}
+.loginComponent .saperateLine::before {
+  content: "";
+  width: 40%;
+  background-color: #ccc;
+  height: 1px;
+  position: absolute;
+  top: 50%;
+  right: 0;
+}
+.loginComponent .googleBtn {
+  margin-top: 40px;
+}
+.loginComponent .googleBtn .googleLink {
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  padding: 10px;
+  transition: 0.3s;
+  background-color: #ccc;
+  cursor: pointer;
+}
+.loginComponent .googleBtn .googleLink .googleIconWrapper .googleIcon {
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+}
+.loginComponent .googleBtn .googleLink:hover {
+  transform: translateY(-10%);
+  box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.5);
+  background-color: #ddd;
+}
+.loginComponent .googleBtn .googleLink:active {
+  transform: translateY(0%);
+  box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.5);
+}
+
+.swiper-button-prev, .swiper-button-next {
+  color: #ddd !important;
+  height: 100dvh !important;
+  width: 10dvw !important;
+  transition: 0.2s;
+  padding: 10px !important;
+  top: 0 !important;
+}
+.swiper-button-prev:hover, .swiper-button-next:hover {
+  transform: scale(1.2);
+  color: #fff !important;
+  background-color: rgba(0, 0, 0, 0.2117647059);
+}
+
+.swiper-pagination-bullet-active {
+  background-color: #fff !important;
+  transform: scale(1.2) !important;
+}
+
+.homePage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url("../svg/bubble.jpg");
+  background-size: 65%;
+  background-repeat: repeat;
+  background-attachment: fixed;
+  padding-top: 138px;
+  width: 100dvw;
+  min-height: 100dvh;
+}
+@media (max-width: 850px) {
+  .homePage {
+    padding-top: 178px;
+  }
+}
+.homePage .bannerSwiperSection {
+  position: relative;
+  height: calc(100dvh - 138px);
+  width: 100%;
+  transform: translateY(-5%);
+}
+.homePage .bannerSwiperSection .homePagePerBanner {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 70%;
+  height: 100%;
+}
+.homePage .bannerSwiperSection .homePagePerBanner .homePagePerBannerInfo {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: end;
+  -webkit-backdrop-filter: brightness(60%) blur(2px);
+          backdrop-filter: brightness(60%) blur(2px);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+  transition: 0.2s;
+  transform: translateY(-5%);
+}
+@media (max-width: 650px) {
+  .homePage .bannerSwiperSection .homePagePerBanner .homePagePerBannerInfo {
+    background-size: 140%;
+    transform: translateY(-10%);
+  }
+}
+.homePage .bannerSwiperSection .homePagePerBanner .homePagePerBannerInfo .homePagePerBannerTitle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  vertical-align: bottom;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  padding: 0 10px 10px;
+  display: inline-block;
+  -webkit-backdrop-filter: brightness(50%) blur(2px);
+          backdrop-filter: brightness(50%) blur(2px);
+  position: relative;
+  transition: 0.2s;
+  cursor: pointer;
+}
+.homePage .bannerSwiperSection .homePagePerBanner .homePagePerBannerInfo .homePagePerBannerTitle:hover {
+  -webkit-backdrop-filter: none;
+          backdrop-filter: none;
+  color: #fff;
+}
+.homePage .bannerSwiperSection .homePagePerBanner .homePagePerBannerInfo .homePagePerBannerTitle:hover > p {
+  color: #fff;
+}
+@media (max-width: 650px) {
+  .homePage .bannerSwiperSection .homePagePerBanner .homePagePerBannerInfo .homePagePerBannerTitle {
+    -webkit-backdrop-filter: none;
+            backdrop-filter: none;
+  }
+}
+.homePage .bannerSwiperSection .homePagePerBanner .homePagePerBannerInfo .homePagePerBannerTitle > p {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 10%;
+  font-size: 60px;
+  text-align: end;
+  cursor: pointer;
+  color: #fff;
+  -webkit-text-stroke: 1px #666;
+  overflow: hidden;
+  transition: 0.3s;
+  padding: 0 10px;
+  transform: perspective(450px) rotateX(40deg);
+  width: 80%;
+}
+.homePage .bannerSwiperSection .homePagePerBanner .homePagePerBannerInfo .homePagePerBannerTitle > p:hover {
+  transform: scale(1.1);
+  -webkit-text-decoration: underline #ddd 2px;
+          text-decoration: underline #ddd 2px;
+  -webkit-text-stroke: 1px #aaa;
+}
+@media (max-width: 850px) {
+  .homePage .bannerSwiperSection .homePagePerBanner .homePagePerBannerInfo .homePagePerBannerTitle > p {
+    overflow: scroll;
+    font-size: 45px;
+  }
+}
+@media (max-width: 650px) {
+  .homePage .bannerSwiperSection .homePagePerBanner .homePagePerBannerInfo .homePagePerBannerTitle > p {
+    overflow: scroll;
+    font-size: 30px;
+    text-align: center;
+  }
+}
+.homePage .scrambleSection {
+  width: 100%;
+  height: 300px;
+  line-height: 300px;
+  color: #000;
+  font-size: 120px;
+  overflow: scroll;
+  background-color: #eee;
+  text-align: center;
+}
+@media (max-width: 650px) {
+  .homePage .scrambleSection {
+    font-size: 120px;
+  }
+}
+@media (max-width: 500px) {
+  .homePage .scrambleSection {
+    font-size: 80px;
+  }
+}
+.homePage .homePagePopSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  width: 100dvw;
+  min-height: 100dvh;
+}
+@media (max-width: 500px) {
+  .homePage .homePagePopSection {
+    width: 80dvw;
+  }
+}
+.homePage .homePagePopSection .homePagePopTitle {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  font-size: 30px;
+  background-color: #fff;
+  width: 100dvw;
+  text-wrap: nowrap;
+  overflow: hidden;
+  height: 50px;
+  position: relative;
+  border-top: #000 solid 1px;
+  border-bottom: #000 solid 1px;
+}
+.homePage .homePagePopSection .homePagePopTitle .first {
+  position: absolute;
+  top: 100%;
+  line-height: 50px;
+  min-width: 100%;
+  text-align: center;
+  display: inline-block;
+  letter-spacing: var(--pWidthLetter);
+  animation: 3s carouselAnimation linear infinite normal;
+}
+@media (max-width: 650px) {
+  .homePage .homePagePopSection .homePagePopTitle .first {
+    font-size: 26px;
+    letter-spacing: 5px;
+  }
+}
+.homePage .homePagePopSection .homePagePopTitle .second {
+  position: absolute;
+  top: 100%;
+  line-height: 50px;
+  min-width: 100%;
+  text-align: center;
+  display: inline-block;
+  letter-spacing: var(--pWidthLetter);
+  animation: 3s carouselAnimation linear 1.5s infinite normal;
+}
+.homePage .homePagePopSection .homePagePopPosts {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+@media (max-width: 650px) {
+  .homePage .homePagePopSection .homePagePopPosts {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+.homePage .homePagePopSection .homePagePopPosts .homePagePopPost1, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost5, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost4, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost8, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost2, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost6, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost3, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost7 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 45%;
+  aspect-ratio: 1/1;
+  background-color: rgba(51, 51, 51, 0.5647058824);
+  position: relative;
+  overflow: hidden;
+}
+@media (max-width: 650px) {
+  .homePage .homePagePopSection .homePagePopPosts .homePagePopPost1, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost5, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost4, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost8, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost2, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost6, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost3, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost7 {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+.homePage .homePagePopSection .homePagePopPosts .homePagePopPost1:hover .popPostCoverImg1, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost5:hover .popPostCoverImg1, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost4:hover .popPostCoverImg1, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost8:hover .popPostCoverImg1, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost2:hover .popPostCoverImg1, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost6:hover .popPostCoverImg1, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost3:hover .popPostCoverImg1, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost7:hover .popPostCoverImg1 {
+  transform: rotate(0) translateX(0) translateY(0) scale(1.2);
+  width: 100%;
+  height: 100%;
+  top: 0;
+  opacity: 1;
+  border-radius: 0;
+  background-size: cover;
+}
+.homePage .homePagePopSection .homePagePopPosts .homePagePopPost1 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost5 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost4 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost8 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost2 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost6 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost3 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost7 .popPostCoverCategory {
+  display: inline-block;
+  background: linear-gradient(to top, #000, #fff, #ccc);
+  -webkit-background-clip: text;
+          background-clip: text;
+  color: rgba(255, 255, 255, 0);
+  font-size: 100px;
+  transform: perspective(200px) rotateX(-35deg);
+  width: 100%;
+  text-align: center;
+  transition: 0.3s;
+  z-index: 2;
+}
+@media (max-width: 850px) {
+  .homePage .homePagePopSection .homePagePopPosts .homePagePopPost1 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost5 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost4 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost8 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost2 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost6 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost3 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost7 .popPostCoverCategory {
+    font-size: 100px;
+  }
+}
+@media (max-width: 650px) {
+  .homePage .homePagePopSection .homePagePopPosts .homePagePopPost1 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost5 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost4 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost8 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost2 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost6 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost3 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost7 .popPostCoverCategory {
+    font-size: 80px;
+    z-index: 2;
+  }
+}
+@media (max-width: 500px) {
+  .homePage .homePagePopSection .homePagePopPosts .homePagePopPost1 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost5 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost4 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost8 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost2 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost6 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost3 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost7 .popPostCoverCategory {
+    font-size: 60px;
+    z-index: 2;
+  }
+}
+.homePage .homePagePopSection .homePagePopPosts .homePagePopPost1 .popPostCoverImg1, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost5 .popPostCoverImg1, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost4 .popPostCoverImg1, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost8 .popPostCoverImg1, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost2 .popPostCoverImg1, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost6 .popPostCoverImg1, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost3 .popPostCoverImg1, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost7 .popPostCoverImg1 {
+  position: absolute;
+  top: 30%;
+  aspect-ratio: 1/1;
+  width: 50%;
+  height: 50%;
+  background-size: cover;
+  background-position: center;
+  transform: rotate(-20deg);
+  color: #fff;
+  z-index: 0;
+  opacity: 0.9;
+  transition: 0.5s;
+}
+@media (max-width: 650px) {
+  .homePage .homePagePopSection .homePagePopPosts .homePagePopPost1 .popPostCoverImg1, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost5 .popPostCoverImg1, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost4 .popPostCoverImg1, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost8 .popPostCoverImg1, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost2 .popPostCoverImg1, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost6 .popPostCoverImg1, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost3 .popPostCoverImg1, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost7 .popPostCoverImg1 {
+    width: 70%;
+    height: 70%;
+  }
+}
+@media (max-width: 500px) {
+  .homePage .homePagePopSection .homePagePopPosts .homePagePopPost1 .popPostCoverImg1, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost5 .popPostCoverImg1, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost4 .popPostCoverImg1, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost8 .popPostCoverImg1, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost2 .popPostCoverImg1, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost6 .popPostCoverImg1, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost3 .popPostCoverImg1, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost7 .popPostCoverImg1 {
+    transform: none;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    opacity: 1;
+  }
+}
+.homePage .homePagePopSection .homePagePopPosts .homePagePopPost1 .popPostCoverTitle, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost5 .popPostCoverTitle, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost4 .popPostCoverTitle, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost8 .popPostCoverTitle, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost2 .popPostCoverTitle, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost6 .popPostCoverTitle, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost3 .popPostCoverTitle, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost7 .popPostCoverTitle {
+  font-size: 40px;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+  z-index: 2;
+  -webkit-text-stroke: 1px #666;
+  transition: 0.2s;
+  transform: scale(0.8);
+  cursor: pointer;
+}
+.homePage .homePagePopSection .homePagePopPosts .homePagePopPost1 .popPostCoverTitle:hover, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost5 .popPostCoverTitle:hover, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost4 .popPostCoverTitle:hover, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost8 .popPostCoverTitle:hover, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost2 .popPostCoverTitle:hover, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost6 .popPostCoverTitle:hover, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost3 .popPostCoverTitle:hover, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost7 .popPostCoverTitle:hover {
+  transform: scale(1);
+  overflow: visible;
+  z-index: 3;
+}
+@media (max-width: 850px) {
+  .homePage .homePagePopSection .homePagePopPosts .homePagePopPost1 .popPostCoverTitle, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost5 .popPostCoverTitle, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost4 .popPostCoverTitle, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost8 .popPostCoverTitle, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost2 .popPostCoverTitle, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost6 .popPostCoverTitle, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost3 .popPostCoverTitle, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost7 .popPostCoverTitle {
+    font-size: 30px;
+  }
+}
+@media (max-width: 650px) {
+  .homePage .homePagePopSection .homePagePopPosts .homePagePopPost1 .popPostCoverTitle, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost5 .popPostCoverTitle, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost4 .popPostCoverTitle, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost8 .popPostCoverTitle, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost2 .popPostCoverTitle, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost6 .popPostCoverTitle, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost3 .popPostCoverTitle, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost7 .popPostCoverTitle {
+    font-size: 25px;
+  }
+}
+.homePage .homePagePopSection .homePagePopPosts .homePagePopPost1 .popPostCoverAuthor, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost5 .popPostCoverAuthor, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost4 .popPostCoverAuthor, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost8 .popPostCoverAuthor, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost2 .popPostCoverAuthor, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost6 .popPostCoverAuthor, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost3 .popPostCoverAuthor, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost7 .popPostCoverAuthor {
+  font-size: 20px;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+  z-index: 2;
+  -webkit-text-stroke: 0.5px #666;
+  padding-bottom: 20px;
+}
+@media (max-width: 650px) {
+  .homePage .homePagePopSection .homePagePopPosts .homePagePopPost1 .popPostCoverAuthor, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost5 .popPostCoverAuthor, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost4 .popPostCoverAuthor, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost8 .popPostCoverAuthor, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost2 .popPostCoverAuthor, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost6 .popPostCoverAuthor, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost3 .popPostCoverAuthor, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost7 .popPostCoverAuthor {
+    font-size: 14px;
+  }
+}
+.homePage .homePagePopSection .homePagePopPosts .homePagePopPost2, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost6, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost3, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost7 {
+  background-color: rgba(238, 238, 238, 0.8156862745);
+  overflow: hidden;
+}
+.homePage .homePagePopSection .homePagePopPosts .homePagePopPost2 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost6 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost3 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost7 .popPostCoverCategory {
+  background: linear-gradient(to bottom, #555, #333, #ccc);
+  display: inline-block;
+  -webkit-background-clip: text;
+          background-clip: text;
+  color: rgba(255, 255, 255, 0);
+  font-size: 100px;
+  transform: perspective(200px) rotateX(-35deg);
+  width: 100%;
+  text-align: center;
+  transition: 0.3s;
+  z-index: 2;
+}
+@media (max-width: 850px) {
+  .homePage .homePagePopSection .homePagePopPosts .homePagePopPost2 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost6 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost3 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost7 .popPostCoverCategory {
+    font-size: 100px;
+  }
+}
+@media (max-width: 650px) {
+  .homePage .homePagePopSection .homePagePopPosts .homePagePopPost2 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost6 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost3 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost7 .popPostCoverCategory {
+    font-size: 80px;
+    z-index: 2;
+  }
+}
+@media (max-width: 500px) {
+  .homePage .homePagePopSection .homePagePopPosts .homePagePopPost2 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost6 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost3 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost7 .popPostCoverCategory {
+    font-size: 60px;
+    z-index: 2;
+  }
+}
+.homePage .homePagePopSection .homePagePopPosts .homePagePopPost2 .popPostCoverImg1, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost6 .popPostCoverImg1, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost3 .popPostCoverImg1, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost7 .popPostCoverImg1 {
+  border-radius: 50%;
+  transform: translateX(20%) translateY(20%) rotate(20deg) scale(1.8);
+}
+.homePage .homePagePopSection .homePagePopPosts .homePagePopPost2 .popPostCoverTitle, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost6 .popPostCoverTitle, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost3 .popPostCoverTitle, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost7 .popPostCoverTitle, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost2 .popPostCoverAuthor, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost6 .popPostCoverAuthor, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost3 .popPostCoverAuthor, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost7 .popPostCoverAuthor {
+  color: #000;
+  -webkit-text-stroke: 1px #aaa;
+}
+@media (max-width: 650px) {
+  .homePage .homePagePopSection .homePagePopPosts .homePagePopPost3, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost7 {
+    background-color: #333;
+  }
+}
+@media (max-width: 650px) {
+  .homePage .homePagePopSection .homePagePopPosts .homePagePopPost3 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost7 .popPostCoverCategory {
+    background: linear-gradient(to top, #000, #fff, #ccc);
+    -webkit-background-clip: text;
+            background-clip: text;
+    color: rgba(255, 255, 255, 0);
+  }
+}
+.homePage .homePagePopSection .homePagePopPosts .homePagePopPost3 .popPostCoverImg1, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost7 .popPostCoverImg1 {
+  border-radius: 10%;
+  transform: translateX(20%) translateY(20%) rotate(20deg) scale(2);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+@media (max-width: 650px) {
+  .homePage .homePagePopSection .homePagePopPosts .homePagePopPost3 .popPostCoverTitle, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost7 .popPostCoverTitle, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost3 .popPostCoverAuthor, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost7 .popPostCoverAuthor {
+    color: #fff;
+  }
+}
+@media (max-width: 650px) {
+  .homePage .homePagePopSection .homePagePopPosts .homePagePopPost4, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost8 {
+    background-color: #ccc;
+  }
+}
+@media (max-width: 650px) {
+  .homePage .homePagePopSection .homePagePopPosts .homePagePopPost4 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost8 .popPostCoverCategory {
+    background: linear-gradient(to bottom, #000, #333, #ccc);
+    -webkit-background-clip: text;
+            background-clip: text;
+    color: rgba(255, 255, 255, 0);
+    -webkit-text-stroke: 1px #ccc;
+  }
+}
+.homePage .homePagePopSection .homePagePopPosts .homePagePopPost4 .popPostCoverImg1, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost8 .popPostCoverImg1 {
+  border-radius: 20%;
+  transform: translateX(-50%) translateY(-20%) rotate(-40deg) scale(1.2);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+@media (max-width: 650px) {
+  .homePage .homePagePopSection .homePagePopPosts .homePagePopPost4 .popPostCoverTitle, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost8 .popPostCoverTitle, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost4 .popPostCoverAuthor, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost8 .popPostCoverAuthor {
+    color: #000;
+    -webkit-text-stroke: 1px #ccc;
+  }
+}
+.homePage .homePagePopSection .homePagePopPosts .homePagePopPost5 .popPostCoverImg1 {
+  border-radius: 10%;
+  transform: translateX(-40%) translateY(-20%) rotate(-30deg) scale(2);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.homePage .homePagePopSection .homePagePopPosts .homePagePopPost6 .popPostCoverImg1 {
+  border-radius: 50%;
+  transform: translateX(20%) translateY(0%) rotate(30deg) scale(1.4);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.homePage .homePagePopSection .homePagePopPosts .homePagePopPost8 .popPostCoverImg1 {
+  border-radius: 10%;
+  transform: translateX(20%) translateY(0%) rotate(-30deg) scale(1.4);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.homePage .homePagePopSection .homePagePopPosts .loadAll {
+  width: 100%;
+  background-color: #000;
+}
+.homePage .homePagePopSection .homePagePopPosts .loadAll p:hover {
+  background-color: #eee;
+}
+.homePage .homePagePopSection .homePagePopPosts .loadAll > p {
+  line-height: 80px;
+  font-size: 30px;
+  color: #000;
+  -webkit-text-stroke: 1px #fff;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.homePage .homePagePopSection .homePagePopPosts .loadAll > p:hover {
+  transform: scale(1.2);
+  color: #000;
+  -webkit-text-stroke: 0px;
+}
+.homePage .glampleBanner {
+  width: 100%;
+  min-height: 100dvh;
+  background-color: #eee;
+}
+.homePage .glampleBanner > .glampleBannerLayout {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: center;
+  width: 100%;
+  min-height: 100dvh;
+  -webkit-backdrop-filter: blur(2px);
+          backdrop-filter: blur(2px);
+  background-color: rgba(61, 60, 60, 0.4941176471);
+  background-image: url("../logo-svg/logo.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.7;
+  padding-bottom: 10%;
+}
+.homePage .glampleBanner > .glampleBannerLayout > .glampleBannerTitle {
+  padding: 50px;
+  opacity: 1;
+  font-size: 60px;
+  color: #fff;
+}
+.homePage .glampleBanner > .glampleBannerLayout > .glampleBannerContent {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: start;
+}
+@media (max-width: 650px) {
+  .homePage .glampleBanner > .glampleBannerLayout > .glampleBannerContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+  }
+}
+.homePage .glampleBanner > .glampleBannerLayout > .glampleBannerContent > p {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  font-size: 14px;
+  vertical-align: text-top;
+  text-align: start;
+  flex: 1;
+  color: #fff;
+  padding: 0 20px;
+  line-height: 26px;
+}
+@media (max-width: 650px) {
+  .homePage .glampleBanner > .glampleBannerLayout > .glampleBannerContent > p {
+    padding: 20px 20px;
+  }
+}
+
+.profile {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  padding-top: 0;
+  background-image: url("../svg/patrick-pankalla-wpOnFM9hjNI-unsplash.jpg");
+  color: #fff;
+}
+.profile > div {
+  width: 100%;
+}
+.profile > div .accountSettingSection .profileHeader {
+  padding-top: 138px;
+  line-height: 100px;
+  background-color: rgba(0, 0, 0, 0.5);
+  text-align: center;
+}
+@media (max-width: 850px) {
+  .profile > div .accountSettingSection .profileHeader {
+    padding-top: 178px;
+  }
+}
+.profile > div .allInstructorPost {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  margin-bottom: 100px;
+}
+.profile > div .allInstructorPost .instructorPostTitle {
+  color: #fff;
+  font-size: 36px;
+  background-color: rgba(204, 204, 204, 0.7);
+  width: 100%;
+  text-align: center;
+  line-height: 50px;
+  border-radius: 30px 30px 0 0;
+}
+.profile > div .allInstructorPost .loadInstructorPostSection {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.profile > div .allInstructorPost .loadInstructorPostSection .perPost {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  width: 33.3333333333%;
+  height: 200px;
+  transition: 0.2s;
+  background-color: rgba(100, 100, 100, 0.6);
+}
+.profile > div .allInstructorPost .loadInstructorPostSection .perPost:hover {
+  transform: translateY(-5%) scale(1.1);
+  background-color: rgba(255, 255, 255, 0);
+  border-radius: 30px;
+}
+@media (max-width: 500px) {
+  .profile > div .allInstructorPost .loadInstructorPostSection .perPost {
+    width: 50%;
+  }
+}
+.profile > div .allInstructorPost .loadInstructorPostSection .perPost .perPostData {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  -webkit-backdrop-filter: blur(2px);
+          backdrop-filter: blur(2px);
+  color: #fff;
+  font-weight: 800;
+  cursor: pointer;
+  padding: 10px;
+  text-align: center;
+  transition: 0.2s;
+}
+.profile > div .allInstructorPost .loadInstructorPostSection .perPost .perPostData:hover {
+  -webkit-backdrop-filter: blur(0);
+          backdrop-filter: blur(0);
+  -webkit-text-stroke: #000;
+}
+.profile > div .allInstructorPost .loadInstructorPostSection .perPost .perPostData .editBtn {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  align-items: center;
+  bottom: 10px;
+  padding: 0 10px;
+}
+.profile > div .allInstructorPost .loadInstructorPostSection .perPost .perPostData .editBtn .updatePostBtn, .profile > div .allInstructorPost .loadInstructorPostSection .perPost .perPostData .editBtn .deletePostBtn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  background-color: rgba(204, 204, 204, 0.7);
+  -webkit-backdrop-filter: blur(3px);
+          backdrop-filter: blur(3px);
+  border-radius: 30px;
+  transition: 0.2s;
+  border: 3px solid #ccc;
+  margin-right: 20px;
+}
+@media (max-width: 500px) {
+  .profile > div .allInstructorPost .loadInstructorPostSection .perPost .perPostData .editBtn .updatePostBtn, .profile > div .allInstructorPost .loadInstructorPostSection .perPost .perPostData .editBtn .deletePostBtn {
+    width: 30px;
+    height: 30px;
+    border: 2px solid #ccc;
+  }
+}
+.profile > div .allInstructorPost .loadInstructorPostSection .perPost .perPostData .editBtn .updatePostBtn:hover, .profile > div .allInstructorPost .loadInstructorPostSection .perPost .perPostData .editBtn .deletePostBtn:hover {
+  transform: translateY(-10%);
+  background-color: #555;
+  border-radius: 15px;
+  border: 2px solid #fff;
+}
+.profile > div .allInstructorPost .loadInstructorPostSection .perPost .perPostData .editBtn .updatePostBtn img, .profile > div .allInstructorPost .loadInstructorPostSection .perPost .perPostData .editBtn .deletePostBtn img {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  z-index: 999;
+}
+@media (max-width: 500px) {
+  .profile > div .allInstructorPost .loadInstructorPostSection .perPost .perPostData .editBtn .updatePostBtn img, .profile > div .allInstructorPost .loadInstructorPostSection .perPost .perPostData .editBtn .deletePostBtn img {
+    width: 15px;
+    height: 15px;
+  }
+}
+.profile > div .allInstructorPost .loadInstructorPostSection .perPost .perPostData .editBtn .deletePostBtn {
+  margin-right: 0;
+}
+.profile > div .allInstructorPost .loadInstructorPostSection .perPost .perPostData .editBtn .deletePostBtn img {
+  width: 23px;
+  height: 23px;
+}
+@media (max-width: 500px) {
+  .profile > div .allInstructorPost .loadInstructorPostSection .perPost .perPostData .editBtn .deletePostBtn img {
+    width: 18px;
+    height: 18px;
+  }
+}
+.profile > div .allLikesPosts {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.profile > div .allLikesPosts .likePostTitle {
+  color: #fff;
+  font-size: 36px;
+  background-color: rgba(204, 204, 204, 0.7);
+  width: 100%;
+  text-align: center;
+  line-height: 50px;
+  border-radius: 30px 30px 0 0;
+}
+.profile > div .allLikesPosts .loadLikePostSection {
+  min-height: 500px;
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.profile > div .allLikesPosts .loadLikePostSection .perLikePost {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  width: 33.3333333333%;
+  height: 200px;
+  transition: 0.2s;
+  background-color: rgba(100, 100, 100, 0.6);
+}
+.profile > div .allLikesPosts .loadLikePostSection .perLikePost:hover {
+  transform: translateY(-5%) scale(1.1);
+  background-color: rgba(255, 255, 255, 0);
+  border-radius: 30px;
+}
+@media (max-width: 500px) {
+  .profile > div .allLikesPosts .loadLikePostSection .perLikePost {
+    width: 50%;
+  }
+}
+.profile > div .allLikesPosts .loadLikePostSection .perLikePost .perLikePostData {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  -webkit-backdrop-filter: blur(2px);
+          backdrop-filter: blur(2px);
+  color: #fff;
+  font-weight: 800;
+  cursor: pointer;
+  padding: 10px;
+  text-align: center;
+  transition: 0.2s;
+}
+.profile > div .allLikesPosts .loadLikePostSection .perLikePost .perLikePostData:hover {
+  -webkit-backdrop-filter: blur(0);
+          backdrop-filter: blur(0);
+}
+
+.signUpPage {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  padding-top: 150px;
+  margin-bottom: 100px;
+}
+@media (max-width: 850px) {
+  .signUpPage {
+    padding-top: 190px;
+  }
+}
+.signUpPage .signUpTitle {
+  line-height: 60px;
+}
+.signUpPage .errorMsg {
+  background-color: #333;
+  color: #ccc;
+  font-weight: 800;
+  padding: 16px;
+}
+.signUpPage .signUpForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+  line-height: 42px;
+}
+.signUpPage .signUpForm label {
+  font-weight: 800;
+}
+.signUpPage .signUpForm input {
+  text-align: center;
+  width: 80%;
+  max-width: 600px;
+  height: 26px;
+  padding: 15px;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  background: rgba(0, 0, 0, 0);
+}
+.signUpPage .signUpForm .checkInstructorDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.signUpPage .saperateLine {
+  font-weight: 800;
+  font-size: 20px;
+  width: 100%;
+  position: relative;
+  text-align: center;
+}
+.signUpPage .saperateLine::after {
+  content: "";
+  width: 45%;
+  background-color: #ccc;
+  height: 1px;
+  position: absolute;
+  top: 50%;
+  left: 0;
+}
+.signUpPage .saperateLine::before {
+  content: "";
+  width: 45%;
+  background-color: #ccc;
+  height: 1px;
+  position: absolute;
+  top: 50%;
+  right: 0;
+}
+.signUpPage .googleBtn {
+  margin-top: 40px;
+}
+.signUpPage .googleBtn .googleLink {
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  padding: 10px;
+  transition: 0.3s;
+  background-color: #ccc;
+  cursor: pointer;
+}
+.signUpPage .googleBtn .googleLink .googleIconWrapper .googleIcon {
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+}
+.signUpPage .googleBtn .googleLink:hover {
+  transform: translateY(-10%);
+  box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.5);
+  background-color: #ddd;
+}
+.signUpPage .googleBtn .googleLink:active {
+  transform: translateY(0%);
+  box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.5);
+}
+.signUpPage .checkInstructorDiv {
+  margin-top: 30px;
+}
+.signUpPage .hideInstructorCode {
+  display: none;
+}
+.signUpPage #checkToSwitch:checked ~ .hideInstructorCode {
+  display: block;
+}
+
+.footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  background-image: url("../svg/pexels-steve-johnson-1484759.jpg");
+  background-size: cover;
+  height: 300px;
+  overflow: scroll;
+}
+@media (max-width: 500px) {
+  .footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 450px;
+  }
+}
+.footer .footerBanner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  width: 50%;
+  font-size: 60px;
+  font-weight: 800;
+  min-height: 200px;
+  padding: 1.5rem;
+  transition: 0.3s;
+  text-wrap: nowrap;
+}
+.footer .footerBanner .subFooterBanner {
+  width: 100%;
+  font-size: 40px;
+  font-weight: 700;
+  letter-spacing: 10px;
+}
+@media (max-width: 500px) {
+  .footer .footerBanner {
+    width: 100%;
+    text-align: start;
+  }
+}
+.footer .footerContent {
+  width: 50%;
+  line-height: 32px;
+  text-align: end;
+  padding: 1.5rem;
+}
+@media (max-width: 500px) {
+  .footer .footerContent {
+    text-align: start;
+    width: 100%;
+    font-size: 15px;
+  }
+}
+
+.likeBtnPostPageSection {
+  transform: rotate(20deg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  margin: 40px;
+  top: 200px;
+  right: 50px;
+  z-index: 1;
+}
+@media (max-width: 650px) {
+  .likeBtnPostPageSection {
+    right: 20px;
+  }
+}
+.likeBtnPostPageSection .likeWords {
+  font-size: 20px;
+  -webkit-text-stroke: 1px #222;
+  color: rgba(200, 200, 200, 0.6);
+}
+.likeBtnPostPageSection .likedwords {
+  font-size: 20px;
+  -webkit-text-stroke: 1px #ddd;
+  color: rgb(0, 0, 0);
+}
+@media (max-width: 500px) {
+  .likeBtnPostPageSection .likedwords {
+    font-size: 16px;
+  }
+}
+
+.postPageBanner {
+  width: 100dvw;
+  height: 500px;
+  margin-top: 138px;
+  background-position: center;
+  background-size: contain;
+  background-repeat: repeat;
+  background-color: #ccc;
+}
+@media (max-width: 850px) {
+  .postPageBanner {
+    margin-top: 178px;
+  }
+}
+
+.postPage {
+  background-size: cover;
+  background-repeat: repeat;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  min-height: 100dvh;
+  width: 100dvw;
+  position: relative;
+}
+.postPage .postMain {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(47, 47, 47, 0.4666666667);
+  -webkit-backdrop-filter: blur(4px);
+          backdrop-filter: blur(4px);
+}
+.postPage .postMain .postInfo {
+  display: inline-block;
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+@media (max-width: 850px) {
+  .postPage .postMain .postInfo {
+    width: 85%;
+  }
+}
+.postPage .postMain .postInfo .postTitle {
+  text-align: center;
+  width: 90%;
+  margin: 40px 0;
+  color: #fff;
+  font-size: 50px;
+}
+@media (max-width: 850px) {
+  .postPage .postMain .postInfo .postTitle {
+    font-size: 35px;
+  }
+}
+@media (max-width: 650px) {
+  .postPage .postMain .postInfo .postTitle {
+    font-size: 26px;
+    width: 100%;
+  }
+}
+.postPage .postMain .postInfo .postCategory {
+  text-decoration: underline;
+  font-weight: 800;
+  font-size: 20px;
+  padding: 0 20px;
+  color: #fff;
+}
+.postPage .postMain .postInfo .postAutorAndPostDate {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 30px 0;
+}
+.postPage .postMain .postInfo .postAutorAndPostDate .postDate {
+  padding: 0 10px;
+  line-height: 30px;
+  font-size: 14px;
+  font-style: italic;
+  color: #fff;
+}
+.postPage .postMain .postInfo .postAutorAndPostDate .postAuthor {
+  padding: 0 10px;
+  line-height: 30px;
+  font-style: italic;
+  color: #fff;
+}
+.postPage .postMain .postContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  overflow: scroll;
+  width: 90%;
+  padding: 0 80px;
+}
+@media (max-width: 500px) {
+  .postPage .postMain .postContent {
+    padding: 0 20px;
+  }
+}
+.postPage .postMain .postContent p {
+  color: #fff;
+  line-height: 40px;
+}
+
+.addPostPage {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  padding-bottom: 0;
+  width: 90vw;
+  background-color: #fff;
+}
+.addPostPage .addPostTitle {
+  line-height: 80px;
+  padding: 0 20px;
+  text-align: center;
+}
+.addPostPage .addPostAndRender {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  min-height: 800px;
+  width: 100%;
+  padding: 20px;
+}
+.addPostPage .addPostAndRender .addPostMain {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  overflow-x: scroll;
+}
+.addPostPage .addPostAndRender .addPostMain .titleAndCategory {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+  line-height: 40px;
+  margin-bottom: 40px;
+}
+.addPostPage .addPostAndRender .addPostMain .titleAndCategory .titleInput {
+  text-align: center;
+  height: 40px;
+  width: 80%;
+  padding: 5px 20px 0;
+  border: 1px solid #ccc;
+  font-size: 18px;
+}
+.addPostPage .addPostAndRender .addPostMain .titleAndCategory .categorySelection {
+  text-align: center;
+  padding: 0 20px;
+  height: 30px;
+  width: 60%;
+  border: 1px solid #ccc;
+  background-color: #fff;
+}
+.addPostPage .addPostAndRender .addPostMain .editorContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.addPostPage .addPostAndRender .addPostMain .editorContainer .quill {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  width: 80vw;
+  overflow-x: scroll;
+}
+.addPostPage .addPostAndRender .addPostMain .editorContainer .quill .ql-container {
+  min-height: 60vh;
+}
+.addPostPage .addPostAndRender .addPostMain .editorContainer .quill .ql-container p {
+  font-weight: 800;
+}
+.addPostPage .addPostAndRender .addPostMain .editorContainer .previewBtn {
+  text-align: center;
+}
+.addPostPage .addPostAndRender .addPostMain .postCover {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 40px;
+}
+.addPostPage .addPostAndRender .addPostMain .postCover .uploadImgSection {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  padding: 30px;
+}
+@media (max-width: 500px) {
+  .addPostPage .addPostAndRender .addPostMain .postCover .uploadImgSection {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 200px;
+  }
+}
+.addPostPage .addPostAndRender .addPostMain .postCover .uploadImgSection input[type=file] {
+  display: none;
+}
+.addPostPage .addPostAndRender .addPostMain .postCover .uploadImgSection .customFileUpload {
+  border: 1px solid #ccc;
+  display: inline-block;
+  padding: 6px 12px;
+  transition: 0.3s;
+  background-color: #ccc;
+  border-radius: 20px;
+  font-weight: 800;
+  cursor: pointer;
+}
+.addPostPage .addPostAndRender .addPostMain .postCover .uploadImgSection .customFileUpload:hover {
+  transform: translateY(-10%);
+  box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.5);
+  background-color: #ddd;
+}
+.addPostPage .addPostAndRender .addPostMain .postCover .uploadImgSection .customFileUpload:active {
+  transform: translateY(0%);
+  box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.5);
+}
+.addPostPage .addPostAndRender .addPostMain .postCover .uploadImgSection label ~ div {
+  width: 30%;
+  color: #ccc;
+  border: 1px solid #ccc;
+  height: 100%;
+  padding: 10px 20px;
+}
+@media (max-width: 500px) {
+  .addPostPage .addPostAndRender .addPostMain .postCover .uploadImgSection label ~ div {
+    width: 100%;
+  }
+}
+.addPostPage .addPostAndRender .addPostMain .postCover .postCoverPreview {
+  border: 1px solid #ccc;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #ccc;
+  font-size: 26px;
+  aspect-ratio: 16/9;
+  width: 50%;
+}
+.addPostPage .addPostAndRender .addPostMain .postCover .postCoverPreview > img {
+  width: 100%;
+}
+.addPostPage .addPostAndRender .previewPostTitle {
+  width: 100%;
+  text-align: center;
+  line-height: 50px;
+  font-size: 25px;
+}
+.addPostPage .addPostAndRender .previewPost {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  padding: 0 1rem 1rem;
+  transform: scale(0.9);
+  width: 100%;
+  min-height: 600px;
+  border: 1px solid #ccc;
+  overflow: scroll;
+  line-height: 20px;
+}
+.addPostPage .addPostAndRender .previewPost .previewPostTitle {
+  text-align: center;
+}/*# sourceMappingURL=style.css.map */

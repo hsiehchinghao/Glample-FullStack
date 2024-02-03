@@ -1,0 +1,131 @@
+@use "../abstract/variable" as *;
+
+.homePage{
+    background-image: url("../svg/bubble.jpg");
+    background-size: contain;
+    background-repeat: repeat;
+    padding-top: $normalTop;
+    width: 100dvw;
+    min-height: 100dvh;
+    @include pad{
+        padding-top: $shrinkTop;
+    }
+    .homePageBannerSection{
+        position: relative;
+        overflow: scroll;
+        width:100%;
+        height: calc(100dvh - $normalTop);
+        background-color: rgba(219, 219, 219, 0.436);
+        @include pad {
+            height: calc(100dvh - $shrinkTop);
+        }
+        .bannerBar {
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: flex;
+            height: 100%;
+            
+            .homePagePerBanner{
+                display: inline-block;
+                background-position: center;
+                background-size: cover;  
+                width: 100dvw;
+                height: 100%;
+                .homePagePerBannerInfo {
+                    @include flexbox(row, space-between, end);
+                    backdrop-filter: brightness(50%) blur(3px);
+                    background-position: center;
+                    background-size: contain;
+                    background-repeat: no-repeat;   
+                    width: 100%;
+                    height: 100%;
+                    transition: 0.2s;
+                    color: #999;
+                    .homePagePerBannerTitle {
+                        @include flexbox(column, center, center);
+                        vertical-align: bottom;
+                        width: 100%;
+                        height: 100%;
+                        overflow: scroll;
+                        padding: 0 10px 10px;
+                        display: inline-block;
+                        backdrop-filter: brightness(50%) blur(2px);
+                        position: relative;
+                        transition: 0.2s;
+                        &:hover {
+                            backdrop-filter: none;
+                            color: #fff;
+                        }
+                        &:hover >p{
+                            color: #fff;
+                        }
+                        >p {
+                            @include flexbox(column, center, center);
+                            // @extend %setCenter;
+                            position: absolute;
+                            bottom: 10%;
+                            left:8%;
+                            // right: 8%;
+                            font-size: 80px;
+                            // width: 50%;
+                            // text-align: center;
+                            cursor: pointer;
+                            color: #ccc;
+                            backdrop-filter: brightness(60%) blur(1px);
+                            background-color: #000;
+                            overflow: scroll;
+                            transition: 0.3s;
+                            padding: 0 10px;
+                            // transform:  translateX(-5%) translateY(-100px) rotate(20deg);
+                          
+                            &:hover {
+                                backdrop-filter: blur(2px);
+                                background-color: #ffffff6e;
+                                color: #000;
+                                // &::after{
+                                //     display: inline-block;
+                                // }
+                            }
+                            @include pad {
+                                overflow: scroll;
+                                font-size: 45px;
+                            }
+                            @include mobileS {
+                                overflow: scroll;
+                                font-size: 30px;
+                                text-align: center;
+                            }
+                        }
+                       
+                    }
+                }
+            }
+        }
+        
+    }
+    .scrambleSection {
+        width: 100%;
+        height: 300px;
+        line-height: 300px;
+        color: #000;
+        font-size:150px;
+        overflow: hidden;
+        background-color: #eee;
+        text-align: center;
+    }
+    .homePagePopSection {
+        @include flexbox(row, space-evenly, start );
+        @extend %basicComponent;
+        width: 100%;
+        min-height: 100dvh;
+        @include mobileS {
+            @include flexbox(column, space-evenly, start );
+        }
+        .homePagePopPost{ 
+            aspect-ratio: 1 / 1;
+            width: 20%;
+            background-color: #aaa;
+        }
+    }
+}
