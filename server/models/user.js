@@ -12,6 +12,7 @@ const userSchema = new Schema({
   like: [{ type: mongoose.Schema.Types.ObjectId, ref: "Post" }],
   comment: [{ type: mongoose.Schema.Types.ObjectId, ref: "Comment" }],
   fromGoogle: { type: Boolean, default: false },
+  order: [{ type: mongoose.Schema.Types.ObjectId, ref: "Product" }],
 });
 
 //設定比較密碼，設定執行完bcrypt.compare後，執行cb()

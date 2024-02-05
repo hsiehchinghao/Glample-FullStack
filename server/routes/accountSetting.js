@@ -11,8 +11,6 @@ const passport = require("passport");
 
 //修改username
 
-//修改email
-
 //刪除帳號
 
 module.exports = router;

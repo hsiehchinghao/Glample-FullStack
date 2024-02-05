@@ -4,4 +4,6 @@ module.exports = {
   user: require("./user"),
   post: require("./post"),
   comment: require("./comment"),
+  product: require("./product"),
+  order: require("./order"),
 };

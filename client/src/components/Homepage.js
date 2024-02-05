@@ -5,6 +5,7 @@ import SwiperBanner from "./HomePage/SwiperBanner";
 import HomePagePopPostSection from "./HomePage/HomePagePopPostSection";
 import GlampleBanner from "./HomePage/GlampleBanner";
 import TextScramble from "../services/TextScramble";
+import ProductBanner from "./HomePage/ProductBanner";
 
 const Homepage = () => {
   console.log(123);
@@ -66,6 +67,7 @@ const Homepage = () => {
         <SwiperBanner ref={bannerSectionRef} />
         <div className="scrambleSection" ref={scrambleRef}></div>
         <HomePagePopPostSection />
+        <ProductBanner />
         <GlampleBanner />
       </div>
     </>

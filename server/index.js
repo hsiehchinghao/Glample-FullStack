@@ -11,6 +11,7 @@ const authRoute = require("./routes").auth; //指定資料夾：自動指向資�
 const postRoute = require("./routes").post;
 const accountSettingRoute = require("./routes/index").accountSetting;
 const visitorsRoute = require("./routes").visitors;
+const path = require("path");
 
 mongoose
   .connect(

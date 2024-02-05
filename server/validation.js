@@ -36,10 +36,19 @@ const commentValidation = Joi.object({
   content: Joi.string().min(3).required(),
 });
 
+//設定新增商品規則
+const productValidation = Joi.object({
+  title: Joi.string().required(),
+  price: Joi.number().required(),
+  stock: Joi.number().required(),
+  description: Joi.string().required(),
+});
+
 module.exports = {
   instructorRegisterValidation,
   userRegisterValidation,
   loginValidation,
   postValidation,
   commentValidation,
+  productValidation,
 };

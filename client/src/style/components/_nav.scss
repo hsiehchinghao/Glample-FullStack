@@ -100,7 +100,6 @@
                 border: 5px solid #bbb;
                 border-radius: 20px;
                 padding: 15px;
-                font-weight: 800;
                 cursor: pointer;
                 transition: 0.3s;
                 margin-left: 20px;
@@ -110,6 +109,31 @@
                     color: #000;
                     border: 5px solid #000;
                 }
+            }
+            .shoppingCartDiv {
+                position: relative;
+                @extend .menuBtn;
+                height: 60px;
+                cursor: pointer;
+                .shoppingCart {
+                    width: 26px;
+                    height: 26px;
+                    cursor: pointer;
+                }
+                .addItems {
+                    background-color: #000;
+                    height: 35px;
+                    width: 35px;
+                    border-radius: 50%;
+                    color: #fff;
+                    top: -5px;
+                    left: -10px;
+                    position: absolute;
+                    text-align: center;
+                    line-height: 35px;
+                }
+                
+
             }
             .navBarList {
                 //背景圖
@@ -143,6 +167,7 @@
                     top: 0;
                     width: 100dvw;
                     .navBarListBannerLogo {
+                        color: #eee;
                         display: inline-block;
                         top:1.2rem;
                         line-height: 60px;
@@ -172,20 +197,23 @@
                     // color: #eee;
                     transition: 0.35s;
                     position:relative;
-                    padding: 20px;
+                    padding: 10px;
                     text-wrap: nowrap;
-                    font-size: 110px;
+                    font-size: 80px;
                     font-weight: 800;
                     -webkit-text-stroke: 0.5px #aaa;
                     z-index: 10;
+                    letter-spacing: 20px;
                     @include pad {
-                        font-size: 90px;
+                        font-size: 80px;
+                        letter-spacing: 10px;
                     }
                     @include mobile{
                         font-size: 70px;
                     }
                     @include mobileS{
-                        font-size: 50px;
+                        letter-spacing: 0;
+                        font-size: 60px;
                     }
                     &::after {
                         content: '';
@@ -245,6 +273,108 @@
                         font-size: 120px;
                         right: 0; 
                     }
+                }
+            }
+            .shopList {
+                overflow: scroll;
+                transition: 0.3s;
+                position: absolute;
+                top: 0;
+                right: 0;
+                width: 0;
+                min-height: 100dvh;
+                background-color: #ccc;
+                @include flexbox(column, start,center);
+               
+                .closeShopListBtn {
+                    position: absolute;
+                    top: 10px;
+                    right: 10px;
+                    transition: 0.3s;
+                    color: #fff;
+                    background-color: #000;
+                    text-align: end;
+                    font-size: 30px;
+                    display: inline-block;
+                    cursor: pointer;
+                    padding: 0 3px;
+                    &:hover {
+                        color: #000;
+                        background-color: #fff;
+                    }
+                }
+                .shopListItems {
+                    @include flexbox(column, start, center);
+                    width: 100%;
+                    min-height: 300px;
+                    border-bottom: 5px dashed #aaa;
+                    padding-bottom: 30px;
+                    .stillEmpty {
+                        color: #ddd;
+                        font-size: 50px;
+                        padding: 20px;
+                    }
+                    .shopListItem{
+                        width: 80%;
+                        height: 150px;
+                        @include flexbox(row, space-between, center);
+                        padding: 10px;
+                        position: relative;
+                        .deletePostBtn{
+                            @extend %updatePostBtn;
+                            position: absolute;
+                            left: -30px;
+
+                            >p {
+                                width: 30px;
+                                height: 30px;
+                            }
+                        }
+                        .shopListItemImg {
+                            padding: 10px;
+                            height: 100%;
+                            aspect-ratio: 1/1;
+                            >img{
+                                width: 100%;
+                                height: 100%;
+                            }
+                        }
+                        .shopListItemTitleAndPrice {
+                            @include flexbox(column, space-between ,center);
+                            width: 100%;
+                            height: 100%;
+                            padding: 10px;
+                            >p {
+                                display: inline-block;
+                                font-size: 14px;
+                                padding: 10px 10px;
+                            }
+                            .shopListItemTitle {
+                                font-size: 20px;
+                                padding: 10px;
+                                text-align: center;
+                                color: #eee;
+                                background-color: #000;
+                                @include mobile {
+                                    font-size: 14px;
+                                    margin-bottom:10px; 
+                                }
+                            }
+                        }
+                    }
+                }
+                .orderTotal {
+                    text-align: center;
+                    padding: 10px;
+                    font-size: 20px;
+                    width: 100%;
+                }
+                .checkoutBtn {
+                    @extend %submitBtn2;
+                    background-color: #eee;
+                    text-align: center;
+                    padding: 10px;
+                    width: 100%;
                 }
             }
         }

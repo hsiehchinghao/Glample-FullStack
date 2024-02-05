@@ -12,7 +12,7 @@ const HomePagePopPostSection = () => {
     //載入最熱門文章
     PostService.loadPostByTopLikes()
       .then((result) => {
-        console.log(result.data.result);
+        // console.log(result.data.result);
         setPopPostData(result.data.result);
       })
       .catch((e) => {

@@ -131,6 +131,39 @@ $normalTop: 138px;
         }
     } 
 }
+%updatePostBtn {
+    @include flexbox(column, center,center);
+    width: 40px;
+    height: 40px;
+    background-color: rgba(204, 204, 204,0.7);
+    backdrop-filter: blur(3px);
+    border-radius: 30px;
+    transition: 0.2s;
+    border: 3px solid #ccc;
+    margin-right: 20px;
+    @include mobileS {
+        width: 30px;
+        height: 30px;   
+        border: 2px solid #ccc;
+    }
+    &:hover {
+        transform: translateY(-10%);
+        background-color: #555;
+        border-radius: 15px;
+        border: 2px solid #fff;
+    }
+    img {
+        width: 20px;
+        height: 20px;
+        cursor: pointer;
+        z-index: 999;
+        @include mobileS {
+            width: 15px;
+            height: 15px;   
+        }
+    }
+}
+
 
 %errorPage {
     @extend %basicComponent;
@@ -146,6 +179,157 @@ $normalTop: 138px;
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
 }
+%addPostPage {
+    @include flexbox(column, space-evenly, center);
+    @extend %basicComponent;
+    padding-bottom: 0;
+    width: 90vw;
+    background-color: #fff;
+
+    .addPostTitle {
+       line-height: 80px; 
+       padding: 0 20px;
+       text-align: center;
+    }
+
+    .addPostAndRender{
+        @include flexbox(column, space-evenly, center);
+        min-height: 800px;
+        width: 100%;
+        padding: 20px;
+        .addPostMain {
+            @include flexbox(column, space-between, center);
+            height: 100%;
+            width: 100%;
+            overflow-x: scroll;
+            .titleAndCategory {
+                @include flexbox(column, space-between, center);
+                width: 80%;
+                line-height: 40px;
+                margin-bottom: 40px;
+                .titleInput {
+                    text-align: center;
+                    height: 40px;
+                    width: 80%;
+                    padding: 5px 20px 0;
+                    border: 1px solid #ccc;
+                    font-size: 18px;
+                }
+                .categorySelection {
+                    text-align: center;
+                    padding: 0 20px;
+                    height: 30px;
+                    width: 60%;
+                    border: 1px solid #ccc;
+                    background-color: #fff;
+                }
+            }
+            .editorContainer {
+                @include flexbox(column, space-evenly, center);
+                //編輯器內文控制
+                .quill {
+                    display: flex;
+                    flex-wrap: wrap;
+                    flex-direction: column;
+                    width: 80vw;
+                    overflow-x: scroll;
+                    .ql-container {
+                        min-height:60vh; 
+                        p{
+                            font-weight: 800;
+                        }
+                    }
+                }
+            }
+            
+            .postCover {
+                @include flexbox(column, space-between, center);
+                width: 100%;
+                padding: 40px;
+                .uploadImgSection {
+                    @include flexbox(row, space-around, center);
+                    width: 100%;
+                    padding:30px;
+                    @include mobileS {
+                        @include flexbox (column, space-between, center);
+                        min-height:200px; 
+                    }
+                     input[type="file"] {
+                    display: none;
+                    }
+                    .customFileUpload {
+                        border: 1px solid #ccc;
+                        display: inline-block;
+                        padding: 6px 12px;
+                        transition: 0.3s;
+                        background-color: #ccc;
+                        border-radius: 20px;
+                        font-weight: 800;
+                        cursor: pointer;
+                        &:hover {
+                            transform: translateY(-10%);
+                            box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.5);
+                            background-color: #ddd;
+                        }
+                        &:active {
+                            transform: translateY(0%);
+                            box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.5);
+                        }
+                    }
+                    label ~ div {
+                        width:30%;
+                        color:#ccc;
+                        border: 1px solid #ccc;
+                        height: 100%;
+                        padding: 10px 20px;
+                        @include mobileS {
+                            width: 100%;
+                        }
+                    }
+                }
+                .postCoverPreview {
+                    border: 1px solid #ccc;
+                    @include flexbox(column, center, center);
+                    color: #ccc;
+                    font-size: 26px;
+                    aspect-ratio:16/9;
+                    width: 50%;
+                    >img{
+                        width: 100%;
+                    }
+                }
+            }
+        }
+        .previewBtn {
+            @extend %submitBtn2;
+            text-align: center;
+        }
+        .previewPostTitle{
+            width: 100%;
+            text-align: center;
+            line-height: 50px;
+            font-size: 25px;
+        }
+        .previewPost {
+            @include flexbox(column, start, center);
+            padding:0 1rem 1rem ;
+            transform: scale(0.9) ;
+            width: 100%;
+            min-height: 600px;
+            border: 1px solid #ccc;
+            overflow: scroll;
+            line-height: 20px;
+            .previewPostTitle {
+                text-align: center;
+            }
+            
+        }
+        .submitPost {
+            @extend %submitBtn2;
+        }
+    }
+    
+}
 
 @keyframes carouselAnimation {
     0%{
@@ -159,5 +343,20 @@ $normalTop: 138px;
     }
     100%{
         transform: translateY(-200%);
+    }
+}
+@keyframes carouselAnimationHr {
+    0%{
+        transform: translateX(100%);
+    }
+    50%{
+        transform: translateX(-100%);
+    }
+    70% {
+        transform: translateX(-100%);
+    }
+
+    100%{
+        transform: translateX(-200%);
     }
 }

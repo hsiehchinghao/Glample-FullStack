@@ -180,9 +180,6 @@ const Edit = () => {
                   ref={contentRef}
                   value={postData.content}
                 />
-                <div className="previewBtn" onClick={handlePreviewPostBtn}>
-                  Preview The Post
-                </div>
               </div>
               <div className="postCover">
                 <div className="uploadImgWord">
@@ -205,6 +202,9 @@ const Edit = () => {
                 </div>
               </div>
             </form>
+            <div className="previewBtn" onClick={handlePreviewPostBtn}>
+              Double Check!
+            </div>
             <div className="previewPostTitle">Post Preview</div>
             <div className="previewPost">
               {postData.title && (

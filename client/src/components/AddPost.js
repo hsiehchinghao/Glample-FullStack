@@ -165,9 +165,6 @@ const AddPost = () => {
               </div>
               <div className="editorContainer">
                 <ReactQuill modules={modules} theme="snow" ref={contentRef} />
-                <div className="previewBtn" onClick={handlePreviewPostBtn}>
-                  Preview The Post
-                </div>
               </div>
               <div className="postCover">
                 <div className="uploadImgWord">
@@ -188,6 +185,9 @@ const AddPost = () => {
                 <div className="postCoverPreview">
                   {preview ? <img src={preview} alt="" /> : "preview"}
                 </div>
+              </div>
+              <div className="previewBtn" onClick={handlePreviewPostBtn}>
+                Double Check!
               </div>
             </form>
             <div className="previewPostTitle">Post Preview</div>

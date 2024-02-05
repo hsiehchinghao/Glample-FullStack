@@ -3,10 +3,24 @@ import { Outlet } from "react-router-dom";
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
 
-const Layout = ({ currentUser, setCurrentUser }) => {
+const Layout = ({
+  currentUser,
+  setCurrentUser,
+  shopItems,
+  setShopItems,
+  shopCount,
+  setShopCount,
+}) => {
   return (
     <div className="main">
-      <Nav currentUser={currentUser} setCurrentUser={setCurrentUser} />
+      <Nav
+        currentUser={currentUser}
+        setCurrentUser={setCurrentUser}
+        shopItems={shopItems}
+        setShopItems={setShopItems}
+        shopCount={shopCount}
+        setShopCount={setShopCount}
+      />
       <Outlet
         context={{ currentUser: currentUser, setCurrentUser: setCurrentUser }}
       />

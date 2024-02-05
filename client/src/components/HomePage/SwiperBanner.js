@@ -24,7 +24,7 @@ const SwiperBanner = forwardRef((props, bannerSectionRef) => {
     //載入最新文章
     PostService.loadPostByLatest()
       .then((result) => {
-        console.log(result.data.result);
+        // console.log(result.data.result);
         setPostData(result.data.result);
       })
       .catch((e) => {
@@ -70,7 +70,7 @@ const SwiperBanner = forwardRef((props, bannerSectionRef) => {
     >
       {postData &&
         postData.map((data) => {
-          console.log(data.title);
+          // console.log(data.title);
           return (
             <SwiperSlide
               key={data._id}

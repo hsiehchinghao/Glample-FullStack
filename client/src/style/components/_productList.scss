@@ -1,0 +1,96 @@
+@use "../abstract/variable" as *;
+
+.productListPage {
+    @extend %basicComponent;
+    @include flexbox(column, start, center);
+    .productListPageTitle {
+        width: 100%;
+        padding: 40px;
+        text-align: center;
+    }
+    .productListPageProducts {
+        @include flexbox(row, space-evenly, center);
+        flex-wrap: wrap;
+        width: 95%;
+        min-height: 100dvh;
+        background-color: #eee;
+        background-image: url("../svg/78fe99903fd70eb39409b9825426d1ad.jpg");
+        background-size: cover;
+        background-position: center; 
+        background-repeat: no-repeat;
+        @include mobileS {
+            @include flexbox(column, start, center);
+        }
+        .productListPageBackdrop {
+            @include flexbox(row, space-evenly, center);
+            flex-wrap: wrap;
+            width: 100%;
+            height: 100%;
+            backdrop-filter: blur(3px) brightness(80%) grayscale(80%);
+            @include mobileS {
+                @include flexbox(column, start, center);
+            }
+            .productListPageProduct {
+                @include flexbox(column, center, center);
+                width: 28%;
+                min-height: 500px;
+                @include mobile {
+                    width: 45%;
+                }
+                @include mobileS {
+                    width: 80%;
+                }
+                .productCover {
+                    width: 100%;
+                    overflow: hidden;
+                    aspect-ratio: 1/1;
+
+                    >div {
+                        transition: 0.3s;
+                        width: 100%;
+                        height: 100%;
+                        background-size: contain;
+                        background-repeat: no-repeat;
+                        cursor: pointer;
+                    }
+                    &:hover {
+                        >div {
+                            transform: scale(1.3);
+                        }
+                        & ~ .productInfo {
+                            background-color: #edebeba2;
+                            >p {
+                                color: #000;
+                            }
+                        }
+                    }
+
+                }
+                .productInfo {
+                    @include flexbox(column, space-evenly, center);
+                    transition: 0.3s;
+                    width: 100%;
+                    height: 150px;
+                    background-color: #64646494;
+                    >p {
+                        transition: 0.3s;
+                        text-align: center;
+                        letter-spacing: 2px;
+                        color: #fff;
+                    }
+                    >.productTitle {
+                        font-size: 26px;
+                        letter-spacing: 0;
+                        @include mobile {
+                            font-size: 20px;
+                            padding: 10px;
+                        }
+                    }
+    
+                }
+            }
+
+        }
+        
+    }
+}

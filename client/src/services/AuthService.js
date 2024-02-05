@@ -59,20 +59,3 @@ class AuthService {
 }
 
 export default new AuthService();
-
-// Post
-
-// id int
-// title chartext(255)
-// content charteext
-// date:
-// author_id
-// created_at:
-// updated_at
-
-// Comment
-// id:
-// user_id
-// content:
-// post_id:
-// comment_id:

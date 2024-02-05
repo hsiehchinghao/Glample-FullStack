@@ -77,36 +77,7 @@
                             bottom: 10px;
                             padding: 0 10px;
                             .updatePostBtn {
-                                @include flexbox(column, center,center);
-                                width: 40px;
-                                height: 40px;
-                                background-color: rgba(204, 204, 204,0.7);
-                                backdrop-filter: blur(3px);
-                                border-radius: 30px;
-                                transition: 0.2s;
-                                border: 3px solid #ccc;
-                                margin-right: 20px;
-                                @include mobileS {
-                                    width: 30px;
-                                    height: 30px;   
-                                    border: 2px solid #ccc;
-                                }
-                                &:hover {
-                                    transform: translateY(-10%);
-                                    background-color: #555;
-                                    border-radius: 15px;
-                                    border: 2px solid #fff;
-                                }
-                                img {
-                                    width: 20px;
-                                    height: 20px;
-                                    cursor: pointer;
-                                    z-index: 999;
-                                    @include mobileS {
-                                        width: 15px;
-                                        height: 15px;   
-                                    }
-                                }
+                               @extend %updatePostBtn;
                             }
                             .deletePostBtn {
                                 @extend .updatePostBtn;
