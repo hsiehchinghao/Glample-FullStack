@@ -1,4 +1,3 @@
-const { findOneAndUpdate } = require("../models/user");
 const router = require("express").Router();
 const upload = require("../config/multer");
 const User = require("../models/user");
@@ -8,9 +7,8 @@ const Product = require("../models").product;
 const Order = require("../models").order;
 const postValidation = require("../validation").postValidation;
 const productValidation = require("../validation").productValidation;
-const API_URL = "http://localhost:8081/";
-
-//測試token api
+const orderValidation = require("../validation").orderValidation;
+const API_URL = "http://localhost:8081";
 
 //按照instrctor id取得文章資料(populate: title / date / image)
 router.get("/:_id", async (req, res) => {
@@ -259,13 +257,24 @@ router.post("/addProduct", upload.single("file"), async (req, res) => {
   }
 });
 
+router.post("", async (req, res) => {});
+
 //修改商品
 // router.patch();
 
 //刪除商品
 // router.delete();
 
-//購買商品 /建立order訂單/product stock調整/user order資料陣列 push
-router.post("", async (req, res) => {});
+//新增訂單 /建立order訂單/product stock調整/user order資料陣列 push
+// router.post("/addOrder/:_id", async (req, res) => {
+//   let { error } = productValidation.validate(req.body);
+//   if (error) {
+//     let message = error.details[0].message;
+//     return res.status(404).send(message);
+//   }
+
+//   const { _id } = req.params;
+//   const {} = req.body;
+// });
 
 module.exports = router;

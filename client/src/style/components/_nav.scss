@@ -1,470 +1,468 @@
 @use "../abstract/variable" as *;
 
-.navSection{
-    @include flexbox(column, space-between, center);
-    transition: 0.7s;
-    position: fixed;
-    top: 0;
+.navSection {
+  @include flexbox(column, space-between, center);
+  transition: 0.7s;
+  position: fixed;
+  top: 0;
+  z-index: 10;
+  width: 100%;
+  .navBar {
+    padding: 0 30px;
+    background-color: #eeeeeeee;
+    backdrop-filter: blur(1px);
+    width: 100vw;
+    @include flexbox(row, space-between, center);
+    border-bottom: 1px solid #ccc;
     z-index: 10;
-    width: 100%;
-    .navBar{
-        padding: 0 30px;
-        background-color: #eeeeeeee;
-        backdrop-filter: blur(1px);
-        width: 100vw;
-        @include flexbox(row, space-between, center);
-        border-bottom: 1px solid #ccc;
-        z-index: 10;
-        
-        a {
-            text-decoration: none;
-            color: #000;
+
+    a {
+      text-decoration: none;
+      color: #000;
+      cursor: pointer;
+      .logoSection {
+        transition: 0.3s;
+        cursor: pointer;
+        @include flexbox(row, center, center);
+        &:hover {
+          transform: scale(1.1);
+          cursor: pointer;
+        }
+        .logo {
+          @extend %preventSelect;
+          width: 60px;
+          cursor: pointer;
+          > img {
             cursor: pointer;
-            .logoSection {
-                transition: 0.3s;
-                cursor: pointer;
-                @include flexbox(row, center, center);
-                &:hover{
-                    transform: scale(1.1);
-                    cursor: pointer;
-                }
-                .logo {
-                    @extend %preventSelect;
-                    width: 60px;
-                    cursor: pointer;
-                    >img {
-                        cursor: pointer;
-                    }
-                }
-                .logoWord {
-                    @extend %preventSelect;
-                    cursor: pointer;
-                    line-height: 60px;
-                    font-size: 50px;
-                    font-weight: 800;
-                    padding: 0 20px;
-                    transition: 0.3s;
-                    @include mobileS {
-                        display: none;
-                    }
-                    &::after {
-                        content: '';
-                        position: absolute;
-                        left: 60%;
-                        top: 50%;
-                        width: 100px;
-                        height: 70px;
-                        background-image: url("../svg/—Pngtree—hand\ drawn\ coil\ circle\ doodle_5780052.png");
-                        background-repeat: no-repeat;
-                        background-size: contain;
-                        transform: translateX(-50%) translateY(-50%);
-                        display: none;
-                    }
-                    &:hover {
-                        &::after{
-                            display: inline-block;
-                        }
-                    }
-                }
-            }
+          }
         }
-        .flexEnd {
-            @include flexbox(row, space-between, center);
-            .searchBar {
-                background-color: rgba(255, 255, 255, 0);
-                @include flexbox(row, center, center);
-                @include pad {
-                    display: none;
-                }
-                border-bottom: 5px solid #000; 
-                .searchlogo{
-                    width:30px;
-                    img{
-                        width:100%;
-                        height: 100%;
-                    }
-                }
-                input {
-                    width: 200px;
-                    height: 30px;
-                    padding:15px;
-                    border: none;
-                    font-weight: 800;
-                    background-color: rgba(255, 255, 255, 0);
-                    &:focus {
-                        outline: none;
-                    }
-                }
+        .logoWord {
+          @extend %preventSelect;
+          cursor: pointer;
+          line-height: 60px;
+          font-size: 50px;
+          font-weight: 800;
+          padding: 0 20px;
+          transition: 0.3s;
+          @include mobileS {
+            display: none;
+          }
+          &::after {
+            content: "";
+            position: absolute;
+            left: 60%;
+            top: 50%;
+            width: 100px;
+            height: 70px;
+            background-image: url("../svg/—Pngtree—hand\ drawn\ coil\ circle\ doodle_5780052.png");
+            background-repeat: no-repeat;
+            background-size: contain;
+            transform: translateX(-50%) translateY(-50%);
+            display: none;
+          }
+          &:hover {
+            &::after {
+              display: inline-block;
             }
-            .menuBtn {
-                border: 5px solid #bbb;
-                border-radius: 20px;
-                padding: 15px;
-                cursor: pointer;
-                transition: 0.3s;
-                margin-left: 20px;
-                color: #bbb;
-                &:hover {
-                    transform: translateY(-5%);
-                    color: #000;
-                    border: 5px solid #000;
-                }
-            }
-            .shoppingCartDiv {
-                position: relative;
-                @extend .menuBtn;
-                height: 60px;
-                cursor: pointer;
-                .shoppingCart {
-                    width: 26px;
-                    height: 26px;
-                    cursor: pointer;
-                }
-                .addItems {
-                    background-color: #000;
-                    height: 35px;
-                    width: 35px;
-                    border-radius: 50%;
-                    color: #fff;
-                    top: -5px;
-                    left: -10px;
-                    position: absolute;
-                    text-align: center;
-                    line-height: 35px;
-                }
-                
-
-            }
-            .navBarList {
-                //背景圖
-                &::before{
-                    content: "";
-                    background-size: cover;
-                    background-position: center;
-                    background-image: url("../svg/pexels-icon-com-479444.jpg");
-                    filter: brightness(90%);
-                    height: 100%;
-                    width: 100%;
-                    opacity: 0.7;
-                    position: absolute;
-                    top: 0;
-                    right: 0;
-                }
-                @include flexbox(column, center, start);
-                overflow: hidden;
-                width: 100dvw;
-                height: 100dvh;
-                transform: translateX(100%);
-                position: fixed;
-                top: 0;
-                right: 0;
-                z-index: 999;
-                background-color: #ccc;
-                transition: 0.3s;
-                .navBarListBanner{
-                    @include flexbox(row, space-between, center);
-                    position: absolute;
-                    top: 0;
-                    width: 100dvw;
-                    .navBarListBannerLogo {
-                        color: #eee;
-                        display: inline-block;
-                        top:1.2rem;
-                        line-height: 60px;
-                        font-size: 70px;
-                        font-weight: 800;
-                        padding: 0 20px;
-                        transition: 0.3s;
-                        @include mobileS {
-                            letter-spacing: 0px;
-                        }
-                    }
-                    .navBarListClose {
-                        padding: 0 20px;
-                        font-size: 60px;
-                        font-weight: 800;
-                        display: inline-block;
-                        cursor: pointer;
-                        color: #fff;
-                        transition: 0.2s;
-                        &:hover {
-                            color: #000;
-                        }
-                    }
-                }
-                .navBarListOption {
-                    text-decoration: none;
-                    // color: #eee;
-                    transition: 0.35s;
-                    position:relative;
-                    padding: 10px;
-                    text-wrap: nowrap;
-                    font-size: 80px;
-                    font-weight: 800;
-                    -webkit-text-stroke: 0.5px #aaa;
-                    z-index: 10;
-                    letter-spacing: 20px;
-                    @include pad {
-                        font-size: 80px;
-                        letter-spacing: 10px;
-                    }
-                    @include mobile{
-                        font-size: 70px;
-                    }
-                    @include mobileS{
-                        letter-spacing: 0;
-                        font-size: 60px;
-                    }
-                    &::after {
-                        content: '';
-                        position: absolute;
-                        left: 0;
-                        top: 60%;
-                        width: 120px;
-                        height: 120px;
-                        background-image: url("../logo-svg/logo.svg");
-                        transform: translateX(-100%) translateY(-50%) ;
-                        transition: 0.2s;
-                        // display: none;
-                        
-                    }
-                    &::before {
-                        content: '';
-                        position: absolute;
-                        width:0;
-                        height: 10px;
-                        background-color: #ccc;
-                        bottom: 10px;
-                        left: 0;
-                        transition: 0.3s;
-                    } 
-                    &:hover {
-                        transform: translateY(-5px) translateX(140px) ;
-                        color: #000;
-                        &::after {
-                            // display: inline-block;
-                        }
-                        @include mobileS {
-                            transform: translateY(-5px) translateX(0) ;
-                        }
-                    }
-                    &:hover::before{
-                        width: 100%;
-                        background-color: #000;
-                    }
-                }
-                .navBarSubBanner {
-                    position: absolute;
-                    right: 10%;
-                    bottom: 10%;
-                    -webkit-writing-mode: vertical-lr;
-                    writing-mode: vertical-lr ;
-                    -webkit-text-stroke: 1px #222;
-                    color: rgba(255, 255, 255, 0);
-                    // background-color: #0f0084;
-                    font-size: 200px;
-                    font-weight: 700;
-                    text-align: end;
-                    padding-top: 20px;
-                    @include mobile {
-                        font-size: 160px;
-                    }
-                    @include mobileS{
-                        font-size: 120px;
-                        right: 0; 
-                    }
-                }
-            }
-            .shopList {
-                overflow: scroll;
-                transition: 0.3s;
-                position: absolute;
-                top: 0;
-                right: 0;
-                width: 0;
-                min-height: 100dvh;
-                background-color: #ccc;
-                @include flexbox(column, start,center);
-               
-                .closeShopListBtn {
-                    position: absolute;
-                    top: 10px;
-                    right: 10px;
-                    transition: 0.3s;
-                    color: #fff;
-                    background-color: #000;
-                    text-align: end;
-                    font-size: 30px;
-                    display: inline-block;
-                    cursor: pointer;
-                    padding: 0 3px;
-                    &:hover {
-                        color: #000;
-                        background-color: #fff;
-                    }
-                }
-                .shopListItems {
-                    @include flexbox(column, start, center);
-                    width: 100%;
-                    min-height: 300px;
-                    border-bottom: 5px dashed #aaa;
-                    padding-bottom: 30px;
-                    .stillEmpty {
-                        color: #ddd;
-                        font-size: 50px;
-                        padding: 20px;
-                    }
-                    .shopListItem{
-                        width: 80%;
-                        height: 150px;
-                        @include flexbox(row, space-between, center);
-                        padding: 10px;
-                        position: relative;
-                        .deletePostBtn{
-                            @extend %updatePostBtn;
-                            position: absolute;
-                            left: -30px;
-
-                            >p {
-                                width: 30px;
-                                height: 30px;
-                            }
-                        }
-                        .shopListItemImg {
-                            padding: 10px;
-                            height: 100%;
-                            aspect-ratio: 1/1;
-                            >img{
-                                width: 100%;
-                                height: 100%;
-                            }
-                        }
-                        .shopListItemTitleAndPrice {
-                            @include flexbox(column, space-between ,center);
-                            width: 100%;
-                            height: 100%;
-                            padding: 10px;
-                            >p {
-                                display: inline-block;
-                                font-size: 14px;
-                                padding: 10px 10px;
-                            }
-                            .shopListItemTitle {
-                                font-size: 20px;
-                                padding: 10px;
-                                text-align: center;
-                                color: #eee;
-                                background-color: #000;
-                                @include mobile {
-                                    font-size: 14px;
-                                    margin-bottom:10px; 
-                                }
-                            }
-                        }
-                    }
-                }
-                .orderTotal {
-                    text-align: center;
-                    padding: 10px;
-                    font-size: 20px;
-                    width: 100%;
-                }
-                .checkoutBtn {
-                    @extend %submitBtn2;
-                    background-color: #eee;
-                    text-align: center;
-                    padding: 10px;
-                    width: 100%;
-                }
-            }
+          }
         }
+      }
     }
-    .padSearchBar{
-        @include flexbox(row, start, center);
-        display:none;
-        width: 100%;
-        background-color: #eeeeeeee;
-        backdrop-filter: blur(1px);
+    .flexEnd {
+      @include flexbox(row, space-between, center);
+      .searchBar {
+        background-color: rgba(255, 255, 255, 0);
+        @include flexbox(row, center, center);
         @include pad {
-            display: flex;
+          display: none;
         }
-        border-bottom: 1px solid #ccc; 
-        .searchlogo{
-            margin: 0 10px;
-            width:32px;
-            img{
-                width:100%;
-                height: 100%;
-            }
+        border-bottom: 5px solid #000;
+        .searchlogo {
+          width: 30px;
+          img {
+            width: 100%;
+            height: 100%;
+          }
         }
         input {
-            font-size: 17px;
+          width: 200px;
+          height: 30px;
+          padding: 15px;
+          border: none;
+          font-weight: 800;
+          background-color: rgba(255, 255, 255, 0);
+          &:focus {
+            outline: none;
+          }
+        }
+      }
+      .menuBtn {
+        border: 5px solid #bbb;
+        border-radius: 20px;
+        padding: 15px;
+        cursor: pointer;
+        transition: 0.3s;
+        margin-left: 20px;
+        color: #bbb;
+        &:hover {
+          transform: translateY(-5%);
+          color: #000;
+          border: 5px solid #000;
+        }
+      }
+      .shoppingCartDiv {
+        position: relative;
+        @extend .menuBtn;
+        height: 60px;
+        cursor: pointer;
+        .shoppingCart {
+          width: 26px;
+          height: 26px;
+          cursor: pointer;
+        }
+        .addItems {
+          background-color: #000;
+          height: 35px;
+          width: 35px;
+          border-radius: 50%;
+          color: #fff;
+          top: -5px;
+          left: -10px;
+          position: absolute;
+          text-align: center;
+          line-height: 35px;
+        }
+      }
+      .navBarList {
+        //背景圖
+        &::before {
+          content: "";
+          background-size: cover;
+          background-position: center;
+          background-image: url("../svg/pexels-icon-com-479444.jpg");
+          filter: brightness(90%);
+          height: 100%;
+          width: 100%;
+          opacity: 0.7;
+          position: absolute;
+          top: 0;
+          right: 0;
+        }
+        @include flexbox(column, center, start);
+        overflow: hidden;
+        width: 100dvw;
+        height: 100dvh;
+        transform: translateX(100%);
+        position: fixed;
+        top: 0;
+        right: 0;
+        z-index: 999;
+        background-color: #ccc;
+        transition: 0.3s;
+        .navBarListBanner {
+          @include flexbox(row, space-between, center);
+          position: absolute;
+          top: 0;
+          width: 100dvw;
+          .navBarListBannerLogo {
+            color: #eee;
+            display: inline-block;
+            top: 1.2rem;
+            line-height: 60px;
+            font-size: 70px;
+            font-weight: 800;
+            padding: 0 20px;
+            transition: 0.3s;
+            @include mobileS {
+              letter-spacing: 0px;
+            }
+          }
+          .navBarListClose {
+            padding: 0 20px;
+            font-size: 60px;
+            font-weight: 800;
+            display: inline-block;
+            cursor: pointer;
+            color: #fff;
+            transition: 0.2s;
+            &:hover {
+              color: #000;
+            }
+          }
+        }
+        .navBarListOption {
+          text-decoration: none;
+          // color: #eee;
+          transition: 0.35s;
+          position: relative;
+          padding: 10px;
+          text-wrap: nowrap;
+          font-size: 80px;
+          font-weight: 800;
+          -webkit-text-stroke: 0.5px #aaa;
+          z-index: 10;
+          letter-spacing: 20px;
+          @include pad {
+            font-size: 80px;
+            letter-spacing: 10px;
+          }
+          @include mobile {
+            font-size: 70px;
+          }
+          @include mobileS {
+            letter-spacing: 0;
+            font-size: 60px;
+          }
+          &::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 60%;
+            width: 120px;
+            height: 120px;
+            background-image: url("../logo-svg/logo.svg");
+            transform: translateX(-100%) translateY(-50%);
+            transition: 0.2s;
+            // display: none;
+          }
+          &::before {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 10px;
+            background-color: #ccc;
+            bottom: 10px;
+            left: 0;
+            transition: 0.3s;
+          }
+          &:hover {
+            transform: translateY(-5px) translateX(140px);
+            color: #000;
+            // &::after {
+            //     // display: inline-block;
+            // }
+            @include mobileS {
+              transform: translateY(-5px) translateX(0);
+            }
+          }
+          &:hover::before {
             width: 100%;
-            height: 40px;
-            padding:15px;
-            border: none;
-            background-color: rgba(255, 255, 255, 0);
-            &:focus{
-                outline: none;
-            }
+            background-color: #000;
+          }
         }
-        
-    }
-    .categoryList {
-        @include flexbox(row, center, center);
-        list-style: none;
-        width: 100%;
-        padding: 20px 10%;
-        border-bottom: 1px #ccc solid;
-        background-color: #eeeeeeee;
-        backdrop-filter: blur(1px);
+        .navBarSubBanner {
+          position: absolute;
+          right: 10%;
+          bottom: 10%;
+          -webkit-writing-mode: vertical-lr;
+          writing-mode: vertical-lr;
+          -webkit-text-stroke: 1px #222;
+          color: rgba(255, 255, 255, 0);
+          // background-color: #0f0084;
+          font-size: 200px;
+          font-weight: 700;
+          text-align: end;
+          padding-top: 20px;
+          @include mobile {
+            font-size: 160px;
+          }
+          @include mobileS {
+            font-size: 120px;
+            right: 0;
+          }
+        }
+      }
+      .shopList {
         overflow: scroll;
-        @include mobileS {
-            padding: 20px 0;
-            @include flexbox(row, center, center);
+        transition: 0.3s;
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 0;
+        min-height: 100dvh;
+        background-color: #ccc;
+        @include flexbox(column, start, center);
+
+        .closeShopListBtn {
+          position: absolute;
+          top: 10px;
+          right: 10px;
+          transition: 0.3s;
+          color: #fff;
+          background-color: #000;
+          text-align: end;
+          font-size: 30px;
+          display: inline-block;
+          cursor: pointer;
+          padding: 0 3px;
+          &:hover {
+            color: #000;
+            background-color: #fff;
+          }
         }
-        a {
-            text-decoration: none;
-            li {
-                margin: 0 30px;
-                line-height: 30px;
-                cursor: pointer;
-                font-weight: 800;
-                font-size: 26px;
-                transition: 0.2s;
-                position: relative;
-                padding: 0 30px;
-                color: #bbb;
-                &::after {
-                    content: '';
-                    position: absolute;
-                    left: 50%;
-                    top: 50%;
-                    width: 70px;
-                    height: 50px;
-                    background-image: url("../svg/—Pngtree—hand\ drawn\ coil\ circle\ doodle_5780052.png");
-                    background-repeat: no-repeat;
-                    background-size: contain;
-                    transform: translateX(-50%) translateY(-50%);
-                    display: none;
-                }
-                &:hover {
-                    color: #000;
-                    transform: scale(1.1);
-                    &::after{
-                        display: inline-block;
-                    }
-                }
-                @include mobileS {
-                    // padding: 0 10px;
-                    font-size: 22px;
-                    padding: 0 ;
-                }
+        .shopListItems {
+          @include flexbox(column, start, center);
+          width: 100%;
+          height: 550px;
+          border: 5px dashed #aaa;
+          padding-bottom: 30px;
+          overflow: scroll;
+          .stillEmpty {
+            color: #ddd;
+            font-size: 50px;
+            padding: 20px;
+          }
+          .shopListItem {
+            width: 80%;
+            height: 150px;
+            @include flexbox(row, space-between, center);
+            padding: 10px;
+            position: relative;
+            .deletePostBtn {
+              @extend %updatePostBtn;
+              position: absolute;
+              left: -30px;
+              background-color: #000;
+
+              > p {
+                width: 30px;
+                height: 30px;
+              }
             }
+            .shopListItemImg {
+              padding: 10px;
+              height: 100%;
+              aspect-ratio: 1/1;
+              > img {
+                width: 100%;
+                height: 100%;
+              }
+            }
+            .shopListItemTitleAndPrice {
+              @include flexbox(column, space-between, center);
+              width: 100%;
+              height: 100%;
+              padding: 10px;
+              > p {
+                display: inline-block;
+                font-size: 14px;
+                padding: 10px 10px;
+              }
+              .shopListItemTitle {
+                font-size: 20px;
+                padding: 10px;
+                text-align: center;
+                color: #eee;
+                background-color: #000;
+                @include mobile {
+                  font-size: 14px;
+                  margin-bottom: 10px;
+                }
+              }
+            }
+          }
         }
+        .orderTotal {
+          text-align: center;
+          padding: 10px;
+          font-size: 20px;
+          width: 100%;
+        }
+        .checkoutBtn {
+          @extend %submitBtn2;
+          background-color: #eee;
+          text-align: center;
+          padding: 10px;
+          width: 100%;
+        }
+      }
     }
+  }
+  .padSearchBar {
+    @include flexbox(row, start, center);
+    display: none;
+    width: 100%;
+    background-color: #eeeeeeee;
+    backdrop-filter: blur(1px);
+    @include pad {
+      display: flex;
+    }
+    border-bottom: 1px solid #ccc;
+    .searchlogo {
+      margin: 0 10px;
+      width: 32px;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+    input {
+      font-size: 17px;
+      width: 100%;
+      height: 40px;
+      padding: 15px;
+      border: none;
+      background-color: rgba(255, 255, 255, 0);
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+  .categoryList {
+    @include flexbox(row, center, center);
+    list-style: none;
+    width: 100%;
+    padding: 20px 10%;
+    border-bottom: 1px #ccc solid;
+    background-color: #eeeeeeee;
+    backdrop-filter: blur(1px);
+    overflow: scroll;
+    @include mobileS {
+      padding: 20px 0;
+      @include flexbox(row, center, center);
+    }
+    a {
+      text-decoration: none;
+      li {
+        margin: 0 30px;
+        line-height: 30px;
+        cursor: pointer;
+        font-weight: 800;
+        font-size: 26px;
+        transition: 0.2s;
+        position: relative;
+        padding: 0 30px;
+        color: #bbb;
+        &::after {
+          content: "";
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          width: 70px;
+          height: 50px;
+          background-image: url("../svg/—Pngtree—hand\ drawn\ coil\ circle\ doodle_5780052.png");
+          background-repeat: no-repeat;
+          background-size: contain;
+          transform: translateX(-50%) translateY(-50%);
+          display: none;
+        }
+        &:hover {
+          color: #000;
+          transform: scale(1.1);
+          &::after {
+            display: inline-block;
+          }
+        }
+        @include mobileS {
+          // padding: 0 10px;
+          font-size: 22px;
+          padding: 0;
+        }
+      }
+    }
+  }
 }
 .shrinkNavSection {
-    transition: 1s;
-    transform: translateY(-100%);
+  transition: 1s;
+  transform: translateY(-100%);
 }

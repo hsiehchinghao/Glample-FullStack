@@ -9,6 +9,7 @@ const upload = require("./config/multer");
 const passport = require("passport");
 const authRoute = require("./routes").auth; //指定資料夾：自動指向資料夾內的index檔案
 const postRoute = require("./routes").post;
+const shopRoute = require("./routes").shop;
 const accountSettingRoute = require("./routes/index").accountSetting;
 const visitorsRoute = require("./routes").visitors;
 const path = require("path");
@@ -56,6 +57,13 @@ app.use(
     session: false,
   }),
   postRoute
+);
+
+//購物
+app.use(
+  "/api/shop",
+  passport.authenticate("jwt", { session: false }),
+  shopRoute
 );
 
 //一般遊客 不需jwt相關驗證

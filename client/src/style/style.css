@@ -2,7 +2,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Arimo&family=Public+Sans:wght@400;800&family=Sora&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@700&display=swap");
-.addProductPage > .addPostPage .addPostAndRender .previewPostBtn, .productPage .productContent .addToCart, .signUpPage .signUpForm .submitBtn, .loginComponent .loginForm .submitBtn, .navSection .navBar .flexEnd .shopList .checkoutBtn, .addPostPage .addPostAndRender .submitPost, .addPostPage .addPostAndRender .previewBtn {
+.confirmOrderPage .confirmOrderForm .checkoutDataBtn, .addProductPage > .addPostPage .addPostAndRender .previewPostBtn, .productPage .productContent .addToCart, .signUpPage .signUpForm .submitBtn, .loginComponent .loginForm .submitBtn, .navSection .navBar .flexEnd .shopList .checkoutBtn, .addPostPage .addPostAndRender .submitPost, .addPostPage .addPostAndRender .previewBtn {
   max-width: 200px;
   width: 60%;
   margin: 40px;
@@ -16,23 +16,23 @@
   cursor: pointer;
   border-radius: 20px;
 }
-.addProductPage > .addPostPage .addPostAndRender .previewPostBtn:hover, .productPage .productContent .addToCart:hover, .signUpPage .signUpForm .submitBtn:hover, .loginComponent .loginForm .submitBtn:hover, .navSection .navBar .flexEnd .shopList .checkoutBtn:hover, .addPostPage .addPostAndRender .submitPost:hover, .addPostPage .addPostAndRender .previewBtn:hover {
+.confirmOrderPage .confirmOrderForm .checkoutDataBtn:hover, .addProductPage > .addPostPage .addPostAndRender .previewPostBtn:hover, .productPage .productContent .addToCart:hover, .signUpPage .signUpForm .submitBtn:hover, .loginComponent .loginForm .submitBtn:hover, .navSection .navBar .flexEnd .shopList .checkoutBtn:hover, .addPostPage .addPostAndRender .submitPost:hover, .addPostPage .addPostAndRender .previewBtn:hover {
   transform: translateY(-10%);
   box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.5);
   background-color: #ddd;
 }
-.addProductPage > .addPostPage .addPostAndRender .previewPostBtn:active, .productPage .productContent .addToCart:active, .signUpPage .signUpForm .submitBtn:active, .loginComponent .loginForm .submitBtn:active, .navSection .navBar .flexEnd .shopList .checkoutBtn:active, .addPostPage .addPostAndRender .submitPost:active, .addPostPage .addPostAndRender .previewBtn:active {
+.confirmOrderPage .confirmOrderForm .checkoutDataBtn:active, .addProductPage > .addPostPage .addPostAndRender .previewPostBtn:active, .productPage .productContent .addToCart:active, .signUpPage .signUpForm .submitBtn:active, .loginComponent .loginForm .submitBtn:active, .navSection .navBar .flexEnd .shopList .checkoutBtn:active, .addPostPage .addPostAndRender .submitPost:active, .addPostPage .addPostAndRender .previewBtn:active {
   transform: translateY(0%);
   box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.5);
 }
 
-.productPage, .productListPage, .signUpPage, .profile, .loginComponent, .addProductPage > .addPostPage, .addPostPage, .addProductPage .errorPage, .errorPage {
+.doubleCheckPage, .confirmOrderPage, .productPage, .productListPage, .signUpPage, .profile, .loginComponent, .addProductPage > .addPostPage, .addPostPage, .error, .addProductPage .errorPage, .errorPage {
   width: 95dvw;
   padding-top: 150px;
   padding-bottom: 100px;
 }
 @media (max-width: 850px) {
-  .productPage, .productListPage, .signUpPage, .profile, .loginComponent, .addProductPage > .addPostPage, .addPostPage, .addProductPage .errorPage, .errorPage {
+  .doubleCheckPage, .confirmOrderPage, .productPage, .productListPage, .signUpPage, .profile, .loginComponent, .addProductPage > .addPostPage, .addPostPage, .error, .addProductPage .errorPage, .errorPage {
     padding-top: 190px;
   }
 }
@@ -141,7 +141,7 @@
   }
 }
 
-.addProductPage .errorPage, .errorPage {
+.error, .addProductPage .errorPage, .errorPage {
   min-height: 80dvh;
   display: flex;
   flex-direction: column;
@@ -725,9 +725,10 @@
   justify-content: start;
   align-items: center;
   width: 100%;
-  min-height: 300px;
-  border-bottom: 5px dashed #aaa;
+  height: 550px;
+  border: 5px dashed #aaa;
   padding-bottom: 30px;
+  overflow: scroll;
 }
 .navSection .navBar .flexEnd .shopList .shopListItems .stillEmpty {
   color: #ddd;
@@ -747,6 +748,7 @@
 .navSection .navBar .flexEnd .shopList .shopListItems .shopListItem .deletePostBtn {
   position: absolute;
   left: -30px;
+  background-color: #000;
 }
 .navSection .navBar .flexEnd .shopList .shopListItems .shopListItem .deletePostBtn > p {
   width: 30px;
@@ -2531,4 +2533,247 @@
     padding: 20px 0 20px 20px;
     text-align: center;
   }
+}
+.confirmOrderPage {
+  min-height: 100dvh;
+  background-image: linear-gradient(to bottom, #666, #eee);
+}
+.confirmOrderPage .confirmOrderTitle {
+  width: 100%;
+  text-align: center;
+  line-height: 60px;
+  color: #eee;
+}
+.confirmOrderPage .errorMsg {
+  background-color: #333;
+  color: #ccc;
+  font-weight: 800;
+  padding: 16px;
+}
+.confirmOrderPage .confirmOrderForm {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+  min-height: 500px;
+}
+.confirmOrderPage .confirmOrderForm .emailAndAccount {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  min-height: 200px;
+}
+@media (max-width: 650px) {
+  .confirmOrderPage .confirmOrderForm .emailAndAccount {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+.confirmOrderPage .confirmOrderForm .emailAndAccount .userName, .confirmOrderPage .confirmOrderForm .emailAndAccount .mail {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: start;
+  padding: 20px;
+  width: 80%;
+}
+@media (max-width: 650px) {
+  .confirmOrderPage .confirmOrderForm .emailAndAccount .userName, .confirmOrderPage .confirmOrderForm .emailAndAccount .mail {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+}
+.confirmOrderPage .confirmOrderForm .emailAndAccount .userName > label, .confirmOrderPage .confirmOrderForm .emailAndAccount .mail > label {
+  color: #eee;
+  font-size: 20px;
+  line-height: 100px;
+}
+@media (max-width: 650px) {
+  .confirmOrderPage .confirmOrderForm .emailAndAccount .userName > label, .confirmOrderPage .confirmOrderForm .emailAndAccount .mail > label {
+    line-height: 60px;
+    font-size: 16px;
+  }
+}
+.confirmOrderPage .confirmOrderForm .emailAndAccount .userName > input, .confirmOrderPage .confirmOrderForm .emailAndAccount .mail > input {
+  text-align: center;
+  width: 80%;
+  max-width: 600px;
+  height: 26px;
+  padding: 15px;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  background: rgba(0, 0, 0, 0);
+  font-size: 22px;
+}
+.confirmOrderPage .confirmOrderForm .emailAndAccount .userName > input:disabled, .confirmOrderPage .confirmOrderForm .emailAndAccount .mail > input:disabled {
+  color: #ccc;
+}
+@media (max-width: 650px) {
+  .confirmOrderPage .confirmOrderForm .emailAndAccount .userName > input, .confirmOrderPage .confirmOrderForm .emailAndAccount .mail > input {
+    font-size: 18px;
+  }
+}
+.confirmOrderPage .confirmOrderForm .realNameAndPhone {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  min-height: 200px;
+}
+@media (max-width: 650px) {
+  .confirmOrderPage .confirmOrderForm .realNameAndPhone {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+.confirmOrderPage .confirmOrderForm .realNameAndPhone .realName, .confirmOrderPage .confirmOrderForm .realNameAndPhone .phone {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: start;
+  padding: 20px;
+  width: 80%;
+}
+@media (max-width: 650px) {
+  .confirmOrderPage .confirmOrderForm .realNameAndPhone .realName, .confirmOrderPage .confirmOrderForm .realNameAndPhone .phone {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+}
+.confirmOrderPage .confirmOrderForm .realNameAndPhone .realName > label, .confirmOrderPage .confirmOrderForm .realNameAndPhone .phone > label {
+  color: #eee;
+  font-size: 20px;
+  line-height: 100px;
+}
+@media (max-width: 650px) {
+  .confirmOrderPage .confirmOrderForm .realNameAndPhone .realName > label, .confirmOrderPage .confirmOrderForm .realNameAndPhone .phone > label {
+    line-height: 60px;
+    font-size: 16px;
+  }
+}
+.confirmOrderPage .confirmOrderForm .realNameAndPhone .realName > input, .confirmOrderPage .confirmOrderForm .realNameAndPhone .phone > input {
+  text-align: center;
+  width: 80%;
+  max-width: 600px;
+  height: 26px;
+  padding: 15px;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  color: #eee;
+  background: rgba(0, 0, 0, 0);
+  font-size: 22px;
+}
+@media (max-width: 650px) {
+  .confirmOrderPage .confirmOrderForm .realNameAndPhone .realName > input, .confirmOrderPage .confirmOrderForm .realNameAndPhone .phone > input {
+    font-size: 18px;
+  }
+}
+.confirmOrderPage .confirmOrderForm .realNameAndPhone .phone input::-webkit-outer-spin-button,
+.confirmOrderPage .confirmOrderForm .realNameAndPhone .phone input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.confirmOrderPage .confirmOrderForm .realNameAndPhone .phone input[type=number] {
+  -moz-appearance: textfield;
+}
+.confirmOrderPage .confirmOrderForm .orderConfirmSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 500px;
+  margin-top: 50px;
+  overflow: scroll;
+}
+.confirmOrderPage .confirmOrderForm .orderConfirmSection > .shopItems {
+  background-image: url("../svg/pexels-monstera-production-7794440.jpg");
+  background-size: contain;
+  background-position: center;
+  width: 100%;
+  height: 80%;
+  padding: 20px;
+  overflow: scroll;
+  border: 5px solid #000;
+  border-radius: 30px;
+}
+.confirmOrderPage .confirmOrderForm .orderConfirmSection > .shopItems .perItem {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+  min-height: 150px;
+  margin-top: 30px;
+}
+.confirmOrderPage .confirmOrderForm .orderConfirmSection > .shopItems .perItem .perItemInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 40%;
+  height: 100%;
+}
+@media (max-width: 650px) {
+  .confirmOrderPage .confirmOrderForm .orderConfirmSection > .shopItems .perItem .perItemInfo {
+    width: 80%;
+  }
+}
+.confirmOrderPage .confirmOrderForm .orderConfirmSection > .shopItems .perItem .perItemInfo > p {
+  font-size: 28px;
+}
+@media (max-width: 650px) {
+  .confirmOrderPage .confirmOrderForm .orderConfirmSection > .shopItems .perItem .perItemInfo > p {
+    font-size: 20px;
+  }
+}
+.confirmOrderPage .confirmOrderForm .orderConfirmSection > .shopItems .perItem .perItemCover {
+  height: 150px;
+  aspect-ratio: 1/1;
+}
+@media (max-width: 650px) {
+  .confirmOrderPage .confirmOrderForm .orderConfirmSection > .shopItems .perItem .perItemCover {
+    margin-top: 30px;
+  }
+}
+.confirmOrderPage .confirmOrderForm .orderConfirmSection > .shopItems .perItem .perItemCover > img {
+  width: 100%;
+  height: 100%;
+}
+@media (max-width: 650px) {
+  .confirmOrderPage .confirmOrderForm .orderConfirmSection > .shopItems .perItem {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+}
+.confirmOrderPage .confirmOrderForm .orderConfirmSection > .totalPrice {
+  width: 100%;
+  font-size: 30px;
+  line-height: 100px;
+  text-align: end;
+}
+.confirmOrderPage .confirmOrderForm .checkoutDataBtn {
+  text-align: center;
+  border: 1px solid #aaa;
+}
+
+.doubleCheckPage {
+  min-height: 80dvh;
 }/*# sourceMappingURL=style.css.map */

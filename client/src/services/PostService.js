@@ -156,7 +156,7 @@ class PostService {
       return null;
     }
   }
-  //清除localStorage內容
+  //清除localStorage購物車內容
   removeShoppingCartItem(_id) {
     let totalOrder = JSON.parse(localStorage.getItem("orderList"));
     let totalPrice = JSON.parse(localStorage.getItem("orderTotal"));
@@ -180,6 +180,24 @@ class PostService {
       }
     }
   }
+
+  //提交訂單到server
+  // submitOrder(account, mail, name, phone) {
+  //   let token;
+  //   if (localStorage.getItem("token")) {
+  //     token = localStorage.getItem("token");
+  //     return axios.post(
+  //       API_URL + "/testCreateOrder",
+  //       {
+  //         account,
+  //         mail,
+  //         name,
+  //         phone,
+  //       },
+  //       { headers: { Authorization: token } }
+  //     );
+  //   }
+  // }
 }
 
 export default new PostService();

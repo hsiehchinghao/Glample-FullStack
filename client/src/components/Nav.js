@@ -150,6 +150,12 @@ const Nav = ({
     }
   };
 
+  //送出確認訂單
+  const handleSubmitShopList = (e) => {
+    shopListRef.current.style.width = "0";
+    navigate("/confirmOrder");
+  };
+
   //加載首頁
   const handleToHomePage = () => {
     navigate("/");
@@ -321,7 +327,9 @@ const Nav = ({
                   <div className="orderTotal">
                     Total Price : ${PostService.loadShoppingCart().price}NTD
                   </div>
-                  <div className="checkoutBtn">CHECKOUT!</div>
+                  <div className="checkoutBtn" onClick={handleSubmitShopList}>
+                    CHECKOUT!
+                  </div>
                 </>
               )}
             </div>

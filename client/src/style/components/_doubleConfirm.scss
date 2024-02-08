@@ -1,0 +1,6 @@
+@use "../abstract/variable" as *;
+
+.doubleCheckPage {
+  @extend %basicComponent;
+  min-height: 80dvh;
+}
