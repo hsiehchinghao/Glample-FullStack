@@ -1,53 +1,134 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
 
 const DoubleConfirm = ({ confirmOrder }) => {
+  const API_URL = "http://localhost:8081";
+  const orderDetails = JSON.parse(localStorage.getItem("orderDetails"));
   useEffect(() => {
-    console.log(confirmOrder);
+    window.scrollTo(0, 0);
+    if (localStorage.getItem("orderDetails")) {
+      console.log(JSON.parse(localStorage.getItem("orderDetails")));
+    }
   }, []);
-
-  const handleSubmit = async (e) => {
-    let prodDesc = "";
-    confirmOrder.order.orderList.map((item) => {
-      prodDesc += `${item._id},`;
-    });
-    let token = JSON.parse(localStorage.getItem("token"));
-    return await axios.post("https://ccore.newebpay.com/MPG/mpg_gateway", {
-      MerchantID: confirmOrder.MerchantID,
-      TradeInfo: confirmOrder.TradeInfo,
-      TradeSha: confirmOrder.TradeSha,
-      TimeStamp: confirmOrder.order.TimeStamp,
-      MerchantOrderNo: confirmOrder.order.MerchantOrderNo,
-      PayerEmail: confirmOrder.order.Email,
-    });
-  };
 
   return (
     <div className="doubleCheckPage">
-      DoubleConfirm
-      <form action="">
-        <input type="text" value={confirmOrder && confirmOrder.MerchantID} />
-        <input
-          type="text"
-          value={confirmOrder && confirmOrder.order.shaEncrypt}
-        />
-        <input
-          type="text"
-          value={confirmOrder && confirmOrder.order.aesEncrypt}
-        />
-        <input
-          type="text"
-          value={confirmOrder && confirmOrder.order.TimeStamp}
-        />
-        <input type="text" value={confirmOrder && confirmOrder.Version} />
-        <input type="text" value={confirmOrder && confirmOrder.NotifyUrl} />
-        <input type="text" value={confirmOrder && confirmOrder.ReturnUrl} />
-        <input type="text" value={confirmOrder && confirmOrder.order.orderNo} />
-        <input type="text" value={confirmOrder && confirmOrder.order.price} />
-        <input type="text" value={confirmOrder && confirmOrder.ReturnUrl} />
-      </form>
-      <button onClick={handleSubmit}>submit</button>
+      {localStorage.getItem("orderNo") ? (
+        <>
+          <h1 className="doubleConfirmTitle"> Double Confirm Your Order!</h1>
+          <div className="doubleConfirmOrderContent">
+            <div className="allItems">
+              <div className="orderData">
+                <p>
+                  Purchaser's Name:
+                  <br />
+                  {orderDetails && orderDetails.order.buyerName}
+                </p>
+                <p>
+                  Purchaser's Phone:
+                  <br />
+                  {orderDetails && orderDetails.order.buyerPhone}
+                </p>
+                <p>
+                  Ordered Items:
+                  <br />
+                  <div>
+                    {orderDetails &&
+                      orderDetails.order.orderList.map((item) => {
+                        return (
+                          <div
+                            className="productCover"
+                            style={{
+                              backgroundImage: `url(${API_URL}${item.image})`,
+                            }}
+                          >
+                            <p>
+                              {item.title}
+                              <br />${item.price}NTD
+                            </p>
+                          </div>
+                        );
+                      })}
+                  </div>
+                </p>
+                <p className="totalPriceReminder">
+                  Total:{"  "}${orderDetails && orderDetails.order.Amt}NTD
+                </p>
+              </div>
+            </div>
+          </div>
+          <form
+            className="dataForSubmit"
+            action="https://ccore.newebpay.com/MPG/mpg_gateway"
+            method="post"
+          >
+            <input
+              style={{ display: "none" }}
+              type="text"
+              name="MerchantID"
+              value={orderDetails && orderDetails.MerchantID}
+            />
+            <input
+              style={{ display: "none" }}
+              type="text"
+              name="TradeSha"
+              value={orderDetails && orderDetails.order.TradeSha}
+            />
+            <input
+              style={{ display: "none" }}
+              type="text"
+              name="TradeInfo"
+              value={orderDetails && orderDetails.order.TradeInfo}
+            />
+            <input
+              style={{ display: "none" }}
+              type="text"
+              name="TimeStamp"
+              value={orderDetails && orderDetails.order.TimeStamp}
+            />
+            <input
+              style={{ display: "none" }}
+              type="text"
+              name="Version"
+              value={orderDetails && orderDetails.Version}
+            />
+            <input
+              style={{ display: "none" }}
+              type="text"
+              name="NotifyUrl"
+              value={orderDetails && orderDetails.NotifyUrl}
+            />
+            <input
+              style={{ display: "none" }}
+              type="text"
+              name="ReturnUrl"
+              value={orderDetails && orderDetails.ReturnUrl}
+            />
+            <input
+              style={{ display: "none" }}
+              type="text"
+              name="MerchantOrderNo"
+              value={orderDetails && orderDetails.order.MerchantOrderNo}
+            />
+            <input
+              style={{ display: "none" }}
+              type="text"
+              name="Amt"
+              value={orderDetails && orderDetails.order.Amt}
+            />
+            <input
+              style={{ display: "none" }}
+              type="text"
+              value={orderDetails && orderDetails.ReturnUrl}
+            />
+            <button className="goNewebPay" type="submit">
+              PAY FOR IT!
+            </button>
+          </form>
+        </>
+      ) : (
+        <div className="error">There's No Order!</div>
+      )}
     </div>
   );
 };

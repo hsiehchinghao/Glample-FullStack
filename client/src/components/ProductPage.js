@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 
 const ProductPage = ({ shopItems, setShopItems, shopCount, setShopCount }) => {
+  const API_URL = "http://localhost:8081";
   const { id } = useParams();
   const [productData, setProductData] = useState(null);
   console.log(id);
@@ -50,7 +51,7 @@ const ProductPage = ({ shopItems, setShopItems, shopCount, setShopCount }) => {
   return (
     <div className="productPage">
       <div className="productCover">
-        <img src={productData && productData.image} alt="" />
+        <img src={productData && `${API_URL}${productData.image}`} alt="" />
       </div>
       <div className="productContent">
         {productData && (

@@ -43,7 +43,15 @@ function App() {
           >
             <Route index element={<Homepage />}></Route>
             <Route path="login" element={<Login />}></Route>
-            <Route path="profile" element={<Profile />}></Route>
+            <Route
+              path="profile"
+              element={
+                <Profile
+                  setShopItems={setShopItems}
+                  setShopCount={setShopCount}
+                />
+              }
+            ></Route>
             <Route path="register" element={<Register />}></Route>
             <Route path="post" element={<AddPost />}></Route>
             <Route path="editPost/:id" element={<Edit />}></Route>

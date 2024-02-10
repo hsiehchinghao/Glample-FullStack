@@ -9,7 +9,7 @@ import PostService from "../services/PostService";
 import AuthService from "../services/AuthService";
 
 const Edit = () => {
-  console.log(1);
+  const API_URL = "http://localhost:8081";
   Quill.register("modules/imageCompress", ImageCompress);
   Quill.register("modules/imageResize", ImageResize);
   const modules = {
@@ -71,7 +71,7 @@ const Edit = () => {
         titleRef.current.value = editPost.title;
         categoryRef.current.value = editPost.category;
         setPreview(() => {
-          return editPost.image;
+          return `${API_URL}${editPost.image}`;
         });
         setPostData(() => {
           return {

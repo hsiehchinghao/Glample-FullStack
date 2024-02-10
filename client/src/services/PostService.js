@@ -1,5 +1,6 @@
 import axios from "axios";
 const API_URL = "http://localhost:8081/api/post";
+//https://3fdf-106-1-228-240.ngrok-free.app
 const API_URL_VISITORS = "http://localhost:8081/api/visitors";
 
 class PostService {
@@ -180,24 +181,6 @@ class PostService {
       }
     }
   }
-
-  //提交訂單到server
-  // submitOrder(account, mail, name, phone) {
-  //   let token;
-  //   if (localStorage.getItem("token")) {
-  //     token = localStorage.getItem("token");
-  //     return axios.post(
-  //       API_URL + "/testCreateOrder",
-  //       {
-  //         account,
-  //         mail,
-  //         name,
-  //         phone,
-  //       },
-  //       { headers: { Authorization: token } }
-  //     );
-  //   }
-  // }
 }
 
 export default new PostService();

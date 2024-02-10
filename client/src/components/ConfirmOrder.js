@@ -4,9 +4,9 @@ import PostService from "../services/PostService";
 import ShopService from "../services/ShopService";
 
 const ConfirmOrder = ({ shopItems, setConfirmOrder }) => {
+  const API_URL = "http://localhost:8081";
   const navigate = useNavigate();
   const currentUser = useOutletContext().currentUser;
-  // console.log(currentUser);
   const phoneRef = useRef();
   const realNameRef = useRef();
 
@@ -14,26 +14,43 @@ const ConfirmOrder = ({ shopItems, setConfirmOrder }) => {
     window.scrollTo(0, 0);
   }, []);
   //Email, Amt, Itemdesc, _id, account, realName, phone, orderList
-  const handleSubmit = async (e) => {
-    let ItemDesc = "";
-    shopItems.map((i) => {
-      ItemDesc += `${i.title},`;
-    });
-    console.log(ItemDesc);
 
-    let result = await ShopService.createOrder(
-      currentUser.email,
-      JSON.parse(localStorage.getItem("orderTotal")),
-      ItemDesc,
-      currentUser._id,
-      currentUser.username,
-      realNameRef.current.value,
-      phoneRef.current.value,
-      JSON.parse(localStorage.getItem("orderList"))
-    );
-    console.log(result.data);
-    setConfirmOrder(result.data);
-    // navigate("/doubleConfirm");
+  const handleSubmit = async (e) => {
+    try {
+      //確認資料填妥才能提交!
+      if (realNameRef.current.value && phoneRef.current.value) {
+        //製作商品描述字串
+        let ItemDesc = "";
+        shopItems.map((i) => {
+          ItemDesc += `${i.title},`;
+        });
+        console.log(ItemDesc);
+        //新增訂單到資料庫
+        let result = await ShopService.createOrder(
+          currentUser.email,
+          JSON.parse(localStorage.getItem("orderTotal")),
+          ItemDesc,
+          currentUser._id,
+          currentUser.username,
+          realNameRef.current.value,
+          phoneRef.current.value,
+          JSON.parse(localStorage.getItem("orderList"))
+        );
+        console.log(result.data);
+        setConfirmOrder(result.data);
+        //將訂單編號set在 localStorage
+        localStorage.setItem(
+          "orderNo",
+          JSON.stringify(result.data.order.MerchantOrderNo)
+        );
+        localStorage.setItem("orderDetails", JSON.stringify(result.data));
+        navigate("/doubleConfirm");
+      } else {
+        alert("Please confirm the realname & phone first!");
+      }
+    } catch (e) {
+      console.log(e);
+    }
   };
 
   return (
@@ -79,7 +96,7 @@ const ConfirmOrder = ({ shopItems, setConfirmOrder }) => {
                           <p>${data.price}NTD</p>
                         </div>
                         <div className="perItemCover">
-                          <img src={data.image} alt="" />
+                          <img src={`${API_URL}${data.image}`} alt="" />
                         </div>
                       </div>
                     );

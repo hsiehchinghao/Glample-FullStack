@@ -23,6 +23,19 @@ class ShopService {
       });
     }
   }
+
+  //載入訂單
+  loadLatestOrder(_id, filter) {
+    let token;
+    if (localStorage.getItem("token")) {
+      token = JSON.parse(localStorage.getItem("token"));
+      return axios.get(API_URL + `/loadLatestOrder/${_id}/?orderNo=${filter}`, {
+        headers: { Authorization: token },
+      });
+    }
+  }
+
+  //轉址成功 載入訂單資訊
 }
 
 export default new ShopService();

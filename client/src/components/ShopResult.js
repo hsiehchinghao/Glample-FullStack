@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 const ShopResult = () => {
+  const API_URL = "http://localhost:8081";
   return <div>ShopResult</div>;
 };
 

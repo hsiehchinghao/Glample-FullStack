@@ -3,6 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import PostService from "../../services/PostService";
 
 const HomePagePopPostSection = () => {
+  const API_URL = "http://localhost:8081";
   const navigate = useNavigate();
   const [popTitle, setPopTitle] = useState(0);
   const [popPostData, setPopPostData] = useState(null);
@@ -12,7 +13,6 @@ const HomePagePopPostSection = () => {
     //載入最熱門文章
     PostService.loadPostByTopLikes()
       .then((result) => {
-        // console.log(result.data.result);
         setPopPostData(result.data.result);
       })
       .catch((e) => {
@@ -65,7 +65,7 @@ const HomePagePopPostSection = () => {
               <div
                 className="popPostCoverImg1"
                 style={{
-                  backgroundImage: `url(${popPostData[0].image})`,
+                  backgroundImage: `url(${API_URL}${popPostData[0].image})`,
                 }}
               ></div>
 
@@ -92,7 +92,7 @@ const HomePagePopPostSection = () => {
               <div
                 className="popPostCoverImg1"
                 style={{
-                  backgroundImage: `url(${popPostData[1].image})`,
+                  backgroundImage: `url(${API_URL}${popPostData[1].image})`,
                 }}
               ></div>
 
@@ -119,7 +119,7 @@ const HomePagePopPostSection = () => {
               <div
                 className="popPostCoverImg1"
                 style={{
-                  backgroundImage: `url(${popPostData[2].image})`,
+                  backgroundImage: `url(${API_URL}${popPostData[2].image})`,
                 }}
               ></div>
 
@@ -146,7 +146,7 @@ const HomePagePopPostSection = () => {
               <div
                 className="popPostCoverImg1"
                 style={{
-                  backgroundImage: `url(${popPostData[3].image})`,
+                  backgroundImage: `url(${API_URL}${popPostData[3].image})`,
                 }}
               ></div>
 
@@ -173,7 +173,7 @@ const HomePagePopPostSection = () => {
               <div
                 className="popPostCoverImg1"
                 style={{
-                  backgroundImage: `url(${popPostData[4].image})`,
+                  backgroundImage: `url(${API_URL}${popPostData[4].image})`,
                 }}
               ></div>
 
@@ -200,7 +200,7 @@ const HomePagePopPostSection = () => {
               <div
                 className="popPostCoverImg1"
                 style={{
-                  backgroundImage: `url(${popPostData[5].image})`,
+                  backgroundImage: `url(${API_URL}${popPostData[5].image})`,
                 }}
               ></div>
 
@@ -227,7 +227,7 @@ const HomePagePopPostSection = () => {
               <div
                 className="popPostCoverImg1"
                 style={{
-                  backgroundImage: `url(${popPostData[6].image})`,
+                  backgroundImage: `url(${API_URL}${popPostData[6].image})`,
                 }}
               ></div>
 
@@ -254,7 +254,7 @@ const HomePagePopPostSection = () => {
               <div
                 className="popPostCoverImg1"
                 style={{
-                  backgroundImage: `url(${popPostData[7].image})`,
+                  backgroundImage: `url(${API_URL}${popPostData[7].image})`,
                 }}
               ></div>
 

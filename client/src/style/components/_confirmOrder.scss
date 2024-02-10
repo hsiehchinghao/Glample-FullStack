@@ -133,7 +133,7 @@
         height: 80%;
         padding: 20px;
         overflow: scroll;
-        border: 5px solid #000;
+        border: 5px solid #222;
         border-radius: 30px;
         .perItem {
           @include flexbox(row, space-evenly, center);
@@ -174,8 +174,14 @@
       > .totalPrice {
         width: 100%;
         font-size: 30px;
-        line-height: 100px;
+        line-height: 60px;
         text-align: end;
+        text-decoration: underline;
+        background-color: #222;
+        color: #eee;
+        padding: 10px 45px;
+        margin-top: 20px;
+        border-radius: 40px;
       }
     }
     .checkoutDataBtn {

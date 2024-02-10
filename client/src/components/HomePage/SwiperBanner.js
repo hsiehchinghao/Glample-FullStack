@@ -16,6 +16,7 @@ import "swiper/css/pagination";
 import "swiper/css/autoplay";
 
 const SwiperBanner = forwardRef((props, bannerSectionRef) => {
+  const API_URL = "http://localhost:8081";
   const navigate = useNavigate();
   const [postData, setPostData] = useState([]);
   //   const bannerSectionRef = useRef(null);
@@ -80,7 +81,7 @@ const SwiperBanner = forwardRef((props, bannerSectionRef) => {
               <div
                 className="homePagePerBannerInfo"
                 style={{
-                  backgroundImage: `url(${data.image})`,
+                  backgroundImage: `url(${API_URL}${data.image})`,
                 }}
                 onClick={(e) => {
                   handleClick(data._id);

@@ -55,7 +55,7 @@ router.post("/addPost", upload.single("file"), async (req, res) => {
   let { title, category, content } = req.body;
   let authorname = req.user.username;
   let instructor_id = req.user._id;
-  let imagePath = req.file ? API_URL + `images/${req.file.filename}` : null;
+  let imagePath = req.file ? `/images/${req.file.filename}` : null;
 
   let { error } = postValidation.validate(req.body);
   if (error) {
@@ -95,7 +95,7 @@ router.patch("/editPost/:_id", upload.single("file"), async (req, res) => {
     console.log(req.body);
     console.log(req.file);
     if (req.file) {
-      let imgPath = API_URL + `images/${req.file.filename}`;
+      let imgPath = `/images/${req.file.filename}`;
       let updatePost = await Post.findOneAndUpdate(
         { _id },
         {
@@ -164,6 +164,7 @@ router.patch("/likePost/:_id", async (req, res) => {
     let user =
       (await User.findOne({ _id: user_id })) ||
       (await Instructor.findOne({ _id: user_id }));
+
     if (post.like.includes(user._id)) {
       console.log("already liked");
       if (user.role == "user") {
@@ -236,7 +237,7 @@ router.post("/addProduct", upload.single("file"), async (req, res) => {
       return res.status(400).send({ msg: "權限不足" });
     } else {
       let { title, price, stock, description } = req.body;
-      let imagePath = req.file ? API_URL + `images/${req.file.filename}` : null;
+      let imagePath = req.file ? `/images/${req.file.filename}` : null;
       let result = await new Product({
         title,
         price,
@@ -264,17 +265,5 @@ router.post("", async (req, res) => {});
 
 //刪除商品
 // router.delete();
-
-//新增訂單 /建立order訂單/product stock調整/user order資料陣列 push
-// router.post("/addOrder/:_id", async (req, res) => {
-//   let { error } = productValidation.validate(req.body);
-//   if (error) {
-//     let message = error.details[0].message;
-//     return res.status(404).send(message);
-//   }
-
-//   const { _id } = req.params;
-//   const {} = req.body;
-// });
 
 module.exports = router;

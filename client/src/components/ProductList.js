@@ -3,6 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import PostService from "../services/PostService";
 
 const ProductList = () => {
+  const API_URL = "http://localhost:8081";
   const navigate = useNavigate();
   const [product, setProduct] = useState(null);
 
@@ -26,9 +27,7 @@ const ProductList = () => {
   };
   return (
     <div className="productListPage">
-      <h1 className="productListPageTitle">
-        The physical is always enchanting.
-      </h1>
+      <h1 className="productListPageTitle">PHYSICAL IS ALWAYS ENCHAINTING.</h1>
       <div className="productListPageProducts">
         <div className="productListPageBackdrop">
           {product &&
@@ -37,7 +36,9 @@ const ProductList = () => {
                 <div className="productListPageProduct" key={data._id}>
                   <div className="productCover">
                     <div
-                      style={{ backgroundImage: `url(${data.image})` }}
+                      style={{
+                        backgroundImage: `url(${API_URL}${data.image})`,
+                      }}
                       onClick={() => {
                         handleClickToProduct(data._id);
                       }}

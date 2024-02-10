@@ -13,6 +13,8 @@ const shopRoute = require("./routes").shop;
 const accountSettingRoute = require("./routes/index").accountSetting;
 const visitorsRoute = require("./routes").visitors;
 const path = require("path");
+const Instructor = require("./models").instructor;
+const Post = require("./models").post;
 
 mongoose
   .connect(
@@ -60,11 +62,7 @@ app.use(
 );
 
 //購物
-app.use(
-  "/api/shop",
-  passport.authenticate("jwt", { session: false }),
-  shopRoute
-);
+app.use("/api/shop", shopRoute);
 
 //一般遊客 不需jwt相關驗證
 app.use("/api/visitors", visitorsRoute);

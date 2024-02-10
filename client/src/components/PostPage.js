@@ -7,6 +7,7 @@ import likeIcon from "../svg/icons8-like-64 2.png";
 import AuthService from "../services/AuthService";
 
 const PostPage = () => {
+  const API_URL = "http://localhost:8081";
   const navigate = useNavigate();
   const [postContent, setPostContent] = useState(null);
   const [error, setError] = useState(null);
@@ -94,28 +95,14 @@ const PostPage = () => {
           </div>
           <div
             className="postPageBanner"
-            style={{ backgroundImage: `url(${postContent.image})` }}
+            style={{ backgroundImage: `url(${API_URL}${postContent.image})` }}
           ></div>
           <div
             className="postPage"
-            style={{ backgroundImage: `url(${postContent.image})` }}
+            style={{ backgroundImage: `url(${API_URL}${postContent.image})` }}
           >
             <div className="postMain">
               <div className="postInfo">
-                {/* <div className="likeBtnPostPageSection">
-                  <div className="likeBtnPostPage" onClick={handleLike}>
-                    <div
-                      className={isLike ? "liked" : "likeBtnBar"}
-                      ref={likeScrollRef}
-                    >
-                      <img src={notLikeYetIcon} alt="likeIcon" />
-                      <img src={likeIcon} alt="likeIcon" />
-                    </div>
-                  </div>
-                  <div className={isLike ? `likedwords` : `likeWords`}>
-                    いいね！
-                  </div>
-                </div> */}
                 <h1 className="postTitle">{postContent.title}</h1>
                 <span className="postCategory">{postContent.category}</span>
                 <div className="postAutorAndPostDate" style={{ color: "#fff" }}>

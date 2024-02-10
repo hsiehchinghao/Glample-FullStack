@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import PostService from "../../services/PostService";
 
 const ProductBanner = () => {
+  const API_URL = "http://localhost:8081";
   const navigate = useNavigate();
   const [latestProduct, setLatestProduct] = useState(null);
   useEffect(() => {
@@ -35,7 +36,9 @@ const ProductBanner = () => {
         <div
           className="latestProduct"
           style={{
-            backgroundImage: `url(${latestProduct && latestProduct.image})`,
+            backgroundImage: `url(${API_URL}${
+              latestProduct && latestProduct.image
+            })`,
           }}
         >
           <p className="productTitle">{latestProduct && latestProduct.title}</p>

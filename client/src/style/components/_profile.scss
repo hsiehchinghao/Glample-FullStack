@@ -1,161 +1,234 @@
 @use "../abstract/variable" as *;
 
 .profile {
-    @include flexbox(column, start, center);
-    @extend %basicComponent;
-    padding-top: 0;
-    background-image: url("../svg/patrick-pankalla-wpOnFM9hjNI-unsplash.jpg");
-    color: #fff;
-    >div {
-        width:100%;
-        .accountSettingSection {
-            .profileHeader {
-                padding-top: $normalTop;
-                line-height: 100px;
-                background-color: rgba(0,0,0,0.5);
-                text-align: center;
-                @include pad {
-                    padding-top: $shrinkTop;
-                }
-            }
-        }
+  @include flexbox(column, space-between, center);
+  @extend %basicComponent;
+  padding-top: 0;
+  padding-bottom: 0;
+  background-image: url("../svg/patrick-pankalla-wpOnFM9hjNI-unsplash.jpg");
+  background-size: contain;
+  color: #fff;
 
-        .allInstructorPost{
-            @include flexbox(column, center, center);
-            width: 100%;
-            background-color: rgba(0,0,0,0.5);
-            margin-bottom: 100px;
-            .instructorPostTitle {
-                color: #fff;
-                font-size: 36px;
-                background-color: rgba(204, 204, 204,0.7);
-                width: 100%;
-                text-align: center;
-                line-height: 50px;
-                border-radius: 30px 30px 0 0;
-            }
-            .loadInstructorPostSection {
-                width:100%;
-                @include flexbox(row, center, center);
-                flex-wrap: wrap;
-                .perPost {
-                    @include flexbox(column, center, center);
-                    background-size: cover;      
-                    background-position: center;     
-                    color: #fff;
-                    width: calc(100%/3);
-                    height: 200px;
-                    transition:0.2s;
-                    background-color: rgba(100, 100, 100, 0.6);
-                    &:hover {
-                        transform: translateY(-5%) scale(1.1);
-                        background-color: rgba(255,255,255,0);
-                        border-radius: 30px;
-                    }
-                    @include mobileS {
-                        width: 50%;
-                    }
-                    .perPostData {
-                        @include flexbox(column, space-around, center);
-                        position: relative;
-                        width:100%;
-                        height:100%;
-                        backdrop-filter: blur(2px);
-                        color:#fff;
-                        font-weight: 800;
-                        cursor: pointer;
-                        padding: 10px;
-                        text-align: center;
-                        transition: 0.2s;
-                        &:hover {
-                            backdrop-filter: blur(0);
-                            -webkit-text-stroke: #000;
-                        }
-                        .editBtn {
-                            width: 100%;
-                            @include flexbox(row, end, center);
-                            bottom: 10px;
-                            padding: 0 10px;
-                            .updatePostBtn {
-                               @extend %updatePostBtn;
-                            }
-                            .deletePostBtn {
-                                @extend .updatePostBtn;
-                                margin-right: 0;
-                                img {
-                                    width: 23px;
-                                    height: 23px;
-                                    @include mobileS {
-                                        width: 18px;
-                                        height: 18px;   
-                                    }
-                                }
-                            }  
-                        } 
-                    }
-                    
-                }
-            }
+  > div {
+    width: 100%;
+    backdrop-filter: blur(2px) brightness(80%);
+    .accountSettingSection {
+      .profileHeader {
+        padding-top: $normalTop;
+        line-height: 100px;
+        // background-color: rgba(0, 0, 0, 0.5);
+        text-align: center;
+        @include pad {
+          padding-top: $shrinkTop;
         }
-        .allLikesPosts {
-            @include flexbox(column, center, center);
-            width: 100%;
-            background-color: rgba(0,0,0,0.5);
-            .likePostTitle {
-                color: #fff;
-                font-size: 36px;
-                background-color: rgba(204, 204, 204,0.7);
-                width: 100%;
-                text-align: center;
-                line-height: 50px;
-                border-radius: 30px 30px 0 0;
-            }
-            .loadLikePostSection {
-                min-height: 500px;
-                background-color: rgba(0,0,0,0.5);
-                width:100%;
-                @include flexbox(row, center, center);
-                flex-wrap: wrap;
-                .perLikePost {
-                    @include flexbox(column, center, center);
-                    background-size: cover;      
-                    background-position: center;     
-                    color: #fff;
-                    width: calc(100%/3);
-                    height: 200px;
-                    transition:0.2s;
-                    background-color: rgba(100, 100, 100, 0.6);
-                    &:hover {
-                        transform: translateY(-5%) scale(1.1);
-                        background-color: rgba(255,255,255,0);
-                        border-radius: 30px;
-                    }
-                    @include mobileS {
-                        width: 50%;
-                    }
-                    .perLikePostData {
-                        @include flexbox(column, center, center);
-                        width:100%;
-                        height:100%;
-                        backdrop-filter: blur(2px);
-                        color:#fff;
-                        font-weight: 800;
-                        cursor: pointer;
-                        padding: 10px;
-                        text-align: center;
-                        transition: 0.2s;
-                        &:hover {
-                            backdrop-filter: blur(0);
-                            // color: rgba(0,0,0);
-                        }
-                    }
-                    
-                }
-            }
-        }
+      }
     }
-    
-    
-    
-     
+
+    .allInstructorPost {
+      @include flexbox(column, center, center);
+      width: 100%;
+      margin-bottom: 100px;
+      .instructorPostTitle {
+        color: #eee;
+        font-size: 36px;
+        background-color: rgba(180, 180, 180, 0.7);
+        border: 1px #000 solid;
+        width: 100%;
+        text-align: center;
+        line-height: 50px;
+        border-radius: 30px 30px 0 0;
+        @include mobile {
+          font-size: 28px;
+        }
+      }
+      .loadInstructorPostSection {
+        background-color: rgba(180, 180, 180, 0.7);
+        width: 100%;
+        @include flexbox(row, center, center);
+        flex-wrap: wrap;
+        .perPost {
+          @include flexbox(column, center, center);
+          background-size: cover;
+          background-position: center;
+          color: #fff;
+          width: calc(100% / 3);
+          height: 200px;
+          transition: 0.2s;
+          background-color: rgba(100, 100, 100, 0.6);
+          &:hover {
+            transform: translateY(-5%) scale(1.1);
+            background-color: rgba(255, 255, 255, 0);
+            border-radius: 30px;
+          }
+          @include mobileS {
+            width: 50%;
+          }
+          .perPostData {
+            @include flexbox(column, space-around, center);
+            position: relative;
+            width: 100%;
+            height: 100%;
+            backdrop-filter: brightness(80%) blur(2px);
+            color: #fff;
+            font-weight: 800;
+            cursor: pointer;
+            padding: 10px;
+            text-align: center;
+            transition: 0.2s;
+            &:hover {
+              backdrop-filter: brightness(100%) blur(0);
+              -webkit-text-stroke: #000;
+            }
+            .editBtn {
+              width: 100%;
+              @include flexbox(row, end, center);
+              bottom: 10px;
+              padding: 0 10px;
+              .updatePostBtn {
+                @extend %updatePostBtn;
+              }
+              .deletePostBtn {
+                @extend .updatePostBtn;
+                margin-right: 0;
+                img {
+                  width: 23px;
+                  height: 23px;
+                  @include mobileS {
+                    width: 18px;
+                    height: 18px;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    .allLikesPosts {
+      @include flexbox(column, center, center);
+      width: 100%;
+      margin-bottom: 100px;
+      .likePostTitle {
+        color: #fff;
+        font-size: 36px;
+        background-color: rgba(180, 180, 180, 0.7);
+        border: 1px #000 solid;
+        width: 100%;
+        text-align: center;
+        line-height: 50px;
+        border-radius: 30px 30px 0 0;
+        padding: 0 10px;
+        @include mobile {
+          font-size: 28px;
+        }
+      }
+      .loadLikePostSection {
+        min-height: 500px;
+        background-color: rgba(180, 180, 180, 0.7);
+        width: 100%;
+        @include flexbox(row, center, center);
+        flex-wrap: wrap;
+        .perLikePost {
+          @include flexbox(column, center, center);
+          background-size: cover;
+          background-position: center;
+          color: #fff;
+          width: calc(100% / 3);
+          height: 200px;
+          transition: 0.2s;
+          background-color: rgba(100, 100, 100, 0.6);
+          &:hover {
+            transform: translateY(-5%) scale(1.1);
+            background-color: rgba(255, 255, 255, 0);
+            border-radius: 30px;
+          }
+          @include mobileS {
+            width: 50%;
+          }
+          .perLikePostData {
+            @include flexbox(column, center, center);
+            width: 100%;
+            height: 100%;
+            backdrop-filter: brightness(80%) blur(2px);
+            color: #fff;
+            font-weight: 800;
+            cursor: pointer;
+            padding: 10px;
+            text-align: center;
+            transition: 0.2s;
+            &:hover {
+              backdrop-filter: brightness(100%) blur(0);
+              // color: rgba(0,0,0);
+            }
+          }
+        }
+        .errorMsg {
+          @extend %errorPage;
+          color: #eee;
+          padding: 20px;
+        }
+      }
+    }
+    .loadAllOrders {
+      @extend .allLikesPosts;
+      @include flexbox(column, start, center);
+      margin-bottom: 0;
+      .perOrder {
+        @include flexbox(column, center, center);
+        width: 100%;
+        .perOrderNo {
+          width: 100%;
+          text-align: center;
+          font-size: 20px;
+          line-height: 28px;
+          background-color: #000;
+          color: #eee;
+        }
+        .perOrderItems {
+          width: 100%;
+          @include flexbox(column, center, center);
+          .perOrderItem {
+            width: 100%;
+            margin: 10px 0;
+            @include flexbox(row, space-evenly, center);
+            > div {
+              width: 25%;
+            }
+            > .cover {
+              width: 15%;
+              aspect-ratio: 1/1;
+              background-position: center;
+              background-size: contain;
+            }
+            > .productInfo {
+              text-align: center;
+              font-size: 20px;
+              @include mobile {
+                font-size: 16px;
+              }
+            }
+          }
+        }
+        .perOrderTotalPrice {
+          width: 90%;
+          text-align: end;
+          font-size: 20px;
+          line-height: 30px;
+          border-top: 1px #eee solid;
+        }
+        .perOrderDetails {
+          width: 100%;
+          @include flexbox(row, space-between, center);
+          @include mobile {
+            @include flexbox(column, space-between, center);
+          }
+        }
+      }
+      .errorMsg {
+        @extend %errorPage;
+        color: #eee;
+        padding: 20px;
+      }
+    }
+  }
 }

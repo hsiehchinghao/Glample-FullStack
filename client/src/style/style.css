@@ -2,7 +2,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Arimo&family=Public+Sans:wght@400;800&family=Sora&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@700&display=swap");
-.confirmOrderPage .confirmOrderForm .checkoutDataBtn, .addProductPage > .addPostPage .addPostAndRender .previewPostBtn, .productPage .productContent .addToCart, .signUpPage .signUpForm .submitBtn, .loginComponent .loginForm .submitBtn, .navSection .navBar .flexEnd .shopList .checkoutBtn, .addPostPage .addPostAndRender .submitPost, .addPostPage .addPostAndRender .previewBtn {
+.doubleCheckPage .dataForSubmit .goNewebPay, .confirmOrderPage .confirmOrderForm .checkoutDataBtn, .addProductPage > .addPostPage .addPostAndRender .previewPostBtn, .productPage .productContent .addToCart, .signUpPage .signUpForm .submitBtn, .loginComponent .loginForm .submitBtn, .navSection .navBar .flexEnd .shopList .checkoutBtn, .addPostPage .addPostAndRender .submitPost, .addPostPage .addPostAndRender .previewBtn {
   max-width: 200px;
   width: 60%;
   margin: 40px;
@@ -16,23 +16,23 @@
   cursor: pointer;
   border-radius: 20px;
 }
-.confirmOrderPage .confirmOrderForm .checkoutDataBtn:hover, .addProductPage > .addPostPage .addPostAndRender .previewPostBtn:hover, .productPage .productContent .addToCart:hover, .signUpPage .signUpForm .submitBtn:hover, .loginComponent .loginForm .submitBtn:hover, .navSection .navBar .flexEnd .shopList .checkoutBtn:hover, .addPostPage .addPostAndRender .submitPost:hover, .addPostPage .addPostAndRender .previewBtn:hover {
+.doubleCheckPage .dataForSubmit .goNewebPay:hover, .confirmOrderPage .confirmOrderForm .checkoutDataBtn:hover, .addProductPage > .addPostPage .addPostAndRender .previewPostBtn:hover, .productPage .productContent .addToCart:hover, .signUpPage .signUpForm .submitBtn:hover, .loginComponent .loginForm .submitBtn:hover, .navSection .navBar .flexEnd .shopList .checkoutBtn:hover, .addPostPage .addPostAndRender .submitPost:hover, .addPostPage .addPostAndRender .previewBtn:hover {
   transform: translateY(-10%);
   box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.5);
   background-color: #ddd;
 }
-.confirmOrderPage .confirmOrderForm .checkoutDataBtn:active, .addProductPage > .addPostPage .addPostAndRender .previewPostBtn:active, .productPage .productContent .addToCart:active, .signUpPage .signUpForm .submitBtn:active, .loginComponent .loginForm .submitBtn:active, .navSection .navBar .flexEnd .shopList .checkoutBtn:active, .addPostPage .addPostAndRender .submitPost:active, .addPostPage .addPostAndRender .previewBtn:active {
+.doubleCheckPage .dataForSubmit .goNewebPay:active, .confirmOrderPage .confirmOrderForm .checkoutDataBtn:active, .addProductPage > .addPostPage .addPostAndRender .previewPostBtn:active, .productPage .productContent .addToCart:active, .signUpPage .signUpForm .submitBtn:active, .loginComponent .loginForm .submitBtn:active, .navSection .navBar .flexEnd .shopList .checkoutBtn:active, .addPostPage .addPostAndRender .submitPost:active, .addPostPage .addPostAndRender .previewBtn:active {
   transform: translateY(0%);
   box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.5);
 }
 
-.doubleCheckPage, .confirmOrderPage, .productPage, .productListPage, .signUpPage, .profile, .loginComponent, .addProductPage > .addPostPage, .addPostPage, .error, .addProductPage .errorPage, .errorPage {
+.doubleCheckPage, .confirmOrderPage, .productPage, .productListPage, .signUpPage, .profile, .loginComponent, .addProductPage > .addPostPage, .addPostPage, .doubleCheckPage .error, .error, .addProductPage .errorPage, .errorPage, .profile > div .allLikesPosts .loadLikePostSection .errorMsg, .profile > div .loadAllOrders .loadLikePostSection .errorMsg, .profile > div .loadAllOrders .errorMsg {
   width: 95dvw;
   padding-top: 150px;
   padding-bottom: 100px;
 }
 @media (max-width: 850px) {
-  .doubleCheckPage, .confirmOrderPage, .productPage, .productListPage, .signUpPage, .profile, .loginComponent, .addProductPage > .addPostPage, .addPostPage, .error, .addProductPage .errorPage, .errorPage {
+  .doubleCheckPage, .confirmOrderPage, .productPage, .productListPage, .signUpPage, .profile, .loginComponent, .addProductPage > .addPostPage, .addPostPage, .doubleCheckPage .error, .error, .addProductPage .errorPage, .errorPage, .profile > div .allLikesPosts .loadLikePostSection .errorMsg, .profile > div .loadAllOrders .loadLikePostSection .errorMsg, .profile > div .loadAllOrders .errorMsg {
     padding-top: 190px;
   }
 }
@@ -141,7 +141,7 @@
   }
 }
 
-.error, .addProductPage .errorPage, .errorPage {
+.doubleCheckPage .error, .error, .addProductPage .errorPage, .errorPage, .profile > div .allLikesPosts .loadLikePostSection .errorMsg, .profile > div .loadAllOrders .loadLikePostSection .errorMsg, .profile > div .loadAllOrders .errorMsg {
   min-height: 80dvh;
   display: flex;
   flex-direction: column;
@@ -725,7 +725,7 @@
   justify-content: start;
   align-items: center;
   width: 100%;
-  height: 550px;
+  height: 450px;
   border: 5px dashed #aaa;
   padding-bottom: 30px;
   overflow: scroll;
@@ -792,9 +792,11 @@
 }
 .navSection .navBar .flexEnd .shopList .orderTotal {
   text-align: center;
-  padding: 10px;
+  padding: 20px;
   font-size: 20px;
   width: 100%;
+  background-color: #000;
+  color: #fff;
 }
 .navSection .navBar .flexEnd .shopList .checkoutBtn {
   background-color: #eee;
@@ -1691,19 +1693,22 @@
 .profile {
   display: flex;
   flex-direction: column;
-  justify-content: start;
+  justify-content: space-between;
   align-items: center;
   padding-top: 0;
+  padding-bottom: 0;
   background-image: url("../svg/patrick-pankalla-wpOnFM9hjNI-unsplash.jpg");
+  background-size: contain;
   color: #fff;
 }
 .profile > div {
   width: 100%;
+  -webkit-backdrop-filter: blur(2px) brightness(80%);
+          backdrop-filter: blur(2px) brightness(80%);
 }
 .profile > div .accountSettingSection .profileHeader {
   padding-top: 138px;
   line-height: 100px;
-  background-color: rgba(0, 0, 0, 0.5);
   text-align: center;
 }
 @media (max-width: 850px) {
@@ -1717,19 +1722,25 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
   margin-bottom: 100px;
 }
 .profile > div .allInstructorPost .instructorPostTitle {
-  color: #fff;
+  color: #eee;
   font-size: 36px;
-  background-color: rgba(204, 204, 204, 0.7);
+  background-color: rgba(180, 180, 180, 0.7);
+  border: 1px #000 solid;
   width: 100%;
   text-align: center;
   line-height: 50px;
   border-radius: 30px 30px 0 0;
 }
+@media (max-width: 650px) {
+  .profile > div .allInstructorPost .instructorPostTitle {
+    font-size: 28px;
+  }
+}
 .profile > div .allInstructorPost .loadInstructorPostSection {
+  background-color: rgba(180, 180, 180, 0.7);
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -1768,8 +1779,8 @@
   position: relative;
   width: 100%;
   height: 100%;
-  -webkit-backdrop-filter: blur(2px);
-          backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: brightness(80%) blur(2px);
+          backdrop-filter: brightness(80%) blur(2px);
   color: #fff;
   font-weight: 800;
   cursor: pointer;
@@ -1778,8 +1789,8 @@
   transition: 0.2s;
 }
 .profile > div .allInstructorPost .loadInstructorPostSection .perPost .perPostData:hover {
-  -webkit-backdrop-filter: blur(0);
-          backdrop-filter: blur(0);
+  -webkit-backdrop-filter: brightness(100%) blur(0);
+          backdrop-filter: brightness(100%) blur(0);
   -webkit-text-stroke: #000;
 }
 .profile > div .allInstructorPost .loadInstructorPostSection .perPost .perPostData .editBtn {
@@ -1804,26 +1815,33 @@
     height: 18px;
   }
 }
-.profile > div .allLikesPosts {
+.profile > div .allLikesPosts, .profile > div .loadAllOrders {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  margin-bottom: 100px;
 }
-.profile > div .allLikesPosts .likePostTitle {
+.profile > div .allLikesPosts .likePostTitle, .profile > div .loadAllOrders .likePostTitle {
   color: #fff;
   font-size: 36px;
-  background-color: rgba(204, 204, 204, 0.7);
+  background-color: rgba(180, 180, 180, 0.7);
+  border: 1px #000 solid;
   width: 100%;
   text-align: center;
   line-height: 50px;
   border-radius: 30px 30px 0 0;
+  padding: 0 10px;
 }
-.profile > div .allLikesPosts .loadLikePostSection {
+@media (max-width: 650px) {
+  .profile > div .allLikesPosts .likePostTitle, .profile > div .loadAllOrders .likePostTitle {
+    font-size: 28px;
+  }
+}
+.profile > div .allLikesPosts .loadLikePostSection, .profile > div .loadAllOrders .loadLikePostSection {
   min-height: 500px;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(180, 180, 180, 0.7);
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -1831,7 +1849,7 @@
   align-items: center;
   flex-wrap: wrap;
 }
-.profile > div .allLikesPosts .loadLikePostSection .perLikePost {
+.profile > div .allLikesPosts .loadLikePostSection .perLikePost, .profile > div .loadAllOrders .loadLikePostSection .perLikePost {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -1844,25 +1862,25 @@
   transition: 0.2s;
   background-color: rgba(100, 100, 100, 0.6);
 }
-.profile > div .allLikesPosts .loadLikePostSection .perLikePost:hover {
+.profile > div .allLikesPosts .loadLikePostSection .perLikePost:hover, .profile > div .loadAllOrders .loadLikePostSection .perLikePost:hover {
   transform: translateY(-5%) scale(1.1);
   background-color: rgba(255, 255, 255, 0);
   border-radius: 30px;
 }
 @media (max-width: 500px) {
-  .profile > div .allLikesPosts .loadLikePostSection .perLikePost {
+  .profile > div .allLikesPosts .loadLikePostSection .perLikePost, .profile > div .loadAllOrders .loadLikePostSection .perLikePost {
     width: 50%;
   }
 }
-.profile > div .allLikesPosts .loadLikePostSection .perLikePost .perLikePostData {
+.profile > div .allLikesPosts .loadLikePostSection .perLikePost .perLikePostData, .profile > div .loadAllOrders .loadLikePostSection .perLikePost .perLikePostData {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 100%;
   height: 100%;
-  -webkit-backdrop-filter: blur(2px);
-          backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: brightness(80%) blur(2px);
+          backdrop-filter: brightness(80%) blur(2px);
   color: #fff;
   font-weight: 800;
   cursor: pointer;
@@ -1870,9 +1888,94 @@
   text-align: center;
   transition: 0.2s;
 }
-.profile > div .allLikesPosts .loadLikePostSection .perLikePost .perLikePostData:hover {
-  -webkit-backdrop-filter: blur(0);
-          backdrop-filter: blur(0);
+.profile > div .allLikesPosts .loadLikePostSection .perLikePost .perLikePostData:hover, .profile > div .loadAllOrders .loadLikePostSection .perLikePost .perLikePostData:hover {
+  -webkit-backdrop-filter: brightness(100%) blur(0);
+          backdrop-filter: brightness(100%) blur(0);
+}
+.profile > div .allLikesPosts .loadLikePostSection .errorMsg, .profile > div .loadAllOrders .loadLikePostSection .errorMsg {
+  color: #eee;
+  padding: 20px;
+}
+.profile > div .loadAllOrders {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  margin-bottom: 0;
+}
+.profile > div .loadAllOrders .perOrder {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.profile > div .loadAllOrders .perOrder .perOrderNo {
+  width: 100%;
+  text-align: center;
+  font-size: 20px;
+  line-height: 28px;
+  background-color: #000;
+  color: #eee;
+}
+.profile > div .loadAllOrders .perOrder .perOrderItems {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.profile > div .loadAllOrders .perOrder .perOrderItems .perOrderItem {
+  width: 100%;
+  margin: 10px 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.profile > div .loadAllOrders .perOrder .perOrderItems .perOrderItem > div {
+  width: 25%;
+}
+.profile > div .loadAllOrders .perOrder .perOrderItems .perOrderItem > .cover {
+  width: 15%;
+  aspect-ratio: 1/1;
+  background-position: center;
+  background-size: contain;
+}
+.profile > div .loadAllOrders .perOrder .perOrderItems .perOrderItem > .productInfo {
+  text-align: center;
+  font-size: 20px;
+}
+@media (max-width: 650px) {
+  .profile > div .loadAllOrders .perOrder .perOrderItems .perOrderItem > .productInfo {
+    font-size: 16px;
+  }
+}
+.profile > div .loadAllOrders .perOrder .perOrderTotalPrice {
+  width: 90%;
+  text-align: end;
+  font-size: 20px;
+  line-height: 30px;
+  border-top: 1px #eee solid;
+}
+.profile > div .loadAllOrders .perOrder .perOrderDetails {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+@media (max-width: 650px) {
+  .profile > div .loadAllOrders .perOrder .perOrderDetails {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+.profile > div .loadAllOrders .errorMsg {
+  color: #eee;
+  padding: 20px;
 }
 
 .signUpPage {
@@ -2200,9 +2303,11 @@
   align-items: center;
 }
 .productListPage .productListPageTitle {
-  width: 100%;
+  width: 95%;
   padding: 40px;
   text-align: center;
+  background-color: #222;
+  color: #eee;
 }
 .productListPage .productListPageProducts {
   display: flex;
@@ -2217,6 +2322,7 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  padding: 40px;
 }
 @media (max-width: 500px) {
   .productListPage .productListPageProducts {
@@ -2224,6 +2330,8 @@
     flex-direction: column;
     justify-content: start;
     align-items: center;
+    background-size: contain;
+    background-repeat: repeat;
   }
 }
 .productListPage .productListPageProducts .productListPageBackdrop {
@@ -2250,10 +2358,10 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 28%;
+  width: 26%;
   min-height: 500px;
 }
-@media (max-width: 650px) {
+@media (max-width: 850px) {
   .productListPage .productListPageProducts .productListPageBackdrop .productListPageProduct {
     width: 45%;
   }
@@ -2294,16 +2402,28 @@
   width: 100%;
   height: 150px;
   background-color: rgba(100, 100, 100, 0.5803921569);
+  padding: 5px;
 }
 .productListPage .productListPageProducts .productListPageBackdrop .productListPageProduct .productInfo > p {
   transition: 0.3s;
   text-align: center;
   letter-spacing: 2px;
   color: #fff;
+  font-size: 16px;
+}
+@media (max-width: 850px) {
+  .productListPage .productListPageProducts .productListPageBackdrop .productListPageProduct .productInfo > p {
+    font-size: 14px;
+  }
 }
 .productListPage .productListPageProducts .productListPageBackdrop .productListPageProduct .productInfo > .productTitle {
-  font-size: 26px;
+  font-size: 24px;
   letter-spacing: 0;
+}
+@media (max-width: 850px) {
+  .productListPage .productListPageProducts .productListPageBackdrop .productListPageProduct .productInfo > .productTitle {
+    font-size: 20px;
+  }
 }
 @media (max-width: 650px) {
   .productListPage .productListPageProducts .productListPageBackdrop .productListPageProduct .productInfo > .productTitle {
@@ -2363,6 +2483,7 @@
 @media (max-width: 650px) {
   .productPage .productContent .productTitle {
     margin-top: 30px;
+    font-size: 28px;
   }
 }
 .productPage .productContent .productPrice {
@@ -2373,10 +2494,20 @@
   text-align: center;
   border-bottom: 1px solid #000;
 }
+@media (max-width: 650px) {
+  .productPage .productContent .productPrice {
+    font-size: 20px;
+  }
+}
 .productPage .productContent .productPrice > p {
   display: inline-block;
   text-decoration: underline;
   padding: 0 10px;
+}
+@media (max-width: 650px) {
+  .productPage .productContent .productPrice > p {
+    font-size: 20px;
+  }
 }
 .productPage .productContent .productStock {
   width: 100%;
@@ -2385,12 +2516,23 @@
   text-align: center;
   border-bottom: 1px solid #000;
 }
+@media (max-width: 650px) {
+  .productPage .productContent .productStock {
+    font-size: 16px;
+  }
+}
 .productPage .productContent .productStock > p {
   margin-top: 10px;
   background-color: #000;
   color: #eee;
   display: inline-block;
   padding: 10px;
+  font-size: 20px;
+}
+@media (max-width: 650px) {
+  .productPage .productContent .productStock > p {
+    font-size: 16px;
+  }
 }
 .productPage .productContent .productDescription {
   padding: 40px 0;
@@ -2709,7 +2851,7 @@
   height: 80%;
   padding: 20px;
   overflow: scroll;
-  border: 5px solid #000;
+  border: 5px solid #222;
   border-radius: 30px;
 }
 .confirmOrderPage .confirmOrderForm .orderConfirmSection > .shopItems .perItem {
@@ -2766,8 +2908,14 @@
 .confirmOrderPage .confirmOrderForm .orderConfirmSection > .totalPrice {
   width: 100%;
   font-size: 30px;
-  line-height: 100px;
+  line-height: 60px;
   text-align: end;
+  text-decoration: underline;
+  background-color: #222;
+  color: #eee;
+  padding: 10px 45px;
+  margin-top: 20px;
+  border-radius: 40px;
 }
 .confirmOrderPage .confirmOrderForm .checkoutDataBtn {
   text-align: center;
@@ -2775,5 +2923,101 @@
 }
 
 .doubleCheckPage {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
   min-height: 80dvh;
+  padding-bottom: 30px;
+}
+.doubleCheckPage .doubleConfirmTitle {
+  width: 100%;
+  text-align: center;
+  line-height: 60px;
+}
+.doubleCheckPage .doubleConfirmOrderContent {
+  background-image: url("../svg/pexels-markus-winkler-3703429.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  min-height: 500px;
+  width: 100%;
+}
+.doubleCheckPage .doubleConfirmOrderContent .allItems {
+  width: 100%;
+  min-height: 600px;
+  -webkit-backdrop-filter: brightness(70%) blur(3px);
+          backdrop-filter: brightness(70%) blur(3px);
+}
+.doubleCheckPage .doubleConfirmOrderContent .allItems .orderData {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  min-height: 100%;
+  width: 100%;
+}
+.doubleCheckPage .doubleConfirmOrderContent .allItems .orderData > p {
+  color: #eee;
+  font-size: 22px;
+  text-align: center;
+  line-height: 55px;
+}
+@media (max-width: 650px) {
+  .doubleCheckPage .doubleConfirmOrderContent .allItems .orderData > p {
+    font-size: 18px;
+  }
+}
+.doubleCheckPage .doubleConfirmOrderContent .allItems .orderData > p > div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+.doubleCheckPage .doubleConfirmOrderContent .allItems .orderData > p > div > .productCover {
+  width: 30%;
+  height: 200px;
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+}
+@media (max-width: 650px) {
+  .doubleCheckPage .doubleConfirmOrderContent .allItems .orderData > p > div > .productCover {
+    width: 45%;
+  }
+}
+.doubleCheckPage .doubleConfirmOrderContent .allItems .orderData > p > div > .productCover > p {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  background-color: rgba(85, 85, 85, 0.3019607843);
+  color: #fff;
+}
+.doubleCheckPage .doubleConfirmOrderContent .allItems .orderData .totalPriceReminder {
+  padding: 40px 0;
+  border-top: 1px solid #ccc;
+  width: 90%;
+  letter-spacing: 5px;
+}
+.doubleCheckPage .dataForSubmit {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.doubleCheckPage .dataForSubmit .goNewebPay {
+  font-size: 20px;
+  padding: 10px;
+  border: 1px solid #aaa;
 }/*# sourceMappingURL=style.css.map */

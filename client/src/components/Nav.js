@@ -16,6 +16,7 @@ const Nav = ({
   shopCount,
   setShopCount,
 }) => {
+  const API_URL = "http://localhost:8081";
   console.log("render~");
   const navigate = useNavigate();
 
@@ -66,6 +67,7 @@ const Nav = ({
       } else {
         if (shopListRef.current) {
           shopListRef.current.style.top = "178px";
+          shopListItemsRef.current.style.height = "380px";
         }
       }
       shopListRef.current.style.width = "0";
@@ -78,6 +80,7 @@ const Nav = ({
         shopListRef.current.style.top = "138px";
       } else {
         shopListRef.current.style.top = "178px";
+        shopListItemsRef.current.style.height = "380px";
       }
     }
 
@@ -153,7 +156,11 @@ const Nav = ({
   //送出確認訂單
   const handleSubmitShopList = (e) => {
     shopListRef.current.style.width = "0";
-    navigate("/confirmOrder");
+    if (AuthService.getCurrentUser()) {
+      navigate("/confirmOrder");
+    } else {
+      navigate("/login");
+    }
   };
 
   //加載首頁
@@ -309,7 +316,7 @@ const Nav = ({
                             />
                           </div>
                           <div className="shopListItemImg">
-                            <img src={data.image} alt="" />
+                            <img src={`${API_URL}${data.image}`} alt="" />
                           </div>
                           <div className="shopListItemTitleAndPrice">
                             <p className="shopListItemTitle">{data.title}</p>
@@ -322,7 +329,7 @@ const Nav = ({
                     );
                   })}
               </div>
-              {shopItems && (
+              {shopItems && PostService.loadShoppingCart() && (
                 <>
                   <div className="orderTotal">
                     Total Price : ${PostService.loadShoppingCart().price}NTD

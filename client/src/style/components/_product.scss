@@ -1,78 +1,91 @@
 @use "../abstract/variable" as *;
 
 .productPage {
-    @extend %basicComponent;
-    @include flexbox(row, space-between, center);
-    width: 90dvw;
-    min-height: 100dvh;
+  @extend %basicComponent;
+  @include flexbox(row, space-between, center);
+  width: 90dvw;
+  min-height: 100dvh;
+  @include mobile {
+    @include flexbox(column, space-between, center);
+  }
+  .productCover {
+    width: 40%;
     @include mobile {
-        @include flexbox(column, space-between, center);
+      width: 60%;
     }
-    .productCover {
-        width: 40%;
+    > img {
+      width: 100%;
+      aspect-ratio: 1/1;
+    }
+  }
+  .productContent {
+    @include flexbox(column, space-between, center);
+    height: 80%;
+    width: 50%;
+    @include mobile {
+      width: 80%;
+    }
+    .productTitle {
+      padding: 20px 0 30px 0;
+      font-size: 40px;
+      background-color: #000;
+      color: #eee;
+      text-align: center;
+      @include mobile {
+        margin-top: 30px;
+        font-size: 28px;
+      }
+    }
+    .productPrice {
+      display: inline-block;
+      width: 100%;
+      padding: 30px 0;
+      font-size: 30px;
+      text-align: center;
+      border-bottom: 1px solid #000;
+      @include mobile {
+        font-size: 20px;
+      }
+      > p {
+        display: inline-block;
+        text-decoration: underline;
+        padding: 0 10px;
         @include mobile {
-            width: 60%;
+          font-size: 20px;
         }
-        >img{
-            width: 100%;
-            aspect-ratio: 1/1;
-        }
+      }
     }
-    .productContent {
-        @include flexbox(column, space-between, center);
-        height: 80%;
-        width: 50%;
+    .productStock {
+      width: 100%;
+      padding: 20px 0;
+      font-size: 20px;
+      text-align: center;
+      border-bottom: 1px solid #000;
+      @include mobile {
+        font-size: 16px;
+      }
+      > p {
+        margin-top: 10px;
+        background-color: #000;
+        color: #eee;
+        display: inline-block;
+        padding: 10px;
+        font-size: 20px;
         @include mobile {
-            width: 80%;
+          font-size: 16px;
         }
-        .productTitle {
-            padding: 20px 0 30px 0;
-            font-size: 40px;
-            background-color: #000;
-            color: #eee;
-            text-align: center;
-            @include mobile {
-                margin-top: 30px;
-            }
-        }
-        .productPrice {
-            display: inline-block;
-            width: 100%;
-            padding: 30px 0;
-            font-size: 30px;
-            text-align: center;
-            border-bottom: 1px solid #000;
-            >p {
-                display: inline-block;
-                text-decoration: underline;
-                padding: 0 10px;
-            }
-
-        }
-        .productStock {
-            width: 100%;
-            padding: 20px 0;
-            font-size: 20px;
-            text-align: center;
-            border-bottom: 1px solid #000;
-            >p {
-                margin-top: 10px;
-                background-color: #000;
-                color: #eee;
-                display: inline-block;
-                padding: 10px;
-            }
-        }
-        .productDescription{
-            padding: 40px 0;
-            text-align: center;
-            font-size: 18px;
-            @include mobileS{
-                font-size: 14px;
-            }
-        }
-        .addToCart {
-            @extend %submitBtn2;
-        }
+      }
     }
+    .productDescription {
+      padding: 40px 0;
+      text-align: center;
+      font-size: 18px;
+      @include mobileS {
+        font-size: 14px;
+      }
+    }
+    .addToCart {
+      @extend %submitBtn2;
+    }
+  }
 }

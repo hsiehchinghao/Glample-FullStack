@@ -2,5 +2,85 @@
 
 .doubleCheckPage {
   @extend %basicComponent;
+  @include flexbox(column, space-evenly, center);
   min-height: 80dvh;
+  padding-bottom: 30px;
+  .doubleConfirmTitle {
+    width: 100%;
+    text-align: center;
+    line-height: 60px;
+  }
+  .doubleConfirmOrderContent {
+    background-image: url("../svg/pexels-markus-winkler-3703429.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    @include flexbox(column, start, center);
+    min-height: 500px;
+    width: 100%;
+    .allItems {
+      width: 100%;
+      min-height: 600px;
+      backdrop-filter: brightness(70%) blur(3px);
+      .orderData {
+        @include flexbox(column, space-evenly, center);
+        min-height: 100%;
+        width: 100%;
+        > p {
+          color: #eee;
+          font-size: 22px;
+          text-align: center;
+          line-height: 55px;
+          // @include pad {
+          //   font-size: 22px;
+          // }
+          @include mobile {
+            font-size: 18px;
+          }
+          > div {
+            @include flexbox(row, space-evenly, center);
+            flex-wrap: wrap;
+            margin-top: 30px;
+            > .productCover {
+              width: 30%;
+              height: 200px;
+              background-position: center;
+              background-size: cover;
+              @include flexbox(column, center, center);
+              margin-bottom: 30px;
+              @include mobile {
+                width: 45%;
+              }
+              > p {
+                width: 100%;
+                height: 100%;
+                text-align: center;
+                background-color: #5555554d;
+                color: #fff;
+              }
+            }
+          }
+        }
+        .totalPriceReminder {
+          padding: 40px 0;
+          border-top: 1px solid #ccc;
+          width: 90%;
+          letter-spacing: 5px;
+        }
+      }
+    }
+  }
+  .dataForSubmit {
+    width: 100%;
+    @include flexbox(row, center, center);
+    .goNewebPay {
+      @extend %submitBtn2;
+      font-size: 20px;
+      padding: 10px;
+      border: 1px solid #aaa;
+    }
+  }
+  .error {
+    @extend %errorPage;
+  }
 }

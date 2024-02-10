@@ -13,6 +13,7 @@ const instructorSchema = new Schema({
   like: [{ type: mongoose.Schema.Types.ObjectId }],
   authenticateCode: { type: String, required: true },
   role: { type: String, default: "instructor" },
+  orderNo: [{ type: String }],
 });
 
 instructorSchema.methods.comparePassword = async function (password, cb) {

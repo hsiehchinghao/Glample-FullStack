@@ -7,10 +7,9 @@ import ImageCompress from "quill-image-compress";
 import "react-quill/dist/quill.snow.css";
 import PostService from "../services/PostService";
 import AuthService from "../services/AuthService";
+
 const AddPost = () => {
-  //resize IMG
-  //compress IMG
-  //html editor
+  //resize IMG compress IMG html editor
   Quill.register("modules/imageCompress", ImageCompress);
   Quill.register("modules/imageResize", ImageResize);
   const modules = {
