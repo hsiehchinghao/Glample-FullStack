@@ -6,6 +6,7 @@ import search from "../svg/icons8-search (1).svg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import PostService from "../services/PostService";
+import ShopService from "../services/ShopService";
 import deletePostIcon from "../svg/trash.svg";
 
 const Nav = ({
@@ -15,6 +16,8 @@ const Nav = ({
   setShopItems,
   shopCount,
   setShopCount,
+  currentSub,
+  setCurrentSub,
 }) => {
   const API_URL = "http://localhost:8081";
   console.log("render~");
@@ -96,7 +99,7 @@ const Nav = ({
     setNav(() => {
       return true;
     });
-    const shoppingCartContent = PostService.loadShoppingCart();
+    const shoppingCartContent = ShopService.loadShoppingCart();
     console.log(shoppingCartContent);
     if (shoppingCartContent) {
       setShopItems(() => {
@@ -109,8 +112,8 @@ const Nav = ({
 
   //刪除shopList上的商品
   const removeProduct = (_id) => {
-    PostService.removeShoppingCartItem(_id);
-    if (!PostService.loadShoppingCart()) {
+    ShopService.removeShoppingCartItem(_id);
+    if (!ShopService.loadShoppingCart()) {
       setShopItems(null);
     }
 
@@ -172,10 +175,21 @@ const Nav = ({
 
   //登出按鈕
   const handleLogout = () => {
-    window.alert("Logout");
-    AuthService.logout();
-    setCurrentUser(null); //觸發currentUser判斷
-    handleCLoseNav();
+    let x = window.confirm("sure?");
+
+    if (x) {
+      window.alert("Logout");
+      AuthService.logout();
+      setCurrentUser(null); //觸發currentUser判斷
+      handleCLoseNav();
+    }
+  };
+
+  //跳轉分類頁
+  const handleGoCategoryPage = (e) => {
+    console.log(e.target.innerText);
+    setCurrentSub(e.target.innerText);
+    navigate(`/category/${e.target.innerText}`);
   };
 
   return (
@@ -329,10 +343,10 @@ const Nav = ({
                     );
                   })}
               </div>
-              {shopItems && PostService.loadShoppingCart() && (
+              {shopItems && ShopService.loadShoppingCart() && (
                 <>
                   <div className="orderTotal">
-                    Total Price : ${PostService.loadShoppingCart().price}NTD
+                    Total Price : ${ShopService.loadShoppingCart().price}NTD
                   </div>
                   <div className="checkoutBtn" onClick={handleSubmitShopList}>
                     CHECKOUT!
@@ -349,15 +363,9 @@ const Nav = ({
           <input type="text" placeholder="search" />
         </div>
         <ul className="categoryList">
-          <Link>
-            <li>FASHION</li>
-          </Link>
-          <Link>
-            <li>MOVIE</li>
-          </Link>
-          <Link>
-            <li>MUSIC</li>
-          </Link>
+          <li onClick={handleGoCategoryPage}>FASHION</li>
+          <li onClick={handleGoCategoryPage}>MOVIE</li>
+          <li onClick={handleGoCategoryPage}>MUSIC</li>
         </ul>
       </div>
     </>

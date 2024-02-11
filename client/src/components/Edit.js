@@ -65,6 +65,7 @@ const Edit = () => {
 
   //初次載入useEffect
   useEffect(() => {
+    window.scrollTo(0, 0);
     PostService.loadPostContent(id)
       .then((result) => {
         const editPost = result.data.findPost;
@@ -237,14 +238,17 @@ const Edit = () => {
                 Submit
               </button>
             ) : (
-              <button
-                className="submitPost"
-                type="submit"
-                onClick={handleSubmit}
-                disabled
-              >
-                Submit
-              </button>
+              <>
+                <button
+                  className="submitPost"
+                  type="submit"
+                  onClick={handleSubmit}
+                  disabled
+                >
+                  Submit
+                </button>
+                <p style={{ color: "#aaa" }}>(*double check before submit)</p>
+              </>
             )}
           </div>
         </div>

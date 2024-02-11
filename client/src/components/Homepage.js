@@ -14,7 +14,7 @@ const Homepage = () => {
   const scrambleRef = useRef(null);
 
   //亂碼文字
-  const phrases = ["WELCOME", "Glample.", ":)"];
+  const phrases = ["WELCOME!", "Glample.", ":)"];
 
   useEffect(() => {
     //初始載入
@@ -49,7 +49,7 @@ const Homepage = () => {
     const fx = scrambleRef.current && new TextScramble(scrambleRef.current);
     const next = () => {
       fx.setText(phrases[counter]).then(() => {
-        setTimeout(next, 1500);
+        setTimeout(next, 1000);
       });
       counter = (counter + 1) % phrases.length;
     };

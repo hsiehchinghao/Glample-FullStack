@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import PostService from "../../services/PostService";
+import ShopService from "../../services/ShopService";
 
 const ProductBanner = () => {
   const API_URL = "http://localhost:8081";
   const navigate = useNavigate();
   const [latestProduct, setLatestProduct] = useState(null);
   useEffect(() => {
-    PostService.loadLatestProduct()
+    ShopService.loadLatestProduct()
       .then((result) => {
         console.log(result);
         setLatestProduct(result.data.result[0]);
@@ -27,18 +28,16 @@ const ProductBanner = () => {
         <p className="productBannerFirst">The physical is always enchanting.</p>
         <p className="productBannerSecond">本体最高！</p>
       </div>
-      <div
-        className="productBannerContent"
-        onClick={() => {
-          handleClickToProduct(latestProduct && latestProduct._id);
-        }}
-      >
+      <div className="productBannerContent">
         <div
           className="latestProduct"
           style={{
             backgroundImage: `url(${API_URL}${
               latestProduct && latestProduct.image
             })`,
+          }}
+          onClick={() => {
+            handleClickToProduct(latestProduct && latestProduct._id);
           }}
         >
           <p className="productTitle">{latestProduct && latestProduct.title}</p>

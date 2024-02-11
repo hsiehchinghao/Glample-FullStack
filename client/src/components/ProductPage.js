@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import PostService from "../services/PostService";
+import ShopService from "../services/ShopService";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 
@@ -12,7 +13,7 @@ const ProductPage = ({ shopItems, setShopItems, shopCount, setShopCount }) => {
   useEffect(() => {
     window.scrollTo(0, 0);
 
-    PostService.loadProductById(id)
+    ShopService.loadProductById(id)
       .then((result) => {
         console.log(result);
         setProductData(() => {

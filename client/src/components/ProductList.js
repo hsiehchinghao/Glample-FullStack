@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import PostService from "../services/PostService";
+import ShopService from "../services/ShopService";
 
 const ProductList = () => {
   const API_URL = "http://localhost:8081";
@@ -9,7 +10,7 @@ const ProductList = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    PostService.loadLatestProduct()
+    ShopService.loadLatestProduct()
       .then((result) => {
         console.log(result);
         setProduct(() => {
@@ -22,7 +23,7 @@ const ProductList = () => {
   }, []);
 
   const handleClickToProduct = (_id) => {
-    // PostService.loadProductById(_id);
+    // ShopService .loadProductById(_id);
     navigate(`/loadProduct/${_id}`);
   };
   return (

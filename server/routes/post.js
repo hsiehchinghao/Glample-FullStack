@@ -224,46 +224,47 @@ router.post("/addComment/:_id", async (req, res) => {
 
 //留言按讚 post
 
-//新增商品 (僅限 instructor)
-router.post("/addProduct", upload.single("file"), async (req, res) => {
-  try {
-    console.log(req.body);
-    let { error } = productValidation.validate(req.body);
-    if (error) {
-      let message = error.details[0].message;
-      return res.status(404).send(message);
-    }
-    if (req.user.role != "instructor") {
-      return res.status(400).send({ msg: "權限不足" });
-    } else {
-      let { title, price, stock, description } = req.body;
-      let imagePath = req.file ? `/images/${req.file.filename}` : null;
-      let result = await new Product({
-        title,
-        price,
-        stock,
-        description,
-        image: imagePath,
-      }).save();
-      if (result) {
-        console.log("nice");
-        return res.status(200).send({ msg: "成功新增商品", result });
-      } else {
-        return res.status(400).send({ msg: "新增失敗" });
-      }
-    }
-  } catch (e) {
-    console.log(e);
-    return res.status(400).send({ msg: "新增商品失敗", e });
-  }
-});
+//商品相關
+// //新增商品 (僅限 instructor)
+// router.post("/addProduct", upload.single("file"), async (req, res) => {
+//   try {
+//     console.log(req.body);
+//     let { error } = productValidation.validate(req.body);
+//     if (error) {
+//       let message = error.details[0].message;
+//       return res.status(404).send(message);
+//     }
+//     if (req.user.role != "instructor") {
+//       return res.status(400).send({ msg: "權限不足" });
+//     } else {
+//       let { title, price, stock, description } = req.body;
+//       let imagePath = req.file ? `/images/${req.file.filename}` : null;
+//       let result = await new Product({
+//         title,
+//         price,
+//         stock,
+//         description,
+//         image: imagePath,
+//       }).save();
+//       if (result) {
+//         console.log("nice");
+//         return res.status(200).send({ msg: "成功新增商品", result });
+//       } else {
+//         return res.status(400).send({ msg: "新增失敗" });
+//       }
+//     }
+//   } catch (e) {
+//     console.log(e);
+//     return res.status(400).send({ msg: "新增商品失敗", e });
+//   }
+// });
 
-router.post("", async (req, res) => {});
+// router.post("", async (req, res) => {});
 
-//修改商品
-// router.patch();
+// //修改商品
+// // router.patch();
 
-//刪除商品
-// router.delete();
+// //刪除商品
+// // router.delete();
 
 module.exports = router;

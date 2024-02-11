@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import { useNavigate, useOutletContext } from "react-router-dom";
 import PostService from "../services/PostService";
+import ShopService from "../services/ShopService";
 import AuthService from "../services/AuthService";
 
 const AddProduct = () => {
@@ -21,6 +22,7 @@ const AddProduct = () => {
   const descriptionRef = useRef(null);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     setCurrentUser(AuthService.getCurrentUser());
   }, []);
 
@@ -60,7 +62,7 @@ const AddProduct = () => {
       const stock = postData.stock;
       const description = postData.description;
       const file = document.querySelector("#fileUpload").files[0];
-      const result = await PostService.addProduct(
+      const result = await ShopService.addProduct(
         { title, price, stock, description },
         file
       );
@@ -170,14 +172,17 @@ const AddProduct = () => {
                 Submit
               </button>
             ) : (
-              <button
-                className="submitPost"
-                type="submit"
-                onClick={handleSubmit}
-                disabled
-              >
-                Submit
-              </button>
+              <>
+                <button
+                  className="submitPost"
+                  type="submit"
+                  onClick={handleSubmit}
+                  disabled
+                >
+                  Submit
+                </button>
+                <p style={{ color: "#aaa" }}>(*double check before submit)</p>
+              </>
             )}
           </div>
         </div>

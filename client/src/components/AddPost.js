@@ -220,14 +220,17 @@ const AddPost = () => {
                 Submit
               </button>
             ) : (
-              <button
-                className="submitPost"
-                type="submit"
-                onClick={handleSubmit}
-                disabled
-              >
-                Submit
-              </button>
+              <>
+                <button
+                  className="submitPost"
+                  type="submit"
+                  onClick={handleSubmit}
+                  disabled
+                >
+                  Submit
+                </button>
+                <p style={{ color: "#aaa" }}>(*double check before submit)</p>
+              </>
             )}
           </div>
         </div>

@@ -45,7 +45,7 @@ postSchema.statics.findTopLikes = async function (page, limit) {
     return await this.find()
       .sort({ likeCount: -1 })
       .limit(10)
-      .select("_id title image date like category authorname");
+      .select("_id title image date like category authorname likeCount");
   } catch (e) {
     console.log(e);
   }
@@ -58,7 +58,7 @@ postSchema.statics.findTopLastest = async function () {
     return await this.find()
       .sort({ date: -1 })
       .limit(5)
-      .select("_id title image date like category authorname");
+      .select("_id title image date like category authorname likeCount");
   } catch (e) {
     console.log(e);
   }
@@ -69,14 +69,14 @@ postSchema.statics.findPostByCategory = async function (category, page, limit) {
   try {
     return await this.find({ category })
       .sort({ date: -1 })
-      .select("_id title image date like category authorname");
+      .select("_id title image date like category authorname likeCount");
   } catch (e) {
     console.log(e);
   }
 };
 
 //載入特定category 依照latest分類
-postSchema.statics.loadByCategoryAndSortByTopLikes = async function (
+postSchema.statics.loadByCategoryAndSortByTopLatest = async function (
   category,
   page,
   limit
@@ -84,7 +84,7 @@ postSchema.statics.loadByCategoryAndSortByTopLikes = async function (
   try {
     return await this.find({ category })
       .sort({ date: -1 })
-      .select("_id title image date like category authorname");
+      .select("_id title image date like category authorname likeCount");
   } catch (e) {
     console.log(e);
     return e;
@@ -100,7 +100,7 @@ postSchema.statics.loadByCategoryAndSortByTopLikes = async function (
   try {
     return await this.find({ category })
       .sort({ "like.length": -1 })
-      .select("_id title image date like category authorname");
+      .select("_id title image date like category authorname likeCount");
   } catch (e) {
     console.log(e);
     return e;

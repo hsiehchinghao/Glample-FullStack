@@ -59,7 +59,7 @@
       }
       .previewPost {
         @include flexbox(row, space-evenly, center);
-        @include mobile {
+        @include pad {
           @include flexbox(column, space-evenly, center);
         }
         .previewPostTitleAndImg {

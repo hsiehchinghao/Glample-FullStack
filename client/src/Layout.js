@@ -10,6 +10,8 @@ const Layout = ({
   setShopItems,
   shopCount,
   setShopCount,
+  currentSub,
+  setCurrentSub,
 }) => {
   return (
     <div className="main">
@@ -20,6 +22,8 @@ const Layout = ({
         setShopItems={setShopItems}
         shopCount={shopCount}
         setShopCount={setShopCount}
+        currentSub={currentSub}
+        setCurrentSub={setCurrentSub}
       />
       <Outlet
         context={{ currentUser: currentUser, setCurrentUser: setCurrentUser }}

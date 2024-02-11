@@ -49,76 +49,6 @@ router.get("/loadLatestProduct", async (req, res) => {
   }
 });
 
-//根據product id 載入文章
-router.get("/loadProductById/:_id", async (req, res) => {
-  try {
-    const { _id } = req.params;
-    let result = await Product.findOne({ _id });
-    console.log(result);
-    return res.status(200).send({ msg: "success", result });
-  } catch (e) {
-    console.log(e);
-    return res.status(400).send({ msg: "失敗嗚嗚", e });
-  }
-});
-
-//根據每篇文章id載入內容
-router.get("/:_id", async (req, res) => {
-  try {
-    let { _id } = req.params;
-    let findPost = await Post.findOne({ _id });
-    // console.log(findPost);
-    if (findPost) {
-      return res.status(200).send({
-        msg: "取得文章內容",
-        findPost,
-      });
-    }
-  } catch (e) {
-    console.log(e);
-    return res.status(400).send({ msg: "失敗" });
-  }
-});
-
-//載入各類別文章
-router.get("/loadPost/sort/:category", async (req, res) => {
-  try {
-    let { category } = req.params;
-    let result = await Post.findPostByCategory(category);
-    console.log(result);
-  } catch (e) {
-    console.log(e);
-    return res.status(500).send({ msg: "載入announce文章失敗", e });
-  }
-});
-
-//載入各類別的 top likes
-router.get("/loadPost/sortByLatest/:category", async (req, res) => {
-  try {
-    let { category } = req.params;
-    let result = await Post.loadByCategoryAndSortByTopLikes(category);
-    console.log(result);
-    return res
-      .status(200)
-      .send({ msg: "成功依照類別載入top likes的文章" }, result);
-  } catch (e) {
-    console.log(e);
-    return res.status(500).send({ msg: "載入失敗", e });
-  }
-});
-
-//載入各類別的 top latest
-router.get("/loadPost/sortByTopLikes/:category", async (req, res) => {
-  try {
-    let { category } = req.params;
-    let result = await Post.loadByCategoryAndSortByTopLikes(category);
-    console.log(result);
-  } catch (e) {
-    console.log(e);
-    return res.status(500).send({ msg: "載入文章失敗", e });
-  }
-});
-
 //search Post by title / editor 未完成
 router.get("/loadPost/searchPost", async (req, res) => {
   try {
@@ -138,6 +68,79 @@ router.get("/loadPost/searchPost", async (req, res) => {
   } catch (e) {
     console.log(e);
     return res.status(500).send({ msg: "載入搜尋文章失敗", e });
+  }
+});
+
+//載入各類別的 top likes
+router.get("/loadPost/sortByTopLikes/:category", async (req, res) => {
+  try {
+    let { category } = req.params;
+    console.log(category);
+    let result = await Post.loadByCategoryAndSortByTopLikes(category);
+    console.log(result);
+    return res
+      .status(200)
+      .send({ msg: "成功依照類別載入top likes的文章", result });
+  } catch (e) {
+    console.log(e);
+    return res.status(500).send({ msg: "載入失敗", e });
+  }
+});
+
+//根據product id 載入文章
+router.get("/loadProductById/:_id", async (req, res) => {
+  try {
+    const { _id } = req.params;
+    let result = await Product.findOne({ _id });
+    console.log(result);
+    return res.status(200).send({ msg: "success", result });
+  } catch (e) {
+    console.log(e);
+    return res.status(400).send({ msg: "失敗嗚嗚", e });
+  }
+});
+
+// //載入各類別文章
+// router.get("/loadPost/sort/:category", async (req, res) => {
+//   try {
+//     let { category } = req.params;
+//     let result = await Post.loadByCategoryAndSortByTopLatest(category);
+//     console.log(result);
+//   } catch (e) {
+//     console.log(e);
+//     return res.status(500).send({ msg: "載入announce文章失敗", e });
+//   }
+// });
+
+//載入各類別的 top latest
+router.get("/loadPost/sortByTopLatest/:category", async (req, res) => {
+  try {
+    let { category } = req.params;
+    console.log(category);
+    let result = await Post.loadByCategoryAndSortByTopLatest(category);
+    console.log(result);
+    return res.status(200).send({ msg: "成功載入分類最新", result });
+  } catch (e) {
+    console.log(e);
+    return res.status(500).send({ msg: "載入文章失敗", e });
+  }
+});
+
+//根據每篇文章id載入內容
+router.get("/:_id", async (req, res) => {
+  try {
+    let { _id } = req.params;
+    let findPost = await Post.findOne({ _id });
+    // console.log(findPost);
+    if (findPost) {
+      return res.status(200).send({
+        msg: "取得文章內容",
+        findPost,
+      });
+    }
+  } catch (e) {
+    console.log(e);
+    return res.status(400).send({ msg: "失敗" });
   }
 });
 

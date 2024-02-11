@@ -19,6 +19,55 @@ const {
   NotifyUrl,
   ReturnUrl,
 } = process.env;
+const productValidation = require("../validation").productValidation;
+
+//新增商品
+//新增商品 (僅限 instructor)
+router.post(
+  "/addProduct",
+  passport.authenticate("jwt", { session: false }),
+  upload.single("file"),
+  async (req, res) => {
+    try {
+      console.log(req.body);
+      let { error } = productValidation.validate(req.body);
+      if (error) {
+        let message = error.details[0].message;
+        return res.status(404).send(message);
+      }
+      if (req.user.role != "instructor") {
+        return res.status(400).send({ msg: "權限不足" });
+      } else {
+        let { title, price, stock, description } = req.body;
+        let imagePath = req.file ? `/images/${req.file.filename}` : null;
+        let result = await new Product({
+          title,
+          price,
+          stock,
+          description,
+          image: imagePath,
+        }).save();
+        if (result) {
+          console.log("nice");
+          return res.status(200).send({ msg: "成功新增商品", result });
+        } else {
+          return res.status(400).send({ msg: "新增失敗" });
+        }
+      }
+    } catch (e) {
+      console.log(e);
+      return res.status(400).send({ msg: "新增商品失敗", e });
+    }
+  }
+);
+
+router.post("", async (req, res) => {});
+
+//修改商品
+// router.patch();
+
+//刪除商品
+// router.delete();
 
 //提交訂單
 router.post(
@@ -114,15 +163,18 @@ router.post("/newebpay_notify", async (req, res) => {
   console.log("notify");
   // 解密交易內容
   const data = NewebPay.createSesDecrypt(response.TradeInfo);
-  // console.log("data:", data);
+  console.log("data:", data);
+  if (data.Status != "MPG03009") {
+    let confirmOrder = await Order.findOneAndUpdate(
+      { MerchantOrderNo: data.Result.MerchantOrderNo },
+      { $set: { isPay: true } },
+      { new: true }
+    );
+    console.log("confirmOrder : " + confirmOrder);
+    return res.status(200).send(confirmOrder);
+  }
 
-  let confirmOrder = await Order.findOneAndUpdate(
-    { MerchantOrderNo: data.Result.MerchantOrderNo },
-    { $set: { isPay: true } },
-    { new: true }
-  );
-  console.log("confirmOrder : " + confirmOrder);
-  return res.status(200).send(confirmOrder);
+  return res.status(200).send("訂單未完成");
 });
 
 //依照id載入最新訂單

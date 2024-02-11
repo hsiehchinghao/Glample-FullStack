@@ -69,7 +69,7 @@ const Profile = ({ setShopCount, setShopItems }) => {
             localStorage.removeItem("orderTotal");
             //觸發shopList重新讀取localStorage
             setShopItems(() => {
-              return PostService.loadShoppingCart();
+              return ShopService.loadShoppingCart();
             });
           }
         })
@@ -228,7 +228,7 @@ const Profile = ({ setShopCount, setShopItems }) => {
                   );
                 })
               ) : (
-                <div className="errorMsg">There isn't any complete order!</div>
+                <div className="errorMsg">There isn't any finish order!</div>
               )}
             </div>
           </div>

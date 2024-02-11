@@ -9,6 +9,7 @@ import Layout from "./Layout";
 import Profile from "./components/Profile";
 import Login from "./components/Login";
 import Register from "./components/Register";
+import Category from "./components/Category";
 import PostPage from "./components/PostPage";
 import Edit from "./components/Edit";
 import AddPost from "./components/AddPost";
@@ -17,13 +18,13 @@ import ProductList from "./components/ProductList";
 import ProductPage from "./components/ProductPage";
 import ConfirmOrder from "./components/ConfirmOrder";
 import DoubleConfirm from "./components/DoubleConfirm";
-import ShopResult from "./components/ShopResult";
 
 function App() {
   const [currentUser, setCurrentUser] = useState(AuthService.getCurrentUser());
   const [shopItems, setShopItems] = useState(null);
   const [shopCount, setShopCount] = useState(0);
   const [confirmOrder, setConfirmOrder] = useState(null);
+  const [currentSub, setCurrentSub] = useState(null);
   return (
     <div className="App">
       <BrowserRouter>
@@ -38,6 +39,8 @@ function App() {
                 setShopItems={setShopItems}
                 shopCount={shopCount}
                 setShopCount={setShopCount}
+                currentSub={currentSub}
+                setCurrentSub={setCurrentSub}
               />
             }
           >
@@ -55,10 +58,18 @@ function App() {
             <Route path="register" element={<Register />}></Route>
             <Route path="post" element={<AddPost />}></Route>
             <Route path="editPost/:id" element={<Edit />}></Route>
+            <Route
+              path="category/:category"
+              element={
+                <Category
+                  currentSub={currentSub}
+                  setCurrentSub={setCurrentSub}
+                />
+              }
+            ></Route>
             <Route path="post/:id" element={<PostPage />}></Route>
             <Route path="addProduct" element={<AddProduct />}></Route>
             <Route path="product" element={<ProductList />}></Route>
-            <Route path="shopResult" element={<ShopResult />}></Route>
             <Route
               path="loadProduct/:id"
               element={
