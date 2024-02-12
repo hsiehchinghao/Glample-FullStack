@@ -18,6 +18,7 @@ const Nav = ({
   setShopCount,
   currentSub,
   setCurrentSub,
+  setSearchContent,
 }) => {
   const API_URL = "http://localhost:8081";
   console.log("render~");
@@ -26,6 +27,8 @@ const Nav = ({
   const shopListRef = useRef(null);
   const shopListItemsRef = useRef(null);
   const shopCartAddRef = useRef(null);
+  const searchContentRef = useRef("");
+  const padSearchContentRef = useRef("");
 
   //解決google跳轉回來的問題
   useEffect(() => {
@@ -175,9 +178,8 @@ const Nav = ({
 
   //登出按鈕
   const handleLogout = () => {
-    let x = window.confirm("sure?");
-
-    if (x) {
+    let confirm = window.confirm("Logout?");
+    if (confirm) {
       window.alert("Logout");
       AuthService.logout();
       setCurrentUser(null); //觸發currentUser判斷
@@ -190,6 +192,24 @@ const Nav = ({
     console.log(e.target.innerText);
     setCurrentSub(e.target.innerText);
     navigate(`/category/${e.target.innerText}`);
+  };
+
+  //搜尋提交功能
+  const handleSearchBtn = (e) => {
+    if (searchContentRef.current.value != "") {
+      console.log(searchContentRef.current.value);
+      setSearchContent(() => {
+        return searchContentRef.current.value;
+      });
+      navigate(`/allPosts/${searchContentRef.current.value}`);
+    }
+    if (padSearchContentRef.current.value != "") {
+      console.log(padSearchContentRef.current.value);
+      setSearchContent(() => {
+        return searchContentRef.current.value;
+      });
+      navigate(`/allPosts/${padSearchContentRef.current.value}`);
+    }
   };
 
   return (
@@ -209,7 +229,10 @@ const Nav = ({
               <div className="searchlogo">
                 <img src={search} alt="searchlogo" />
               </div>
-              <input type="text" placeholder="search" />
+              <input type="text" placeholder="search" ref={searchContentRef} />
+              <button className="searchBtn" onClick={handleSearchBtn}>
+                Search
+              </button>
             </div>
             <div className="menuBtn" onClick={handleOpenNav}>
               Menu
@@ -360,7 +383,10 @@ const Nav = ({
           <div className="searchlogo">
             <img src={search} alt="searchlogo" />
           </div>
-          <input type="text" placeholder="search" />
+          <input type="text" placeholder="search" ref={padSearchContentRef} />
+          <button className="searchBtn" onClick={handleSearchBtn}>
+            Search
+          </button>
         </div>
         <ul className="categoryList">
           <li onClick={handleGoCategoryPage}>FASHION</li>

@@ -1,0 +1,7 @@
+@use "../abstract/variable" as *;
+
+.allPostsPage {
+  @extend %basicComponent;
+  .searchingDecoration {
+  }
+}

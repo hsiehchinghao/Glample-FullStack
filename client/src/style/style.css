@@ -26,13 +26,13 @@
   box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.5);
 }
 
-.categoryPage, .doubleCheckPage, .confirmOrderPage, .productPage, .productListPage, .signUpPage, .profile, .loginComponent, .addProductPage > .addPostPage, .addPostPage, .doubleCheckPage .error, .error, .addProductPage .errorPage, .errorPage, .profile > div .allLikesPosts .loadLikePostSection .errorMsg, .profile > div .loadAllOrders .loadLikePostSection .errorMsg, .profile > div .loadAllOrders .errorMsg {
+.allPostsPage, .categoryPage, .doubleCheckPage, .confirmOrderPage, .productPage, .productListPage, .signUpPage, .profile, .loginComponent, .addProductPage > .addPostPage, .addPostPage, .doubleCheckPage .error, .error, .addProductPage .errorPage, .errorPage, .profile > div .allLikesPosts .loadLikePostSection .errorMsg, .profile > div .loadAllOrders .loadLikePostSection .errorMsg, .profile > div .loadAllOrders .errorMsg {
   width: 95dvw;
   padding-top: 150px;
   padding-bottom: 100px;
 }
 @media (max-width: 850px) {
-  .categoryPage, .doubleCheckPage, .confirmOrderPage, .productPage, .productListPage, .signUpPage, .profile, .loginComponent, .addProductPage > .addPostPage, .addPostPage, .doubleCheckPage .error, .error, .addProductPage .errorPage, .errorPage, .profile > div .allLikesPosts .loadLikePostSection .errorMsg, .profile > div .loadAllOrders .loadLikePostSection .errorMsg, .profile > div .loadAllOrders .errorMsg {
+  .allPostsPage, .categoryPage, .doubleCheckPage, .confirmOrderPage, .productPage, .productListPage, .signUpPage, .profile, .loginComponent, .addProductPage > .addPostPage, .addPostPage, .doubleCheckPage .error, .error, .addProductPage .errorPage, .errorPage, .profile > div .allLikesPosts .loadLikePostSection .errorMsg, .profile > div .loadAllOrders .loadLikePostSection .errorMsg, .profile > div .loadAllOrders .errorMsg {
     padding-top: 190px;
   }
 }
@@ -472,6 +472,7 @@
 }
 .navSection .navBar .flexEnd .searchBar {
   background-color: rgba(255, 255, 255, 0);
+  position: relative;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -495,11 +496,29 @@
   height: 30px;
   padding: 15px;
   border: none;
-  font-weight: 800;
   background-color: rgba(255, 255, 255, 0);
 }
 .navSection .navBar .flexEnd .searchBar input:focus {
   outline: none;
+}
+.navSection .navBar .flexEnd .searchBar .searchBtn {
+  font-size: 16px;
+  background-color: #ccc;
+  color: #000;
+  line-height: 20px;
+  padding: 3px 10px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  transition: 0.2s;
+  border: 1px solid #333;
+}
+.navSection .navBar .flexEnd .searchBar .searchBtn:hover {
+  transform: translateY(-5%);
+}
+.navSection .navBar .flexEnd .searchBar .searchBtn:active {
+  background-color: #000;
+  color: #eee;
 }
 .navSection .navBar .flexEnd .menuBtn, .navSection .navBar .flexEnd .shoppingCartDiv {
   border: 5px solid #bbb;
@@ -588,6 +607,7 @@
 @media (max-width: 500px) {
   .navSection .navBar .flexEnd .navBarList .navBarListBanner .navBarListBannerLogo {
     letter-spacing: 0px;
+    font-size: 40px;
   }
 }
 .navSection .navBar .flexEnd .navBarList .navBarListBanner .navBarListClose {
@@ -835,12 +855,12 @@
   }
 }
 .navSection .padSearchBar .searchlogo {
-  margin: 0 10px;
+  margin: 0 10px 0 30px;
   width: 32px;
 }
 .navSection .padSearchBar .searchlogo img {
-  width: 100%;
-  height: 100%;
+  width: 30px;
+  height: 30%;
 }
 .navSection .padSearchBar input {
   font-size: 17px;
@@ -852,6 +872,32 @@
 }
 .navSection .padSearchBar input:focus {
   outline: none;
+}
+.navSection .padSearchBar .searchBtn {
+  font-size: 16px;
+  background-color: #ccc;
+  color: #000;
+  line-height: 20px;
+  padding: 3px 10px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  transition: 0.2s;
+  margin-right: 50px;
+  border: 1px solid #333;
+}
+@media (max-width: 650px) {
+  .navSection .padSearchBar .searchBtn {
+    margin-right: 20px;
+    font-size: 14px;
+  }
+}
+.navSection .padSearchBar .searchBtn:hover {
+  transform: translateY(-5%);
+}
+.navSection .padSearchBar .searchBtn:active {
+  background-color: #000;
+  color: #eee;
 }
 .navSection .categoryList {
   display: flex;
@@ -909,7 +955,7 @@
 }
 @media (max-width: 500px) {
   .navSection .categoryList li {
-    font-size: 22px;
+    font-size: 20px;
     padding: 0;
   }
 }
@@ -3024,27 +3070,29 @@
   margin-top: 30px;
 }
 .doubleCheckPage .doubleConfirmOrderContent .allItems .orderData > p > div > .productCover {
-  width: 30%;
+  width: 40%;
   height: 200px;
   background-position: center;
   background-size: cover;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: end;
   align-items: center;
   margin-bottom: 30px;
 }
 @media (max-width: 650px) {
   .doubleCheckPage .doubleConfirmOrderContent .allItems .orderData > p > div > .productCover {
-    width: 45%;
+    width: 40%;
   }
 }
 .doubleCheckPage .doubleConfirmOrderContent .allItems .orderData > p > div > .productCover > p {
+  display: inline-block;
   width: 100%;
-  height: 100%;
   text-align: center;
   background-color: rgba(85, 85, 85, 0.3019607843);
   color: #fff;
+  font-size: 16px;
+  line-height: 24px;
 }
 .doubleCheckPage .doubleConfirmOrderContent .allItems .orderData .totalPriceReminder {
   padding: 40px 0;
@@ -3084,7 +3132,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  background-image: url("../svg/—Pngtree—hand drawn coil circle doodle_5780052.png");
+  background-image: url("../svg/white.png");
   background-repeat: no-repeat;
   background-position: center;
   background-size: 30% 70%;
@@ -3157,12 +3205,18 @@
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
+  cursor: pointer;
+  transition: 0.3s;
 }
 @media (max-width: 650px) {
   .categoryPage .categoryPageContent > .firstPost > .postCover {
     width: 100%;
     height: 300px;
   }
+}
+.categoryPage .categoryPageContent > .firstPost > .postCover:hover {
+  transform: scale(1.1);
+  border-radius: 30px;
 }
 .categoryPage .categoryPageContent > .firstPost > .postInfo {
   display: flex;
@@ -3184,12 +3238,16 @@
   font-size: 32px;
   line-height: 40px;
   text-transform: uppercase;
+  cursor: pointer;
 }
 @media (max-width: 650px) {
   .categoryPage .categoryPageContent > .firstPost > .postInfo > p {
     font-size: 22px;
     line-height: 30px;
   }
+}
+.categoryPage .categoryPageContent > .firstPost > .postInfo > p:hover {
+  text-decoration: underline;
 }
 .categoryPage .categoryPageContent > .firstPost > .postInfo .categoryDiv {
   width: 100%;
@@ -3316,16 +3374,21 @@
   font-size: 28px;
   text-align: center;
   width: 100%;
-  animation: 10s carouselAnimationHr linear infinite normal;
+  animation: 14s carouselAnimationHr linear infinite normal;
+}
+@media (max-width: 850px) {
+  .categoryPage .categoryPageContent > .decorationBanner .productBannerTitle .productBannerFirst {
+    font-size: 22px;
+  }
 }
 @media (max-width: 650px) {
   .categoryPage .categoryPageContent > .decorationBanner .productBannerTitle .productBannerFirst {
-    font-size: 20px;
+    font-size: 16px;
   }
 }
 @media (max-width: 500px) {
   .categoryPage .categoryPageContent > .decorationBanner .productBannerTitle .productBannerFirst {
-    font-size: 16px;
+    font-size: 14px;
   }
 }
 .categoryPage .categoryPageContent > .decorationBanner .productBannerTitle .productBannerFirst > p {
@@ -3343,16 +3406,21 @@
   text-wrap: nowrap;
   font-size: 28px;
   width: 100%;
-  animation: 10s carouselAnimationHr linear 5s infinite normal;
+  animation: 14s carouselAnimationHr linear 7s infinite normal;
+}
+@media (max-width: 850px) {
+  .categoryPage .categoryPageContent > .decorationBanner .productBannerTitle .productBannerSecond {
+    font-size: 22px;
+  }
 }
 @media (max-width: 650px) {
   .categoryPage .categoryPageContent > .decorationBanner .productBannerTitle .productBannerSecond {
-    font-size: 20px;
+    font-size: 16px;
   }
 }
 @media (max-width: 500px) {
   .categoryPage .categoryPageContent > .decorationBanner .productBannerTitle .productBannerSecond {
-    font-size: 16px;
+    font-size: 14px;
   }
 }
 .categoryPage .categoryPageContent > .decorationBanner .productBannerTitle .productBannerSecond > p {
@@ -3401,6 +3469,12 @@
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.categoryPage .categoryPageContent > .secondAndThirdPost .secondPost .secondPostCover:hover {
+  border-radius: 20px;
+  transform: scale(1.1);
 }
 .categoryPage .categoryPageContent > .secondAndThirdPost .secondPost .secondPostInfo {
   width: 50%;
@@ -3415,6 +3489,10 @@
   color: #eee;
   font-size: 18px;
   text-transform: uppercase;
+  cursor: pointer;
+}
+.categoryPage .categoryPageContent > .secondAndThirdPost .secondPost .secondPostInfo > .postTitle:hover {
+  text-decoration: underline;
 }
 .categoryPage .categoryPageContent > .secondAndThirdPost .secondPost .secondPostInfo > .postCategoryDiv {
   width: 100%;
@@ -3494,6 +3572,13 @@
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
+  transition: 0.3s;
+  overflow: hidden;
+  cursor: pointer;
+}
+.categoryPage .categoryPageContent > .fourthPost > .postCover:hover {
+  transform: scale(1.1);
+  border-radius: 30px;
 }
 @media (max-width: 650px) {
   .categoryPage .categoryPageContent > .fourthPost > .postCover {
@@ -3518,6 +3603,7 @@
   }
 }
 .categoryPage .categoryPageContent > .fourthPost > .postContent > p {
+  cursor: pointer;
   font-size: 32px;
   line-height: 40px;
   text-transform: uppercase;
@@ -3527,6 +3613,9 @@
     font-size: 22px;
     line-height: 30px;
   }
+}
+.categoryPage .categoryPageContent > .fourthPost > .postContent > p:hover {
+  text-decoration: underline;
 }
 .categoryPage .categoryPageContent > .fourthPost > .postContent .categoryDiv {
   width: 100%;
@@ -3617,4 +3706,159 @@
 }
 .categoryPage .categoryPageContent > .fourthPost > .postContent > .infoContent .viewMore:hover {
   transform: scale(1.2);
+}
+.categoryPage .categoryPageContent > .eachPostContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  width: 100%;
+}
+.categoryPage .categoryPageContent > .eachPostContent .filterSection {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  background-color: #fff;
+  padding: 0 10px;
+}
+.categoryPage .categoryPageContent > .eachPostContent .filterSection .currentFilter {
+  font-size: 32px;
+  text-decoration: underline;
+  padding: 20px 0 20px 20px;
+}
+@media (max-width: 850px) {
+  .categoryPage .categoryPageContent > .eachPostContent .filterSection .currentFilter {
+    font-size: 26px;
+  }
+}
+@media (max-width: 650px) {
+  .categoryPage .categoryPageContent > .eachPostContent .filterSection .currentFilter {
+    font-size: 24px;
+  }
+}
+.categoryPage .categoryPageContent > .eachPostContent .filterSection .filterSelection {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+.categoryPage .categoryPageContent > .eachPostContent .filterSection .filterSelection > button {
+  border: none;
+  font-size: 24px;
+  padding: 5px 20px;
+  display: inline-block;
+  background-color: #ccc;
+  margin: 5px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+@media (max-width: 850px) {
+  .categoryPage .categoryPageContent > .eachPostContent .filterSection .filterSelection > button {
+    font-size: 20px;
+  }
+}
+@media (max-width: 650px) {
+  .categoryPage .categoryPageContent > .eachPostContent .filterSection .filterSelection > button {
+    font-size: 16px;
+    margin: 5px 10px;
+  }
+}
+@media (max-width: 500px) {
+  .categoryPage .categoryPageContent > .eachPostContent .filterSection .filterSelection > button {
+    margin: 5px 5px;
+    font-size: 14px;
+  }
+}
+.categoryPage .categoryPageContent > .eachPostContent .filterSection .filterSelection > button:hover {
+  background-color: #000;
+  color: #eee;
+}
+.categoryPage .categoryPageContent > .eachPostContent .filterSection .filterSelection > button:disabled {
+  background-color: #000;
+  color: #eee;
+}
+.categoryPage .categoryPageContent > .eachPostContent .postCards {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: start;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.categoryPage .categoryPageContent > .eachPostContent .postCards .postCard {
+  border-top: 1px solid #aaa;
+  padding: 10px 0;
+  width: 30%;
+  margin: 20px 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  cursor: pointer;
+}
+.categoryPage .categoryPageContent > .eachPostContent .postCards .postCard .postCardInfo {
+  margin-bottom: 30px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.categoryPage .categoryPageContent > .eachPostContent .postCards .postCard .postCardInfo > .postCardCategory {
+  width: 100%;
+}
+.categoryPage .categoryPageContent > .eachPostContent .postCards .postCard .postCardInfo > .postCardCategory > p {
+  font-size: 14px;
+  background-color: #eee;
+  border-radius: 10px;
+  padding: 5px;
+  display: inline-block;
+  margin: 0 0 10px 0;
+  text-decoration: underline;
+}
+.categoryPage .categoryPageContent > .eachPostContent .postCards .postCard .postCardInfo > .postCardTitle {
+  font-size: 20px;
+  text-align: end;
+  padding-bottom: 10px;
+  cursor: pointer;
+}
+.categoryPage .categoryPageContent > .eachPostContent .postCards .postCard .postCardInfo > .postCardTitle:hover {
+  text-decoration: underline;
+}
+.categoryPage .categoryPageContent > .eachPostContent .postCards .postCard .postCardInfo > .postCardDate {
+  text-decoration: underline;
+  text-align: end;
+  width: 100%;
+}
+.categoryPage .categoryPageContent > .eachPostContent .postCards .postCard .postCardCover {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  width: 100%;
+}
+.categoryPage .categoryPageContent > .eachPostContent .postCards .postCard .postCardCover > img {
+  width: 100%;
+  height: auto;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.categoryPage .categoryPageContent > .eachPostContent .postCards .postCard .postCardCover > img:hover {
+  transform: scale(1.1);
+  border-radius: 15px;
+}
+@media (max-width: 850px) {
+  .categoryPage .categoryPageContent > .eachPostContent .postCards .postCard {
+    width: 30%;
+    margin: 20px 10px;
+  }
+}
+@media (max-width: 650px) {
+  .categoryPage .categoryPageContent > .eachPostContent .postCards .postCard {
+    width: 40%;
+  }
 }/*# sourceMappingURL=style.css.map */

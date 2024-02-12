@@ -16,6 +16,7 @@ const Profile = ({ setShopCount, setShopItems }) => {
   const [post_id, setPost_id] = useState(null);
   const [likePost, setLikePost] = useState(null);
   const [historyOrder, setHistoryOrder] = useState(null);
+  const [productManage, setProductManage] = useState(null);
   // const [orderFound, setOrderFound] = useState(false);
 
   useEffect(() => {
@@ -23,8 +24,13 @@ const Profile = ({ setShopCount, setShopItems }) => {
     props.setCurrentUser(AuthService.getCurrentUser());
     if (AuthService.getCurrentUser()) {
       const currentUser = AuthService.getCurrentUser();
+
+      //身份是編輯
       //載入post的文章
+      //載入商品資料
+
       if (currentUser.role == "instructor") {
+        //發佈的文章
         PostService.findUserPost(currentUser._id)
           .then((result) => {
             console.log(result);
@@ -36,6 +42,18 @@ const Profile = ({ setShopCount, setShopItems }) => {
           .catch((e) => {
             console.log(e);
             navigate("/login");
+          });
+
+        //發佈的商品
+        ShopService.loadLatestProduct()
+          .then((result) => {
+            console.log(result);
+            setProductManage(() => {
+              return result.data.result;
+            });
+          })
+          .catch((e) => {
+            console.log(e);
           });
       }
 
@@ -88,15 +106,24 @@ const Profile = ({ setShopCount, setShopItems }) => {
   };
   //修改文章按鈕
   const handleUpdate = (_id) => {
-    navigate(`/editPost/${_id}`);
+    let confirm = window.confirm("Double check to Edit the post?");
+    if (confirm) {
+      navigate(`/editPost/${_id}`);
+    }
   };
   //刪除文章
   const handleDelete = async (_id) => {
-    let result = await PostService.deletePost(_id);
-    console.log(result);
-    navigate("/profile");
-    window.location.reload();
+    let confirm = window.confirm("Double check to delete the post?");
+    if (confirm) {
+      let result = await PostService.deletePost(_id);
+      console.log(result);
+      navigate("/profile");
+      window.location.reload();
+    }
   };
+
+  //刪除商品
+  const handleDeleteProduct = (_id) => {};
 
   return (
     <div className="profile">
@@ -153,6 +180,58 @@ const Profile = ({ setShopCount, setShopItems }) => {
                                   e.stopPropagation();
                                   console.log(index._id);
                                   handleDelete(index._id);
+                                }}
+                              />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  })}
+              </div>
+            </div>
+          )}
+          {/* 商品管理 */}
+          {productManage && (
+            <div className="allInstructorPost">
+              <div className="instructorPostTitle">Manage Products</div>
+              <div className="loadInstructorPostSection">
+                {productManage &&
+                  productManage.map((index) => {
+                    return (
+                      <div
+                        onClick={() => {
+                          handlePerPost(index._id);
+                        }}
+                        key={index._id}
+                        className="perPost"
+                        style={{
+                          backgroundImage: `url(${API_URL}${index.image})`,
+                        }}
+                      >
+                        <div className="perPostData">
+                          {index.title}
+                          <br />
+                          {index.date}
+                          <div className="editBtn">
+                            <div className="updatePostBtn">
+                              <img
+                                src={updatePostBtnIcon}
+                                alt="update content"
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  handleUpdate(index._id);
+                                }}
+                              />
+                            </div>
+                            <div className="deletePostBtn">
+                              <img
+                                src={deletePostIcon}
+                                alt="delete content"
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  console.log(index._id);
+                                  handleDeleteProduct(index._id);
                                 }}
                               />
                             </div>

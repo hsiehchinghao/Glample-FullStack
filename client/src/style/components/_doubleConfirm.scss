@@ -42,21 +42,24 @@
             flex-wrap: wrap;
             margin-top: 30px;
             > .productCover {
-              width: 30%;
+              width: 40%;
               height: 200px;
               background-position: center;
               background-size: cover;
-              @include flexbox(column, center, center);
+              @include flexbox(column, end, center);
               margin-bottom: 30px;
               @include mobile {
-                width: 45%;
+                width: 40%;
               }
               > p {
+                display: inline-block;
                 width: 100%;
-                height: 100%;
+                // height: 100%;
                 text-align: center;
                 background-color: #5555554d;
                 color: #fff;
+                font-size: 16px;
+                line-height: 24px;
               }
             }
           }

@@ -49,25 +49,26 @@ router.get("/loadLatestProduct", async (req, res) => {
   }
 });
 
-//search Post by title / editor 未完成
-router.get("/loadPost/searchPost", async (req, res) => {
+//根據搜尋內容顯示文章
+router.get("/search", async (req, res) => {
   try {
-    console.log(req.query);
-    if (req.query) {
-      let { search } = req.query;
-      console.log(search);
-      let findResultByTitle = await Post.find({ $text: { $search: search } });
-      let findResultByEditor = await Instructor.find({
-        $text: { $search: search },
-      });
-      console.log(findResultByEditor, findResultByTitle);
+    console.log(req.query.search);
+    let { search } = req.query;
+    let findResultByTitle = await Post.find({ $text: { $search: search } });
+    let findResultByEditor = await Instructor.find({
+      $text: { $search: search },
+    });
+    console.log(findResultByEditor, findResultByTitle);
+    if (findResultByEditor.length || findResultByTitle.length) {
       return res
         .status(200)
-        .send({ msg: "成功搜尋文章", findResultByEditor, findResultByEditor });
+        .send({ msg: "搜尋成功", findResultByEditor, findResultByTitle });
+    } else {
+      return res.status(200).send({ msg: "noResult" });
     }
   } catch (e) {
     console.log(e);
-    return res.status(500).send({ msg: "載入搜尋文章失敗", e });
+    return res.status(500).send({ msg: "搜尋失敗", e });
   }
 });
 
@@ -100,19 +101,7 @@ router.get("/loadProductById/:_id", async (req, res) => {
   }
 });
 
-// //載入各類別文章
-// router.get("/loadPost/sort/:category", async (req, res) => {
-//   try {
-//     let { category } = req.params;
-//     let result = await Post.loadByCategoryAndSortByTopLatest(category);
-//     console.log(result);
-//   } catch (e) {
-//     console.log(e);
-//     return res.status(500).send({ msg: "載入announce文章失敗", e });
-//   }
-// });
-
-//載入各類別的 top latest
+//依類別的 top latest
 router.get("/loadPost/sortByTopLatest/:category", async (req, res) => {
   try {
     let { category } = req.params;
@@ -123,6 +112,19 @@ router.get("/loadPost/sortByTopLatest/:category", async (req, res) => {
   } catch (e) {
     console.log(e);
     return res.status(500).send({ msg: "載入文章失敗", e });
+  }
+});
+
+//依類別的 top pop
+router.get("/loadPost/sortByTopPop/:category", async (req, res) => {
+  try {
+    let { category } = req.params;
+    console.log(category);
+    let result = await Post.loadByCategoryAndSortByTopLikes(category);
+    // console.log(result);
+    return res.status(200).send({ msg: "成功", result });
+  } catch (e) {
+    console.log(e);
   }
 });
 

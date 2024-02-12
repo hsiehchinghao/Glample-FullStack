@@ -18,6 +18,7 @@ import ProductList from "./components/ProductList";
 import ProductPage from "./components/ProductPage";
 import ConfirmOrder from "./components/ConfirmOrder";
 import DoubleConfirm from "./components/DoubleConfirm";
+import AllPosts from "./components/AllPosts";
 
 function App() {
   const [currentUser, setCurrentUser] = useState(AuthService.getCurrentUser());
@@ -25,6 +26,7 @@ function App() {
   const [shopCount, setShopCount] = useState(0);
   const [confirmOrder, setConfirmOrder] = useState(null);
   const [currentSub, setCurrentSub] = useState(null);
+  const [searchContent, setSearchContent] = useState(null);
   return (
     <div className="App">
       <BrowserRouter>
@@ -41,6 +43,8 @@ function App() {
                 setShopCount={setShopCount}
                 currentSub={currentSub}
                 setCurrentSub={setCurrentSub}
+                searchContent={searchContent}
+                setSearchContent={setSearchContent}
               />
             }
           >
@@ -56,6 +60,10 @@ function App() {
               }
             ></Route>
             <Route path="register" element={<Register />}></Route>
+            <Route
+              path="allPosts/:search"
+              element={<AllPosts searchContent={searchContent} />}
+            ></Route>
             <Route path="post" element={<AddPost />}></Route>
             <Route path="editPost/:id" element={<Edit />}></Route>
             <Route

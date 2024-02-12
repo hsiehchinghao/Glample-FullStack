@@ -110,11 +110,21 @@ class PostService {
     }
   }
 
-  //依類別載入文章
+  //依類別載入最新文章
   loadByCategoryAndSortByTopLatest(category) {
     return axios.get(
       API_URL_VISITORS + `/loadPost/sortByTopLatest/${category}`
     );
+  }
+
+  //依類別載入最熱門文
+  loadByCategoryAndSortByTopPop(category) {
+    return axios.get(API_URL_VISITORS + `/loadPost/sortByTopPop/${category}`);
+  }
+
+  //搜尋內容
+  searching(search) {
+    return axios.get(API_URL_VISITORS + `/search?search=${search}`);
   }
 
   //商品相關

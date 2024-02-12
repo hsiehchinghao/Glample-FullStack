@@ -32,6 +32,10 @@ const HomePagePopPostSection = () => {
     navigate(`post/${_id}`);
   };
 
+  const handleGoAllPostsPage = async () => {
+    navigate("/allPosts");
+  };
+
   return (
     <div className="homePagePopSection">
       <div className="homePagePopTitle ">
@@ -273,7 +277,7 @@ const HomePagePopPostSection = () => {
           )}
         </div>
         <div className="loadAll">
-          <p>View All</p>
+          <p onClick={handleGoAllPostsPage}>View All</p>
         </div>
       </div>
     </div>
