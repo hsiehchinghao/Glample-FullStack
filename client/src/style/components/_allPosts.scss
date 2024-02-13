@@ -97,6 +97,13 @@
     }
   }
 
+  .loaderSection {
+    @extend %loadSection;
+    .loader {
+      @extend %loader;
+    }
+  }
+
   //無搜尋結果
   .noResultSection {
     @extend %errorPage;

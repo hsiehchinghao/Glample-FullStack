@@ -159,7 +159,7 @@ const AllPosts = ({ searchContent }) => {
         </div>
       )}
       {/* 搜尋結果區塊 */}
-      {searchResult && searchResult.msg && searchResult.msg != "noResult" && (
+      {searchResult && searchResult.msg && searchResult.msg != "noResult" ? (
         <div className="searchResultSection">
           {searchResult.findResultByTitle && (
             <div className="resultByTitle">
@@ -253,6 +253,10 @@ const AllPosts = ({ searchContent }) => {
               }
             </div>
           )}
+        </div>
+      ) : (
+        <div className="loaderSection">
+          <div className="loader"></div>
         </div>
       )}
       {/* 無搜尋結果 */}

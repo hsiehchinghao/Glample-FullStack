@@ -673,11 +673,36 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: relative;
   width: 90dvw;
 }
 .loadingPage .loader {
-  width: 50px;
-  height: 50px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  width: 80px;
+  height: 80px;
+  margin: 0 auto;
+  padding: 10px;
+  border: 7px dashed #888;
+  border-radius: 100%;
+  animation: loadingD 1.5s 0.3s cubic-bezier(0.17, 0.37, 0.43, 0.67) infinite;
+}
+
+.allPostsPage .loaderSection {
+  min-height: 350px;
+  width: 100%;
+  position: relative;
+}
+
+.allPostsPage .loaderSection .loader {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  width: 80px;
+  height: 80px;
   margin: 0 auto;
   padding: 10px;
   border: 7px dashed #333;
