@@ -15,7 +15,6 @@ const visitorsRoute = require("./routes").visitors;
 const path = require("path");
 const Instructor = require("./models").instructor;
 const Post = require("./models").post;
-const path = require("path");
 const port = process.env.PORT || 8081;
 
 mongoose
