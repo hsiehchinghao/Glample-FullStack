@@ -55,7 +55,7 @@ const Register = () => {
 
   return (
     <div className="signUpPage">
-      <h1 className="signUpTitle">signup</h1>
+      <h1 className="signUpTitle">SIGNUP</h1>
       {message && <div className="errorMsg">{message}</div>}
       <form className="signUpForm ">
         <label htmlFor="username">username :</label>

@@ -668,6 +668,25 @@
   }
 }
 
+@keyframes loadingD {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 @keyframes carouselAnimation {
   0% {
     transform: translateY(100%);

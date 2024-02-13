@@ -77,7 +77,7 @@ const PostPage = () => {
   return (
     <>
       {error && <div className="errorPage">OOPS! THERE'S SOMETHING WRONG</div>}
-      {postContent && (
+      {postContent ? (
         <>
           <div className="likeBtnPostPageSection">
             <div className="likeBtnPostPage" onClick={handleLike}>
@@ -122,6 +122,10 @@ const PostPage = () => {
             </div>
           </div>
         </>
+      ) : (
+        <div className="loadingPage">
+          <div className="loader"></div>
+        </div>
       )}
     </>
   );
