@@ -7,7 +7,8 @@ passport.use(
     {
       clientID: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-      callbackURL: "http://localhost:8081/api/auth/google/redirect",
+      callbackURL:
+        "https://glample-mern-9b575194526d.herokuapp.com/api/auth/google/redirect",
     },
     async (accessToken, refreshToken, profile, done) => {
       try {
