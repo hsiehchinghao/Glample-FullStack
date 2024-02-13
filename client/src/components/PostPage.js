@@ -7,7 +7,7 @@ import likeIcon from "../svg/icons8-like-64 2.png";
 import AuthService from "../services/AuthService";
 
 const PostPage = () => {
-  const API_URL = "http://localhost:8081";
+  const API_URL = "https://glample-mern-9b575194526d.herokuapp.com/";
   const navigate = useNavigate();
   const [postContent, setPostContent] = useState(null);
   const [error, setError] = useState(null);

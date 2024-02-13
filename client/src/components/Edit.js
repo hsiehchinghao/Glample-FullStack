@@ -9,7 +9,7 @@ import PostService from "../services/PostService";
 import AuthService from "../services/AuthService";
 
 const Edit = () => {
-  const API_URL = "http://localhost:8081";
+  const API_URL = "https://glample-mern-9b575194526d.herokuapp.com/";
   Quill.register("modules/imageCompress", ImageCompress);
   Quill.register("modules/imageResize", ImageResize);
   const modules = {

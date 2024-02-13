@@ -1,7 +1,7 @@
 import axios from "axios";
 import Cookies from "js-cookie";
 
-const API_URL = "http://localhost:8081/api/auth";
+const API_URL = "https://glample-mern-9b575194526d.herokuapp.com/api/auth";
 
 class AuthService {
   //註冊

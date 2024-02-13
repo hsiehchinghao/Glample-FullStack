@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const DoubleConfirm = ({ confirmOrder }) => {
-  const API_URL = "http://localhost:8081";
+  const API_URL = "https://glample-mern-9b575194526d.herokuapp.com/";
   const orderDetails = JSON.parse(localStorage.getItem("orderDetails"));
   useEffect(() => {
     window.scrollTo(0, 0);

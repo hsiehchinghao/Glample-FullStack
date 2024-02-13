@@ -3,7 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import PostService from "../../services/PostService";
 
 const HomePagePopPostSection = () => {
-  const API_URL = "http://localhost:8081";
+  const API_URL = "https://glample-mern-9b575194526d.herokuapp.com/";
   const navigate = useNavigate();
   const [popTitle, setPopTitle] = useState(0);
   const [popPostData, setPopPostData] = useState(null);

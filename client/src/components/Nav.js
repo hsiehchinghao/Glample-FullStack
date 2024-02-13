@@ -21,7 +21,7 @@ const Nav = ({
   searchContent,
   setSearchContent,
 }) => {
-  const API_URL = "http://localhost:8081";
+  const API_URL = "https://glample-mern-9b575194526d.herokuapp.com/";
   console.log("render~");
   const navigate = useNavigate();
 

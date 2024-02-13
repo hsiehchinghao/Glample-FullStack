@@ -4,7 +4,7 @@ import PostService from "../../services/PostService";
 import ShopService from "../../services/ShopService";
 
 const ProductBanner = () => {
-  const API_URL = "http://localhost:8081";
+  const API_URL = "https://glample-mern-9b575194526d.herokuapp.com/";
   const navigate = useNavigate();
   const [latestProduct, setLatestProduct] = useState(null);
   useEffect(() => {

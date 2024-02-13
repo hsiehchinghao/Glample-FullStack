@@ -1,7 +1,8 @@
 import axios from "axios";
-const API_URL_POST = "http://localhost:8081/api/post";
-const API_URL = "http://localhost:8081/api/shop";
-const API_URL_VISITORS = "http://localhost:8081/api/visitors";
+const API_URL_POST = "https://glample-mern-9b575194526d.herokuapp.com/api/post";
+const API_URL = "https://glample-mern-9b575194526d.herokuapp.com/api/shop";
+const API_URL_VISITORS =
+  "https://glample-mern-9b575194526d.herokuapp.com/api/visitors";
 
 class ShopService {
   //add product

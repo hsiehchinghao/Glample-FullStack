@@ -4,7 +4,7 @@ import PostService from "../services/PostService";
 import likeIcon from "../svg/icons8-like-64 2.png";
 
 const Category = ({ currentSub, setCurrentSub }) => {
-  const API_URL = "http://localhost:8081";
+  const API_URL = "https://glample-mern-9b575194526d.herokuapp.com/";
   const [loadData, setLoadData] = useState(null);
   const { category } = useParams();
   const navigate = useNavigate();

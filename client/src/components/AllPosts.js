@@ -3,7 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import PostService from "../services/PostService";
 
 const AllPosts = ({ searchContent }) => {
-  const API_URL = "http://localhost:8081";
+  const API_URL = "https://glample-mern-9b575194526d.herokuapp.com/";
   const navigate = useNavigate();
   const { search } = useParams();
   const [searchResult, setSearchResult] = useState(null);

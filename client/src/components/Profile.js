@@ -8,7 +8,7 @@ import deletePostIcon from "../svg/trash.svg";
 import axios from "axios";
 
 const Profile = ({ setShopCount, setShopItems }) => {
-  const API_URL = "http://localhost:8081";
+  const API_URL = "https://glample-mern-9b575194526d.herokuapp.com/";
   //如果是google登入，將資料存在localStorage
   AuthService.setUserInLocalByGoogle();
   const navigate = useNavigate();
