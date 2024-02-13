@@ -42,14 +42,14 @@
             flex-wrap: wrap;
             margin-top: 30px;
             > .productCover {
-              width: 40%;
+              width: 200px;
               height: 200px;
               background-position: center;
               background-size: cover;
               @include flexbox(column, end, center);
               margin-bottom: 30px;
               @include mobile {
-                width: 40%;
+                // width: 50%;
               }
               > p {
                 display: inline-block;

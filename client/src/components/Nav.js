@@ -18,6 +18,7 @@ const Nav = ({
   setShopCount,
   currentSub,
   setCurrentSub,
+  searchContent,
   setSearchContent,
 }) => {
   const API_URL = "http://localhost:8081";
@@ -90,8 +91,34 @@ const Nav = ({
       }
     }
 
+    //監聽 Enter鍵 送出search內容
+    const handleSearchEnter = (e) => {
+      if (
+        window.innerWidth < 850 &&
+        padSearchContentRef.current.value != "" &&
+        e.key == "Enter"
+      ) {
+        e.preventDefault();
+        setSearchContent(() => {
+          return padSearchContentRef.current.value;
+        });
+        navigate(`/allPosts/${padSearchContentRef.current.value}`);
+      } else if (
+        window.innerWidth > 850 &&
+        searchContentRef.current.value != "" &&
+        e.key == "Enter"
+      ) {
+        setSearchContent(() => {
+          return searchContentRef.current.value;
+        });
+        navigate(`/allPosts/${searchContentRef.current.value}`);
+      }
+    };
+    window.addEventListener("keypress", handleSearchEnter);
+
     //卸載時執行
     return () => {
+      window.removeEventListener("keypress", handleSearchEnter);
       window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("resize", handleShopListPosition);
     };
@@ -183,7 +210,12 @@ const Nav = ({
       window.alert("Logout");
       AuthService.logout();
       setCurrentUser(null); //觸發currentUser判斷
+      shopCount(0);
       handleCLoseNav();
+      window.localStorage.removeItem("orderDetails");
+      window.localStorage.removeItem("orderNo");
+      window.localStorage.removeItem("orderList");
+      window.localStorage.removeItem("orderTotal");
     }
   };
 
@@ -196,14 +228,14 @@ const Nav = ({
 
   //搜尋提交功能
   const handleSearchBtn = (e) => {
-    if (searchContentRef.current.value != "") {
+    if (window.innerWidth > 850 && searchContentRef.current.value != "") {
       console.log(searchContentRef.current.value);
       setSearchContent(() => {
         return searchContentRef.current.value;
       });
       navigate(`/allPosts/${searchContentRef.current.value}`);
     }
-    if (padSearchContentRef.current.value != "") {
+    if (window.innerWidth < 850 && padSearchContentRef.current.value != "") {
       console.log(padSearchContentRef.current.value);
       setSearchContent(() => {
         return searchContentRef.current.value;
@@ -230,7 +262,11 @@ const Nav = ({
                 <img src={search} alt="searchlogo" />
               </div>
               <input type="text" placeholder="search" ref={searchContentRef} />
-              <button className="searchBtn" onClick={handleSearchBtn}>
+              <button
+                type="submit"
+                className="searchBtn"
+                onClick={handleSearchBtn}
+              >
                 Search
               </button>
             </div>

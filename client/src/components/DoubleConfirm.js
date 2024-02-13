@@ -6,14 +6,23 @@ const DoubleConfirm = ({ confirmOrder }) => {
   const orderDetails = JSON.parse(localStorage.getItem("orderDetails"));
   useEffect(() => {
     window.scrollTo(0, 0);
-    if (localStorage.getItem("orderDetails")) {
-      console.log(JSON.parse(localStorage.getItem("orderDetails")));
+    console.log(localStorage.getItem("orderList"));
+    if (localStorage.getItem("orderList")) {
+      if (localStorage.getItem("orderDetails")) {
+        console.log(JSON.parse(localStorage.getItem("orderDetails")));
+      }
     }
   }, []);
 
+  const handleAlert = (e) => {
+    alert(
+      "藍新測試環境信用卡資料：{卡號：4000-2211-1111-1111/有效月年：01/28/背面末三碼：111}"
+    );
+  };
+
   return (
     <div className="doubleCheckPage">
-      {localStorage.getItem("orderNo") ? (
+      {localStorage.getItem("orderList") && localStorage.getItem("orderNo") ? (
         <>
           <h1 className="doubleConfirmTitle"> Double Confirm Your Order!</h1>
           <div className="doubleConfirmOrderContent">
@@ -121,7 +130,7 @@ const DoubleConfirm = ({ confirmOrder }) => {
               type="text"
               value={orderDetails && orderDetails.ReturnUrl}
             />
-            <button className="goNewebPay" type="submit">
+            <button className="goNewebPay" type="submit" onClick={handleAlert}>
               PAY FOR IT!
             </button>
           </form>

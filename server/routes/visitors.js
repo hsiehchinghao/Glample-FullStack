@@ -54,15 +54,22 @@ router.get("/search", async (req, res) => {
   try {
     console.log(req.query.search);
     let { search } = req.query;
-    let findResultByTitle = await Post.find({ $text: { $search: search } });
-    let findResultByEditor = await Instructor.find({
+    let findResultByTitle = await Post.find({
+      $or: [
+        { $text: { $search: search } }, // 通过文本索引搜索（假设你有一个包含标题的文本索引）
+        { authorname: { $regex: search, $options: "i" } }, // 使用regex按作者名进行大小写不敏感的匹配搜索
+      ],
+    });
+    let findProductResultByTitle = await Product.find({
       $text: { $search: search },
     });
-    console.log(findResultByEditor, findResultByTitle);
-    if (findResultByEditor.length || findResultByTitle.length) {
-      return res
-        .status(200)
-        .send({ msg: "搜尋成功", findResultByEditor, findResultByTitle });
+    // console.log( findResultByTitle);
+    if (findResultByTitle.length || findProductResultByTitle.length) {
+      return res.status(200).send({
+        msg: "搜尋成功",
+        findResultByTitle,
+        findProductResultByTitle,
+      });
     } else {
       return res.status(200).send({ msg: "noResult" });
     }

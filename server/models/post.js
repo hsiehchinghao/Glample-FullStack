@@ -20,7 +20,7 @@ const postSchema = new Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: "Instructor",
   },
-  authorname: { type: String },
+  authorname: { type: String, index: true },
   comment: [
     {
       type: mongoose.Schema.Types.ObjectId,

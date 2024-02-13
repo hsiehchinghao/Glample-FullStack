@@ -1,362 +1,618 @@
-@mixin pad{
-    @media(max-width:850px){
-        @content
-    }
-};
+@mixin pad {
+  @media (max-width: 850px) {
+    @content;
+  }
+}
 
-@mixin mobile{
-    @media(max-width:650px){
-        @content
-    }
-};
+@mixin mobile {
+  @media (max-width: 650px) {
+    @content;
+  }
+}
 
-@mixin mobileS{
-    @media(max-width:500px){
-        @content
-    }
-};
+@mixin mobileS {
+  @media (max-width: 500px) {
+    @content;
+  }
+}
 
 @mixin flexbox($direction, $justifyContent, $alignItem) {
-    display: flex;
-    flex-direction: $direction;
-    justify-content: $justifyContent;
-    align-items: $alignItem;
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justifyContent;
+  align-items: $alignItem;
 }
 
 $shrinkTop: 178px;
 $normalTop: 138px;
 
 %submitBtn {
-    font-weight: 800;
-    text-align: center;
-    color: #fff;
-    width: 100px;
-    margin-top: 50px;
-    height: 30px;
-    border: none;
-    border-radius: 10px;
-    background-color: #aaa;
-    transition: 0.3s;
-    &:hover {
-        color: #000;
-        background-color: #ddd;
-    }
+  font-weight: 800;
+  text-align: center;
+  color: #fff;
+  width: 100px;
+  margin-top: 50px;
+  height: 30px;
+  border: none;
+  border-radius: 10px;
+  background-color: #aaa;
+  transition: 0.3s;
+  &:hover {
+    color: #000;
+    background-color: #ddd;
+  }
 }
 
 %submitBtn2 {
-    max-width: 200px;
-    width: 60%;
-    margin: 40px;
-    border: 1px solid #ccc;
-    display: inline-block;
-    padding: 6px 12px;
-    transition: 0.3s;
-    font-size: 18px;
-    font-weight: 800;
-    background-color: #ccc;
-    cursor: pointer;
-    border-radius: 20px;
-    &:hover {
-        transform: translateY(-10%);
-        box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.5);
-        background-color: #ddd;
-    }
-    &:active {
-        transform: translateY(0%);
-        box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.5);
-    }
+  max-width: 200px;
+  width: 60%;
+  margin: 40px;
+  border: 1px solid #ccc;
+  display: inline-block;
+  padding: 6px 12px;
+  transition: 0.3s;
+  font-size: 18px;
+  font-weight: 800;
+  background-color: #ccc;
+  cursor: pointer;
+  border-radius: 20px;
+  &:hover {
+    transform: translateY(-10%);
+    box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.5);
+    background-color: #ddd;
+  }
+  &:active {
+    transform: translateY(0%);
+    box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.5);
+  }
 }
 
 %basicComponent {
-    width: 95dvw;
-    padding-top: 150px;
-    padding-bottom: 100px;
-    @include pad {
-        padding-top: 190px;
-    }
+  width: 95dvw;
+  padding-top: 150px;
+  padding-bottom: 100px;
+  @include pad {
+    padding-top: 190px;
+  }
 }
 
 %preventSelect {
-    user-select: none;
-    -webkit-user-select:none;
-    -moz-user-select:none;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
 }
 
 %likeBtn {
-    background-color: rgba(230, 230, 230, 0.422);
-    backdrop-filter: blur(2px);
-    position: relative;
-    display: inline-block;
-    width: 48px;
-    height: 48px; 
-    overflow: hidden;   
+  background-color: rgba(230, 230, 230, 0.422);
+  backdrop-filter: blur(2px);
+  position: relative;
+  display: inline-block;
+  width: 48px;
+  height: 48px;
+  overflow: hidden;
+  transition: 0.3s;
+  border: 5px solid #000;
+  border-radius: 12px;
+  cursor: pointer;
+  &:hover {
+    transform: translateY(-10%);
+  }
+  @include mobileS {
+    border: 3px solid #000;
+    width: 32px;
+    height: 32px;
+  }
+  .likeBtnBar {
     transition: 0.3s;
-    border: 5px solid #000;
-    border-radius: 12px;
+    transform: translateY(0);
     cursor: pointer;
-    &:hover {
-        transform: translateY(-10%);
+    img {
+      cursor: pointer;
+      width: 40px;
+      height: 40px;
+      @include mobileS {
+        width: 28px;
+        height: 28px;
+      }
     }
-    @include mobileS {
-        border: 3px solid #000;
-        width: 32px;
-        height: 32px;   
+  }
+  .liked {
+    transition: 0.3s;
+    transform: translateY(-50%);
+    cursor: pointer;
+    img {
+      cursor: pointer;
+      width: 40px;
+      height: 40px;
+      @include mobileS {
+        width: 28px;
+        height: 28px;
+      }
     }
-    .likeBtnBar {
-        transition: 0.3s;
-        transform: translateY(0);
-        cursor: pointer;
-        img {
-            cursor: pointer;
-            width:40px;
-            height: 40px;
-            @include mobileS {
-                width: 28px;
-                height: 28px;   
-            }
-        }
-    }
-    .liked {
-        transition: 0.3s;
-        transform: translateY(-50%);
-        cursor: pointer;
-        img {
-            cursor: pointer;
-            width:40px;
-            height: 40px;
-            @include mobileS {
-                width: 28px;
-                height: 28px;   
-            }
-        }
-    } 
+  }
 }
 %updatePostBtn {
-    @include flexbox(column, center,center);
-    width: 40px;
-    height: 40px;
-    background-color: rgba(204, 204, 204,0.7);
-    backdrop-filter: blur(3px);
-    border-radius: 30px;
-    transition: 0.2s;
-    border: 3px solid #ccc;
-    margin-right: 20px;
+  @include flexbox(column, center, center);
+  width: 40px;
+  height: 40px;
+  background-color: rgba(204, 204, 204, 0.7);
+  backdrop-filter: blur(3px);
+  border-radius: 30px;
+  transition: 0.2s;
+  border: 3px solid #ccc;
+  margin-right: 20px;
+  @include mobileS {
+    width: 30px;
+    height: 30px;
+    border: 2px solid #ccc;
+  }
+  &:hover {
+    transform: translateY(-10%);
+    background-color: #555;
+    border-radius: 15px;
+    border: 2px solid #fff;
+  }
+  img {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    z-index: 999;
     @include mobileS {
-        width: 30px;
-        height: 30px;   
-        border: 2px solid #ccc;
+      width: 15px;
+      height: 15px;
     }
-    &:hover {
-        transform: translateY(-10%);
-        background-color: #555;
-        border-radius: 15px;
-        border: 2px solid #fff;
-    }
-    img {
-        width: 20px;
-        height: 20px;
-        cursor: pointer;
-        z-index: 999;
-        @include mobileS {
-            width: 15px;
-            height: 15px;   
-        }
-    }
+  }
 }
 
-
 %errorPage {
-    @extend %basicComponent;
-    min-height: 80dvh;
-    @include flexbox(column, center, center);
-    font-size: 50px;
-    color: #888;
+  @extend %basicComponent;
+  min-height: 80dvh;
+  @include flexbox(column, center, center);
+  font-size: 50px;
+  color: #888;
 }
 
 %setCenter {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translateX(-50%) translateY(-50%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
 }
 %addPostPage {
+  @include flexbox(column, space-evenly, center);
+  @extend %basicComponent;
+  padding-bottom: 0;
+  width: 90vw;
+  background-color: #fff;
+
+  .addPostTitle {
+    line-height: 80px;
+    padding: 0 20px;
+    text-align: center;
+  }
+
+  .addPostAndRender {
     @include flexbox(column, space-evenly, center);
-    @extend %basicComponent;
-    padding-bottom: 0;
-    width: 90vw;
-    background-color: #fff;
-
-    .addPostTitle {
-       line-height: 80px; 
-       padding: 0 20px;
-       text-align: center;
-    }
-
-    .addPostAndRender{
+    min-height: 800px;
+    width: 100%;
+    padding: 20px;
+    .addPostMain {
+      @include flexbox(column, space-between, center);
+      height: 100%;
+      width: 100%;
+      overflow-x: scroll;
+      .titleAndCategory {
+        @include flexbox(column, space-between, center);
+        width: 80%;
+        line-height: 40px;
+        margin-bottom: 40px;
+        .titleInput {
+          text-align: center;
+          height: 40px;
+          width: 80%;
+          padding: 5px 20px 0;
+          border: 1px solid #ccc;
+          font-size: 18px;
+        }
+        .categorySelection {
+          text-align: center;
+          padding: 0 20px;
+          height: 30px;
+          width: 60%;
+          border: 1px solid #ccc;
+          background-color: #fff;
+        }
+      }
+      .editorContainer {
         @include flexbox(column, space-evenly, center);
-        min-height: 800px;
+        //編輯器內文控制
+        .quill {
+          display: flex;
+          flex-wrap: wrap;
+          flex-direction: column;
+          width: 80vw;
+          overflow-x: scroll;
+          .ql-container {
+            min-height: 60vh;
+            p {
+              font-weight: 800;
+            }
+          }
+        }
+      }
+
+      .postCover {
+        @include flexbox(column, space-between, center);
         width: 100%;
-        padding: 20px;
-        .addPostMain {
+        padding: 40px;
+        .uploadImgSection {
+          @include flexbox(row, space-around, center);
+          width: 100%;
+          padding: 30px;
+          @include mobileS {
             @include flexbox(column, space-between, center);
-            height: 100%;
-            width: 100%;
-            overflow-x: scroll;
-            .titleAndCategory {
-                @include flexbox(column, space-between, center);
-                width: 80%;
-                line-height: 40px;
-                margin-bottom: 40px;
-                .titleInput {
-                    text-align: center;
-                    height: 40px;
-                    width: 80%;
-                    padding: 5px 20px 0;
-                    border: 1px solid #ccc;
-                    font-size: 18px;
-                }
-                .categorySelection {
-                    text-align: center;
-                    padding: 0 20px;
-                    height: 30px;
-                    width: 60%;
-                    border: 1px solid #ccc;
-                    background-color: #fff;
-                }
-            }
-            .editorContainer {
-                @include flexbox(column, space-evenly, center);
-                //編輯器內文控制
-                .quill {
-                    display: flex;
-                    flex-wrap: wrap;
-                    flex-direction: column;
-                    width: 80vw;
-                    overflow-x: scroll;
-                    .ql-container {
-                        min-height:60vh; 
-                        p{
-                            font-weight: 800;
-                        }
-                    }
-                }
-            }
-            
-            .postCover {
-                @include flexbox(column, space-between, center);
-                width: 100%;
-                padding: 40px;
-                .uploadImgSection {
-                    @include flexbox(row, space-around, center);
-                    width: 100%;
-                    padding:30px;
-                    @include mobileS {
-                        @include flexbox (column, space-between, center);
-                        min-height:200px; 
-                    }
-                     input[type="file"] {
-                    display: none;
-                    }
-                    .customFileUpload {
-                        border: 1px solid #ccc;
-                        display: inline-block;
-                        padding: 6px 12px;
-                        transition: 0.3s;
-                        background-color: #ccc;
-                        border-radius: 20px;
-                        font-weight: 800;
-                        cursor: pointer;
-                        &:hover {
-                            transform: translateY(-10%);
-                            box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.5);
-                            background-color: #ddd;
-                        }
-                        &:active {
-                            transform: translateY(0%);
-                            box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.5);
-                        }
-                    }
-                    label ~ div {
-                        width:30%;
-                        color:#ccc;
-                        border: 1px solid #ccc;
-                        height: 100%;
-                        padding: 10px 20px;
-                        @include mobileS {
-                            width: 100%;
-                        }
-                    }
-                }
-                .postCoverPreview {
-                    border: 1px solid #ccc;
-                    @include flexbox(column, center, center);
-                    color: #ccc;
-                    font-size: 26px;
-                    aspect-ratio:16/9;
-                    width: 50%;
-                    >img{
-                        width: 100%;
-                    }
-                }
-            }
-        }
-        .previewBtn {
-            @extend %submitBtn2;
-            text-align: center;
-        }
-        .previewPostTitle{
-            width: 100%;
-            text-align: center;
-            line-height: 50px;
-            font-size: 25px;
-        }
-        .previewPost {
-            @include flexbox(column, start, center);
-            padding:0 1rem 1rem ;
-            transform: scale(0.9) ;
-            width: 100%;
-            min-height: 600px;
+            min-height: 200px;
+          }
+          input[type="file"] {
+            display: none;
+          }
+          .customFileUpload {
             border: 1px solid #ccc;
-            overflow: scroll;
-            line-height: 20px;
-            .previewPostTitle {
-                text-align: center;
+            display: inline-block;
+            padding: 6px 12px;
+            transition: 0.3s;
+            background-color: #ccc;
+            border-radius: 20px;
+            font-weight: 800;
+            cursor: pointer;
+            &:hover {
+              transform: translateY(-10%);
+              box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.5);
+              background-color: #ddd;
             }
-            
+            &:active {
+              transform: translateY(0%);
+              box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.5);
+            }
+          }
+          label ~ div {
+            width: 30%;
+            color: #ccc;
+            border: 1px solid #ccc;
+            height: 100%;
+            padding: 10px 20px;
+            @include mobileS {
+              width: 100%;
+            }
+          }
         }
-        .submitPost {
-            @extend %submitBtn2;
+        .postCoverPreview {
+          border: 1px solid #ccc;
+          @include flexbox(column, center, center);
+          color: #ccc;
+          font-size: 26px;
+          aspect-ratio: 16/9;
+          width: 50%;
+          > img {
+            width: 100%;
+          }
         }
+      }
     }
-    
+    .previewBtn {
+      @extend %submitBtn2;
+      text-align: center;
+    }
+    .previewPostTitle {
+      width: 100%;
+      text-align: center;
+      line-height: 50px;
+      font-size: 25px;
+    }
+    .previewPost {
+      @include flexbox(column, start, center);
+      padding: 0 1rem 1rem;
+      transform: scale(0.9);
+      width: 100%;
+      min-height: 600px;
+      border: 1px solid #ccc;
+      overflow: scroll;
+      line-height: 20px;
+      .previewPostTitle {
+        text-align: center;
+      }
+    }
+    .submitPost {
+      @extend %submitBtn2;
+    }
+  }
+}
+
+%filterSection {
+  @include flexbox(row, space-between, center);
+  width: 100%;
+  background-color: #fff;
+  padding: 0 10px;
+  .currentFilter {
+    font-size: 32px;
+    text-decoration: underline;
+    padding: 20px 0 20px 20px;
+    @include pad {
+      font-size: 26px;
+    }
+    @include mobile {
+      font-size: 24px;
+    }
+  }
+  .filterSelection {
+    @include flexbox(row, center, center);
+    flex-wrap: nowrap;
+    > button {
+      border: none;
+      font-size: 24px;
+      padding: 5px 20px;
+      display: inline-block;
+      // color: #000;
+      background-color: #ccc;
+      margin: 5px 20px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 0.3s;
+      @include pad {
+        font-size: 20px;
+      }
+      @include mobile {
+        font-size: 16px;
+        margin: 5px 10px;
+      }
+      @include mobileS {
+        margin: 5px 5px;
+        font-size: 14px;
+      }
+      &:hover {
+        background-color: #000;
+        color: #eee;
+      }
+      &:disabled {
+        background-color: #000;
+        color: #eee;
+      }
+    }
+  }
+}
+
+%postCards {
+  @include flexbox(row, space-evenly, start);
+  flex-wrap: wrap;
+  width: 100%;
+  .postCard {
+    border-top: 1px solid #aaa;
+    padding: 10px 0;
+    width: 30%;
+    margin: 20px 10px;
+    @include flexbox(column, start, center);
+    cursor: pointer;
+    .postCardInfo {
+      // min-height: 50%;
+      margin-bottom: 30px;
+      width: 100%;
+      @include flexbox(column, space-between, center);
+      > .postCardCategory {
+        width: 100%;
+        > p {
+          font-size: 14px;
+          background-color: #eee;
+          border-radius: 10px;
+          padding: 5px;
+          display: inline-block;
+          margin: 0 0 10px 0;
+          text-decoration: underline;
+        }
+      }
+      > .postCardTitle {
+        font-size: 20px;
+        text-align: end;
+        padding-bottom: 10px;
+        cursor: pointer;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+      > .postCardDate {
+        text-decoration: underline;
+        text-align: end;
+        width: 100%;
+      }
+    }
+    .postCardCover {
+      @include flexbox(column, start, center);
+      width: 100%;
+      > img {
+        width: 100%;
+        height: auto;
+        cursor: pointer;
+        transition: 0.3s;
+        &:hover {
+          transform: scale(1.1);
+          border-radius: 15px;
+        }
+      }
+    }
+
+    @include pad {
+      width: 30%;
+      margin: 20px 10px;
+    }
+    @include mobile {
+      width: 40%;
+    }
+  }
+}
+
+%searchResultSection {
+  @include flexbox(column, center, center);
+  > .resultPosts {
+    width: 100%;
+    @include flexbox(column, center, center);
+    > .perPost {
+      @include flexbox(row, space-between, center);
+      width: 90%;
+      background-color: #222;
+      border-radius: 40px;
+      height: 250px;
+      padding: 30px;
+      margin: 30px 0;
+      @include mobile {
+        @include flexbox(column, space-between, center);
+        height: auto;
+      }
+      > .coverSection {
+        width: 40%;
+        overflow: hidden;
+        max-width: 280px;
+        min-width: 160px;
+        @include flexbox(column, center, center);
+        @include mobile {
+          width: 80%;
+        }
+        > .perCover {
+          background-size: cover;
+          background-position: center;
+          background-repeat: no-repeat;
+          width: 100%;
+          max-width: 200px;
+          min-width: 160px;
+          aspect-ratio: 1/1;
+          @include flexbox(column, center, center);
+          cursor: pointer;
+          transition: 0.3s;
+          &:hover {
+            transform: scale(1.1);
+          }
+          @include pad {
+            width: 100%;
+          }
+          @include mobile {
+            width: 100%;
+            margin-bottom: 30px;
+          }
+        }
+      }
+
+      > .perInfo {
+        @include flexbox(column, space-between, center);
+        padding: 0 20px;
+        height: 100%;
+        width: 100%;
+        > .perCategory {
+          @include flexbox(row, start, center);
+          width: 100%;
+          padding: 5px 0;
+          @include mobile {
+            @include flexbox(row, center, center);
+            margin: 20px 0;
+          }
+
+          > p {
+            margin-left: 50px;
+            display: inline-block;
+            background-color: #eee;
+            border-radius: 20px;
+            padding: 8px;
+            text-decoration: underline;
+            font-size: 14px;
+            @include mobile {
+              margin: 0;
+            }
+          }
+        }
+        > .perTitle {
+          width: 100%;
+          text-align: center;
+          color: #eee;
+          font-size: 26px;
+          cursor: pointer;
+          &:hover {
+            text-decoration: underline;
+          }
+          @include pad {
+            width: 60%;
+            font-size: 20px;
+            text-align: center;
+          }
+          @include mobile {
+            margin: 20px 0;
+          }
+          @include mobileS {
+            font-size: 18px;
+          }
+        }
+
+        > .perPrice {
+          font-size: 24px;
+          text-decoration: underline;
+          color: #eee;
+        }
+        > .eachInfo {
+          @include flexbox(row, center, center);
+          @include mobileS {
+            @include flexbox(column, space-evenly, center);
+          }
+          width: 100%;
+          > .perDate {
+            color: #eee;
+            padding: 0 80px 0 0;
+            font-style: italic;
+            @include pad {
+              padding: 0 30px 0 0;
+            }
+            @include mobile {
+              margin-bottom: 20px;
+            }
+          }
+          > .perAuthor {
+            color: #eee;
+            padding: 0 0 0 80px;
+            text-decoration: underline;
+            font-style: italic;
+            @include pad {
+              padding: 0 0 0 30px;
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
 @keyframes carouselAnimation {
-    0%{
-        transform: translateY(100%);
-    }
-    50%{
-        transform: translateY(-100%);
-    }
-    75% {
-        transform: translateY(-100%);
-    }
-    100%{
-        transform: translateY(-200%);
-    }
+  0% {
+    transform: translateY(100%);
+  }
+  50% {
+    transform: translateY(-100%);
+  }
+  75% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(-200%);
+  }
 }
 @keyframes carouselAnimationHr {
-    0%{
-        transform: translateX(100%);
-    }
-    50%{
-        transform: translateX(-100%);
-    }
-    70% {
-        transform: translateX(-100%);
-    }
-
-    100%{
-        transform: translateX(-200%);
-    }
+  0% {
+    transform: translateX(100%);
+  }
+  1% {
+    transform: translateX(0%);
+  }
+  50% {
+    transform: translateX(-100%);
+  }
+  //   70% {
+  //     transform: translateX(-100%);
+  //   }
+  100% {
+    transform: translateX(-200%);
+  }
 }

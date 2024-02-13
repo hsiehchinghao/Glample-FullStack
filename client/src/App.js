@@ -45,6 +45,7 @@ function App() {
                 setCurrentSub={setCurrentSub}
                 searchContent={searchContent}
                 setSearchContent={setSearchContent}
+                searchContent={searchContent}
               />
             }
           >
@@ -60,6 +61,10 @@ function App() {
               }
             ></Route>
             <Route path="register" element={<Register />}></Route>
+            <Route
+              path="allPosts"
+              element={<AllPosts searchContent={searchContent} />}
+            ></Route>
             <Route
               path="allPosts/:search"
               element={<AllPosts searchContent={searchContent} />}

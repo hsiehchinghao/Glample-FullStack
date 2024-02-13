@@ -2,6 +2,122 @@
 
 .allPostsPage {
   @extend %basicComponent;
-  .searchingDecoration {
+  //搜尋裝飾
+
+  .searchSection {
+    width: 100%;
+    .searchTitle {
+      text-align: center;
+      text-decoration: underline;
+      font-size: 30px;
+      line-height: 40px;
+      @include mobile {
+        font-size: 20px;
+      }
+    }
+    .searchingDecoration {
+      @include flexbox(row, space-evenly, start);
+      flex-wrap: wrap;
+      border-radius: 20px;
+      height: 60px;
+      background-color: #eee;
+      text-align: center;
+      margin: 20px 0;
+      width: 100%;
+      position: relative;
+      overflow: hidden;
+      padding: 5px 10px;
+      @include mobile {
+        font-size: 34px;
+        height: 50px;
+      }
+      > .first {
+        position: absolute;
+        left: 100%;
+        display: inline-block;
+        width: 100%;
+        animation: 10s carouselAnimationHr linear infinite normal;
+        @include mobile {
+          top: 0;
+        }
+        > p {
+          font-size: 28px;
+          display: inline-block;
+          border-radius: 20px;
+          background-color: #000;
+          color: #eee;
+          padding: 8px 15px;
+          margin: 0 10px 3rem;
+          @include mobile {
+            font-size: 20px;
+          }
+        }
+      }
+      > .second {
+        position: absolute;
+        left: 100%;
+        display: inline-block;
+        width: 100%;
+        animation: 10s carouselAnimationHr linear 5s infinite normal;
+        @include mobile {
+          top: 0;
+        }
+        > p {
+          font-size: 28px;
+          display: inline-block;
+          border-radius: 20px;
+          background-color: #000;
+          color: #eee;
+          padding: 8px 15px;
+          margin: 0 10px 3rem;
+          @include mobile {
+            font-size: 20px;
+          }
+        }
+      }
+    }
+  }
+
+  //搜尋結果區塊
+  .searchResultSection {
+    min-height: 300px;
+    width: 100%;
+    padding: 20px;
+    background-color: #eee;
+    margin-bottom: 50px;
+    border-radius: 30px;
+    .resultByTitle {
+      @extend %searchResultSection;
+    }
+    .resultByEditor {
+      @extend %searchResultSection;
+    }
+    .resultByProduct {
+      @extend %searchResultSection;
+    }
+  }
+
+  //無搜尋結果
+  .noResultSection {
+    @extend %errorPage;
+    @include flexbox(column, center, center);
+    min-height: 300px;
+    border: 8px solid #888;
+    border-radius: 50px;
+    margin-bottom: 50px;
+    padding: 20px;
+  }
+  //總文章總覽(不分類)
+  .allPosts {
+    .filterSection {
+      @extend %filterSection;
+    }
+    .postCards {
+      @extend %postCards;
+    }
+  }
+  //錯誤頁面
+  .errorPage {
+    @extend %errorPage;
   }
 }

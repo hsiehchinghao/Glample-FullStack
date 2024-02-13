@@ -13,6 +13,7 @@ const Layout = ({
   currentSub,
   setCurrentSub,
   setSearchContent,
+  searchContent,
 }) => {
   return (
     <div className="main">
@@ -25,6 +26,7 @@ const Layout = ({
         setShopCount={setShopCount}
         currentSub={currentSub}
         setCurrentSub={setCurrentSub}
+        searchContent={searchContent}
         setSearchContent={setSearchContent}
       />
       <Outlet
