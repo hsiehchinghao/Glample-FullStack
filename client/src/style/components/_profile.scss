@@ -107,7 +107,8 @@
         }
         .loader {
           @extend %loader;
-          border-color: #555;
+          left: 45%;
+          border-color: #eee;
         }
       }
     }
@@ -134,6 +135,7 @@
         background-color: rgba(180, 180, 180, 0.7);
         width: 100%;
         @include flexbox(row, center, center);
+        position: relative;
         flex-wrap: wrap;
         .perLikePost {
           @include flexbox(column, center, center);
@@ -173,7 +175,8 @@
 
         .loader {
           @extend %loader;
-          border-color: #555;
+          border-color: #eee;
+          left: 45%;
         }
 
         .errorMsg {

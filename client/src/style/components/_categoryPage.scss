@@ -173,6 +173,7 @@
     }
     > .loader {
       @extend %loader;
+      top: 150px;
     }
     > .decorationBanner {
       @include flexbox(row, start, center);

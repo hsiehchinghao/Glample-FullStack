@@ -159,7 +159,7 @@ const AllPosts = ({ searchContent }) => {
         </div>
       )}
       {/* 搜尋結果區塊 */}
-      {searchResult && searchResult.msg && searchResult.msg != "noResult" ? (
+      {searchResult && searchResult.msg && searchResult.msg != "noResult" && (
         <div className="searchResultSection">
           {searchResult.findResultByTitle && (
             <div className="resultByTitle">
@@ -254,14 +254,21 @@ const AllPosts = ({ searchContent }) => {
             </div>
           )}
         </div>
-      ) : (
+      )}
+      {searchResult ? (
+        <></>
+      ) : searchContent ? (
         <div className="loaderSection">
           <div className="loader"></div>
         </div>
+      ) : (
+        <></>
       )}
       {/* 無搜尋結果 */}
       {searchResult && searchResult.msg && searchResult.msg == "noResult" && (
-        <div className="noResultSection">No search results found</div>
+        <div className="noResultSection">
+          No search results found with articles title or products
+        </div>
       )}
       {/* 總文章總覽(不分類) */}
       <div className="allPosts">
@@ -323,9 +330,7 @@ const AllPosts = ({ searchContent }) => {
       </div>
 
       {/* 錯誤頁面 */}
-      {!filteredPost && (
-        <div className="errorPage">THERE'S SOMETHING WRONG</div>
-      )}
+      {!filteredPost && <div className="errorPage">WAIT FOR IT..</div>}
     </div>
   );
 };

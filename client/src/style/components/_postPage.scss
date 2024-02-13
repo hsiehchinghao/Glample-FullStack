@@ -125,6 +125,8 @@
 .loadingPage {
   @extend %loadingPage;
   .loader {
-    top: 70%;
+    top: 250px;
+    left: 45%;
+    border: 13px dashed #333;
   }
 }

@@ -696,7 +696,7 @@
   position: relative;
 }
 
-.allPostsPage .loaderSection .loader, .categoryPage .categoryPageContent > .loader, .profile > div .allInstructorPost .loadInstructorPostSection .loader, .profile > div .allLikesPosts .loadLikePostSection .loader, .profile > div .loadAllOrders .loadLikePostSection .loader {
+.allPostsPage .loaderSection .loader, .allPostsPage .allPosts .filterSection .loadSection .loader, .categoryPage .categoryPageContent > .loader, .productListPage .productListPageProducts .productListPageBackdrop .loader, .profile > div .allInstructorPost .loadInstructorPostSection .loader, .profile > div .allLikesPosts .loadLikePostSection .loader, .profile > div .loadAllOrders .loadLikePostSection .loader {
   position: absolute;
   left: 50%;
   top: 50%;
@@ -1315,7 +1315,8 @@
   background-color: rgba(238, 238, 238, 0.9333333333);
   -webkit-backdrop-filter: blur(1px);
           backdrop-filter: blur(1px);
-  overflow: scroll;
+  overflow: hidden;
+  transition: 0.4s;
 }
 @media (max-width: 500px) {
   .navSection .categoryList {
@@ -1326,18 +1327,18 @@
     align-items: center;
   }
 }
-.navSection .categoryList li {
+.navSection .categoryList > p {
+  display: inline-block;
   margin: 0 30px;
   line-height: 30px;
   cursor: pointer;
-  font-weight: 800;
   font-size: 26px;
-  transition: 0.2s;
+  transition: 0.4s;
   position: relative;
   padding: 0 30px;
   color: #bbb;
 }
-.navSection .categoryList li::after {
+.navSection .categoryList > p::after {
   content: "";
   position: absolute;
   left: 50%;
@@ -1350,18 +1351,27 @@
   transform: translateX(-50%) translateY(-50%);
   display: none;
 }
-.navSection .categoryList li:hover {
+.navSection .categoryList > p:hover {
   color: #000;
   transform: scale(1.1);
 }
-.navSection .categoryList li:hover::after {
+.navSection .categoryList > p:hover::after {
   display: inline-block;
 }
-@media (max-width: 500px) {
-  .navSection .categoryList li {
+@media (max-width: 650px) {
+  .navSection .categoryList > p {
     font-size: 20px;
     padding: 0;
   }
+}
+.navSection .shrinkNav {
+  transform: translateY(-300%);
+  transition: 0.4s;
+}
+.navSection .shrinkNav > p {
+  transform: translateY(-300%);
+  transition: 0.4s;
+  display: inline-block;
 }
 
 .shrinkNavSection {
@@ -1597,6 +1607,10 @@
     font-size: 30px;
     text-align: center;
   }
+}
+.homePage .bannerSwiperSection .loader {
+  border: 13px dashed #ccc;
+  left: 45%;
 }
 .homePage .scrambleSection {
   width: 100%;
@@ -2310,7 +2324,8 @@
   }
 }
 .profile > div .allInstructorPost .loadInstructorPostSection .loader {
-  border-color: #555;
+  left: 45%;
+  border-color: #eee;
 }
 .profile > div .allLikesPosts, .profile > div .loadAllOrders {
   display: flex;
@@ -2344,6 +2359,7 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  position: relative;
   flex-wrap: wrap;
 }
 .profile > div .allLikesPosts .loadLikePostSection .perLikePost, .profile > div .loadAllOrders .loadLikePostSection .perLikePost {
@@ -2390,7 +2406,8 @@
   border-radius: 30px;
 }
 .profile > div .allLikesPosts .loadLikePostSection .loader, .profile > div .loadAllOrders .loadLikePostSection .loader {
-  border-color: #555;
+  border-color: #eee;
+  left: 45%;
 }
 .profile > div .allLikesPosts .loadLikePostSection .errorMsg, .profile > div .loadAllOrders .loadLikePostSection .errorMsg {
   color: #eee;
@@ -2797,7 +2814,9 @@
 }
 
 .loadingPage .loader {
-  top: 70%;
+  top: 250px;
+  left: 45%;
+  border: 13px dashed #333;
 }
 
 .productListPage {
@@ -2839,6 +2858,7 @@
   }
 }
 .productListPage .productListPageProducts .productListPageBackdrop {
+  position: relative;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
@@ -2934,6 +2954,12 @@
     font-size: 20px;
     padding: 10px;
   }
+}
+.productListPage .productListPageProducts .productListPageBackdrop .loader {
+  border: 14px dashed #fff;
+  width: 100px;
+  height: 100px;
+  left: 45%;
 }
 
 .productPage {
@@ -3750,6 +3776,9 @@
 .categoryPage .categoryPageContent > .firstPost > .postInfo > .infoContent .viewMore:hover {
   transform: scale(1.2);
 }
+.categoryPage .categoryPageContent > .loader {
+  top: 150px;
+}
 .categoryPage .categoryPageContent > .decorationBanner {
   display: flex;
   flex-direction: row;
@@ -4221,6 +4250,10 @@
   margin-bottom: 50px;
   border-radius: 30px;
 }
+.allPostsPage .loaderSection .loader {
+  top: 100px;
+  left: 45%;
+}
 .allPostsPage .noResultSection {
   display: flex;
   flex-direction: column;
@@ -4231,4 +4264,10 @@
   border-radius: 50px;
   margin-bottom: 50px;
   padding: 20px;
+}
+.allPostsPage .allPosts .filterSection {
+  position: relative;
+}
+.allPostsPage .allPosts .filterSection .loadSection .loader {
+  border: 13px dashed #333;
 }/*# sourceMappingURL=style.css.map */

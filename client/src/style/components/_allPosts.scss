@@ -101,6 +101,8 @@
     @extend %loadSection;
     .loader {
       @extend %loader;
+      top: 100px;
+      left: 45%;
     }
   }
 
@@ -118,6 +120,13 @@
   .allPosts {
     .filterSection {
       @extend %filterSection;
+      position: relative;
+      .loadSection {
+        .loader {
+          @extend %loader;
+          border: 13px dashed #333;
+        }
+      }
     }
     .postCards {
       @extend %postCards;

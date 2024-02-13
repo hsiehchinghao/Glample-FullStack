@@ -40,29 +40,15 @@ const Nav = ({
 
   //監聽滾動
   const [nav, setNav] = useState(true);
-  const [scrollData, setScrollData] = useState({ Y: 0, lastY: 0 });
 
   useEffect(() => {
     const handleScroll = (e) => {
       if (window.scrollY == 0) {
         setNav(true);
-      }
-      scrollData.Y = window.scrollY;
-      setScrollData((prev) => {
-        scrollData.lastY = prev.Y;
-        return { Y: window.scrollY, lastY: prev.Y };
-      });
-      // console.log(window.scrollY);
-      if (window.scrollY >= 0) {
-        if (window.scrollY - scrollData.lastY > 0) {
-          setNav(false);
-        } else {
-          if (window.scrollY == 0) {
-            setNav(true);
-          } else {
-            setNav(true);
-          }
-        }
+      } else if (window.scrollY > (window.innerHeight * 2) / 3) {
+        setNav(false);
+      } else {
+        setNav(true);
       }
     };
     //監聽螢幕尺寸，購物清單更動
@@ -246,7 +232,8 @@ const Nav = ({
 
   return (
     <>
-      <div className={nav ? "navSection " : "navSection shrinkNavSection "}>
+      {/* <div className={nav ? "navSection " : "navSection shrinkNavSection "}> */}
+      <div className="navSection">
         <nav className="navBar">
           <Link to="/" onClick={handleToHomePage}>
             <div className="logoSection">
@@ -343,7 +330,13 @@ const Nav = ({
                   SIGNUP
                 </Link>
               )}
-
+              <Link
+                className="navBarListOption"
+                to="/allPosts"
+                onClick={handleCLoseNav}
+              >
+                VIEW ALL
+              </Link>
               <Link
                 className="navBarListOption"
                 to="/product"
@@ -424,11 +417,11 @@ const Nav = ({
             Search
           </button>
         </div>
-        <ul className="categoryList">
-          <li onClick={handleGoCategoryPage}>FASHION</li>
-          <li onClick={handleGoCategoryPage}>MOVIE</li>
-          <li onClick={handleGoCategoryPage}>MUSIC</li>
-        </ul>
+        <div className={nav ? "categoryList" : "shrinkNav"}>
+          <p onClick={handleGoCategoryPage}>FASHION</p>
+          <p onClick={handleGoCategoryPage}>MOVIE</p>
+          <p onClick={handleGoCategoryPage}>MUSIC</p>
+        </div>
       </div>
     </>
   );

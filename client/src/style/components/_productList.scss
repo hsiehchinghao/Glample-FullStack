@@ -27,6 +27,7 @@
       background-repeat: repeat;
     }
     .productListPageBackdrop {
+      position: relative;
       @include flexbox(row, space-evenly, center);
       flex-wrap: wrap;
       width: 100%;
@@ -100,6 +101,13 @@
             }
           }
         }
+      }
+      .loader {
+        @extend %loader;
+        border: 14px dashed #fff;
+        width: 100px;
+        height: 100px;
+        left: 45%;
       }
     }
   }

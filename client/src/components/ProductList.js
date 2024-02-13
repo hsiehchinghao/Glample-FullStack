@@ -31,7 +31,7 @@ const ProductList = () => {
       <h1 className="productListPageTitle">PHYSICAL IS ALWAYS ENCHAINTING.</h1>
       <div className="productListPageProducts">
         <div className="productListPageBackdrop">
-          {product &&
+          {product ? (
             product.map((data) => {
               return (
                 <div className="productListPageProduct" key={data._id}>
@@ -52,7 +52,10 @@ const ProductList = () => {
                   </div>
                 </div>
               );
-            })}
+            })
+          ) : (
+            <div className="loader"></div>
+          )}
         </div>
       </div>
     </div>

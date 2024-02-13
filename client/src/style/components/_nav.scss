@@ -474,19 +474,20 @@
     border-bottom: 1px #ccc solid;
     background-color: #eeeeeeee;
     backdrop-filter: blur(1px);
-    overflow: scroll;
+    overflow: hidden;
+    transition: 0.4s;
     @include mobileS {
       padding: 20px 0;
       @include flexbox(row, center, center);
     }
 
-    li {
+    > p {
+      display: inline-block;
       margin: 0 30px;
       line-height: 30px;
       cursor: pointer;
-      font-weight: 800;
       font-size: 26px;
-      transition: 0.2s;
+      transition: 0.4s;
       position: relative;
       padding: 0 30px;
       color: #bbb;
@@ -510,12 +511,28 @@
           display: inline-block;
         }
       }
-      @include mobileS {
+      @include mobile {
         // padding: 0 10px;
         font-size: 20px;
         padding: 0;
       }
     }
+  }
+  .shrinkNav {
+    transform: translateY(-300%);
+    transition: 0.4s;
+    > p {
+      transform: translateY(-300%);
+      transition: 0.4s;
+      display: inline-block;
+    }
+    // overflow: hidden;
+    // height: 0;
+    // transition: 0.3s;
+    // > p {
+    //   height: 0;
+    //   overflow: hidden;
+    // }
   }
 }
 .shrinkNavSection {

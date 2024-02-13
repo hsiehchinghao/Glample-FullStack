@@ -69,7 +69,7 @@ const SwiperBanner = forwardRef((props, bannerSectionRef) => {
       ]}
       className="bannerSwiperSection bannerActive"
     >
-      {postData &&
+      {postData ? (
         postData.map((data) => {
           // console.log(data.title);
           return (
@@ -106,7 +106,10 @@ const SwiperBanner = forwardRef((props, bannerSectionRef) => {
               </div>
             </SwiperSlide>
           );
-        })}
+        })
+      ) : (
+        <div className="loader"></div>
+      )}
     </Swiper>
   );
 });
