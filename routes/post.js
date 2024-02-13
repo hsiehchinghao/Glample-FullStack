@@ -8,7 +8,7 @@ const Order = require("../models").order;
 const postValidation = require("../validation").postValidation;
 const productValidation = require("../validation").productValidation;
 const orderValidation = require("../validation").orderValidation;
-const API_URL = "http://localhost:8081";
+const API_URL = "https://glample-mern-9b575194526d.herokuapp.com/";
 
 //按照instrctor id取得文章資料(populate: title / date / image)
 router.get("/:_id", async (req, res) => {

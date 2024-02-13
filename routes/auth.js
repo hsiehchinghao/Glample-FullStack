@@ -166,7 +166,7 @@ router.get(
 router.get(
   "/google/redirect",
   passport.authenticate("google", {
-    failureRedirect: "http://localhost:3000/",
+    failureRedirect: "https://glample-mern-9b575194526d.herokuapp.com/",
     session: false,
   }),
   async (req, res) => {
@@ -181,7 +181,9 @@ router.get(
       console.log(token);
       res.cookie("user", JSON.stringify(req.user)); //cookie存文字
       res.cookie("token", JSON.stringify(token));
-      return res.status(200).redirect("http://localhost:3000/profile");
+      return res
+        .status(200)
+        .redirect("https://glample-mern-9b575194526d.herokuapp.com/profile");
     } else {
       return res.status(400).send("try again....");
     }
