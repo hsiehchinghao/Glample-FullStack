@@ -5,7 +5,7 @@ import ShopService from "../services/ShopService";
 import AuthService from "../services/AuthService";
 
 const ConfirmOrder = ({ shopItems, setConfirmOrder }) => {
-  const API_URL = "https://glample-mern-9b575194526d.herokuapp.com/";
+  const API_URL = "https://glample-mern-9b575194526d.herokuapp.com";
   const navigate = useNavigate();
   const currentUser = useOutletContext().currentUser;
   const phoneRef = useRef();
