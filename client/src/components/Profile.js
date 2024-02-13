@@ -156,7 +156,7 @@ const Profile = ({ setShopCount, setShopItems }) => {
             <div className="allInstructorPost">
               <div className="instructorPostTitle">Your Posts</div>
               <div className="loadInstructorPostSection">
-                {post_id &&
+                {post_id ? (
                   post_id.map((index) => {
                     return (
                       <div
@@ -199,7 +199,10 @@ const Profile = ({ setShopCount, setShopItems }) => {
                         </div>
                       </div>
                     );
-                  })}
+                  })
+                ) : (
+                  <div className="loader"></div>
+                )}
               </div>
             </div>
           )}
@@ -208,7 +211,7 @@ const Profile = ({ setShopCount, setShopItems }) => {
             <div className="allInstructorPost">
               <div className="instructorPostTitle">Manage Products</div>
               <div className="loadInstructorPostSection">
-                {productManage &&
+                {productManage ? (
                   productManage.map((index) => {
                     return (
                       <div
@@ -241,7 +244,10 @@ const Profile = ({ setShopCount, setShopItems }) => {
                         </div>
                       </div>
                     );
-                  })}
+                  })
+                ) : (
+                  <div className="loader"></div>
+                )}
               </div>
             </div>
           )}
@@ -271,6 +277,9 @@ const Profile = ({ setShopCount, setShopItems }) => {
                   );
                 })
               ) : (
+                <div className="loader"></div>
+              )}
+              {likePost && likePost.length == 0 && (
                 <div className="errorMsg">There isn't any liked post!</div>
               )}
             </div>

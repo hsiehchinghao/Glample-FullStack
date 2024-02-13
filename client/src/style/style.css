@@ -696,7 +696,7 @@
   position: relative;
 }
 
-.allPostsPage .loaderSection .loader {
+.allPostsPage .loaderSection .loader, .categoryPage .categoryPageContent > .loader, .profile > div .allInstructorPost .loadInstructorPostSection .loader, .profile > div .allLikesPosts .loadLikePostSection .loader, .profile > div .loadAllOrders .loadLikePostSection .loader {
   position: absolute;
   left: 50%;
   top: 50%;
@@ -705,7 +705,7 @@
   height: 80px;
   margin: 0 auto;
   padding: 10px;
-  border: 7px dashed #333;
+  border: 12px dashed #333;
   border-radius: 100%;
   animation: loadingD 1.5s 0.3s cubic-bezier(0.17, 0.37, 0.43, 0.67) infinite;
 }
@@ -2239,6 +2239,7 @@
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+  position: relative;
 }
 .profile > div .allInstructorPost .loadInstructorPostSection .perPost {
   display: flex;
@@ -2307,6 +2308,9 @@
     width: 18px;
     height: 18px;
   }
+}
+.profile > div .allInstructorPost .loadInstructorPostSection .loader {
+  border-color: #555;
 }
 .profile > div .allLikesPosts, .profile > div .loadAllOrders {
   display: flex;
@@ -2384,6 +2388,9 @@
   -webkit-backdrop-filter: brightness(100%) blur(0);
           backdrop-filter: brightness(100%) blur(0);
   border-radius: 30px;
+}
+.profile > div .allLikesPosts .loadLikePostSection .loader, .profile > div .loadAllOrders .loadLikePostSection .loader {
+  border-color: #555;
 }
 .profile > div .allLikesPosts .loadLikePostSection .errorMsg, .profile > div .loadAllOrders .loadLikePostSection .errorMsg {
   color: #eee;
@@ -2787,6 +2794,10 @@
 .postPage .postMain .postContent p {
   color: #fff;
   line-height: 40px;
+}
+
+.loadingPage .loader {
+  top: 70%;
 }
 
 .productListPage {
@@ -3578,6 +3589,7 @@
   align-items: center;
   min-height: 80dvh;
   width: 100dvw;
+  position: relative;
 }
 .categoryPage .categoryPageContent > .firstPost {
   width: 100%;

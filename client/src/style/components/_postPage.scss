@@ -124,4 +124,7 @@
 }
 .loadingPage {
   @extend %loadingPage;
+  .loader {
+    top: 70%;
+  }
 }

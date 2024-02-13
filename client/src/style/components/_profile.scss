@@ -46,6 +46,7 @@
         width: 100%;
         @include flexbox(row, center, center);
         flex-wrap: wrap;
+        position: relative;
         .perPost {
           @include flexbox(column, center, center);
           background-size: cover;
@@ -103,6 +104,10 @@
               }
             }
           }
+        }
+        .loader {
+          @extend %loader;
+          border-color: #555;
         }
       }
     }
@@ -165,6 +170,12 @@
             }
           }
         }
+
+        .loader {
+          @extend %loader;
+          border-color: #555;
+        }
+
         .errorMsg {
           @extend %errorPage;
           color: #eee;

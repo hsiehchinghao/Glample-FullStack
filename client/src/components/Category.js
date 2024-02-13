@@ -86,7 +86,7 @@ const Category = ({ currentSub, setCurrentSub }) => {
         <p>{category}</p>
       </div>
       <div className="categoryPageContent">
-        {loadData && loadData[0] && (
+        {loadData && loadData[0] ? (
           <div className="firstPost">
             <div
               className="postCover"
@@ -125,6 +125,8 @@ const Category = ({ currentSub, setCurrentSub }) => {
               </div>
             </div>
           </div>
+        ) : (
+          <div className="loader"></div>
         )}
         <div className="decorationBanner">
           <div className="productBannerTitle">
