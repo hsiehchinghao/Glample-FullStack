@@ -166,13 +166,6 @@ router.get("/check/:_id", async (req, res, next) => {
 
 //藍新跳轉頁面/profile
 router.post("/newebpay_return", async (req, res) => {
-  return res.redirect(
-    "https://glample-mern-9b575194526d.herokuapp.com/profile"
-  );
-});
-
-//藍新處理通知
-router.post("/newebpay_notify", async (req, res) => {
   const response = req.body;
   console.log("notify");
   // 解密交易內容
@@ -185,12 +178,35 @@ router.post("/newebpay_notify", async (req, res) => {
       { new: true }
     );
 
-    console.log("confirmOrder : " + confirmOrder);
-    return res.status(200).send(confirmOrder);
+    return res.redirect(
+      "https://glample-mern-9b575194526d.herokuapp.com/profile"
+    );
   }
-
-  return res.status(200).send("訂單未完成");
+  return res.redirect(
+    "https://glample-mern-9b575194526d.herokuapp.com/profile"
+  );
 });
+
+// //藍新處理通知
+// router.post("/newebpay_notify", async (req, res) => {
+//   const response = req.body;
+//   console.log("notify");
+//   // 解密交易內容
+//   const data = NewebPay.createSesDecrypt(response.TradeInfo);
+//   console.log("data:", data);
+//   if (data.Status != "MPG03009") {
+//     let confirmOrder = await Order.findOneAndUpdate(
+//       { MerchantOrderNo: data.Result.MerchantOrderNo },
+//       { $set: { isPay: true }, $inc: { stock: -1 } },
+//       { new: true }
+//     );
+
+//     console.log("confirmOrder : " + confirmOrder);
+//     return res.status(200).send(confirmOrder);
+//   }
+
+//   return res.status(200).send("訂單未完成");
+// });
 
 //依照id載入最新訂單
 router.get(
