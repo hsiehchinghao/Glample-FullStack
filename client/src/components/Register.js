@@ -90,7 +90,10 @@ const Register = () => {
       </form>
       <div className="saperateLine">OR</div>
       <div className="googleBtn">
-        <a className="googleLink" href="http://localhost:8081/api/auth/google">
+        <a
+          className="googleLink"
+          href="https://glample-mern-9b575194526d.herokuapp.com/api/auth/google"
+        >
           <div className="googleIconWrapper">
             <img className="googleIcon" src={googlelogo} alt="googlesvg" />
           </div>
