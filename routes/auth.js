@@ -166,7 +166,7 @@ router.get(
 router.get(
   "/google/redirect",
   passport.authenticate("google", {
-    failureRedirect: "https://glample-mern-9b575194526d.herokuapp.com/",
+    failureRedirect: "https://glample-mern-9b575194526d.herokuapp.com",
     session: false,
   }),
   async (req, res) => {

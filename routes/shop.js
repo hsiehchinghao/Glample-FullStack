@@ -6,7 +6,7 @@ const Instructor = require("../models").instructor;
 const Post = require("../models").post;
 const Product = require("../models").product;
 const Order = require("../models").order;
-const API_URL = "https://glample-mern-9b575194526d.herokuapp.com/";
+const API_URL = "https://glample-mern-9b575194526d.herokuapp.com";
 const NewebPay = require("../config/newebPay");
 const RespondType = "JSON";
 const axios = require("axios");
@@ -167,7 +167,7 @@ router.get("/check/:_id", async (req, res, next) => {
 //藍新跳轉頁面/profile
 router.post("/newebpay_return", async (req, res) => {
   return res.redirect(
-    "https://glample-mern-9b575194526d.herokuapp.com/profile/"
+    "https://glample-mern-9b575194526d.herokuapp.com/profile"
   );
 });
 
