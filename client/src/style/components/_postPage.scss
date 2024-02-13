@@ -123,4 +123,5 @@
   }
 }
 .loadingPage {
+  @extend %loadingPage;
 }
