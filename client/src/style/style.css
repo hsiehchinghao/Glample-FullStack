@@ -442,6 +442,7 @@
   text-decoration: underline;
 }
 .allPostsPage .allPosts .postCards .postCard .postCardInfo > .postCardDate, .categoryPage .categoryPageContent > .eachPostContent .postCards .postCard .postCardInfo > .postCardDate {
+  font-style: italic;
   text-decoration: underline;
   text-align: end;
   width: 100%;

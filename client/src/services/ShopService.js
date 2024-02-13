@@ -32,6 +32,15 @@ class ShopService {
   //edit product
 
   //delete product
+  deleteProduct(_id) {
+    let token;
+    if (localStorage.getItem("token")) {
+      token = JSON.parse(localStorage.getItem("token"));
+      return axios.delete(API_URL + `/deleteProduct/${_id}`, {
+        headers: { Authorization: token },
+      });
+    }
+  }
 
   //loadLatestProduct
   loadLatestProduct() {

@@ -222,8 +222,6 @@ router.post("/addComment/:_id", async (req, res) => {
   }
 });
 
-//留言按讚 post
-
 //商品相關
 // //新增商品 (僅限 instructor)
 // router.post("/addProduct", upload.single("file"), async (req, res) => {

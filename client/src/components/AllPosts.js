@@ -14,28 +14,28 @@ const AllPosts = ({ searchContent }) => {
   const [filteredPost, setFilteredPost] = useState(null);
 
   //載入所有文章資訊
-  useEffect(() => {
-    window.scrollTo(0, 0);
-    if (currentFilter == "By Popular") {
-      PostService.loadPostByTopLikes()
-        .then((result) => {
-          console.log(result);
-          setFilteredPost(result.data.result);
-        })
-        .catch((e) => {
-          console.log(e);
-        });
-    } else {
-      PostService.loadPostByLatest()
-        .then((result) => {
-          console.log(result);
-          setFilteredPost(result.data.result);
-        })
-        .catch((e) => {
-          console.log(e);
-        });
-    }
-  }, [currentFilter]);
+  //   useEffect(() => {
+  //     window.scrollTo(0, 0);
+  //     if (currentFilter == "By Popular") {
+  //       PostService.loadPostByTopLikes()
+  //         .then((result) => {
+  //           console.log(result);
+  //           setFilteredPost(result.data.result);
+  //         })
+  //         .catch((e) => {
+  //           console.log(e);
+  //         });
+  //     } else {
+  //       PostService.loadPostByLatest()
+  //         .then((result) => {
+  //           console.log(result);
+  //           setFilteredPost(result.data.result);
+  //         })
+  //         .catch((e) => {
+  //           console.log(e);
+  //         });
+  //     }
+  //   }, [currentFilter]);
 
   //根據搜尋結果執行
   useEffect(() => {
@@ -87,6 +87,7 @@ const AllPosts = ({ searchContent }) => {
 
   // 隨著分類鈕改變，重新載入內容
   useEffect(() => {
+    window.scrollTo(0, 0);
     if (currentFilter == "By Popular") {
       PostService.loadPostByTopLikes()
         .then((result) => {

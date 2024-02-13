@@ -61,13 +61,25 @@ router.post(
   }
 );
 
-router.post("", async (req, res) => {});
-
 //修改商品
 // router.patch();
 
 //刪除商品
-// router.delete();
+router.delete(
+  "/deleteProduct/:_id",
+  passport.authenticate("jwt", { session: false }),
+  async (req, res) => {
+    try {
+      let { _id } = req.params;
+      let result = await Product.findOneAndDelete({ _id }, { new: true });
+      console.log(result);
+      return res.status(200).send({ msg: "成功刪除商品", result });
+    } catch (e) {
+      console.log(e);
+      return res.status(500).send({ msg: "刪除商品失敗" });
+    }
+  }
+);
 
 //提交訂單
 router.post(
@@ -167,9 +179,10 @@ router.post("/newebpay_notify", async (req, res) => {
   if (data.Status != "MPG03009") {
     let confirmOrder = await Order.findOneAndUpdate(
       { MerchantOrderNo: data.Result.MerchantOrderNo },
-      { $set: { isPay: true } },
+      { $set: { isPay: true }, $inc: { stock: -1 } },
       { new: true }
     );
+
     console.log("confirmOrder : " + confirmOrder);
     return res.status(200).send(confirmOrder);
   }

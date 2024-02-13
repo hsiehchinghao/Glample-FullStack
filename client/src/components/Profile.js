@@ -123,7 +123,19 @@ const Profile = ({ setShopCount, setShopItems }) => {
   };
 
   //刪除商品
-  const handleDeleteProduct = (_id) => {};
+  const handleDeleteProduct = async (_id) => {
+    let confirm = window.confirm("Double check to delete the product?");
+    if (confirm) {
+      let result = await ShopService.deleteProduct(_id);
+      navigate("/profile");
+      window.location.reload();
+    }
+  };
+
+  //進入商品頁
+  const checkEachProduct = (_id) => {
+    navigate(`/loadProduct/${_id}`);
+  };
 
   return (
     <div className="profile">
@@ -135,7 +147,7 @@ const Profile = ({ setShopCount, setShopItems }) => {
               <br />
               Welcome Back !
               <br />
-              哩賀 !
+              你好 !
               <br />
               ようこそ !
             </h1>
@@ -201,7 +213,7 @@ const Profile = ({ setShopCount, setShopItems }) => {
                     return (
                       <div
                         onClick={() => {
-                          handlePerPost(index._id);
+                          checkEachProduct(index._id);
                         }}
                         key={index._id}
                         className="perPost"
@@ -214,16 +226,6 @@ const Profile = ({ setShopCount, setShopItems }) => {
                           <br />
                           {index.date}
                           <div className="editBtn">
-                            <div className="updatePostBtn">
-                              <img
-                                src={updatePostBtnIcon}
-                                alt="update content"
-                                onClick={(e) => {
-                                  e.stopPropagation();
-                                  handleUpdate(index._id);
-                                }}
-                              />
-                            </div>
                             <div className="deletePostBtn">
                               <img
                                 src={deletePostIcon}
