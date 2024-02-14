@@ -42,6 +42,7 @@ const productValidation = Joi.object({
   price: Joi.number().required(),
   stock: Joi.number().required(),
   description: Joi.string().required(),
+  response: Joi.string(),
 });
 
 // 訂單新增規則
