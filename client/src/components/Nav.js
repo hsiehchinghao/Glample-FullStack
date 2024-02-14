@@ -224,7 +224,7 @@ const Nav = ({
     if (window.innerWidth < 850 && padSearchContentRef.current.value != "") {
       console.log(padSearchContentRef.current.value);
       setSearchContent(() => {
-        return searchContentRef.current.value;
+        return padSearchContentRef.current.value;
       });
       navigate(`/allPosts/${padSearchContentRef.current.value}`);
     }
