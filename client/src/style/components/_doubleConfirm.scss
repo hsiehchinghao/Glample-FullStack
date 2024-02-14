@@ -3,7 +3,7 @@
 .doubleCheckPage {
   @extend %basicComponent;
   @include flexbox(column, space-evenly, center);
-  min-height: 80dvh;
+  min-height: 800px;
   padding-bottom: 30px;
   .doubleConfirmTitle {
     width: 100%;

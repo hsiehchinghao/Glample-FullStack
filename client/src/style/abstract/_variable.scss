@@ -166,7 +166,7 @@ $normalTop: 138px;
 
 %errorPage {
   @extend %basicComponent;
-  min-height: 80dvh;
+  min-height: 800px;
   @include flexbox(column, center, center);
   font-size: 50px;
   color: #888;

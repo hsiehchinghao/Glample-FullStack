@@ -142,7 +142,7 @@
 }
 
 .allPostsPage .noResultSection, .allPostsPage .errorPage, .doubleCheckPage .error, .error, .addProductPage .errorPage, .errorPage, .profile > div .allLikesPosts .loadLikePostSection .errorMsg, .profile > div .loadAllOrders .loadLikePostSection .errorMsg, .profile > div .loadAllOrders .errorMsg {
-  min-height: 80dvh;
+  min-height: 800px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -783,7 +783,7 @@
 
 .main {
   width: 100dvw;
-  min-height: 100vh;
+  min-height: 800px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -967,7 +967,7 @@
   align-items: start;
   overflow: hidden;
   width: 100dvw;
-  height: 100dvh;
+  height: 100svh;
   transform: translateX(100%);
   position: fixed;
   top: 0;
@@ -1119,7 +1119,7 @@
   top: 0;
   right: 0;
   width: 0;
-  min-height: 100dvh;
+  min-height: 100svh;
   display: flex;
   flex-direction: column;
   justify-content: start;
@@ -1162,7 +1162,7 @@
   justify-content: start;
   align-items: center;
   width: 100%;
-  height: 450px;
+  height: 300px;
   border: 5px dashed #000;
   padding-bottom: 30px;
   overflow: scroll;
@@ -1588,8 +1588,8 @@
 .swiper-button-prev,
 .swiper-button-next {
   color: #ddd !important;
-  height: 100dvh !important;
-  width: 10dvw !important;
+  height: 100svh !important;
+  width: 10svw !important;
   transition: 0.2s;
   padding: 10px !important;
   top: 0 !important;
@@ -1616,8 +1616,8 @@
   background-repeat: repeat;
   background-attachment: fixed;
   padding-top: 138px;
-  width: 100dvw;
-  min-height: 100dvh;
+  width: 100svw;
+  min-height: 800px;
 }
 @media (max-width: 850px) {
   .homePage {
@@ -1626,7 +1626,7 @@
 }
 .homePage .bannerSwiperSection {
   position: relative;
-  height: calc(100dvh - 138px);
+  height: calc(100svh - 138px);
   width: 100%;
   transform: translateY(-5%);
 }
@@ -1757,11 +1757,11 @@
   justify-content: start;
   align-items: center;
   width: 100dvw;
-  min-height: 100dvh;
+  min-height: 800px;
 }
 @media (max-width: 500px) {
   .homePage .homePagePopSection {
-    width: 80dvw;
+    width: 80svw;
   }
 }
 .homePage .homePagePopSection .homePagePopTitle {
@@ -2095,7 +2095,7 @@
   justify-content: start;
   align-items: center;
   width: 100%;
-  min-height: 50dvh;
+  min-height: 500px;
   background-color: #eee;
   position: relative;
 }
@@ -2165,7 +2165,7 @@
   align-items: center;
   background-image: url("../svg/0529d3b683d7d464b85e5f20f0804f8a.jpg");
   width: 100%;
-  min-height: 70dvh;
+  min-height: 500px;
   position: relative;
   overflow: hidden;
 }
@@ -2255,7 +2255,7 @@
 }
 .homePage .glampleBanner {
   width: 100%;
-  min-height: 100dvh;
+  min-height: 800px;
   background-color: #eee;
 }
 .homePage .glampleBanner > .glampleBannerLayout {
@@ -2264,7 +2264,7 @@
   justify-content: end;
   align-items: center;
   width: 100%;
-  min-height: 100dvh;
+  min-height: 800px;
   -webkit-backdrop-filter: blur(2px);
           backdrop-filter: blur(2px);
   background-color: rgba(61, 60, 60, 0.4941176471);
@@ -2446,6 +2446,11 @@
   left: 45%;
   border-color: #eee;
 }
+@media (max-width: 500px) {
+  .profile > div .allInstructorPost .loadInstructorPostSection .loader {
+    left: 40%;
+  }
+}
 .profile > div .allLikesPosts, .profile > div .loadAllOrders {
   display: flex;
   flex-direction: column;
@@ -2527,6 +2532,11 @@
 .profile > div .allLikesPosts .loadLikePostSection .loader, .profile > div .loadAllOrders .loadLikePostSection .loader {
   border-color: #eee;
   left: 45%;
+}
+@media (max-width: 500px) {
+  .profile > div .allLikesPosts .loadLikePostSection .loader, .profile > div .loadAllOrders .loadLikePostSection .loader {
+    left: 40%;
+  }
 }
 .profile > div .allLikesPosts .loadLikePostSection .errorMsg, .profile > div .loadAllOrders .loadLikePostSection .errorMsg {
   color: #eee;
@@ -2840,7 +2850,7 @@
   flex-direction: column;
   justify-content: start;
   align-items: center;
-  min-height: 100dvh;
+  min-height: 500px;
   width: 100dvw;
   position: relative;
 }
@@ -2958,7 +2968,7 @@
   align-items: center;
   flex-wrap: wrap;
   width: 95%;
-  min-height: 100dvh;
+  min-height: 800px;
   background-color: #eee;
   background-image: url("../svg/78fe99903fd70eb39409b9825426d1ad.jpg");
   background-size: cover;
@@ -3080,14 +3090,19 @@
   height: 100px;
   left: 45%;
 }
+@media (max-width: 500px) {
+  .productListPage .productListPageProducts .productListPageBackdrop .loader {
+    left: 30%;
+  }
+}
 
 .productPage {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  width: 90dvw;
-  min-height: 100dvh;
+  width: 90svw;
+  min-height: 800px;
 }
 @media (max-width: 650px) {
   .productPage {
@@ -3194,7 +3209,7 @@
   }
 }
 .addProductPage {
-  min-height: 70dvh;
+  min-height: 800px;
 }
 .addProductPage > .addPostPage {
   display: flex;
@@ -3326,7 +3341,7 @@
   }
 }
 .confirmOrderPage {
-  min-height: 100dvh;
+  min-height: 800px;
   background-image: linear-gradient(to bottom, #666, #eee);
 }
 .confirmOrderPage .confirmOrderTitle {
@@ -3576,7 +3591,7 @@
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  min-height: 80dvh;
+  min-height: 800px;
   padding-bottom: 30px;
 }
 .doubleCheckPage .doubleConfirmTitle {
@@ -3732,8 +3747,8 @@
   flex-direction: column;
   justify-content: start;
   align-items: center;
-  min-height: 80dvh;
-  width: 100dvw;
+  min-height: 800px;
+  width: 100svw;
   position: relative;
 }
 .categoryPage .categoryPageContent > .firstPost {
@@ -3898,6 +3913,11 @@
 .categoryPage .categoryPageContent > .loader {
   top: 150px;
 }
+@media (max-width: 500px) {
+  .categoryPage .categoryPageContent > .loader {
+    left: 40%;
+  }
+}
 .categoryPage .categoryPageContent > .decorationBanner {
   display: flex;
   flex-direction: row;
@@ -3914,7 +3934,7 @@
   justify-content: start;
   align-items: center;
   height: 40px;
-  width: 100dvw;
+  width: 100svw;
   background-color: #000;
   position: relative;
   overflow: hidden;
@@ -3996,7 +4016,7 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  width: 100dvw;
+  width: 100svw;
   background-color: #fff;
 }
 @media (max-width: 650px) {

@@ -60,10 +60,10 @@ const Nav = ({
       } else {
         if (shopListRef.current) {
           shopListRef.current.style.top = "178px";
-          shopListItemsRef.current.style.height = "380px";
+          shopListItemsRef.current.style.height = "300px";
         }
       }
-      shopListRef.current.style.width = "0";
+      // shopListRef.current.style.width = "0";
     };
     window.addEventListener("scroll", handleScroll);
     window.addEventListener("resize", handleShopListPosition);

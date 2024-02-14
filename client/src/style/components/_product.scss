@@ -3,8 +3,8 @@
 .productPage {
   @extend %basicComponent;
   @include flexbox(row, space-between, center);
-  width: 90dvw;
-  min-height: 100dvh;
+  width: 90svw;
+  min-height: 800px;
   @include mobile {
     @include flexbox(column, space-between, center);
   }

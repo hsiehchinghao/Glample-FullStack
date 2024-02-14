@@ -12,7 +12,6 @@ const ProductPage = ({ shopItems, setShopItems, shopCount, setShopCount }) => {
   console.log(id);
   useEffect(() => {
     window.scrollTo(0, 0);
-
     ShopService.loadProductById(id)
       .then((result) => {
         console.log(result);

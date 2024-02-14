@@ -1,7 +1,7 @@
 @use "../abstract/variable" as *;
 
 .addProductPage {
-  min-height: 70dvh;
+  min-height: 800px;
   > .addPostPage {
     @extend %addPostPage;
     @include flexbox(column, start, center);

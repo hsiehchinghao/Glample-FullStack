@@ -14,7 +14,7 @@
     @include flexbox(row, space-evenly, center);
     flex-wrap: wrap;
     width: 95%;
-    min-height: 100dvh;
+    min-height: 800px;
     background-color: #eee;
     background-image: url("../svg/78fe99903fd70eb39409b9825426d1ad.jpg");
     background-size: cover;
@@ -108,6 +108,9 @@
         width: 100px;
         height: 100px;
         left: 45%;
+        @include mobileS {
+          left: 30%;
+        }
       }
     }
   }

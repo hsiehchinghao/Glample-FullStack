@@ -2,7 +2,7 @@
 
 .confirmOrderPage {
   @extend %basicComponent;
-  min-height: 100dvh;
+  min-height: 800px;
   background-image: linear-gradient(to bottom, #666, #eee);
   .confirmOrderTitle {
     width: 100%;

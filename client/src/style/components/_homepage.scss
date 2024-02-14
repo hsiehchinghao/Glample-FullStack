@@ -3,8 +3,8 @@
 .swiper-button-prev,
 .swiper-button-next {
   color: #ddd !important;
-  height: 100dvh !important;
-  width: 10dvw !important;
+  height: 100svh !important;
+  width: 10svw !important;
   transition: 0.2s;
   padding: 10px !important;
   top: 0 !important;
@@ -27,14 +27,14 @@
   background-repeat: repeat;
   background-attachment: fixed;
   padding-top: $normalTop;
-  width: 100dvw;
-  min-height: 100dvh;
+  width: 100svw;
+  min-height: 800px;
   @include pad {
     padding-top: $shrinkTop;
   }
   .bannerSwiperSection {
     position: relative;
-    height: calc(100dvh - $normalTop);
+    height: calc(100svh - $normalTop);
     width: 100%;
     transform: translateY(-5%);
     // background-color: rgba(61, 60, 60, 0.296);
@@ -137,9 +137,9 @@
   .homePagePopSection {
     @include flexbox(column, start, center);
     width: 100dvw;
-    min-height: 100dvh;
+    min-height: 800px;
     @include mobileS {
-      width: 80dvw;
+      width: 80svw;
     }
     .homePagePopTitle {
       @include flexbox(column, start, center);
@@ -437,7 +437,7 @@
   .productBanner {
     @include flexbox(column, start, center);
     width: 100%;
-    min-height: 50dvh;
+    min-height: 500px;
     background-color: #eee;
     position: relative;
     .productBannerTitle {
@@ -490,7 +490,7 @@
       @include flexbox(column, center, center);
       background-image: url("../svg/0529d3b683d7d464b85e5f20f0804f8a.jpg");
       width: 100%;
-      min-height: 70dvh;
+      min-height: 500px;
       position: relative;
       overflow: hidden;
       .latestProduct {
@@ -571,12 +571,12 @@
   }
   .glampleBanner {
     width: 100%;
-    min-height: 100dvh;
+    min-height: 800px;
     background-color: #eee;
     > .glampleBannerLayout {
       @include flexbox(column, end, center);
       width: 100%;
-      min-height: 100dvh;
+      min-height: 800px;
       backdrop-filter: blur(2px);
       background-color: #3d3c3c7e;
       background-image: url("../logo-svg/logo.svg");

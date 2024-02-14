@@ -10,6 +10,7 @@ const Login = () => {
     navigate("/profile");
   }
   useEffect(() => {
+    window.scrollTo(0, 0);
     if (props.currentUser) {
       alert("已經登入");
       navigate("/profile");

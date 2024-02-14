@@ -7,6 +7,7 @@ const Register = () => {
   let props = useOutletContext();
   const navigate = useNavigate();
   useEffect(() => {
+    window.scrollTo(0, 0);
     if (props.currentUser) {
       alert("Already login");
       navigate("/profile");
