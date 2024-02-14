@@ -1,110 +1,121 @@
 @use "../abstract/variable" as *;
 
-.signUpPage{
-    @include flexbox(column, start, center);
-    @extend %basicComponent;
-    padding-top: 150px;
-    margin-bottom: 100px;
-    @include pad {
-        padding-top: 190px;
+.signUpPage {
+  @include flexbox(column, start, center);
+  @extend %basicComponent;
+  padding-top: 150px;
+  margin-bottom: 100px;
+  @include pad {
+    padding-top: 190px;
+  }
+  .signUpTitle {
+    line-height: 60px;
+  }
+  .errorMsg {
+    background-color: #333;
+    color: #ccc;
+    font-weight: 800;
+    padding: 16px;
+  }
+  .signUpForm {
+    @include flexbox(column, space-evenly, center);
+    width: 100%;
+    line-height: 42px;
+    label {
+      font-weight: 800;
     }
-    .signUpTitle {
-        line-height: 60px;
+    input {
+      text-align: center;
+      width: 80%;
+      max-width: 600px;
+      height: 26px;
+      padding: 15px;
+      outline: none;
+      border: none;
+      border-bottom: 1px solid #ccc;
+      background: rgba(0, 0, 0, 0);
     }
-    .errorMsg {
-        background-color: #333;
-        color:#ccc;
-        font-weight: 800;
-        padding: 16px;
+    .checkInstructorDiv {
+      @include flexbox(column, center, center);
     }
-    .signUpForm {
-        @include flexbox (column, space-evenly, center);
-        width: 100%;
-        line-height: 42px;
-        label {
-            font-weight: 800;
-        }
-        input {
-            text-align: center;
-            width:80%;
-            max-width: 600px;
-            height: 26px;
-            padding: 15px;
-            outline: none;
-            border: none;
-            border-bottom: 1px solid #ccc;
-            background: rgba(0,0,0,0);
-        }
-        .checkInstructorDiv {
-            @include flexbox(column, center, center);
-        }
-        .submitBtn {
-            @extend %submitBtn2;
-        }
+    .submitBtn {
+      @extend %submitBtn2;
     }
-    .saperateLine {
-        font-weight: 800;
-        font-size: 20px;
-        width: 100%;
-        position: relative;
-        text-align: center;
-        &::after {
-            content: '';
-            width: 45%;
-            background-color: #ccc;
-            height:1px;
-            position:absolute;
-            top: 50%;
-            left:0;
-        }
-        &::before {
-            content: '';
-            width: 45%;
-            background-color: #ccc;
-            height:1px;
-            position: absolute;
-            top: 50%;
-            right: 0;
-        }
+  }
+  .saperateLine {
+    font-weight: 800;
+    font-size: 20px;
+    width: 100%;
+    position: relative;
+    text-align: center;
+    &::after {
+      content: "";
+      width: 45%;
+      background-color: #ccc;
+      height: 1px;
+      position: absolute;
+      top: 50%;
+      left: 0;
     }
+    &::before {
+      content: "";
+      width: 45%;
+      background-color: #ccc;
+      height: 1px;
+      position: absolute;
+      top: 50%;
+      right: 0;
+    }
+  }
 
-    .googleBtn{
-        margin-top: 40px;
-        .googleLink {
-            display: inline-block;
-            border: 1px solid #ccc;
-            border-radius: 20px;
-            padding: 10px;
-            transition: 0.3s;
-            background-color: #ccc;
-            cursor: pointer;
-            .googleIconWrapper{
-                .googleIcon {
-                    width: 50px;
-                    height: 50px;
-                    cursor: pointer;
-                }
-            }
-            &:hover {
-                transform: translateY(-10%);
-                box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.5);
-                background-color: #ddd;
-            }
-            &:active {
-                transform: translateY(0%);
-                box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.5);
-            }
-            
+  .googleBtn {
+    margin-top: 40px;
+    .googleLink {
+      @include flexbox(column, space-between, center);
+      display: inline-block;
+      border: 1px solid #ccc;
+      border-radius: 20px;
+      padding: 10px;
+      transition: 0.3s;
+      background-color: #ccc;
+      cursor: pointer;
+      text-decoration: none;
+      > p {
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+      }
+      .googleIconWrapper {
+        cursor: pointer;
+        @include flexbox(column, center, center);
+        .googleIcon {
+          width: 50px;
+          height: 50px;
+          cursor: pointer;
         }
+      }
+      &:hover {
+        transform: translateY(-10%);
+        box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.5);
+        background-color: #ddd;
+        > p {
+          text-decoration: underline;
+        }
+      }
+      &:active {
+        transform: translateY(0%);
+        box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.5);
+      }
     }
-    .checkInstructorDiv{
-        margin-top: 30px;
-    }
-    .hideInstructorCode{
-        display: none;
-    }
-    
-    #checkToSwitch:checked ~.hideInstructorCode{
-        display: block;
-    }
+  }
+  .checkInstructorDiv {
+    margin-top: 30px;
+  }
+  .hideInstructorCode {
+    display: none;
+  }
+
+  #checkToSwitch:checked ~ .hideInstructorCode {
+    display: block;
+  }
 }

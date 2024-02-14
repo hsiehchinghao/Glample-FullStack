@@ -98,6 +98,7 @@ const Register = () => {
           <div className="googleIconWrapper">
             <img className="googleIcon" src={googlelogo} alt="googlesvg" />
           </div>
+          <p>LOGIN BY GOOGLE</p>
         </a>
       </div>
     </div>

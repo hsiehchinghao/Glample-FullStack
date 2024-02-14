@@ -49,7 +49,7 @@ const Login = () => {
 
   return (
     <div className="loginComponent">
-      <h1 className="loginTitle">Login</h1>
+      <h1 className="loginTitle">LOGIN</h1>
       {message && <h2 className="errorMsg">{message}</h2>}
       <form className="loginForm">
         <label htmlFor="email">email :</label>
@@ -74,6 +74,7 @@ const Login = () => {
           <div className="googleIconWrapper">
             <img className="googleIcon" src={googlelogo} alt="googlesvg" />
           </div>
+          <p>LOGIN BY GOOGLE</p>
         </a>
       </div>
     </div>

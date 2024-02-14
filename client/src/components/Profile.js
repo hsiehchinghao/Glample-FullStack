@@ -17,6 +17,9 @@ const Profile = ({ setShopCount, setShopItems }) => {
   const [likePost, setLikePost] = useState(null);
   const [historyOrder, setHistoryOrder] = useState(null);
   const [productManage, setProductManage] = useState(null);
+  const [ifLoadedPost, setIfLoadedPost] = useState(false);
+  const [ifLoadedProduct, setIfLoadedProduct] = useState(false);
+  const [ifLoadedLikePost, setIfLoadedLikePost] = useState(false);
   // const [orderFound, setOrderFound] = useState(false);
 
   useEffect(() => {
@@ -37,6 +40,7 @@ const Profile = ({ setShopCount, setShopItems }) => {
             setPost_id(() => {
               return result.data.post_id;
             });
+            setIfLoadedPost(true);
             console.log(result.data.post_id);
           })
           .catch((e) => {
@@ -51,6 +55,7 @@ const Profile = ({ setShopCount, setShopItems }) => {
             setProductManage(() => {
               return result.data.result;
             });
+            setIfLoadedProduct(true);
           })
           .catch((e) => {
             console.log(e);
@@ -62,6 +67,7 @@ const Profile = ({ setShopCount, setShopItems }) => {
         .then((result) => {
           console.log(result);
           setLikePost(result.data.likePost);
+          setIfLoadedLikePost(true);
         })
         .catch((e) => {
           console.log(e);
@@ -156,50 +162,56 @@ const Profile = ({ setShopCount, setShopItems }) => {
             <div className="allInstructorPost">
               <div className="instructorPostTitle">Your Posts</div>
               <div className="loadInstructorPostSection">
-                {post_id ? (
-                  post_id.map((index) => {
-                    return (
-                      <div
-                        onClick={() => {
-                          handlePerPost(index._id);
-                        }}
-                        key={index._id}
-                        className="perPost"
-                        style={{
-                          backgroundImage: `url(${API_URL}${index.image})`,
-                        }}
-                      >
-                        <div className="perPostData">
-                          {index.title}
-                          <br />
-                          {index.date}
-                          <div className="editBtn">
-                            <div className="updatePostBtn">
-                              <img
-                                src={updatePostBtnIcon}
-                                alt="update content"
-                                onClick={(e) => {
-                                  e.stopPropagation();
-                                  handleUpdate(index._id);
-                                }}
-                              />
-                            </div>
-                            <div className="deletePostBtn">
-                              <img
-                                src={deletePostIcon}
-                                alt="delete content"
-                                onClick={(e) => {
-                                  e.stopPropagation();
-                                  console.log(index._id);
-                                  handleDelete(index._id);
-                                }}
-                              />
+                {ifLoadedPost ? (
+                  post_id && post_id.length != 0 ? (
+                    post_id.map((index) => {
+                      return (
+                        <div
+                          onClick={() => {
+                            handlePerPost(index._id);
+                          }}
+                          key={index._id}
+                          className="perPost"
+                          style={{
+                            backgroundImage: `url(${API_URL}${index.image})`,
+                          }}
+                        >
+                          <div className="perPostData">
+                            {index.title}
+                            <br />
+                            {index.date}
+                            <div className="editBtn">
+                              <div className="updatePostBtn">
+                                <img
+                                  src={updatePostBtnIcon}
+                                  alt="update content"
+                                  onClick={(e) => {
+                                    e.stopPropagation();
+                                    handleUpdate(index._id);
+                                  }}
+                                />
+                              </div>
+                              <div className="deletePostBtn">
+                                <img
+                                  src={deletePostIcon}
+                                  alt="delete content"
+                                  onClick={(e) => {
+                                    e.stopPropagation();
+                                    console.log(index._id);
+                                    handleDelete(index._id);
+                                  }}
+                                />
+                              </div>
                             </div>
                           </div>
                         </div>
-                      </div>
-                    );
-                  })
+                      );
+                    })
+                  ) : (
+                    <div className="errorMsg">
+                      No articles have been added yet.
+                    </div>
+                  )
                 ) : (
                   <div className="loader"></div>
                 )}
@@ -211,40 +223,46 @@ const Profile = ({ setShopCount, setShopItems }) => {
             <div className="allInstructorPost">
               <div className="instructorPostTitle">Manage Products</div>
               <div className="loadInstructorPostSection">
-                {productManage ? (
-                  productManage.map((index) => {
-                    return (
-                      <div
-                        onClick={() => {
-                          checkEachProduct(index._id);
-                        }}
-                        key={index._id}
-                        className="perPost"
-                        style={{
-                          backgroundImage: `url(${API_URL}${index.image})`,
-                        }}
-                      >
-                        <div className="perPostData">
-                          {index.title}
-                          <br />
-                          {index.date}
-                          <div className="editBtn">
-                            <div className="deletePostBtn">
-                              <img
-                                src={deletePostIcon}
-                                alt="delete content"
-                                onClick={(e) => {
-                                  e.stopPropagation();
-                                  console.log(index._id);
-                                  handleDeleteProduct(index._id);
-                                }}
-                              />
+                {ifLoadedProduct ? (
+                  productManage && productManage.length != 0 ? (
+                    productManage.map((index) => {
+                      return (
+                        <div
+                          onClick={() => {
+                            checkEachProduct(index._id);
+                          }}
+                          key={index._id}
+                          className="perPost"
+                          style={{
+                            backgroundImage: `url(${API_URL}${index.image})`,
+                          }}
+                        >
+                          <div className="perPostData">
+                            {index.title}
+                            <br />
+                            {index.date}
+                            <div className="editBtn">
+                              <div className="deletePostBtn">
+                                <img
+                                  src={deletePostIcon}
+                                  alt="delete content"
+                                  onClick={(e) => {
+                                    e.stopPropagation();
+                                    console.log(index._id);
+                                    handleDeleteProduct(index._id);
+                                  }}
+                                />
+                              </div>
                             </div>
                           </div>
                         </div>
-                      </div>
-                    );
-                  })
+                      );
+                    })
+                  ) : (
+                    <div className="errorMsg">
+                      You have not listed any products yet.
+                    </div>
+                  )
                 ) : (
                   <div className="loader"></div>
                 )}
@@ -255,33 +273,37 @@ const Profile = ({ setShopCount, setShopItems }) => {
           <div className="allLikesPosts">
             <div className="likePostTitle">Liked Posts ! いいね！</div>
             <div className="loadLikePostSection">
-              {likePost && likePost.length != 0 ? (
-                likePost.reverse().map((data) => {
-                  return (
-                    <div
-                      key={data._id}
-                      className="perLikePost"
-                      style={{
-                        backgroundImage: `url(${API_URL}${data.image})`,
-                      }}
-                      onClick={(e) => {
-                        handlePerPost(data._id);
-                      }}
-                    >
-                      <p className="perLikePostData">
-                        {data.title}
-                        <br />
-                        {data.date}
-                      </p>
-                    </div>
-                  );
-                })
+              {ifLoadedLikePost ? (
+                likePost && likePost.length != 0 ? (
+                  likePost.reverse().map((data) => {
+                    return (
+                      <div
+                        key={data._id}
+                        className="perLikePost"
+                        style={{
+                          backgroundImage: `url(${API_URL}${data.image})`,
+                        }}
+                        onClick={(e) => {
+                          handlePerPost(data._id);
+                        }}
+                      >
+                        <p className="perLikePostData">
+                          {data.title}
+                          <br />
+                          {data.date}
+                        </p>
+                      </div>
+                    );
+                  })
+                ) : (
+                  <div className="errorMsg">There isn't any liked post.</div>
+                )
               ) : (
                 <div className="loader"></div>
               )}
-              {likePost && likePost.length == 0 && (
+              {/* {likePost && likePost.length == 0 && (
                 <div className="errorMsg">There isn't any liked post!</div>
-              )}
+              )} */}
             </div>
           </div>
           <div className="loadAllOrders">

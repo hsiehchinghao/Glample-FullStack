@@ -21,32 +21,38 @@ const ConfirmOrder = ({ shopItems, setConfirmOrder }) => {
       //確認資料填妥才能提交!
       if (AuthService.getCurrentUser()) {
         if (realNameRef.current.value && phoneRef.current.value) {
-          //製作商品描述字串
-          let ItemDesc = "";
-          shopItems.map((i) => {
-            ItemDesc += `${i.title},`;
-          });
-          console.log(ItemDesc);
-          //新增訂單到資料庫
-          let result = await ShopService.createOrder(
-            currentUser.email,
-            JSON.parse(localStorage.getItem("orderTotal")),
-            ItemDesc,
-            currentUser._id,
-            currentUser.username,
-            realNameRef.current.value,
-            phoneRef.current.value,
-            JSON.parse(localStorage.getItem("orderList"))
-          );
-          console.log(result.data);
-          setConfirmOrder(result.data);
-          //將訂單編號set在 localStorage
-          localStorage.setItem(
-            "orderNo",
-            JSON.stringify(result.data.order.MerchantOrderNo)
-          );
-          localStorage.setItem("orderDetails", JSON.stringify(result.data));
-          navigate("/doubleConfirm");
+          if (phoneRef.current.value.length != 12) {
+            alert("電話需為8869開頭的12位數");
+          } else if (phoneRef.current.value.slice(0, 4) != "8869") {
+            alert("電話需為8869開頭的12位數");
+          } else {
+            //製作商品描述字串
+            let ItemDesc = "";
+            shopItems.map((i) => {
+              ItemDesc += `${i.title},`;
+            });
+            console.log(ItemDesc);
+            //新增訂單到資料庫
+            let result = await ShopService.createOrder(
+              currentUser.email,
+              JSON.parse(localStorage.getItem("orderTotal")),
+              ItemDesc,
+              currentUser._id,
+              currentUser.username,
+              realNameRef.current.value,
+              phoneRef.current.value,
+              JSON.parse(localStorage.getItem("orderList"))
+            );
+            console.log(result.data);
+            setConfirmOrder(result.data);
+            //將訂單編號set在 localStorage
+            localStorage.setItem(
+              "orderNo",
+              JSON.stringify(result.data.order.MerchantOrderNo)
+            );
+            localStorage.setItem("orderDetails", JSON.stringify(result.data));
+            navigate("/doubleConfirm");
+          }
         } else {
           alert("Please confirm the realname & phone first!");
         }
@@ -87,8 +93,13 @@ const ConfirmOrder = ({ shopItems, setConfirmOrder }) => {
                   <input type="text" ref={realNameRef} />
                 </div>
                 <div className="phone">
-                  <label htmlFor="">Phone:</label>
-                  <input type="number" ref={phoneRef} />
+                  <label htmlFor="">Phone:(8869xx-xxx-xxx)</label>
+                  <input
+                    type="tel"
+                    pattern="8869-[0-9]{2}-[0-9]{3}-0-9]{3}"
+                    required
+                    ref={phoneRef}
+                  />
                 </div>
               </div>
 

@@ -26,13 +26,13 @@
   box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.5);
 }
 
-.allPostsPage, .categoryPage, .doubleCheckPage, .confirmOrderPage, .productPage, .productListPage, .signUpPage, .profile, .loginComponent, .loadingPage, .addProductPage > .addPostPage, .addPostPage, .allPostsPage .noResultSection, .allPostsPage .errorPage, .doubleCheckPage .error, .error, .addProductPage .errorPage, .errorPage, .profile > div .allLikesPosts .loadLikePostSection .errorMsg, .profile > div .loadAllOrders .loadLikePostSection .errorMsg, .profile > div .loadAllOrders .errorMsg {
+.allPostsPage, .categoryPage, .doubleCheckPage, .confirmOrderPage, .productPage, .productListPage, .signUpPage, .profile, .loginComponent, .loadingPage, .addProductPage > .addPostPage, .addPostPage, .allPostsPage .noResultSection, .allPostsPage .errorPage, .doubleCheckPage .error, .error, .addProductPage .errorPage, .errorPage, .profile > div .allInstructorPost .loadInstructorPostSection .errorMsg, .profile > div .allLikesPosts .loadLikePostSection .errorMsg, .profile > div .loadAllOrders .loadLikePostSection .errorMsg, .profile > div .loadAllOrders .errorMsg {
   width: 95dvw;
   padding-top: 150px;
   padding-bottom: 100px;
 }
 @media (max-width: 850px) {
-  .allPostsPage, .categoryPage, .doubleCheckPage, .confirmOrderPage, .productPage, .productListPage, .signUpPage, .profile, .loginComponent, .loadingPage, .addProductPage > .addPostPage, .addPostPage, .allPostsPage .noResultSection, .allPostsPage .errorPage, .doubleCheckPage .error, .error, .addProductPage .errorPage, .errorPage, .profile > div .allLikesPosts .loadLikePostSection .errorMsg, .profile > div .loadAllOrders .loadLikePostSection .errorMsg, .profile > div .loadAllOrders .errorMsg {
+  .allPostsPage, .categoryPage, .doubleCheckPage, .confirmOrderPage, .productPage, .productListPage, .signUpPage, .profile, .loginComponent, .loadingPage, .addProductPage > .addPostPage, .addPostPage, .allPostsPage .noResultSection, .allPostsPage .errorPage, .doubleCheckPage .error, .error, .addProductPage .errorPage, .errorPage, .profile > div .allInstructorPost .loadInstructorPostSection .errorMsg, .profile > div .allLikesPosts .loadLikePostSection .errorMsg, .profile > div .loadAllOrders .loadLikePostSection .errorMsg, .profile > div .loadAllOrders .errorMsg {
     padding-top: 190px;
   }
 }
@@ -141,7 +141,7 @@
   }
 }
 
-.allPostsPage .noResultSection, .allPostsPage .errorPage, .doubleCheckPage .error, .error, .addProductPage .errorPage, .errorPage, .profile > div .allLikesPosts .loadLikePostSection .errorMsg, .profile > div .loadAllOrders .loadLikePostSection .errorMsg, .profile > div .loadAllOrders .errorMsg {
+.allPostsPage .noResultSection, .allPostsPage .errorPage, .doubleCheckPage .error, .error, .addProductPage .errorPage, .errorPage, .profile > div .allInstructorPost .loadInstructorPostSection .errorMsg, .profile > div .allLikesPosts .loadLikePostSection .errorMsg, .profile > div .loadAllOrders .loadLikePostSection .errorMsg, .profile > div .loadAllOrders .errorMsg {
   min-height: 800px;
   display: flex;
   flex-direction: column;
@@ -1562,12 +1562,29 @@
   margin-top: 40px;
 }
 .loginComponent .googleBtn .googleLink {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
   display: inline-block;
   border: 1px solid #ccc;
   border-radius: 20px;
   padding: 10px;
   transition: 0.3s;
   background-color: #ccc;
+  text-decoration: none;
+  cursor: pointer;
+}
+.loginComponent .googleBtn .googleLink > p {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+.loginComponent .googleBtn .googleLink .googleIconWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   cursor: pointer;
 }
 .loginComponent .googleBtn .googleLink .googleIconWrapper .googleIcon {
@@ -1579,6 +1596,9 @@
   transform: translateY(-10%);
   box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.5);
   background-color: #ddd;
+}
+.loginComponent .googleBtn .googleLink:hover > p {
+  text-decoration: underline;
 }
 .loginComponent .googleBtn .googleLink:active {
   transform: translateY(0%);
@@ -2442,6 +2462,10 @@
     height: 18px;
   }
 }
+.profile > div .allInstructorPost .loadInstructorPostSection .errorMsg {
+  color: #eee;
+  padding: 20px;
+}
 .profile > div .allInstructorPost .loadInstructorPostSection .loader {
   left: 45%;
   border-color: #eee;
@@ -2703,6 +2727,10 @@
   margin-top: 40px;
 }
 .signUpPage .googleBtn .googleLink {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
   display: inline-block;
   border: 1px solid #ccc;
   border-radius: 20px;
@@ -2710,6 +2738,19 @@
   transition: 0.3s;
   background-color: #ccc;
   cursor: pointer;
+  text-decoration: none;
+}
+.signUpPage .googleBtn .googleLink > p {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+.signUpPage .googleBtn .googleLink .googleIconWrapper {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 .signUpPage .googleBtn .googleLink .googleIconWrapper .googleIcon {
   width: 50px;
@@ -2720,6 +2761,9 @@
   transform: translateY(-10%);
   box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.5);
   background-color: #ddd;
+}
+.signUpPage .googleBtn .googleLink:hover > p {
+  text-decoration: underline;
 }
 .signUpPage .googleBtn .googleLink:active {
   transform: translateY(0%);

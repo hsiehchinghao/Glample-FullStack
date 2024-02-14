@@ -105,6 +105,11 @@
             }
           }
         }
+        .errorMsg {
+          @extend %errorPage;
+          color: #eee;
+          padding: 20px;
+        }
         .loader {
           @extend %loader;
           left: 45%;
