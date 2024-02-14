@@ -38,13 +38,14 @@ router.post(
       if (req.user.role != "instructor") {
         return res.status(400).send({ msg: "權限不足" });
       } else {
-        let { title, price, stock, description } = req.body;
+        let { title, price, stock, description, response } = req.body;
         let imagePath = req.file ? `/images/${req.file.filename}` : null;
         let result = await new Product({
           title,
           price,
           stock,
           description,
+          response,
           image: imagePath,
         }).save();
         if (result) {

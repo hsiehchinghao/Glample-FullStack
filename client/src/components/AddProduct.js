@@ -61,9 +61,10 @@ const AddProduct = () => {
       const price = postData.price;
       const stock = postData.stock;
       const description = postData.description;
+      const response = JSON.parse(localStorage.getItem("user")).username;
       const file = document.querySelector("#fileUpload").files[0];
       const result = await ShopService.addProduct(
-        { title, price, stock, description },
+        { title, price, stock, description, response },
         file
       );
       console.log(result);

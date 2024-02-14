@@ -13,6 +13,7 @@ const productSchema = new Schema({
   date: { type: Date, default: Date.now },
   orderCount: { type: Number, default: 0 },
   order: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }],
+  response: { type: String },
 });
 
 productSchema.statics.findLatestProducts = async function () {

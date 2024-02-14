@@ -6,7 +6,7 @@ const API_URL_VISITORS =
 
 class ShopService {
   //add product
-  addProduct({ title, price, stock, description }, file) {
+  addProduct({ title, price, stock, description, response }, file) {
     let token;
     if (localStorage.getItem("token")) {
       token = JSON.parse(localStorage.getItem("token"));
@@ -17,6 +17,7 @@ class ShopService {
       postData.stock && formData.append("stock", postData.stock);
       postData.description &&
         formData.append("description", postData.description);
+      postData.response && formData.append("response", postData.response);
       formData.append("file", file);
       return axios.post(API_URL + "/addProduct", formData, {
         headers: {

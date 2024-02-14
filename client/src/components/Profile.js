@@ -21,12 +21,13 @@ const Profile = ({ setShopCount, setShopItems }) => {
   const [ifLoadedProduct, setIfLoadedProduct] = useState(false);
   const [ifLoadedLikePost, setIfLoadedLikePost] = useState(false);
   // const [orderFound, setOrderFound] = useState(false);
+  const currentUser = AuthService.getCurrentUser();
 
   useEffect(() => {
     window.scrollTo(0, 0);
     props.setCurrentUser(AuthService.getCurrentUser());
     if (AuthService.getCurrentUser()) {
-      const currentUser = AuthService.getCurrentUser();
+      // const currentUser = AuthService.getCurrentUser();
 
       //身份是編輯
       //載入post的文章
@@ -129,12 +130,18 @@ const Profile = ({ setShopCount, setShopItems }) => {
   };
 
   //刪除商品
-  const handleDeleteProduct = async (_id) => {
-    let confirm = window.confirm("Double check to delete the product?");
-    if (confirm) {
-      let result = await ShopService.deleteProduct(_id);
-      navigate("/profile");
-      window.location.reload();
+  const handleDeleteProduct = async (_id, username) => {
+    if (currentUser) {
+      if (currentUser.username != username) {
+        alert("You are not reponse for the Product");
+      } else {
+        let confirm = window.confirm("Double check to delete the product?");
+        if (confirm) {
+          let result = await ShopService.deleteProduct(_id);
+          navigate("/profile");
+          window.location.reload();
+        }
+      }
     }
   };
 
@@ -249,7 +256,10 @@ const Profile = ({ setShopCount, setShopItems }) => {
                                   onClick={(e) => {
                                     e.stopPropagation();
                                     console.log(index._id);
-                                    handleDeleteProduct(index._id);
+                                    handleDeleteProduct(
+                                      index._id,
+                                      index.response
+                                    );
                                   }}
                                 />
                               </div>
