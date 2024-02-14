@@ -16,7 +16,7 @@ import "swiper/css/pagination";
 import "swiper/css/autoplay";
 
 const SwiperBanner = forwardRef((props, bannerSectionRef) => {
-  const API_URL = "https://glample-mern-9b575194526d.herokuapp.com/";
+  const API_URL = "https://glample-mern-9b575194526d.herokuapp.com";
   const navigate = useNavigate();
   const [postData, setPostData] = useState([]);
   //   const bannerSectionRef = useRef(null);
@@ -26,7 +26,7 @@ const SwiperBanner = forwardRef((props, bannerSectionRef) => {
     PostService.loadPostByLatest()
       .then((result) => {
         // console.log(result.data.result);
-        setPostData(result.data.result);
+        setPostData(result.data.result.slice(0, 5));
       })
       .catch((e) => {
         console.log(e);
