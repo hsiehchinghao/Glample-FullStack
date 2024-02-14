@@ -55,7 +55,7 @@ router.post("/addPost", upload.single("file"), async (req, res) => {
   let { title, category, content } = req.body;
   let authorname = req.user.username;
   let instructor_id = req.user._id;
-  let imagePath = req.file ? `/images/${req.file.filename}` : null;
+  let imagePath = req.file ? `images/${req.file.filename}` : null;
 
   let { error } = postValidation.validate(req.body);
   if (error) {
