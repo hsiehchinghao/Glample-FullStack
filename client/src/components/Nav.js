@@ -45,7 +45,7 @@ const Nav = ({
     const handleScroll = (e) => {
       if (window.scrollY == 0) {
         setNav(true);
-      } else if (window.scrollY > (window.innerHeight * 2) / 3) {
+      } else if (window.scrollY > window.innerHeight / 2) {
         setNav(false);
       } else {
         setNav(true);
@@ -408,7 +408,7 @@ const Nav = ({
             </div>
           </div>
         </nav>
-        <div className="padSearchBar">
+        <div className={nav ? "padSearchBar" : "shrinkPadSearchBar"}>
           <div className="searchlogo">
             <img src={search} alt="searchlogo" />
           </div>
