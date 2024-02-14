@@ -10,7 +10,7 @@ class ShopService {
     let token;
     if (localStorage.getItem("token")) {
       token = JSON.parse(localStorage.getItem("token"));
-      let postData = { title, price, stock, description };
+      let postData = { title, price, stock, description, response };
       const formData = new FormData();
       postData.title && formData.append("title", postData.title);
       postData.price && formData.append("price", postData.price);
