@@ -2985,6 +2985,10 @@
   color: #fff;
   line-height: 40px;
 }
+.postPage .postMain .postContent > ul li {
+  color: #fff;
+  line-height: 40px;
+}
 
 .loadingPage .loader {
   top: 250px;
