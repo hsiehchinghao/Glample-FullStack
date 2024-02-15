@@ -45,14 +45,14 @@ const productValidation = Joi.object({
   response: Joi.string(),
 });
 
-// 訂單新增規則
-const orderValidation = Joi.object({
-  // buyer: Joi.string().required(),
-  // buyerRealName: Joi.string().required(),
-  // buyerPhone: Joi.number().required(),
-  // buyerMail: Joi.number().required(),
-  // price: Joi.number().required(),
-});
+// // 訂單新增規則
+// const orderValidation = Joi.object({
+//   // buyer: Joi.string().required(),
+//   // buyerRealName: Joi.string().required(),
+//   // buyerPhone: Joi.number().required(),
+//   // buyerMail: Joi.number().required(),
+//   // price: Joi.number().required(),
+// });
 
 module.exports = {
   instructorRegisterValidation,
@@ -61,5 +61,4 @@ module.exports = {
   postValidation,
   commentValidation,
   productValidation,
-  orderValidation,
 };
