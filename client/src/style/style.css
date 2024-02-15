@@ -927,7 +927,7 @@
 .navSection .navBar .flexEnd .menuBtn, .navSection .navBar .flexEnd .shoppingCartDiv {
   border: 5px solid #bbb;
   border-radius: 20px;
-  padding: 15px;
+  padding: 12px;
   cursor: pointer;
   transition: 0.3s;
   margin-left: 20px;
@@ -940,12 +940,12 @@
 }
 .navSection .navBar .flexEnd .shoppingCartDiv {
   position: relative;
-  height: 60px;
+  height: 55px;
   cursor: pointer;
 }
 .navSection .navBar .flexEnd .shoppingCartDiv .shoppingCart {
-  width: 26px;
-  height: 26px;
+  width: 24px;
+  height: 24px;
   cursor: pointer;
 }
 .navSection .navBar .flexEnd .shoppingCartDiv .addItems {
@@ -1375,7 +1375,7 @@
   align-items: center;
   list-style: none;
   width: 100%;
-  padding: 20px 10%;
+  padding: 20px;
   border-bottom: 1px #ccc solid;
   background-color: rgba(238, 238, 238, 0.9333333333);
   -webkit-backdrop-filter: blur(1px);

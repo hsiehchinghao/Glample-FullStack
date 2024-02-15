@@ -118,7 +118,7 @@
       .menuBtn {
         border: 5px solid #bbb;
         border-radius: 20px;
-        padding: 15px;
+        padding: 12px;
         cursor: pointer;
         transition: 0.3s;
         margin-left: 20px;
@@ -132,11 +132,11 @@
       .shoppingCartDiv {
         position: relative;
         @extend .menuBtn;
-        height: 60px;
+        height: 55px;
         cursor: pointer;
         .shoppingCart {
-          width: 26px;
-          height: 26px;
+          width: 24px;
+          height: 24px;
           cursor: pointer;
         }
         .addItems {
@@ -529,7 +529,7 @@
     @include flexbox(row, center, center);
     list-style: none;
     width: 100%;
-    padding: 20px 10%;
+    padding: 20px;
     border-bottom: 1px #ccc solid;
     background-color: #eeeeeeee;
     backdrop-filter: blur(1px);
