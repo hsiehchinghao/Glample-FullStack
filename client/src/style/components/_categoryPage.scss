@@ -54,6 +54,7 @@
     width: 100svw;
     position: relative;
     > .firstPost {
+      overflow: hidden;
       width: 100%;
       height: 350px;
       background-color: #fff;
@@ -262,6 +263,7 @@
         width: 50%;
         height: 250px;
         background-color: #000;
+        overflow: hidden;
         @include mobile {
           width: 100%;
         }
@@ -348,6 +350,7 @@
       height: 300px;
       width: 100%;
       border-top: 1px #ccc solid;
+      overflow: hidden;
       @include mobile {
         height: 500px;
         @include flexbox(column, center, center);
