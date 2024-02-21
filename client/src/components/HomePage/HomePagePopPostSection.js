@@ -277,7 +277,7 @@ const HomePagePopPostSection = () => {
           )}
         </div>
         <div className="loadAll">
-          <p onClick={handleGoAllPostsPage}>View All</p>
+          <p onClick={handleGoAllPostsPage}>View All{`>>`}</p>
         </div>
       </div>
     </div>

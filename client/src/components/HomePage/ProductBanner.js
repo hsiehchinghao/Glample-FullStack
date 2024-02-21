@@ -45,7 +45,7 @@ const ProductBanner = () => {
         <p className="latestProductTitle">最新出版！</p>
       </div>
       <Link to="product" className="viewMoreBtn">
-        view more..
+        view more..{`>>`}
       </Link>
     </div>
   );

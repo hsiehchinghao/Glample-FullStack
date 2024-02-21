@@ -209,25 +209,26 @@
         }
         .popPostCoverCategory {
           display: inline-block;
-          // -webkit-text-stroke: 1px #333;
+          -webkit-text-stroke: 1.5px #ccc;
           background: linear-gradient(to top, #000, #fff, #ccc);
           background-clip: text;
           color: #ffffff00;
-          font-size: 100px;
+          font-size: 80px;
           transform: perspective(200px) rotateX(-35deg);
           width: 100%;
           text-align: center;
           transition: 0.3s;
           z-index: 2;
           @include pad {
-            font-size: 100px;
+            font-size: 80px;
           }
           @include mobile {
-            font-size: 80px;
+            -webkit-text-stroke: 1px #ccc;
+            font-size: 100px;
             z-index: 2;
           }
           @include mobileS {
-            font-size: 60px;
+            font-size: 80px;
             z-index: 2;
           }
         }
@@ -301,21 +302,22 @@
           display: inline-block;
           background-clip: text;
           color: #ffffff00;
-          font-size: 100px;
+          font-size: 80px;
           transform: perspective(200px) rotateX(-35deg);
           width: 100%;
           text-align: center;
           transition: 0.3s;
           z-index: 2;
           @include pad {
-            font-size: 100px;
+            font-size: 80px;
           }
           @include mobile {
-            font-size: 80px;
+            -webkit-text-stroke: 1px #ccc;
+            font-size: 100px;
             z-index: 2;
           }
           @include mobileS {
-            font-size: 60px;
+            font-size: 80px;
             z-index: 2;
           }
         }

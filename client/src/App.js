@@ -1,9 +1,7 @@
 import "./style/style.css";
 import { useState, useEffect } from "react";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
-import axios from "axios";
 import AuthService from "./services/AuthService";
-import Frontpage from "./pages/Frontpage";
 import Homepage from "./components/Homepage";
 import Layout from "./Layout";
 import Profile from "./components/Profile";
@@ -45,7 +43,6 @@ function App() {
                 setCurrentSub={setCurrentSub}
                 searchContent={searchContent}
                 setSearchContent={setSearchContent}
-                searchContent={searchContent}
               />
             }
           >

@@ -1397,8 +1397,8 @@
   margin: 0 30px;
   line-height: 30px;
   cursor: pointer;
-  font-size: 26px;
-  transition: 0.4s;
+  font-size: 30px;
+  transition: 0.2s;
   position: relative;
   padding: 0 30px;
   color: #bbb;
@@ -1425,7 +1425,7 @@
 }
 @media (max-width: 650px) {
   .navSection .categoryList > p {
-    font-size: 20px;
+    font-size: 24px;
     padding: 0;
   }
 }
@@ -1873,11 +1873,12 @@
 }
 .homePage .homePagePopSection .homePagePopPosts .homePagePopPost1 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost5 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost4 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost8 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost2 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost6 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost3 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost7 .popPostCoverCategory {
   display: inline-block;
+  -webkit-text-stroke: 1.5px #ccc;
   background: linear-gradient(to top, #000, #fff, #ccc);
   -webkit-background-clip: text;
           background-clip: text;
   color: rgba(255, 255, 255, 0);
-  font-size: 100px;
+  font-size: 80px;
   transform: perspective(200px) rotateX(-35deg);
   width: 100%;
   text-align: center;
@@ -1886,18 +1887,19 @@
 }
 @media (max-width: 850px) {
   .homePage .homePagePopSection .homePagePopPosts .homePagePopPost1 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost5 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost4 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost8 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost2 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost6 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost3 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost7 .popPostCoverCategory {
-    font-size: 100px;
+    font-size: 80px;
   }
 }
 @media (max-width: 650px) {
   .homePage .homePagePopSection .homePagePopPosts .homePagePopPost1 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost5 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost4 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost8 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost2 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost6 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost3 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost7 .popPostCoverCategory {
-    font-size: 80px;
+    -webkit-text-stroke: 1px #ccc;
+    font-size: 100px;
     z-index: 2;
   }
 }
 @media (max-width: 500px) {
   .homePage .homePagePopSection .homePagePopPosts .homePagePopPost1 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost5 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost4 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost8 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost2 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost6 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost3 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost7 .popPostCoverCategory {
-    font-size: 60px;
+    font-size: 80px;
     z-index: 2;
   }
 }
@@ -1980,7 +1982,7 @@
   -webkit-background-clip: text;
           background-clip: text;
   color: rgba(255, 255, 255, 0);
-  font-size: 100px;
+  font-size: 80px;
   transform: perspective(200px) rotateX(-35deg);
   width: 100%;
   text-align: center;
@@ -1989,18 +1991,19 @@
 }
 @media (max-width: 850px) {
   .homePage .homePagePopSection .homePagePopPosts .homePagePopPost2 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost6 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost3 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost7 .popPostCoverCategory {
-    font-size: 100px;
+    font-size: 80px;
   }
 }
 @media (max-width: 650px) {
   .homePage .homePagePopSection .homePagePopPosts .homePagePopPost2 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost6 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost3 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost7 .popPostCoverCategory {
-    font-size: 80px;
+    -webkit-text-stroke: 1px #ccc;
+    font-size: 100px;
     z-index: 2;
   }
 }
 @media (max-width: 500px) {
   .homePage .homePagePopSection .homePagePopPosts .homePagePopPost2 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost6 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost3 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost7 .popPostCoverCategory {
-    font-size: 60px;
+    font-size: 80px;
     z-index: 2;
   }
 }
