@@ -8,7 +8,7 @@ import TextScramble from "../services/TextScramble";
 import ProductBanner from "./HomePage/ProductBanner";
 
 const Homepage = () => {
-  console.log(123);
+  // console.log(123);
   const bannerSectionRef = useRef(null);
   //亂碼效果
   const scrambleRef = useRef(null);

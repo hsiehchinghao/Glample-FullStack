@@ -9,12 +9,12 @@ const ProductPage = ({ shopItems, setShopItems, shopCount, setShopCount }) => {
   const API_URL = "https://glample-mern-9b575194526d.herokuapp.com/";
   const { id } = useParams();
   const [productData, setProductData] = useState(null);
-  console.log(id);
+  // console.log(id);
   useEffect(() => {
     window.scrollTo(0, 0);
     ShopService.loadProductById(id)
       .then((result) => {
-        console.log(result);
+        // console.log(result);
         setProductData(() => {
           return result.data.result;
         });

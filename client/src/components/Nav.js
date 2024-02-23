@@ -22,7 +22,7 @@ const Nav = ({
   setSearchContent,
 }) => {
   const API_URL = "https://glample-mern-9b575194526d.herokuapp.com/";
-  console.log("render~");
+  // console.log("render~");
   const navigate = useNavigate();
 
   const shopListRef = useRef(null);
@@ -116,7 +116,7 @@ const Nav = ({
       return true;
     });
     const shoppingCartContent = ShopService.loadShoppingCart();
-    console.log(shoppingCartContent);
+    // console.log(shoppingCartContent);
     if (shoppingCartContent) {
       setShopItems(() => {
         return shoppingCartContent.order;
@@ -207,7 +207,7 @@ const Nav = ({
 
   //跳轉分類頁
   const handleGoCategoryPage = (e) => {
-    console.log(e.target.innerText);
+    // console.log(e.target.innerText);
     setCurrentSub(e.target.innerText);
     navigate(`/category/${e.target.innerText}`);
   };
@@ -276,9 +276,6 @@ const Nav = ({
               style={{ textDecoration: "none" }}
             >
               <div className="navBarListBanner">
-                <Link className="navBarListBannerLogo" to="/">
-                  <div className="naBarListBannerLogo"> Glample.</div>
-                </Link>
                 <div className="navBarListClose" onClick={handleCLoseNav}>
                   X
                 </div>

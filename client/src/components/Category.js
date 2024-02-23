@@ -18,7 +18,7 @@ const Category = ({ currentSub, setCurrentSub }) => {
     window.scrollTo(0, 0);
     PostService.loadByCategoryAndSortByTopLatest(category)
       .then((result) => {
-        console.log(result);
+        // console.log(result);
         setLoadData(result.data.result);
       })
       .catch((e) => {
@@ -31,7 +31,7 @@ const Category = ({ currentSub, setCurrentSub }) => {
     if (currentFilter == "By Popular") {
       PostService.loadByCategoryAndSortByTopPop(category)
         .then((result) => {
-          console.log(result);
+          // console.log(result);
           setFilteredPost(result.data.result);
         })
         .catch((e) => {

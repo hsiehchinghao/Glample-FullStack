@@ -10,7 +10,7 @@ const ProductBanner = () => {
   useEffect(() => {
     ShopService.loadLatestProduct()
       .then((result) => {
-        console.log(result);
+        // console.log(result);
         setLatestProduct(result.data.result[0]);
       })
       .catch((e) => {

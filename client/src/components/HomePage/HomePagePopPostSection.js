@@ -20,7 +20,7 @@ const HomePagePopPostSection = () => {
       });
     //大人氣寬度取得
     if (popTitleRef.current) {
-      console.log(popTitleRef.current.offsetWidth);
+      // console.log(popTitleRef.current.offsetWidth);
       setPopTitle(popTitleRef.current.offsetWidth);
       window.addEventListener("resize", (e) => {
         setPopTitle(e.target.innerWidth);

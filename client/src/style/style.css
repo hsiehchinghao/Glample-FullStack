@@ -965,11 +965,11 @@
   flex-direction: column;
   justify-content: center;
   align-items: start;
-  overflow: hidden;
+  overflow: scroll;
   width: 100dvw;
   height: 100svh;
   transform: translateX(100%);
-  position: fixed;
+  position: absolute;
   top: 0;
   right: 0;
   z-index: 999;
@@ -994,30 +994,18 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  position: absolute;
-  top: 0;
+  z-index: 1000;
   width: 100dvw;
 }
-.navSection .navBar .flexEnd .navBarList .navBarListBanner .navBarListBannerLogo {
-  color: #eee;
-  display: inline-block;
-  top: 1.2rem;
-  line-height: 60px;
-  font-size: 70px;
-  font-weight: 800;
-  padding: 0 20px;
-  transition: 0.3s;
-}
-@media (max-width: 500px) {
-  .navSection .navBar .flexEnd .navBarList .navBarListBanner .navBarListBannerLogo {
-    letter-spacing: 0px;
-    font-size: 40px;
-  }
-}
 .navSection .navBar .flexEnd .navBarList .navBarListBanner .navBarListClose {
-  padding: 0 20px;
+  border-radius: 20px;
+  background-color: #000;
+  border: 10px solid #fff;
+  position: absolute;
+  top: 30px;
+  right: 20px;
+  padding: 10px;
   font-size: 60px;
-  font-weight: 800;
   display: inline-block;
   cursor: pointer;
   color: #fff;
@@ -1025,12 +1013,13 @@
 }
 .navSection .navBar .flexEnd .navBarList .navBarListBanner .navBarListClose:hover {
   color: #000;
+  border: 10px solid #000;
+  background-color: #fff;
 }
 .navSection .navBar .flexEnd .navBarList .navBarListOption {
   text-decoration: none;
   transition: 0.35s;
   position: relative;
-  padding: 10px;
   text-wrap: nowrap;
   font-size: 80px;
   font-weight: 800;
@@ -1721,18 +1710,15 @@
   text-align: end;
   cursor: pointer;
   color: #fff;
-  -webkit-text-stroke: 1px #666;
   overflow: hidden;
   transition: 0.3s;
   padding: 0 10px;
-  transform: perspective(450px) rotateX(40deg);
   width: 80%;
 }
 .homePage .bannerSwiperSection .homePagePerBanner .homePagePerBannerInfo .homePagePerBannerTitle > p:hover {
   transform: scale(1.1);
   -webkit-text-decoration: underline #ddd 2px;
           text-decoration: underline #ddd 2px;
-  -webkit-text-stroke: 1px #aaa;
 }
 @media (max-width: 850px) {
   .homePage .bannerSwiperSection .homePagePerBanner .homePagePerBannerInfo .homePagePerBannerTitle > p {
@@ -1826,6 +1812,7 @@
   animation: 3s carouselAnimation linear 1.5s infinite normal;
 }
 .homePage .homePagePopSection .homePagePopPosts {
+  background-color: #333;
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -1848,7 +1835,7 @@
   align-items: center;
   width: 45%;
   aspect-ratio: 1/1;
-  background-color: rgba(51, 51, 51, 0.5647058824);
+  background-color: #000;
   position: relative;
   overflow: hidden;
 }
@@ -2021,7 +2008,7 @@
 }
 @media (max-width: 650px) {
   .homePage .homePagePopSection .homePagePopPosts .homePagePopPost3, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost7 {
-    background-color: #333;
+    background-color: #000;
   }
 }
 @media (max-width: 650px) {
@@ -2092,25 +2079,34 @@
   background-repeat: no-repeat;
 }
 .homePage .homePagePopSection .homePagePopPosts .loadAll {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
   width: 100%;
+  height: 120px;
   background-color: #000;
+  border-top: #fff solid;
+  border-bottom: #fff solid;
 }
 .homePage .homePagePopSection .homePagePopPosts .loadAll p:hover {
   background-color: #eee;
 }
 .homePage .homePagePopSection .homePagePopPosts .loadAll > p {
-  line-height: 80px;
+  padding: 15px 30px;
   font-size: 30px;
-  color: #000;
-  -webkit-text-stroke: 1px #fff;
+  display: inline-block;
+  color: #fff;
+  border: 5px #fff solid;
+  border-radius: 20px;
   text-align: center;
   cursor: pointer;
   transition: 0.2s;
 }
 .homePage .homePagePopSection .homePagePopPosts .loadAll > p:hover {
-  transform: scale(1.2);
+  transform: scale(1.1);
   color: #000;
-  -webkit-text-stroke: 0px;
+  text-decoration: underline;
 }
 .homePage .productBanner {
   display: flex;
@@ -2217,23 +2213,21 @@
 }
 .homePage .productBanner .productBannerContent .latestProduct .productTitle {
   position: absolute;
-  color: #000;
+  color: #fff;
   font-size: 30px;
   bottom: 15px;
   right: 15px;
   text-align: end;
   cursor: pointer;
-  -webkit-text-stroke: #eee 1px;
 }
 .homePage .productBanner .productBannerContent .latestProductTitle {
-  -webkit-text-stroke: #eee 1px;
   position: absolute;
-  top: 40%;
-  left: 30%;
-  font-size: 50px;
+  top: 45%;
+  left: 35%;
+  font-size: 42px;
   writing-mode: vertical-lr;
   letter-spacing: 20px;
-  color: #000;
+  color: #fff;
   transform: translateY(-50%) rotate(20deg);
   text-wrap: nowrap;
   cursor: pointer;
@@ -2250,31 +2244,36 @@
   }
 }
 .homePage .productBanner .viewMoreBtn {
-  -webkit-text-stroke: #eee 1px;
+  background-color: #000;
   display: inline-block;
   position: absolute;
   right: 5%;
   bottom: 5%;
   text-decoration: none;
-  color: #000;
+  color: #fff;
   transition: 0.2s;
-  font-size: 50px;
+  font-size: 36px;
+  padding: 10px 20px;
+  border-radius: 20px;
+  border: 5px #eee solid;
   cursor: pointer;
 }
 @media (max-width: 850px) {
   .homePage .productBanner .viewMoreBtn {
-    font-size: 36px;
+    font-size: 26px;
   }
 }
 @media (max-width: 650px) {
   .homePage .productBanner .viewMoreBtn {
-    font-size: 30px;
+    font-size: 22px;
   }
 }
 .homePage .productBanner .viewMoreBtn:hover {
   text-decoration: underline;
   text-decoration-color: #000;
-  transform: scale(1.2);
+  transform: scale(1.1);
+  background-color: #fff;
+  color: #000;
 }
 .homePage .glampleBanner {
   width: 100%;

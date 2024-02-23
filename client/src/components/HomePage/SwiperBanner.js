@@ -25,7 +25,7 @@ const SwiperBanner = forwardRef((props, bannerSectionRef) => {
     //載入最新文章
     PostService.loadPostByLatest()
       .then((result) => {
-        console.log(result.data.result);
+        // console.log(result.data.result);
         setPostData(result.data.result.slice(0, 5));
       })
       .catch((e) => {
