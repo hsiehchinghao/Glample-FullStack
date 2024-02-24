@@ -186,7 +186,7 @@
           .navBarListClose {
             border-radius: 20px;
             background-color: #000;
-            border: 10px solid #fff;
+            // border: 10px solid #fff;
             position: absolute;
             top: 30px;
             right: 20px;
@@ -196,9 +196,11 @@
             cursor: pointer;
             color: #fff;
             transition: 0.2s;
+            @include mobile {
+              font-size: 40px;
+            }
             &:hover {
               color: #000;
-              border: 10px solid #000;
               background-color: #fff;
             }
           }

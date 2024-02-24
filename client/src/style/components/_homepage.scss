@@ -22,7 +22,8 @@
 
 .homePage {
   @include flexbox(column, center, center);
-  background-image: url("../svg/bubble.jpg");
+  // background-image: url("../svg/bubble.jpg");
+  background-color: #ccc;
   background-size: 65%;
   background-repeat: repeat;
   background-attachment: fixed;
@@ -36,11 +37,11 @@
     position: relative;
     height: calc(100svh - $normalTop);
     width: 100%;
-    transform: translateY(-5%);
+    // transform: translateY(-5%);
 
     .homePagePerBanner {
       @include flexbox(row, center, center);
-      width: 70%;
+      width: 100%;
       height: 100%;
 
       .homePagePerBannerInfo {
@@ -52,13 +53,13 @@
         width: 100%;
         height: 100%;
         transition: 0.2s;
-        transform: translateY(-5%);
+        // transform: translateY(-5%);
         @include mobile {
-          background-size: 140%;
-          transform: translateY(-10%);
+          // background-size: 140%;
+          // transform: translateY(-10%);
         }
         .homePagePerBannerTitle {
-          @include flexbox(column, center, center);
+          @include flexbox(column, center, start);
           vertical-align: bottom;
           width: 100%;
           height: 100%;
@@ -83,28 +84,26 @@
             @include flexbox(column, center, center);
             position: absolute;
             bottom: 10%;
-            font-size: 60px;
-            text-align: end;
+            font-size: 40px;
+            text-align: start;
             cursor: pointer;
             color: #fff;
-            // -webkit-text-stroke: 1px #666;
             overflow: hidden;
             transition: 0.3s;
             padding: 0 10px;
-            // transform: perspective(450px) rotateX(40deg);
-            width: 80%;
+            // width: 80%;
             &:hover {
-              transform: scale(1.1);
+              // transform: scale(1.1);
               text-decoration: underline #ddd 2px;
             }
             @include pad {
               overflow: scroll;
-              font-size: 45px;
+              font-size: 36px;
             }
             @include mobile {
               overflow: scroll;
-              font-size: 30px;
-              text-align: center;
+              font-size: 32px;
+              text-align: start;
             }
           }
         }
@@ -124,7 +123,6 @@
     overflow: scroll;
     background-color: #eee;
     text-align: center;
-    // transform: perspective(400px) rotateX(25deg);
     @include mobile {
       font-size: 120px;
     }
@@ -134,10 +132,11 @@
   }
   .homePagePopSection {
     @include flexbox(column, start, center);
+    background-color: #333;
     width: 100dvw;
     min-height: 800px;
     @include mobileS {
-      width: 80svw;
+      // width: 80svw;
     }
     .homePagePopTitle {
       @include flexbox(column, start, center);
@@ -184,7 +183,7 @@
         @include flexbox(column, center, center);
       }
       .homePagePopPost1 {
-        @include flexbox(column, space-between, center);
+        @include flexbox(row, space-between, center);
         width: 45%;
         aspect-ratio: 1/1;
         background-color: #000;
@@ -193,7 +192,6 @@
         @include mobile {
           width: 100%;
           height: 100%;
-          @include flexbox(column, space-between, center);
         }
         &:hover {
           .popPostCoverImg1 {
@@ -204,6 +202,10 @@
             opacity: 1;
             border-radius: 0;
             background-size: cover;
+          }
+          .popPostCoverTitle {
+            color: #ffffff;
+            backdrop-filter: brightness(80%);
           }
         }
         .popPostCoverCategory {
@@ -244,6 +246,7 @@
           z-index: 0;
           opacity: 0.9;
           transition: 0.5s;
+          cursor: pointer;
           @include mobile {
             width: 70%;
             height: 70%;
@@ -257,12 +260,16 @@
           }
         }
         .popPostCoverTitle {
-          font-size: 40px;
-          color: #fff;
+          width: 100%;
+          height: 100%;
+          // backdrop-filter: brightness(80%);
+          @include flexbox(row, center, center);
+          font-size: 34px;
+          color: #ffffff00;
           padding: 10px;
           text-align: center;
           z-index: 2;
-          -webkit-text-stroke: 1px #666;
+          // -webkit-text-stroke: 1px #666;
           transition: 0.2s;
           transform: scale(0.8);
           cursor: pointer;
@@ -323,11 +330,15 @@
         .popPostCoverImg1 {
           border-radius: 50%;
           transform: translateX(20%) translateY(20%) rotate(20deg) scale(1.8);
+          @include mobileS {
+            transform: none;
+            border-radius: 0;
+          }
         }
         .popPostCoverTitle,
         .popPostCoverAuthor {
-          color: #000;
-          -webkit-text-stroke: 1px #aaa;
+          color: #ffffff00;
+          // -webkit-text-stroke: 1px #aaa;
         }
       }
       .homePagePopPost3 {
@@ -345,13 +356,17 @@
         .popPostCoverImg1 {
           border-radius: 10%;
           transform: translateX(20%) translateY(20%) rotate(20deg) scale(2);
-          background-size: contain;
+          background-size: cover;
           background-repeat: no-repeat;
+          @include mobileS {
+            transform: none;
+            border-radius: 0;
+          }
         }
         .popPostCoverTitle,
         .popPostCoverAuthor {
           @include mobile {
-            color: #fff;
+            color: #ffffff00;
           }
         }
       }
@@ -370,15 +385,18 @@
         }
         .popPostCoverImg1 {
           border-radius: 20%;
-          transform: translateX(-50%) translateY(-20%) rotate(-40deg) scale(1.2);
+          transform: translateX(-20%) translateY(-20%) rotate(-40deg) scale(1.2);
           background-size: cover;
           background-repeat: no-repeat;
+          @include mobileS {
+            transform: none;
+            border-radius: 0;
+          }
         }
         .popPostCoverTitle,
         .popPostCoverAuthor {
           @include mobile {
-            color: #000;
-            -webkit-text-stroke: 1px #ccc;
+            color: #ffffff00;
           }
         }
       }
@@ -389,6 +407,11 @@
           transform: translateX(-40%) translateY(-20%) rotate(-30deg) scale(2);
           background-size: contain;
           background-repeat: no-repeat;
+          @include mobileS {
+            transform: none;
+            border-radius: 0;
+            background-size: cover;
+          }
         }
       }
       .homePagePopPost6 {
@@ -398,6 +421,11 @@
           transform: translateX(20%) translateY(0%) rotate(30deg) scale(1.4);
           background-size: contain;
           background-repeat: no-repeat;
+          @include mobileS {
+            transform: none;
+            border-radius: 0;
+            background-size: cover;
+          }
         }
       }
       .homePagePopPost7 {
@@ -410,6 +438,11 @@
           transform: translateX(20%) translateY(0%) rotate(-30deg) scale(1.4);
           background-size: contain;
           background-repeat: no-repeat;
+          @include mobileS {
+            transform: none;
+            border-radius: 0;
+            background-size: cover;
+          }
         }
       }
       .loadAll {
@@ -432,6 +465,10 @@
           text-align: center;
           cursor: pointer;
           transition: 0.2s;
+          @include mobile {
+            font-size: 24px;
+            padding: 10px 15px;
+          }
           &:hover {
             transform: scale(1.1);
             color: #000;
@@ -534,8 +571,8 @@
       .latestProductTitle {
         position: absolute;
         top: 45%;
-        left: 35%;
-        font-size: 42px;
+        left: 28%;
+        font-size: 34px;
         writing-mode: vertical-lr;
         letter-spacing: 20px;
         color: #fff;
@@ -544,10 +581,11 @@
         cursor: pointer;
         transition: 0.2s;
         @include pad {
-          font-size: 36px;
+          font-size: 30px;
+          left: 20%;
         }
         @include mobile {
-          font-size: 26px;
+          font-size: 20px;
         }
       }
     }
@@ -560,7 +598,7 @@
       text-decoration: none;
       color: #fff;
       transition: 0.2s;
-      font-size: 36px;
+      font-size: 32px;
       padding: 10px 20px;
       border-radius: 20px;
       border: 5px #eee solid;

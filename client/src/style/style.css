@@ -1000,7 +1000,6 @@
 .navSection .navBar .flexEnd .navBarList .navBarListBanner .navBarListClose {
   border-radius: 20px;
   background-color: #000;
-  border: 10px solid #fff;
   position: absolute;
   top: 30px;
   right: 20px;
@@ -1011,9 +1010,13 @@
   color: #fff;
   transition: 0.2s;
 }
+@media (max-width: 650px) {
+  .navSection .navBar .flexEnd .navBarList .navBarListBanner .navBarListClose {
+    font-size: 40px;
+  }
+}
 .navSection .navBar .flexEnd .navBarList .navBarListBanner .navBarListClose:hover {
   color: #000;
-  border: 10px solid #000;
   background-color: #fff;
 }
 .navSection .navBar .flexEnd .navBarList .navBarListOption {
@@ -1620,7 +1623,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-image: url("../svg/bubble.jpg");
+  background-color: #ccc;
   background-size: 65%;
   background-repeat: repeat;
   background-attachment: fixed;
@@ -1637,14 +1640,13 @@
   position: relative;
   height: calc(100svh - 138px);
   width: 100%;
-  transform: translateY(-5%);
 }
 .homePage .bannerSwiperSection .homePagePerBanner {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  width: 70%;
+  width: 100%;
   height: 100%;
 }
 .homePage .bannerSwiperSection .homePagePerBanner .homePagePerBannerInfo {
@@ -1660,19 +1662,12 @@
   width: 100%;
   height: 100%;
   transition: 0.2s;
-  transform: translateY(-5%);
-}
-@media (max-width: 650px) {
-  .homePage .bannerSwiperSection .homePagePerBanner .homePagePerBannerInfo {
-    background-size: 140%;
-    transform: translateY(-10%);
-  }
 }
 .homePage .bannerSwiperSection .homePagePerBanner .homePagePerBannerInfo .homePagePerBannerTitle {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: start;
   vertical-align: bottom;
   width: 100%;
   height: 100%;
@@ -1706,31 +1701,29 @@
   align-items: center;
   position: absolute;
   bottom: 10%;
-  font-size: 60px;
-  text-align: end;
+  font-size: 40px;
+  text-align: start;
   cursor: pointer;
   color: #fff;
   overflow: hidden;
   transition: 0.3s;
   padding: 0 10px;
-  width: 80%;
 }
 .homePage .bannerSwiperSection .homePagePerBanner .homePagePerBannerInfo .homePagePerBannerTitle > p:hover {
-  transform: scale(1.1);
   -webkit-text-decoration: underline #ddd 2px;
           text-decoration: underline #ddd 2px;
 }
 @media (max-width: 850px) {
   .homePage .bannerSwiperSection .homePagePerBanner .homePagePerBannerInfo .homePagePerBannerTitle > p {
     overflow: scroll;
-    font-size: 45px;
+    font-size: 36px;
   }
 }
 @media (max-width: 650px) {
   .homePage .bannerSwiperSection .homePagePerBanner .homePagePerBannerInfo .homePagePerBannerTitle > p {
     overflow: scroll;
-    font-size: 30px;
-    text-align: center;
+    font-size: 32px;
+    text-align: start;
   }
 }
 .homePage .bannerSwiperSection .loader {
@@ -1762,13 +1755,9 @@
   flex-direction: column;
   justify-content: start;
   align-items: center;
+  background-color: #333;
   width: 100dvw;
   min-height: 800px;
-}
-@media (max-width: 500px) {
-  .homePage .homePagePopSection {
-    width: 80svw;
-  }
 }
 .homePage .homePagePopSection .homePagePopTitle {
   display: flex;
@@ -1830,7 +1819,7 @@
 }
 .homePage .homePagePopSection .homePagePopPosts .homePagePopPost1, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost5, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost4, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost8, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost2, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost6, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost3, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost7 {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: space-between;
   align-items: center;
   width: 45%;
@@ -1843,10 +1832,6 @@
   .homePage .homePagePopSection .homePagePopPosts .homePagePopPost1, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost5, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost4, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost8, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost2, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost6, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost3, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost7 {
     width: 100%;
     height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
   }
 }
 .homePage .homePagePopSection .homePagePopPosts .homePagePopPost1:hover .popPostCoverImg1, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost5:hover .popPostCoverImg1, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost4:hover .popPostCoverImg1, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost8:hover .popPostCoverImg1, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost2:hover .popPostCoverImg1, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost6:hover .popPostCoverImg1, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost3:hover .popPostCoverImg1, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost7:hover .popPostCoverImg1 {
@@ -1857,6 +1842,11 @@
   opacity: 1;
   border-radius: 0;
   background-size: cover;
+}
+.homePage .homePagePopSection .homePagePopPosts .homePagePopPost1:hover .popPostCoverTitle, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost5:hover .popPostCoverTitle, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost4:hover .popPostCoverTitle, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost8:hover .popPostCoverTitle, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost2:hover .popPostCoverTitle, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost6:hover .popPostCoverTitle, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost3:hover .popPostCoverTitle, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost7:hover .popPostCoverTitle {
+  color: #ffffff;
+  -webkit-backdrop-filter: brightness(80%);
+          backdrop-filter: brightness(80%);
 }
 .homePage .homePagePopSection .homePagePopPosts .homePagePopPost1 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost5 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost4 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost8 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost2 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost6 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost3 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost7 .popPostCoverCategory {
   display: inline-block;
@@ -1903,6 +1893,7 @@
   z-index: 0;
   opacity: 0.9;
   transition: 0.5s;
+  cursor: pointer;
 }
 @media (max-width: 650px) {
   .homePage .homePagePopSection .homePagePopPosts .homePagePopPost1 .popPostCoverImg1, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost5 .popPostCoverImg1, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost4 .popPostCoverImg1, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost8 .popPostCoverImg1, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost2 .popPostCoverImg1, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost6 .popPostCoverImg1, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost3 .popPostCoverImg1, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost7 .popPostCoverImg1 {
@@ -1920,12 +1911,17 @@
   }
 }
 .homePage .homePagePopSection .homePagePopPosts .homePagePopPost1 .popPostCoverTitle, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost5 .popPostCoverTitle, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost4 .popPostCoverTitle, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost8 .popPostCoverTitle, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost2 .popPostCoverTitle, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost6 .popPostCoverTitle, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost3 .popPostCoverTitle, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost7 .popPostCoverTitle {
-  font-size: 40px;
-  color: #fff;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-size: 34px;
+  color: rgba(255, 255, 255, 0);
   padding: 10px;
   text-align: center;
   z-index: 2;
-  -webkit-text-stroke: 1px #666;
   transition: 0.2s;
   transform: scale(0.8);
   cursor: pointer;
@@ -1998,13 +1994,18 @@
   border-radius: 50%;
   transform: translateX(20%) translateY(20%) rotate(20deg) scale(1.8);
 }
+@media (max-width: 500px) {
+  .homePage .homePagePopSection .homePagePopPosts .homePagePopPost2 .popPostCoverImg1, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost6 .popPostCoverImg1, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost3 .popPostCoverImg1, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost7 .popPostCoverImg1 {
+    transform: none;
+    border-radius: 0;
+  }
+}
 .homePage .homePagePopSection .homePagePopPosts .homePagePopPost2 .popPostCoverTitle, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost6 .popPostCoverTitle, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost3 .popPostCoverTitle, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost7 .popPostCoverTitle,
 .homePage .homePagePopSection .homePagePopPosts .homePagePopPost2 .popPostCoverAuthor,
 .homePage .homePagePopSection .homePagePopPosts .homePagePopPost6 .popPostCoverAuthor,
 .homePage .homePagePopSection .homePagePopPosts .homePagePopPost3 .popPostCoverAuthor,
 .homePage .homePagePopSection .homePagePopPosts .homePagePopPost7 .popPostCoverAuthor {
-  color: #000;
-  -webkit-text-stroke: 1px #aaa;
+  color: rgba(255, 255, 255, 0);
 }
 @media (max-width: 650px) {
   .homePage .homePagePopSection .homePagePopPosts .homePagePopPost3, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost7 {
@@ -2022,14 +2023,20 @@
 .homePage .homePagePopSection .homePagePopPosts .homePagePopPost3 .popPostCoverImg1, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost7 .popPostCoverImg1 {
   border-radius: 10%;
   transform: translateX(20%) translateY(20%) rotate(20deg) scale(2);
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
+}
+@media (max-width: 500px) {
+  .homePage .homePagePopSection .homePagePopPosts .homePagePopPost3 .popPostCoverImg1, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost7 .popPostCoverImg1 {
+    transform: none;
+    border-radius: 0;
+  }
 }
 @media (max-width: 650px) {
   .homePage .homePagePopSection .homePagePopPosts .homePagePopPost3 .popPostCoverTitle, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost7 .popPostCoverTitle,
   .homePage .homePagePopSection .homePagePopPosts .homePagePopPost3 .popPostCoverAuthor,
   .homePage .homePagePopSection .homePagePopPosts .homePagePopPost7 .popPostCoverAuthor {
-    color: #fff;
+    color: rgba(255, 255, 255, 0);
   }
 }
 @media (max-width: 650px) {
@@ -2048,16 +2055,21 @@
 }
 .homePage .homePagePopSection .homePagePopPosts .homePagePopPost4 .popPostCoverImg1, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost8 .popPostCoverImg1 {
   border-radius: 20%;
-  transform: translateX(-50%) translateY(-20%) rotate(-40deg) scale(1.2);
+  transform: translateX(-20%) translateY(-20%) rotate(-40deg) scale(1.2);
   background-size: cover;
   background-repeat: no-repeat;
+}
+@media (max-width: 500px) {
+  .homePage .homePagePopSection .homePagePopPosts .homePagePopPost4 .popPostCoverImg1, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost8 .popPostCoverImg1 {
+    transform: none;
+    border-radius: 0;
+  }
 }
 @media (max-width: 650px) {
   .homePage .homePagePopSection .homePagePopPosts .homePagePopPost4 .popPostCoverTitle, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost8 .popPostCoverTitle,
   .homePage .homePagePopSection .homePagePopPosts .homePagePopPost4 .popPostCoverAuthor,
   .homePage .homePagePopSection .homePagePopPosts .homePagePopPost8 .popPostCoverAuthor {
-    color: #000;
-    -webkit-text-stroke: 1px #ccc;
+    color: rgba(255, 255, 255, 0);
   }
 }
 .homePage .homePagePopSection .homePagePopPosts .homePagePopPost5 .popPostCoverImg1 {
@@ -2066,17 +2078,38 @@
   background-size: contain;
   background-repeat: no-repeat;
 }
+@media (max-width: 500px) {
+  .homePage .homePagePopSection .homePagePopPosts .homePagePopPost5 .popPostCoverImg1 {
+    transform: none;
+    border-radius: 0;
+    background-size: cover;
+  }
+}
 .homePage .homePagePopSection .homePagePopPosts .homePagePopPost6 .popPostCoverImg1 {
   border-radius: 50%;
   transform: translateX(20%) translateY(0%) rotate(30deg) scale(1.4);
   background-size: contain;
   background-repeat: no-repeat;
 }
+@media (max-width: 500px) {
+  .homePage .homePagePopSection .homePagePopPosts .homePagePopPost6 .popPostCoverImg1 {
+    transform: none;
+    border-radius: 0;
+    background-size: cover;
+  }
+}
 .homePage .homePagePopSection .homePagePopPosts .homePagePopPost8 .popPostCoverImg1 {
   border-radius: 10%;
   transform: translateX(20%) translateY(0%) rotate(-30deg) scale(1.4);
   background-size: contain;
   background-repeat: no-repeat;
+}
+@media (max-width: 500px) {
+  .homePage .homePagePopSection .homePagePopPosts .homePagePopPost8 .popPostCoverImg1 {
+    transform: none;
+    border-radius: 0;
+    background-size: cover;
+  }
 }
 .homePage .homePagePopSection .homePagePopPosts .loadAll {
   display: flex;
@@ -2102,6 +2135,12 @@
   text-align: center;
   cursor: pointer;
   transition: 0.2s;
+}
+@media (max-width: 650px) {
+  .homePage .homePagePopSection .homePagePopPosts .loadAll > p {
+    font-size: 24px;
+    padding: 10px 15px;
+  }
 }
 .homePage .homePagePopSection .homePagePopPosts .loadAll > p:hover {
   transform: scale(1.1);
@@ -2223,8 +2262,8 @@
 .homePage .productBanner .productBannerContent .latestProductTitle {
   position: absolute;
   top: 45%;
-  left: 35%;
-  font-size: 42px;
+  left: 28%;
+  font-size: 34px;
   writing-mode: vertical-lr;
   letter-spacing: 20px;
   color: #fff;
@@ -2235,12 +2274,13 @@
 }
 @media (max-width: 850px) {
   .homePage .productBanner .productBannerContent .latestProductTitle {
-    font-size: 36px;
+    font-size: 30px;
+    left: 20%;
   }
 }
 @media (max-width: 650px) {
   .homePage .productBanner .productBannerContent .latestProductTitle {
-    font-size: 26px;
+    font-size: 20px;
   }
 }
 .homePage .productBanner .viewMoreBtn {
@@ -2252,7 +2292,7 @@
   text-decoration: none;
   color: #fff;
   transition: 0.2s;
-  font-size: 36px;
+  font-size: 32px;
   padding: 10px 20px;
   border-radius: 20px;
   border: 5px #eee solid;

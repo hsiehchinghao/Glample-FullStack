@@ -47,25 +47,25 @@ const SwiperBanner = forwardRef((props, bannerSectionRef) => {
       speed={800}
       slidesPerGroup={1}
       loop={true}
-      autoplay={true}
+      // autoplay={true}
       effect={"coverflow"}
       grabCursor={true}
       centeredSlides={true}
       slidesPerView={"auto"}
-      coverflowEffect={{
-        rotate: 30,
-        stretch: 30,
-        depth: 120,
-        modifier: 2,
-        slideShadows: true,
-      }}
+      // coverflowEffect={{
+      //   rotate: 30,
+      //   stretch: 30,
+      //   depth: 120,
+      //   modifier: 2,
+      //   slideShadows: true,
+      // }}
       modules={[
         Navigation,
         Pagination,
         Mousewheel,
         Keyboard,
-        Autoplay,
-        EffectCoverflow,
+        // Autoplay,
+        // EffectCoverflow,
       ]}
       className="bannerSwiperSection bannerActive"
     >

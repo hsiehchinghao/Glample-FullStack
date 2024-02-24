@@ -63,13 +63,16 @@ const HomePagePopPostSection = () => {
         <div className="homePagePopPost1">
           {popPostData && (
             <>
-              <div className="popPostCoverCategory">
+              {/* <div className="popPostCoverCategory">
                 {popPostData[0].category}
-              </div>
+              </div> */}
               <div
                 className="popPostCoverImg1"
                 style={{
                   backgroundImage: `url(${API_URL}${popPostData[0].image})`,
+                }}
+                onClick={(e) => {
+                  handleClick(popPostData[0]._id);
                 }}
               ></div>
 
@@ -81,22 +84,25 @@ const HomePagePopPostSection = () => {
               >
                 {popPostData[0].title}
               </div>
-              <div className="popPostCoverAuthor">
+              {/* <div className="popPostCoverAuthor">
                 {popPostData[0].authorname}
-              </div>
+              </div> */}
             </>
           )}
         </div>
         <div className="homePagePopPost2">
           {popPostData && (
             <>
-              <div className="popPostCoverCategory">
+              {/* <div className="popPostCoverCategory">
                 {popPostData[1].category}
-              </div>
+              </div> */}
               <div
                 className="popPostCoverImg1"
                 style={{
                   backgroundImage: `url(${API_URL}${popPostData[1].image})`,
+                }}
+                onClick={(e) => {
+                  handleClick(popPostData[1]._id);
                 }}
               ></div>
 
@@ -108,22 +114,25 @@ const HomePagePopPostSection = () => {
               >
                 {popPostData[1].title}
               </div>
-              <div className="popPostCoverAuthor">
+              {/* <div className="popPostCoverAuthor">
                 {popPostData[1].authorname}
-              </div>
+              </div> */}
             </>
           )}
         </div>
         <div className="homePagePopPost3">
           {popPostData && (
             <>
-              <div className="popPostCoverCategory">
+              {/* <div className="popPostCoverCategory">
                 {popPostData[2].category}
-              </div>
+              </div> */}
               <div
                 className="popPostCoverImg1"
                 style={{
                   backgroundImage: `url(${API_URL}${popPostData[2].image})`,
+                }}
+                onClick={(e) => {
+                  handleClick(popPostData[2]._id);
                 }}
               ></div>
 
@@ -135,22 +144,25 @@ const HomePagePopPostSection = () => {
               >
                 {popPostData[2].title}
               </div>
-              <div className="popPostCoverAuthor">
+              {/* <div className="popPostCoverAuthor">
                 {popPostData[2].authorname}
-              </div>
+              </div> */}
             </>
           )}
         </div>
         <div className="homePagePopPost4">
           {popPostData && (
             <>
-              <div className="popPostCoverCategory">
+              {/* <div className="popPostCoverCategory">
                 {popPostData[3].category}
-              </div>
+              </div> */}
               <div
                 className="popPostCoverImg1"
                 style={{
                   backgroundImage: `url(${API_URL}${popPostData[3].image})`,
+                }}
+                onClick={(e) => {
+                  handleClick(popPostData[3]._id);
                 }}
               ></div>
 
@@ -162,22 +174,25 @@ const HomePagePopPostSection = () => {
               >
                 {popPostData[3].title}
               </div>
-              <div className="popPostCoverAuthor">
+              {/* <div className="popPostCoverAuthor">
                 {popPostData[3].authorname}
-              </div>
+              </div> */}
             </>
           )}
         </div>
         <div className="homePagePopPost5">
           {popPostData && (
             <>
-              <div className="popPostCoverCategory">
+              {/* <div className="popPostCoverCategory">
                 {popPostData[4].category}
-              </div>
+              </div> */}
               <div
                 className="popPostCoverImg1"
                 style={{
                   backgroundImage: `url(${API_URL}${popPostData[4].image})`,
+                }}
+                onClick={(e) => {
+                  handleClick(popPostData[4]._id);
                 }}
               ></div>
 
@@ -189,22 +204,25 @@ const HomePagePopPostSection = () => {
               >
                 {popPostData[4].title}
               </div>
-              <div className="popPostCoverAuthor">
+              {/* <div className="popPostCoverAuthor">
                 {popPostData[4].authorname}
-              </div>
+              </div> */}
             </>
           )}
         </div>
         <div className="homePagePopPost6">
           {popPostData && (
             <>
-              <div className="popPostCoverCategory">
+              {/* <div className="popPostCoverCategory">
                 {popPostData[5].category}
-              </div>
+              </div> */}
               <div
                 className="popPostCoverImg1"
                 style={{
                   backgroundImage: `url(${API_URL}${popPostData[5].image})`,
+                }}
+                onClick={(e) => {
+                  handleClick(popPostData[5]._id);
                 }}
               ></div>
 
@@ -216,22 +234,25 @@ const HomePagePopPostSection = () => {
               >
                 {popPostData[5].title}
               </div>
-              <div className="popPostCoverAuthor">
+              {/* <div className="popPostCoverAuthor">
                 {popPostData[5].authorname}
-              </div>
+              </div> */}
             </>
           )}
         </div>
         <div className="homePagePopPost7">
           {popPostData && (
             <>
-              <div className="popPostCoverCategory">
+              {/* <div className="popPostCoverCategory">
                 {popPostData[6].category}
-              </div>
+              </div> */}
               <div
                 className="popPostCoverImg1"
                 style={{
                   backgroundImage: `url(${API_URL}${popPostData[6].image})`,
+                }}
+                onClick={(e) => {
+                  handleClick(popPostData[6]._id);
                 }}
               ></div>
 
@@ -243,22 +264,25 @@ const HomePagePopPostSection = () => {
               >
                 {popPostData[6].title}
               </div>
-              <div className="popPostCoverAuthor">
+              {/* <div className="popPostCoverAuthor">
                 {popPostData[6].authorname}
-              </div>
+              </div> */}
             </>
           )}
         </div>
         <div className="homePagePopPost8">
           {popPostData && (
             <>
-              <div className="popPostCoverCategory">
+              {/* <div className="popPostCoverCategory">
                 {popPostData[7].category}
-              </div>
+              </div> */}
               <div
                 className="popPostCoverImg1"
                 style={{
                   backgroundImage: `url(${API_URL}${popPostData[7].image})`,
+                }}
+                onClick={(e) => {
+                  handleClick(popPostData[7]._id);
                 }}
               ></div>
 
@@ -270,9 +294,9 @@ const HomePagePopPostSection = () => {
               >
                 {popPostData[7].title}
               </div>
-              <div className="popPostCoverAuthor">
+              {/* <div className="popPostCoverAuthor">
                 {popPostData[7].authorname}
-              </div>
+              </div> */}
             </>
           )}
         </div>
