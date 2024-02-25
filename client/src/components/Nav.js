@@ -339,7 +339,8 @@ const Nav = ({
                 to="/product"
                 onClick={handleCLoseNav}
               >
-                LET'S BUY
+                MAGAZINE
+                <br /> SHOP
               </Link>
 
               {currentUser && (

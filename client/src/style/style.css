@@ -1819,7 +1819,7 @@
 }
 .homePage .homePagePopSection .homePagePopPosts .homePagePopPost1, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost5, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost4, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost8, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost2, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost6, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost3, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost7 {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-between;
   align-items: center;
   width: 45%;
@@ -1850,12 +1850,12 @@
 }
 .homePage .homePagePopSection .homePagePopPosts .homePagePopPost1 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost5 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost4 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost8 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost2 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost6 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost3 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost7 .popPostCoverCategory {
   display: inline-block;
-  -webkit-text-stroke: 1.5px #ccc;
+  -webkit-text-stroke: 1px #999;
   background: linear-gradient(to top, #000, #fff, #ccc);
   -webkit-background-clip: text;
           background-clip: text;
   color: rgba(255, 255, 255, 0);
-  font-size: 80px;
+  font-size: 60px;
   transform: perspective(200px) rotateX(-35deg);
   width: 100%;
   text-align: center;
@@ -1864,19 +1864,18 @@
 }
 @media (max-width: 850px) {
   .homePage .homePagePopSection .homePagePopPosts .homePagePopPost1 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost5 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost4 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost8 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost2 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost6 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost3 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost7 .popPostCoverCategory {
-    font-size: 80px;
+    font-size: 60px;
   }
 }
 @media (max-width: 650px) {
   .homePage .homePagePopSection .homePagePopPosts .homePagePopPost1 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost5 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost4 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost8 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost2 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost6 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost3 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost7 .popPostCoverCategory {
-    -webkit-text-stroke: 1px #ccc;
-    font-size: 100px;
+    font-size: 70px;
     z-index: 2;
   }
 }
 @media (max-width: 500px) {
   .homePage .homePagePopSection .homePagePopPosts .homePagePopPost1 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost5 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost4 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost8 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost2 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost6 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost3 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost7 .popPostCoverCategory {
-    font-size: 80px;
+    font-size: 60px;
     z-index: 2;
   }
 }
@@ -1911,8 +1910,6 @@
   }
 }
 .homePage .homePagePopSection .homePagePopPosts .homePagePopPost1 .popPostCoverTitle, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost5 .popPostCoverTitle, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost4 .popPostCoverTitle, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost8 .popPostCoverTitle, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost2 .popPostCoverTitle, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost6 .popPostCoverTitle, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost3 .popPostCoverTitle, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost7 .popPostCoverTitle {
-  width: 100%;
-  height: 100%;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -1925,11 +1922,6 @@
   transition: 0.2s;
   transform: scale(0.8);
   cursor: pointer;
-}
-.homePage .homePagePopSection .homePagePopPosts .homePagePopPost1 .popPostCoverTitle:hover, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost5 .popPostCoverTitle:hover, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost4 .popPostCoverTitle:hover, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost8 .popPostCoverTitle:hover, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost2 .popPostCoverTitle:hover, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost6 .popPostCoverTitle:hover, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost3 .popPostCoverTitle:hover, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost7 .popPostCoverTitle:hover {
-  transform: scale(1);
-  overflow: visible;
-  z-index: 3;
 }
 @media (max-width: 850px) {
   .homePage .homePagePopSection .homePagePopPosts .homePagePopPost1 .popPostCoverTitle, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost5 .popPostCoverTitle, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost4 .popPostCoverTitle, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost8 .popPostCoverTitle, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost2 .popPostCoverTitle, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost6 .popPostCoverTitle, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost3 .popPostCoverTitle, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost7 .popPostCoverTitle {
@@ -1947,13 +1939,7 @@
   padding: 10px;
   text-align: center;
   z-index: 2;
-  -webkit-text-stroke: 0.5px #666;
   padding-bottom: 20px;
-}
-@media (max-width: 650px) {
-  .homePage .homePagePopSection .homePagePopPosts .homePagePopPost1 .popPostCoverAuthor, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost5 .popPostCoverAuthor, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost4 .popPostCoverAuthor, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost8 .popPostCoverAuthor, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost2 .popPostCoverAuthor, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost6 .popPostCoverAuthor, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost3 .popPostCoverAuthor, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost7 .popPostCoverAuthor {
-    font-size: 14px;
-  }
 }
 .homePage .homePagePopSection .homePagePopPosts .homePagePopPost2, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost6, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost3, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost7 {
   background-color: rgba(238, 238, 238, 0.8156862745);
@@ -1965,28 +1951,24 @@
   -webkit-background-clip: text;
           background-clip: text;
   color: rgba(255, 255, 255, 0);
-  font-size: 80px;
+  font-size: 60px;
   transform: perspective(200px) rotateX(-35deg);
   width: 100%;
   text-align: center;
   transition: 0.3s;
   z-index: 2;
-}
-@media (max-width: 850px) {
-  .homePage .homePagePopSection .homePagePopPosts .homePagePopPost2 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost6 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost3 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost7 .popPostCoverCategory {
-    font-size: 80px;
-  }
+  -webkit-text-stroke: 1px #fff;
 }
 @media (max-width: 650px) {
   .homePage .homePagePopSection .homePagePopPosts .homePagePopPost2 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost6 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost3 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost7 .popPostCoverCategory {
-    -webkit-text-stroke: 1px #ccc;
-    font-size: 100px;
+    -webkit-text-stroke: 1px #fff;
+    font-size: 70px;
     z-index: 2;
   }
 }
 @media (max-width: 500px) {
   .homePage .homePagePopSection .homePagePopPosts .homePagePopPost2 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost6 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost3 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost7 .popPostCoverCategory {
-    font-size: 80px;
+    font-size: 60px;
     z-index: 2;
   }
 }
@@ -2000,12 +1982,11 @@
     border-radius: 0;
   }
 }
-.homePage .homePagePopSection .homePagePopPosts .homePagePopPost2 .popPostCoverTitle, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost6 .popPostCoverTitle, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost3 .popPostCoverTitle, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost7 .popPostCoverTitle,
-.homePage .homePagePopSection .homePagePopPosts .homePagePopPost2 .popPostCoverAuthor,
-.homePage .homePagePopSection .homePagePopPosts .homePagePopPost6 .popPostCoverAuthor,
-.homePage .homePagePopSection .homePagePopPosts .homePagePopPost3 .popPostCoverAuthor,
-.homePage .homePagePopSection .homePagePopPosts .homePagePopPost7 .popPostCoverAuthor {
+.homePage .homePagePopSection .homePagePopPosts .homePagePopPost2 .popPostCoverTitle, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost6 .popPostCoverTitle, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost3 .popPostCoverTitle, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost7 .popPostCoverTitle {
   color: rgba(255, 255, 255, 0);
+}
+.homePage .homePagePopSection .homePagePopPosts .homePagePopPost2 .popPostCoverAuthor, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost6 .popPostCoverAuthor, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost3 .popPostCoverAuthor, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost7 .popPostCoverAuthor {
+  color: #ffffff;
 }
 @media (max-width: 650px) {
   .homePage .homePagePopSection .homePagePopPosts .homePagePopPost3, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost7 {
@@ -2018,6 +1999,7 @@
     -webkit-background-clip: text;
             background-clip: text;
     color: rgba(255, 255, 255, 0);
+    -webkit-text-stroke: 1px #999;
   }
 }
 .homePage .homePagePopSection .homePagePopPosts .homePagePopPost3 .popPostCoverImg1, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost7 .popPostCoverImg1 {
@@ -2032,11 +2014,12 @@
     border-radius: 0;
   }
 }
+.homePage .homePagePopSection .homePagePopPosts .homePagePopPost3 .popPostCoverTitle, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost7 .popPostCoverTitle {
+  color: rgba(255, 255, 255, 0);
+}
 @media (max-width: 650px) {
-  .homePage .homePagePopSection .homePagePopPosts .homePagePopPost3 .popPostCoverTitle, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost7 .popPostCoverTitle,
-  .homePage .homePagePopSection .homePagePopPosts .homePagePopPost3 .popPostCoverAuthor,
-  .homePage .homePagePopSection .homePagePopPosts .homePagePopPost7 .popPostCoverAuthor {
-    color: rgba(255, 255, 255, 0);
+  .homePage .homePagePopSection .homePagePopPosts .homePagePopPost3 .popPostCoverAuthor, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost7 .popPostCoverAuthor {
+    color: #ffffff;
   }
 }
 @media (max-width: 650px) {
@@ -2066,11 +2049,12 @@
   }
 }
 @media (max-width: 650px) {
-  .homePage .homePagePopSection .homePagePopPosts .homePagePopPost4 .popPostCoverTitle, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost8 .popPostCoverTitle,
-  .homePage .homePagePopSection .homePagePopPosts .homePagePopPost4 .popPostCoverAuthor,
-  .homePage .homePagePopSection .homePagePopPosts .homePagePopPost8 .popPostCoverAuthor {
+  .homePage .homePagePopSection .homePagePopPosts .homePagePopPost4 .popPostCoverTitle, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost8 .popPostCoverTitle {
     color: rgba(255, 255, 255, 0);
   }
+}
+.homePage .homePagePopSection .homePagePopPosts .homePagePopPost4 .popPostCoverAuthor, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost8 .popPostCoverAuthor {
+  color: #fff;
 }
 .homePage .homePagePopSection .homePagePopPosts .homePagePopPost5 .popPostCoverImg1 {
   border-radius: 10%;
