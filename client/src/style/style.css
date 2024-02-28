@@ -833,11 +833,17 @@
   cursor: pointer;
 }
 .navSection .navBar a .logoSection .logo {
+  display: none;
   width: 60px;
   cursor: pointer;
 }
 .navSection .navBar a .logoSection .logo > img {
   cursor: pointer;
+}
+@media (max-width: 500px) {
+  .navSection .navBar a .logoSection .logo {
+    display: block;
+  }
 }
 .navSection .navBar a .logoSection .logoWord {
   cursor: pointer;
@@ -855,7 +861,7 @@
 .navSection .navBar a .logoSection .logoWord::after {
   content: "";
   position: absolute;
-  left: 60%;
+  left: 50%;
   top: 50%;
   width: 100px;
   height: 70px;
@@ -896,7 +902,7 @@
   height: 100%;
 }
 .navSection .navBar .flexEnd .searchBar input {
-  width: 200px;
+  width: 150px;
   height: 30px;
   padding: 15px;
   border: none;
@@ -1850,13 +1856,10 @@
 }
 .homePage .homePagePopSection .homePagePopPosts .homePagePopPost1 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost5 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost4 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost8 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost2 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost6 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost3 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost7 .popPostCoverCategory {
   display: inline-block;
-  -webkit-text-stroke: 1px #999;
-  background: linear-gradient(to top, #000, #fff, #ccc);
   -webkit-background-clip: text;
           background-clip: text;
   color: rgba(255, 255, 255, 0);
   font-size: 60px;
-  transform: perspective(200px) rotateX(-35deg);
   width: 100%;
   text-align: center;
   transition: 0.3s;
@@ -1946,22 +1949,18 @@
   overflow: hidden;
 }
 .homePage .homePagePopSection .homePagePopPosts .homePagePopPost2 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost6 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost3 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost7 .popPostCoverCategory {
-  background: linear-gradient(to bottom, #555, #333, #ccc);
   display: inline-block;
   -webkit-background-clip: text;
           background-clip: text;
   color: rgba(255, 255, 255, 0);
   font-size: 60px;
-  transform: perspective(200px) rotateX(-35deg);
   width: 100%;
   text-align: center;
   transition: 0.3s;
   z-index: 2;
-  -webkit-text-stroke: 1px #fff;
 }
 @media (max-width: 650px) {
   .homePage .homePagePopSection .homePagePopPosts .homePagePopPost2 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost6 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost3 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost7 .popPostCoverCategory {
-    -webkit-text-stroke: 1px #fff;
     font-size: 70px;
     z-index: 2;
   }
@@ -1973,7 +1972,6 @@
   }
 }
 .homePage .homePagePopSection .homePagePopPosts .homePagePopPost2 .popPostCoverImg1, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost6 .popPostCoverImg1, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost3 .popPostCoverImg1, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost7 .popPostCoverImg1 {
-  border-radius: 50%;
   transform: translateX(20%) translateY(20%) rotate(20deg) scale(1.8);
 }
 @media (max-width: 500px) {
@@ -1995,15 +1993,12 @@
 }
 @media (max-width: 650px) {
   .homePage .homePagePopSection .homePagePopPosts .homePagePopPost3 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost7 .popPostCoverCategory {
-    background: linear-gradient(to top, #000, #fff, #ccc);
     -webkit-background-clip: text;
             background-clip: text;
     color: rgba(255, 255, 255, 0);
-    -webkit-text-stroke: 1px #999;
   }
 }
 .homePage .homePagePopSection .homePagePopPosts .homePagePopPost3 .popPostCoverImg1, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost7 .popPostCoverImg1 {
-  border-radius: 10%;
   transform: translateX(20%) translateY(20%) rotate(20deg) scale(2);
   background-size: cover;
   background-repeat: no-repeat;
@@ -2029,15 +2024,12 @@
 }
 @media (max-width: 650px) {
   .homePage .homePagePopSection .homePagePopPosts .homePagePopPost4 .popPostCoverCategory, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost8 .popPostCoverCategory {
-    background: linear-gradient(to bottom, #000, #333, #ccc);
     -webkit-background-clip: text;
             background-clip: text;
     color: rgba(255, 255, 255, 0);
-    -webkit-text-stroke: 1px #ccc;
   }
 }
 .homePage .homePagePopSection .homePagePopPosts .homePagePopPost4 .popPostCoverImg1, .homePage .homePagePopSection .homePagePopPosts .homePagePopPost8 .popPostCoverImg1 {
-  border-radius: 20%;
   transform: translateX(-20%) translateY(-20%) rotate(-40deg) scale(1.2);
   background-size: cover;
   background-repeat: no-repeat;
@@ -2057,7 +2049,6 @@
   color: #fff;
 }
 .homePage .homePagePopSection .homePagePopPosts .homePagePopPost5 .popPostCoverImg1 {
-  border-radius: 10%;
   transform: translateX(-40%) translateY(-20%) rotate(-30deg) scale(2);
   background-size: contain;
   background-repeat: no-repeat;
@@ -2070,7 +2061,6 @@
   }
 }
 .homePage .homePagePopSection .homePagePopPosts .homePagePopPost6 .popPostCoverImg1 {
-  border-radius: 50%;
   transform: translateX(20%) translateY(0%) rotate(30deg) scale(1.4);
   background-size: contain;
   background-repeat: no-repeat;
@@ -2083,7 +2073,6 @@
   }
 }
 .homePage .homePagePopSection .homePagePopPosts .homePagePopPost8 .popPostCoverImg1 {
-  border-radius: 10%;
   transform: translateX(20%) translateY(0%) rotate(-30deg) scale(1.4);
   background-size: contain;
   background-repeat: no-repeat;
@@ -2210,6 +2199,7 @@
   min-height: 500px;
   position: relative;
   overflow: hidden;
+  filter: brightness(90%);
 }
 .homePage .productBanner .productBannerContent .latestProduct {
   position: relative;
@@ -2303,35 +2293,40 @@
   width: 100%;
   min-height: 800px;
   background-color: #eee;
+  padding: 20px;
 }
 .homePage .glampleBanner > .glampleBannerLayout {
   display: flex;
   flex-direction: column;
   justify-content: end;
   align-items: center;
+  padding: 20px;
   width: 100%;
   min-height: 800px;
   -webkit-backdrop-filter: blur(2px);
           backdrop-filter: blur(2px);
-  background-color: rgba(61, 60, 60, 0.4941176471);
-  background-image: url("../logo-svg/logo.svg");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  opacity: 0.7;
+  background-color: #222;
   padding-bottom: 10%;
 }
 .homePage .glampleBanner > .glampleBannerLayout > .glampleBannerTitle {
-  padding: 50px;
-  opacity: 1;
-  font-size: 60px;
-  color: #fff;
+  background-color: #eee;
+  border-radius: 30px;
+  padding: 15px;
+}
+.homePage .glampleBanner > .glampleBannerLayout > .glampleBannerTitle > img {
+  width: 200px;
+}
+@media (max-width: 650px) {
+  .homePage .glampleBanner > .glampleBannerLayout > .glampleBannerTitle > img {
+    width: 150px;
+  }
 }
 .homePage .glampleBanner > .glampleBannerLayout > .glampleBannerContent {
   display: flex;
   flex-direction: row;
   justify-content: start;
   align-items: start;
+  padding-top: 50px;
 }
 @media (max-width: 650px) {
   .homePage .glampleBanner > .glampleBannerLayout > .glampleBannerContent {
@@ -2339,6 +2334,11 @@
     flex-direction: column;
     justify-content: start;
     align-items: center;
+  }
+}
+@media (max-width: 650px) {
+  .homePage .glampleBanner > .glampleBannerLayout > .glampleBannerContent {
+    padding-top: 0;
   }
 }
 .homePage .glampleBanner > .glampleBannerLayout > .glampleBannerContent > p {

@@ -29,11 +29,15 @@
           cursor: pointer;
         }
         .logo {
+          display: none;
           @extend %preventSelect;
           width: 60px;
           cursor: pointer;
           > img {
             cursor: pointer;
+          }
+          @include mobileS {
+            display: block;
           }
         }
         .logoWord {
@@ -50,7 +54,7 @@
           &::after {
             content: "";
             position: absolute;
-            left: 60%;
+            left: 50%;
             top: 50%;
             width: 100px;
             height: 70px;
@@ -86,7 +90,7 @@
           }
         }
         input {
-          width: 200px;
+          width: 150px;
           height: 30px;
           padding: 15px;
           border: none;

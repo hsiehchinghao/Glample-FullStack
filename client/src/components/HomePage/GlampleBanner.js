@@ -1,10 +1,13 @@
 import React from "react";
+import logo from "../../logo-svg/logo.svg";
 
 const GlampleBanner = () => {
   return (
     <div className="glampleBanner">
       <div className="glampleBannerLayout">
-        <p className="glampleBannerTitle">Glample.</p>
+        <div className="glampleBannerTitle">
+          <img src={logo} alt="" />
+        </div>
         <p className="glampleBannerContent">
           <p>
             "Enthusiasm ignites us. It's the essence behind all our endeavors.
